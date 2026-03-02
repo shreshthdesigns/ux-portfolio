@@ -1,50 +1,45 @@
 body {
-      <body>
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #222;
+}
 
-  <header>
-    <h1>Shubham Shreshth</h1>
-    <p>Senior UX Designer | Systems Thinker | Research-Driven</p>
-  </header>
+header {
+    text-align: center;
+    padding: 80px 20px;
+}
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I design complex systems with empathy and clarity.
-      My work spans engineering workflows, research studies,
-      and innovation-led product improvements.
-    </p>
-  </section>
+section {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
 
-  <section id="work">
-    <h2>Professional Work</h2>
-    <h3>MathWorks</h3>
-    <p>
-      Designed discoverability improvements and workflow
-      enhancements inside MATLAB and Simulink ecosystems.
-    </p>
-  </section>
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
 
-  <section id="research">
-    <h2>Research & Innovation</h2>
-    <p>
-      Contributed to research publications and patent work
-      focused on structured problem solving.
-    </p>
-  </section>
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
 
-  <section id="creative">
-    <h2>Creative Lens</h2>
-    <p>
-      I observe the world through a design lens —
-      exploring systems, behaviors, and emotional nuance.
-    </p>
-  </section>
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
 
-  <footer>
-    <p>© 2026 Shubham Shreshth</p>
-  </footer>
+p {
+    line-height: 1.6;
+    color: #555;
+}
 
-</body>
-    }
-    h1 { font-size: 40px; }
-    p { color: #555; }
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+    color: #777;
+}
