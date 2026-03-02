@@ -1,0 +1,50 @@
+body {
+      <body>
+
+  <header>
+    <h1>Shubham Shreshth</h1>
+    <p>Senior UX Designer | Systems Thinker | Research-Driven</p>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I design complex systems with empathy and clarity.
+      My work spans engineering workflows, research studies,
+      and innovation-led product improvements.
+    </p>
+  </section>
+
+  <section id="work">
+    <h2>Professional Work</h2>
+    <h3>MathWorks</h3>
+    <p>
+      Designed discoverability improvements and workflow
+      enhancements inside MATLAB and Simulink ecosystems.
+    </p>
+  </section>
+
+  <section id="research">
+    <h2>Research & Innovation</h2>
+    <p>
+      Contributed to research publications and patent work
+      focused on structured problem solving.
+    </p>
+  </section>
+
+  <section id="creative">
+    <h2>Creative Lens</h2>
+    <p>
+      I observe the world through a design lens —
+      exploring systems, behaviors, and emotional nuance.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2026 Shubham Shreshth</p>
+  </footer>
+
+</body>
+    }
+    h1 { font-size: 40px; }
+    p { color: #555; }
