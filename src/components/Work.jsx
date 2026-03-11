@@ -55,13 +55,24 @@ export default function Work({ setActiveProject }) {
 
             {/* NDA CARD 2 */}
             <ProjectCard
-              onClick={() => handleClick("navigation", true)}
+              onClick={() => handleClick("model-finder", true)}
               type="Case Study"
-              title="Navigation Mental Models in Simulink"
-              excerpt="Understanding nested block diagram cognition."
-              tags={["Mental Models", "Navigation"]}
+              title="Model Finder for Enterprises"
+              excerpt="Creating an intuitive UI for developers to search, filter, and index enterprise Simulink models within complex databases."
+              tags={["Enterprise Search", "API Design", "Data Discovery"]}
               isNDA={true}
-              image="/images/navigation.jpg"
+              image="/images/model-finder.jpg"
+            />
+
+            {/* NDA CARD 3 */}
+            <ProjectCard
+              onClick={() => handleClick("gecko-ai", true)}
+              type="Case Study"
+              title="Designing an AI System to Mine UX Insights"
+              excerpt="Transforming thousands of bug reports into actionable UX intelligence using LLMs."
+              tags={["AI Workflows", "UX Intelligence", "Data Mining"]}
+              isNDA={true}
+              image="/images/discoverability.jpg"
             />
 
             {/* NON-NDA CARD */}

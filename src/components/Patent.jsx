@@ -19,16 +19,15 @@ export default function Patent({ setActiveProject }) {
               </div>
 
               <div className="patent-title">
-                Interaction Framework for Workflow Discoverability
+                Designing a Patented Fall-Prevention System for Walkers
               </div>
 
               <div className="patent-desc">
-                A patented interaction system reducing cognitive overload and
-                improving discoverability in complex engineering tools.
+                Assistive Technology · Systems Design · Hardware UX
               </div>
 
               <div className="patent-meta">
-                USPTO Patent #: XXXXXXX
+                USPTO Patent Filed — WALKsafe
               </div>
             </div>
 
