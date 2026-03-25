@@ -1,147 +1,119 @@
-import { useState } from "react";
-
 export default function About() {
-  const [activeLens, setActiveLens] = useState(null);
-
-  const toggleLens = (lens) => {
-    setActiveLens(activeLens === lens ? null : lens);
-  };
-
   return (
     <section id="about">
       <div className="wrap">
-
-        {/* Section Heading */}
         <div className="section-head">
-          <div className="section-label">
-            How I See the World
+          <div className="section-label">How I See the World</div>
+        </div>
+
+        <div className="about-editorial-grid">
+
+          {/* ================= LEFT – IDENTITY ================= */}
+          <div className="about-identity-col">
+            <div className="about-portrait-wrap">
+              <img
+                src="/Selfpotrait1.jpeg"
+                alt="Shubham Shreshth"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
+              />
+            </div>
+
+            <div className="about-identity-info">
+              <h3 className="about-name">Shubham Shreshth</h3>
+              <p className="about-role">UX Designer — Systems &amp; Enterprise</p>
+              <p className="about-location">Bangalore</p>
+            </div>
+
+            <div className="about-tags">
+              <span className="impact-tag">Systems UX</span>
+              <span className="impact-tag">Engineering Tools</span>
+              <span className="impact-tag">AI-Assisted Design</span>
+            </div>
+          </div>
+
+          {/* ================= RIGHT – NARRATIVE & TIMELINE ================= */}
+          <div className="about-narrative-col">
+
+            {/* Narrative Story */}
+            <div className="about-story">
+              <h3 className="narrative-heading">My Journey into Systems UX</h3>
+
+              <div className="narrative-body">
+                <p>
+                  I began my career in technical sales at Godrej &amp; Boyce, working with B2B clients to solve complex, real-world problems across stakeholders and constraints.
+                </p>
+                <p>
+                  At MathWorks, I realized usability issues often stem from deeper system behavior — not just the interface. I focus on turning that complexity into clear, predictable experiences.
+                </p>
+                <p>
+                  Today, I design for scale — simplifying engineering workflows and making complex systems understandable.
+                </p>
+              </div>
+            </div>
+
+            {/* Design Philosophy Blocks */}
+            <div className="about-philosophy">
+              <h3 className="narrative-heading">Design Philosophy</h3>
+
+              <div className="philosophy-grid">
+                <div className="philosophy-card">
+                  <h4>Systems Lens</h4>
+                  <p>I approach UX problems by understanding the larger system behind the interface.</p>
+                </div>
+
+                <div className="philosophy-card">
+                  <h4>Precision Empathy</h4>
+                  <p>Enterprise UX requires identifying friction that expert users rarely articulate.</p>
+                </div>
+
+                <div className="philosophy-card">
+                  <h4>Business Sensibility</h4>
+                  <p>Good design balances user needs, technical realities, and business goals.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Experience Timeline */}
+            <div className="about-timeline">
+              <h3 className="narrative-heading">Experience</h3>
+
+              <div className="timeline-container">
+                <div className="timeline-node">
+                  <div className="node-dot"></div>
+                  <div className="node-content">
+                    <div className="tl-year">2022 — Present</div>
+                    <div className="tl-role">UX Designer</div>
+                    <div className="tl-org">MathWorks · Bangalore</div>
+                    <p className="tl-detail">Designing engineering tools used by global teams. Focused on workflow optimization and discoverability.</p>
+                  </div>
+                </div>
+
+                <div className="timeline-node">
+                  <div className="node-dot"></div>
+                  <div className="node-content">
+                    <div className="tl-year">2020 — 2022</div>
+                    <div className="tl-role">M.Des Product Design</div>
+                    <div className="tl-org">Indian Institute of Science, Bangalore</div>
+                    <p className="tl-detail">Research focused on cognitive load in engineering interfaces.</p>
+                  </div>
+                </div>
+
+                <div className="timeline-node">
+                  <div className="node-dot"></div>
+                  <div className="node-content">
+                    <div className="tl-year">2018 — 2020</div>
+                    <div className="tl-role">Technical Sales</div>
+                    <div className="tl-org">Industry</div>
+                    <p className="tl-detail">Worked with enterprise clients on solution scoping and stakeholder alignment.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <div className="about-grid-new">
 
-          {/* ================= LEFT – DESIGN LENSES ================= */}
-          <div className="lenses-col">
-
-            {/* SYSTEMS LENS */}
-            <div
-              className={`lens-card expandable ${activeLens === "systems" ? "active" : ""}`}
-              onClick={() => toggleLens("systems")}
-            >
-              <div className="lens-header">
-                <h3>Systems Lens</h3>
-                <span className={`lens-arrow ${activeLens === "systems" ? "open" : ""}`}>
-                  →
-                </span>
-              </div>
-
-              <p>
-                I don’t see UI problems. I see system behaviors with UI symptoms.
-              </p>
-
-              {activeLens === "systems" && (
-                <div className="lens-expanded">
-                  <p>
-                    I map structural dependencies before touching interface layers.
-                    My focus is on interaction architecture, feedback loops,
-                    and behavioral signals that drive usage patterns.
-                  </p>
-                  <p className="lens-quote">
-                    “Low usage is a signal, not a diagnosis.”
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* EMPATHY FRAMEWORK */}
-            <div
-              className={`lens-card expandable ${activeLens === "empathy" ? "active" : ""}`}
-              onClick={() => toggleLens("empathy")}
-            >
-              <div className="lens-header">
-                <h3>Empathy Framework</h3>
-                <span className={`lens-arrow ${activeLens === "empathy" ? "open" : ""}`}>
-                  →
-                </span>
-              </div>
-
-              <p>
-                Enterprise UX is precision empathy — understanding invisible friction.
-              </p>
-
-              {activeLens === "empathy" && (
-                <div className="lens-expanded">
-                  <p>
-                    I analyze hesitation moments, confidence drops,
-                    and mental overhead experienced by expert users
-                    in high-complexity engineering workflows.
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* BUSINESS SENSIBILITY */}
-            <div
-              className={`lens-card expandable ${activeLens === "business" ? "active" : ""}`}
-              onClick={() => toggleLens("business")}
-            >
-              <div className="lens-header">
-                <h3>Business Sensibility</h3>
-                <span className={`lens-arrow ${activeLens === "business" ? "open" : ""}`}>
-                  →
-                </span>
-              </div>
-
-              <p>
-                Stakeholder constraints shape better design decisions.
-              </p>
-
-              {activeLens === "business" && (
-                <div className="lens-expanded">
-                  <p>
-                    I align UX improvements with roadmap feasibility,
-                    engineering bandwidth, and measurable product impact —
-                    ensuring clarity scales sustainably.
-                  </p>
-                </div>
-              )}
-            </div>
-
-          </div>
-
-          {/* ================= RIGHT – TIMELINE ================= */}
-          <div className="timeline-col">
-
-            <div className="timeline-item">
-              <div className="tl-year">2022 — Present</div>
-              <div className="tl-role">UX Designer</div>
-              <div className="tl-org">MathWorks · Bangalore</div>
-              <div className="tl-detail">
-                Workflow optimization, accessibility, and generative research.
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="tl-year">2020 — 2022</div>
-              <div className="tl-role">M.Des, Product Design</div>
-              <div className="tl-org">IISc Bangalore</div>
-              <div className="tl-detail">
-                Thesis on cognitive load in engineering interfaces.
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="tl-year">2018 — 2020</div>
-              <div className="tl-role">Technical Sales</div>
-              <div className="tl-org">Industry</div>
-              <div className="tl-detail">
-                Stakeholder management and solution scoping.
-              </div>
-            </div>
-
-          </div>
-
-        </div>
 
       </div>
     </section>

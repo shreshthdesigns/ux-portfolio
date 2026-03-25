@@ -5,6 +5,7 @@ import Work from "./components/Work";
 import Patent from "./components/Patent";
 import About from "./components/About";
 import Notes from "./components/Notes";
+import Shapes from "./components/Shapes";
 import Contact from "./components/Contact";
 import CaseStudy from "./components/CaseStudy";
 import NDAGate from "./components/NDAGate";
@@ -22,8 +23,10 @@ export default function App() {
 
           <ul className="nav-links">
             <li><a href="#work">Work</a></li>
+            <li><a href="#patent">Patent</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#notes">Notes</a></li>
+            <li><a href="#shapes">Beyond Screen</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -51,6 +54,7 @@ export default function App() {
           <Patent setActiveProject={setActiveProject} />
           <About />
           <Notes />
+          <Shapes />
           <Contact />
         </>
       )}

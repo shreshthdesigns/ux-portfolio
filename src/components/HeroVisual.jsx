@@ -38,11 +38,24 @@ export default function HeroVisual() {
   return (
     <div
       className="hero-visual clickable"
-      onClick={() => setSolved(true)}
+      onMouseEnter={() => setSolved(true)}
       onMouseLeave={() => setSolved(false)}
     >
-      <div className="hero-tooltip">
-        Click to Solve Complexity
+      {/* Crossfade text labels */}
+      <div className="hero-tooltip" style={{
+        opacity: solved ? 0 : 1,
+        transition: 'opacity 0.5s ease',
+        whiteSpace: 'nowrap'
+      }}>
+        Complex System
+      </div>
+      <div className="hero-tooltip" style={{
+        opacity: solved ? 1 : 0,
+        transition: 'opacity 0.5s ease',
+        whiteSpace: 'nowrap',
+        color: 'var(--accent)'
+      }}>
+        System Clarity
       </div>
 
       <svg viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet">
@@ -57,7 +70,7 @@ export default function HeroVisual() {
                 y2={target.y}
                 stroke="var(--border)"
                 strokeWidth="0.7"
-                style={{ transition: "all .7s cubic-bezier(.4,0,.2,1)" }}
+                style={{ transition: "all 1.2s cubic-bezier(.25,.1,.25,1)" }}
               />
             ) : null
           )
@@ -70,7 +83,9 @@ export default function HeroVisual() {
             cy={node.y}
             r="6"
             fill="var(--accent)"
-            style={{ transition: "all .7s cubic-bezier(.4,0,.2,1)" }}
+            style={{
+              transition: `all ${1.0 + i * 0.05}s cubic-bezier(.25,.1,.25,1)`,
+            }}
           />
         ))}
       </svg>

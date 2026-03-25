@@ -1,145 +1,104 @@
-import ProjectCard from "./ProjectCard";
+import { useState } from "react";
 
 export default function Work({ setActiveProject }) {
 
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   const handleClick = (projectId, isNDA) => {
-    if (isNDA) {
-      setActiveProject({ id: projectId, nda: true });
-    } else {
-      setActiveProject({ id: projectId, nda: false });
-    }
+    setActiveProject({ id: projectId, nda: isNDA });
   };
+
+  const projects = [
+    {
+      id: "project-advisor",
+      nda: true,
+      impact: "42% faster debugging",
+      description: "Designing validation workflows for complex Simulink models used in CI/CD pipelines.",
+      title: "Project Advisor",
+      tags: ["Workflow Systems", "Engineering UX", "Cognitive Load"],
+      image: "/pa-hero-showcase.png",
+      imgStyle: { objectFit: "cover", objectPosition: "45% 45%", backgroundColor: "#0f172a" }
+    },
+    {
+      id: "gecko-ai",
+      nda: true,
+      impact: "10K bug reports → UX insights",
+      description: "AI system transforming large bug report datasets into actionable UX intelligence.",
+      title: "AI-Driven UX Mining",
+      tags: ["AI Workflows", "UX Intelligence", "Data Mining"],
+      image: "/images/discoverability.jpg"
+    },
+    {
+      id: "model-finder",
+      nda: true,
+      impact: "Search across 10K+ models",
+      description: "Enterprise search experience for navigating large Simulink repositories.",
+      title: "Model Finder for Enterprises",
+      tags: ["Enterprise Search", "API Design", "Data Discovery"],
+      image: "/images/navigation.jpg"
+    }
+  ];
 
   return (
     <section id="work">
       <div className="wrap">
 
-        {/* ================= SECTION HEADING ================= */}
+        {/* Section Header */}
         <div className="section-head">
           <div className="section-label">
-            Enterprise Systems & Product Design
+            Enterprise Systems &amp; Product Design
           </div>
+          <h2 className="section-title">Selected Work</h2>
         </div>
 
-        {/* ====================== SECTION A ====================== */}
-        <div className="cluster">
+        {/* Stacked Impact Cards */}
+        <div className="impact-stack">
+          {projects.map((project, index) => {
+            let stateClass = '';
+            if (hoveredIndex === index) {
+              stateClass = ' active';
+            } else if (hoveredIndex !== null) {
+              stateClass = index < hoveredIndex ? ' dimmed-before' : ' dimmed-after';
+            }
 
-          <div className="cluster-hd">
-            <div className="cluster-idx">A.</div>
-            <div>
-              <div className="cluster-title">
-                Workflow Optimization & Discoverability
+            return (
+              <div
+                key={project.id}
+                className={`impact-card${stateClass}`}
+                style={{ '--card-index': index }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                onClick={() => handleClick(project.id, project.nda)}
+              >
+              {/* Left: Content */}
+              <div className="impact-card-content">
+                <div className="impact-headline">{project.impact}</div>
+                <div className="impact-desc">{project.description}</div>
+
+                <div className="impact-tags">
+                  {project.tags.map((tag, i) => (
+                    <span key={i} className="impact-tag">{tag}</span>
+                  ))}
+                </div>
+
+                <div className="impact-footer">
+                  <span className="impact-title">
+                    {project.title}
+                    {project.nda && <span className="impact-nda">🔒 NDA</span>}
+                  </span>
+                  <span className="impact-arrow">→</span>
+                </div>
               </div>
-              <div className="cluster-desc">
-                Bridging the gap between what users look for and what the system offers.
+
+              {/* Right: Image */}
+              <div className="impact-card-visual">
+                <div className="impact-image-wrap">
+                  <img src={project.image} alt={project.title} style={project.imgStyle || {}} />
+                </div>
               </div>
-            </div>
-          </div>
-
-          <div className="cards">
-
-            {/* NDA CARD 1 */}
-            <ProjectCard
-                onClick={() => handleClick("project-advisor", true)}
-                type="Flagship Case Study"
-                title="Project Advisor"
-                excerpt="Designing clarity in complex engineering workflows by enabling engineers to run validation checks across multiple models and manage failures inside CI/CD pipelines."
-                tags={[
-                "Workflow Systems",
-                "Engineering UX",
-                "Cognitive Load"
-            ]}
-                isNDA={true}
-                image="/images/discoverability.jpg"
-/>
-
-            {/* NDA CARD 2 */}
-            <ProjectCard
-              onClick={() => handleClick("model-finder", true)}
-              type="Case Study"
-              title="Model Finder for Enterprises"
-              excerpt="Creating an intuitive UI for developers to search, filter, and index enterprise Simulink models within complex databases."
-              tags={["Enterprise Search", "API Design", "Data Discovery"]}
-              isNDA={true}
-              image="/images/model-finder.jpg"
-            />
-
-            {/* NDA CARD 3 */}
-            <ProjectCard
-              onClick={() => handleClick("gecko-ai", true)}
-              type="Case Study"
-              title="Designing an AI System to Mine UX Insights"
-              excerpt="Transforming thousands of bug reports into actionable UX intelligence using LLMs."
-              tags={["AI Workflows", "UX Intelligence", "Data Mining"]}
-              isNDA={true}
-              image="/images/discoverability.jpg"
-            />
-
-            {/* NON-NDA CARD */}
-            <ProjectCard
-              onClick={() => handleClick("usability-audit", false)}
-              type="Case Study"
-              title="Enterprise Usability Audit Framework"
-              excerpt="Structured heuristic system for evaluating complex engineering tools."
-              tags={["Heuristics", "Systems UX"]}
-              isNDA={false}
-              image="/images/usability-audit.jpg"
-            />
-
-          </div>
-        </div>
-
-        {/* ====================== SECTION B ====================== */}
-        <div className="cluster">
-
-          <div className="cluster-hd">
-            <div className="cluster-idx">B.</div>
-            <div>
-              <div className="cluster-title">
-                Problem Solving in Complex Workflows
               </div>
-              <div className="cluster-desc">
-                Reducing friction in multi-layered enterprise task flows.
-              </div>
-            </div>
-          </div>
-
-          <div className="cards">
-
-            {/* NON-NDA CARD */}
-            <ProjectCard
-              onClick={() => handleClick("workflow-redesign", false)}
-              type="Case Study"
-              title="Cross-Team Workflow Redesign"
-              excerpt="Improving collaboration efficiency across distributed product teams."
-              tags={["Workflow Systems", "Enterprise UX"]}
-              isNDA={false}
-              image="/images/workflow-redesign.jpg"
-            />
-
-            {/* NON-NDA CARD */}
-            <ProjectCard
-              onClick={() => handleClick("design-system", false)}
-              type="Case Study"
-              title="Enterprise Design System Rationalization"
-              excerpt="Aligning product consistency across internal platforms."
-              tags={["Design Systems", "Scalability"]}
-              isNDA={false}
-              image="/images/design-system.jpg"
-            />
-
-            {/* NON-NDA CARD */}
-            <ProjectCard
-              onClick={() => handleClick("data-visualization", false)}
-              type="Case Study"
-              title="Complex Data Visualization Simplification"
-              excerpt="Reducing cognitive overload in engineering dashboards."
-              tags={["Data UX", "Cognitive Load"]}
-              isNDA={false}
-              image="/images/data-visualization.jpg"
-            />
-
-          </div>
+            );
+          })}
         </div>
 
       </div>
