@@ -28,7 +28,7 @@ export default function CaseStudy({ project, onBack }) {
   let displaySections = [];
 
   if (project === "project-advisor") {
-    sections = ["overview", "system-scale", "significance", "stakeholders", "workflow", "configuration", "insights", "principles", "solution", "in-practice", "impact", "reflection"];
+    sections = ["overview", "role", "system-scale", "significance", "stakeholders", "workflow", "configuration", "insights", "principles", "solution", "in-practice", "impact", "reflection"];
     displaySections = [
       { id: "overview", label: "Overview" },
       { id: "system-scale", label: "Problem" },
@@ -44,6 +44,7 @@ export default function CaseStudy({ project, onBack }) {
       { id: "overview", label: "Context" },
       { id: "data", label: "Systems & Data" },
       { id: "reasoning", label: "AI Reasoning" },
+      { id: "tradeoffs", label: "Strategy" },
       { id: "insights", label: "Outcomes" }
     ];
   } else if (project === "patent") {

@@ -40,7 +40,7 @@ export default function About() {
 
               <div className="narrative-body">
                 <p>
-                  I began my career in technical sales at Godrej &amp; Boyce, working with B2B clients to solve complex, real-world problems across stakeholders and constraints.
+                  I began my career as a Solution Consultant at Godrej & Boyce, engaging with enterprise users to uncover needs, navigate constraints, and shape solutions grounded in real-world workflows.
                 </p>
                 <p>
                   At MathWorks, I realized usability issues often stem from deeper system behavior — not just the interface. I focus on turning that complexity into clear, predictable experiences.
@@ -73,15 +73,17 @@ export default function About() {
               </div>
             </div>
 
-            {/* Experience Timeline */}
             <div className="about-timeline">
-              <h3 className="narrative-heading">Experience</h3>
+              <div className="about-timeline-header">
+                <h3 className="narrative-heading">Experience</h3>
+                <span className="experience-pill">5+ Years Industry Experience</span>
+              </div>
 
               <div className="timeline-container">
                 <div className="timeline-node">
                   <div className="node-dot"></div>
                   <div className="node-content">
-                    <div className="tl-year">2022 — Present</div>
+                    <div className="tl-year">2023 — Present</div>
                     <div className="tl-role">UX Designer</div>
                     <div className="tl-org">MathWorks · Bangalore</div>
                     <p className="tl-detail">Designing engineering tools used by global teams. Focused on workflow optimization and discoverability.</p>
@@ -91,7 +93,7 @@ export default function About() {
                 <div className="timeline-node">
                   <div className="node-dot"></div>
                   <div className="node-content">
-                    <div className="tl-year">2020 — 2022</div>
+                    <div className="tl-year">2021 — 2023</div>
                     <div className="tl-role">M.Des Product Design</div>
                     <div className="tl-org">Indian Institute of Science, Bangalore</div>
                     <p className="tl-detail">Research focused on cognitive load in engineering interfaces.</p>
@@ -101,10 +103,21 @@ export default function About() {
                 <div className="timeline-node">
                   <div className="node-dot"></div>
                   <div className="node-content">
-                    <div className="tl-year">2018 — 2020</div>
-                    <div className="tl-role">Technical Sales</div>
-                    <div className="tl-org">Industry</div>
-                    <p className="tl-detail">Worked with enterprise clients on solution scoping and stakeholder alignment.</p>
+                    <div className="tl-year">2018 — 2021</div>
+                    <div className="tl-role">Solution Consultant (Enterprise Systems)</div>
+                    <div className="tl-org">Godrej & Boyce </div>
+                    <p className="tl-detail">Engaged with users to uncover needs, pain points, and real-world workflows.
+                      Synthesized insights into actionable solutions balancing usability, technical feasibility, and business goals</p>
+                  </div>
+                </div>
+
+                <div className="timeline-node">
+                  <div className="node-dot"></div>
+                  <div className="node-content">
+                    <div className="tl-year">2014 — 2018</div>
+                    <div className="tl-role">B.Tech Mechanical Engineering</div>
+                    <div className="tl-org">SLIET</div>
+                    <p className="tl-detail">Technical foundation in engineering systems, mechanics, and design thinking.</p>
                   </div>
                 </div>
               </div>

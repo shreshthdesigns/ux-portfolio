@@ -391,17 +391,64 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <h2 className="cs-section-title">Understanding Fall Risk — Beyond the Physical</h2>
             <p>Falls among elderly are not just physical incidents — they are deeply tied to <strong>behavior and emotion</strong>. Reduced balance, low awareness of risk, and fear of falling create a self-reinforcing cycle.</p>
 
-            <div className="cs-storyboard">
+            <div className="cs-storyboard-v2">
               {[
-                { num: '1', icon: '🚶', label: 'Walking normally', danger: false },
-                { num: '2', icon: '↗️', label: 'Walker begins to tilt', danger: false },
-                { num: '3', icon: '⚠️', label: 'User loses balance', danger: false },
-                { num: '4', icon: '💥', label: 'Fall occurs', danger: true }
+                { 
+                  num: '1', 
+                  label: 'Walking normally', 
+                  danger: false,
+                  svg: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 4v4M10.5 9.5L12 8l1.5 1.5M12 8v13m-4 0h8" />
+                      <circle cx="12" cy="3" r="1" />
+                      <rect x="6" y="10" width="12" height="1" rx="0.5" fill="currentColor" fillOpacity="0.1" />
+                    </svg>
+                  )
+                },
+                { 
+                  num: '2', 
+                  label: 'Walker begins to tilt', 
+                  danger: false,
+                  svg: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(12deg)' }}>
+                      <path d="M12 4v4M10.5 9.5L12 8l1.5 1.5M12 8v13m-4 0h8" />
+                      <circle cx="12" cy="3" r="1" />
+                      <rect x="6" y="10" width="12" height="1" rx="0.5" fill="currentColor" fillOpacity="0.1" />
+                    </svg>
+                  )
+                },
+                { 
+                  num: '3', 
+                  label: 'User loses balance', 
+                  danger: false,
+                  svg: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(25deg)' }}>
+                      <path d="M12 4v4M10.5 9.5L12 8l1.5 1.5M12 8v13m-4 0h8" />
+                      <circle cx="12" cy="3" r="1" />
+                      <rect x="6" y="10" width="12" height="1" rx="0.5" fill="currentColor" fillOpacity="0.1" />
+                      <path d="M19 5l2 2m0-2l-2 2" stroke="#e53e3e" strokeWidth="1" />
+                    </svg>
+                  )
+                },
+                { 
+                  num: '4', 
+                  label: 'Fall occurs', 
+                  danger: true,
+                  svg: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(70deg) translate(4px, 8px)' }}>
+                      <path d="M12 4v4M10.5 9.5L12 8l1.5 1.5M12 8v13m-4 0h8" />
+                      <circle cx="12" cy="3" r="1" />
+                      <rect x="6" y="10" width="12" height="1" rx="0.5" fill="currentColor" fillOpacity="0.1" />
+                    </svg>
+                  )
+                }
               ].map((f, i) => (
-                <div key={i} className={`cs-storyboard-frame${f.danger ? ' danger' : ''}`}>
-                  <div className="frame-number">{f.num}</div>
-                  <div className="frame-icon">{f.icon}</div>
-                  <div className="frame-label">{f.label}</div>
+                <div key={i} className="cs-storyboard-item">
+                  <div className={`cs-storyboard-card${f.danger ? ' danger' : ''}`}>
+                    <div className="frame-number">{f.num}</div>
+                    <div className="frame-svg">{f.svg}</div>
+                  </div>
+                  <div className="cs-storyboard-caption">{f.label}</div>
                 </div>
               ))}
             </div>
@@ -412,7 +459,27 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
               <p style={{ margin: 0, fontWeight: 600, color: '#c53030', fontSize: '1rem' }}>Fear → Reduced movement → Lower strength → Higher fall risk. The opportunity: not just detecting falls, but <strong>preventing them while restoring confidence</strong>.</p>
             </div>
 
-            {placeholderBox('Add fall research diagrams / observations')}
+            <div style={{ margin: '4rem 0', width: '100%', display: 'flex', justifyContent: 'center' }}>
+              <div style={{ 
+                width: '100%', 
+                maxWidth: '1200px', 
+                background: 'white', 
+                border: '1px solid var(--border)', 
+                borderRadius: '24px', 
+                padding: '2.5rem',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.03)' 
+              }}>
+                <img 
+                  src="/Fall research.png" 
+                  alt="Fall Research Diagrams" 
+                  style={{ 
+                    width: '100%', 
+                    display: 'block', 
+                    borderRadius: '12px' 
+                  }} 
+                />
+              </div>
+            </div>
           </section>
 
           {/* ─── SECTION 4: USER RESEARCH ─── */}
@@ -420,17 +487,19 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <h2 className="cs-section-title">Research & Validation</h2>
             <p>We conducted 40 interviews across three stakeholder groups in assisted living environments to validate assumptions around assistive devices and map real-world failure points.</p>
 
-            <div className="cs-grid-3" style={{ marginTop: '3rem' }}>
+            <div className="cs-stakeholder-grid" style={{ marginTop: '3rem' }}>
               {[
-                { icon: '👴', title: 'Elderly Users', count: '20', desc: 'Mobility anxiety, device abandonment, fear-driven inactivity.' },
-                { icon: '👩‍⚕️', title: 'Physicians', count: '12', desc: 'Fracture patterns, recovery timelines, readmission insights.' },
-                { icon: '👨', title: 'Caregivers', count: '8', desc: 'Supervision burden, desire for proactive safety systems.' }
+                { img: '/old%20lady.jpg', title: 'Elderly Users', count: '20', desc: 'Mobility anxiety, device abandonment, fear-driven inactivity.' },
+                { img: '/Doctor.png', title: 'Physicians', count: '12', desc: 'Fracture patterns, recovery timelines, readmission insights.' },
+                { img: '/caretaker.jpg', title: 'Caregivers', count: '8', desc: 'Supervision burden, desire for proactive safety systems.' }
               ].map((card, i) => (
-                <div key={i} className="cs-card" style={{ background: 'white', textAlign: 'center' }}>
-                  <div style={{ fontSize: '2.5rem', marginBottom: '.75rem' }}>{card.icon}</div>
-                  <div style={{ fontWeight: 700, fontSize: '1.5rem', color: '#2b5440', marginBottom: '.25rem' }}>{card.count}</div>
-                  <div style={{ fontWeight: 600, marginBottom: '.5rem', fontSize: '.95rem' }}>{card.title}</div>
-                  <div style={{ fontSize: '.85rem', color: '#4a5568', lineHeight: 1.5 }}>{card.desc}</div>
+                <div key={i} className="cs-stakeholder-card">
+                  <div className="stakeholder-img-wrapper">
+                    <img src={card.img} alt={card.title} className="stakeholder-portrait" />
+                  </div>
+                  <div className="stakeholder-count">{card.count}</div>
+                  <div className="stakeholder-title">{card.title}</div>
+                  <div className="stakeholder-desc">{card.desc}</div>
                 </div>
               ))}
             </div>
