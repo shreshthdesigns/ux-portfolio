@@ -4,7 +4,7 @@ export default function NDAGate({ projectId, onSuccess, onBack }) {
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
 
-  const PASSKEY = "clarity2024"; // change to whatever you want
+  const PASSKEY = "123"; // Updated passkey for NDA case studies
 
   const handleSubmit = (e) => {
     e.preventDefault();

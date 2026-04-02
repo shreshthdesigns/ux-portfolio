@@ -1,4 +1,7 @@
 import { useEffect, useRef } from "react";
+import FragmentedSystemVis from "./case-study/FragmentedSystemVis";
+import UnifiedWorkspaceVis from "./case-study/UnifiedWorkspaceVis";
+import FragmentedOutputsVis from "./case-study/FragmentedOutputsVis";
 
 const ScrollVideo = ({ src, poster, ...props }) => {
   const videoRef = useRef(null);
@@ -85,7 +88,7 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
               <div style={{ display: "flex", flexWrap: "wrap", gap: "2.5rem", marginTop: "1rem", borderTop: "1px solid rgba(0,0,0,0.06)", paddingTop: "1.5rem" }}>
                 <div>
                   <div style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600, color: "var(--ink3)", marginBottom: "4px" }}>Role</div>
-                  <div style={{ fontSize: "0.9rem", fontWeight: 500, color: "var(--ink)" }}>Lead UX Designer</div>
+                  <div style={{ fontSize: "0.9rem", fontWeight: 500, color: "var(--ink)" }}>UX Designer</div>
                 </div>
                 <div>
                   <div style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600, color: "var(--ink3)", marginBottom: "4px" }}>Company</div>
@@ -93,11 +96,11 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
                 </div>
                 <div>
                   <div style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600, color: "var(--ink3)", marginBottom: "4px" }}>Duration</div>
-                  <div style={{ fontSize: "0.9rem", fontWeight: 500, color: "var(--ink)" }}>12 Months</div>
+                  <div style={{ fontSize: "0.9rem", fontWeight: 500, color: "var(--ink)" }}>6 Months</div>
                 </div>
                 <div>
                   <div style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600, color: "var(--ink3)", marginBottom: "4px" }}>Tools</div>
-                  <div style={{ fontSize: "0.9rem", fontWeight: 500, color: "var(--ink)" }}>Figma, React</div>
+                  <div style={{ fontSize: "0.9rem", fontWeight: 500, color: "var(--ink)" }}>Figma,Miro</div>
                 </div>
               </div>
             </div>
@@ -219,7 +222,7 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
           {/* 2. THE PROBLEM (SYSTEM SCALE) */}
           <section id="system-scale" className="cs-section">
             <div className="cs-two-col editorial-text" style={{ padding: "4rem 0", gap: "5rem", alignItems: "start" }}>
-              <div style={{ flex: "0.8", display: "flex", flexDirection: "column", gap: "2.5rem", position: "sticky", top: "120px" }}>
+              <div style={{ flex: "0.8", display: "flex", flexDirection: "column", gap: "2.5rem" }}>
                 <h2 className="cs-section-title" style={{
                   marginTop: 0,
                   fontSize: "2.4rem",
@@ -259,30 +262,8 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
                 </div>
               </div>
 
-              <div style={{ flex: "1.5" }}>
-                <div className="cs-pa-process-diagram" style={{
-                  backgroundColor: "var(--bg)",
-                  padding: "3rem",
-                  borderRadius: "40px",
-                  border: "1px solid rgba(0,0,0,0.04)",
-                  boxShadow: "0 25px 80px rgba(0,0,0,0.04)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  overflow: "hidden"
-                }}>
-                  <img
-                    src="Enterprise System 1.png"
-                    alt="Complex Enterprise System Structure"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      borderRadius: "0",
-                      display: "block",
-                      transform: "scale(1.05)" // Slightly scale up content within card
-                    }}
-                  />
-                </div>
+              <div style={{ flex: "1.5", display: "flex", justifyContent: "center" }}>
+                <FragmentedSystemVis />
               </div>
             </div>
           </section>
@@ -329,7 +310,7 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
             <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "3rem", flexWrap: "wrap" }}>
               <h2 className="cs-section-title" style={{ margin: 0 }}>Stakeholders & Goals</h2>
               <div style={{
-                background: "var(--accent-t)", 
+                background: "var(--accent-t)",
                 border: "1px solid rgba(43, 84, 64, 0.15)", // Based on --accent
                 padding: "0.5rem 1.25rem",
                 borderRadius: "100px",
@@ -364,6 +345,85 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
                 <h4 className="title">Management</h4>
                 <p className="goal">"I need a dashboard showing exactly what's failing."</p>
               </div>
+            </div>
+          </section>
+
+          {/* RESEARCH METHODOLOGY — Interview Evidence */}
+          <section className="cs-section" style={{ padding: "4rem 0 2rem" }}>
+            {/* Section header */}
+            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "3rem", flexWrap: "wrap", gap: "1.5rem" }}>
+              <div>
+                <h2 className="cs-section-title" style={{ margin: "0 0 0.75rem" }}>How I Conducted Research</h2>
+                <p style={{ fontSize: "1.05rem", color: "var(--ink2)", lineHeight: "1.65", margin: 0, maxWidth: "560px" }}>
+                  Remote usability sessions and contextual interviews with enterprise customers across geographies — observing real workflows inside the live product.
+                </p>
+              </div>
+              <div style={{ display: "flex", gap: "0.625rem", flexWrap: "wrap", alignItems: "flex-start" }}>
+                {["6 Sessions", "Remote", "Task-Based", "Think-Aloud"].map((label, i) => (
+                  <span key={i} style={{ padding: "0.375rem 0.875rem", border: "1px solid var(--border)", borderRadius: "100px", fontSize: "0.72rem", fontWeight: "600", color: "var(--ink2)", letterSpacing: "0.04em", textTransform: "uppercase", whiteSpace: "nowrap" }}>{label}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* 2 × 2 image grid */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
+
+              {/* Session 1 */}
+              <figure style={{ margin: 0 }}>
+                <div style={{ borderRadius: "12px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 2px 16px rgba(0,0,0,0.06)", position: "relative" }}>
+                  <img src="/IN1.png" alt="Remote contextual interview — participant loading a project configuration file inside Project Advisor" style={{ width: "100%", height: "auto", display: "block" }} />
+                  <div style={{ position: "absolute", top: "12px", left: "12px", padding: "4px 10px", background: "rgba(43, 84, 64, 0.85)", backdropFilter: "blur(4px)", color: "#fff", fontSize: "0.65rem", fontWeight: "700", letterSpacing: "0.12em", textTransform: "uppercase", borderRadius: "100px" }}>Contextual Interview</div>
+                </div>
+                <figcaption style={{ marginTop: "0.75rem", paddingLeft: "0.25rem" }}>
+                  <div style={{ fontSize: "0.82rem", fontWeight: "600", color: "var(--ink)", marginBottom: "2px" }}>Session 01 — Configuration Task</div>
+                  <div style={{ fontSize: "0.78rem", color: "var(--ink2)", lineHeight: "1.5" }}>Participant navigates a file-picker to load a project config. Observed confusion around the expected file format and folder structure — a recurring pain point across teams.</div>
+                </figcaption>
+              </figure>
+
+              {/* Session 2 */}
+              <figure style={{ margin: 0 }}>
+                <div style={{ borderRadius: "12px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 2px 16px rgba(0,0,0,0.06)", position: "relative" }}>
+                  <img src="/IN2.png" alt="Remote usability session — participant on an empty Project Advisor canvas with model list loaded" style={{ width: "100%", height: "auto", display: "block" }} />
+                  <div style={{ position: "absolute", top: "12px", left: "12px", padding: "4px 10px", background: "rgba(43, 84, 64, 0.85)", backdropFilter: "blur(4px)", color: "#fff", fontSize: "0.65rem", fontWeight: "700", letterSpacing: "0.12em", textTransform: "uppercase", borderRadius: "100px" }}>Task-Based Testing</div>
+                </div>
+                <figcaption style={{ marginTop: "0.75rem", paddingLeft: "0.25rem" }}>
+                  <div style={{ fontSize: "0.82rem", fontWeight: "600", color: "var(--ink)", marginBottom: "2px" }}>Session 02 — Initial Orientation</div>
+                  <div style={{ fontSize: "0.78rem", color: "var(--ink2)", lineHeight: "1.5" }}>Participant scans an empty canvas with models loaded but no active run. This moment — before any action — revealed the biggest orientation gap: users didn't know where to start.</div>
+                </figcaption>
+              </figure>
+
+              {/* Session 3 */}
+              <figure style={{ margin: 0 }}>
+                <div style={{ borderRadius: "12px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 2px 16px rgba(0,0,0,0.06)", position: "relative" }}>
+                  <img src="/IN3.png" alt="Remote session — participant reviewing model configuration exclusion settings" style={{ width: "100%", height: "auto", display: "block" }} />
+                  <div style={{ position: "absolute", top: "12px", left: "12px", padding: "4px 10px", background: "rgba(43, 84, 64, 0.85)", backdropFilter: "blur(4px)", color: "#fff", fontSize: "0.65rem", fontWeight: "700", letterSpacing: "0.12em", textTransform: "uppercase", borderRadius: "100px" }}>Think-Aloud Protocol</div>
+                </div>
+                <figcaption style={{ marginTop: "0.75rem", paddingLeft: "0.25rem" }}>
+                  <div style={{ fontSize: "0.82rem", fontWeight: "600", color: "var(--ink)", marginBottom: "2px" }}>Session 03 — Model Exclusion Flow</div>
+                  <div style={{ fontSize: "0.78rem", color: "var(--ink2)", lineHeight: "1.5" }}>Participant working through Model 7's exclusion and justification links. Think-aloud revealed uncertainty about what "excluded" means for downstream run results.</div>
+                </figcaption>
+              </figure>
+
+              {/* Session 4 */}
+              <figure style={{ margin: 0 }}>
+                <div style={{ borderRadius: "12px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 2px 16px rgba(0,0,0,0.06)", position: "relative" }}>
+                  <img src="/IN4.png" alt="Remote usability test on Figma prototype — participant reviewing a compliance dashboard with check summary metrics" style={{ width: "100%", height: "auto", display: "block" }} />
+                  <div style={{ position: "absolute", top: "12px", left: "12px", padding: "4px 10px", background: "rgba(43, 84, 64, 0.85)", backdropFilter: "blur(4px)", color: "#fff", fontSize: "0.65rem", fontWeight: "700", letterSpacing: "0.12em", textTransform: "uppercase", borderRadius: "100px" }}>Prototype Testing</div>
+                </div>
+                <figcaption style={{ marginTop: "0.75rem", paddingLeft: "0.25rem" }}>
+                  <div style={{ fontSize: "0.82rem", fontWeight: "600", color: "var(--ink)", marginBottom: "2px" }}>Session 04 — Dashboard Comprehension</div>
+                  <div style={{ fontSize: "0.78rem", color: "var(--ink2)", lineHeight: "1.5" }}>Participant interprets a Figma prototype of the compliance dashboard. Testing revealed that "Fail / Warning / Pass" counts were misread — users expected severity-first, not status-first.</div>
+                </figcaption>
+              </figure>
+
+            </div>
+
+            {/* Key synthesis */}
+            <div style={{ marginTop: "2.5rem", padding: "1.75rem 2rem", background: "var(--surface)", border: "1px solid var(--border)", borderLeft: "3px solid var(--accent)", borderRadius: "0 12px 12px 0" }}>
+              <div style={{ fontSize: "0.7rem", fontWeight: "700", letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "0.75rem" }}>Research Synthesis</div>
+              <p style={{ fontSize: "0.95rem", color: "var(--ink2)", lineHeight: "1.7", margin: 0 }}>
+                Sessions were conducted remotely with enterprise customers across Bangalore, Europe, and North America. Each session combined <strong>task-based observation</strong> of the live tool with <strong>think-aloud feedback</strong> on wireframes. The consistent theme: users could execute individual actions, but struggled to understand the state of the overall system and reason about what had changed.
+              </p>
             </div>
           </section>
 
@@ -562,520 +622,372 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
 
                 {/* Right Column: Visualization */}
                 <div style={{ flex: "1.3" }}>
-                  <div style={{
-                    background: "#fcfcfc",
-                    padding: "3rem",
-                    borderRadius: "32px",
-                    border: "1px dashed rgba(0,0,0,0.08)",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    minHeight: "300px",
-                    justifyContent: "center"
-                  }}>
-                    <div style={{ display: "flex", gap: "1.5rem", width: "100%", justifyContent: "center", flexWrap: "wrap" }}>
-                      {/* CI Pipeline */}
-                      <div style={{ background: "white", padding: "0.75rem 1.25rem", borderRadius: "12px", border: "1px solid rgba(0,0,0,0.05)", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                        <div style={{ width: "8px", height: "8px", borderRadius: "2px", background: "#64748b" }} />
-                        <span style={{ fontSize: "0.85rem", fontWeight: "600", color: "var(--ink2)" }}>CI Pipeline</span>
-                      </div>
-                      {/* Report Files */}
-                      <div style={{ background: "white", padding: "0.75rem 1.25rem", borderRadius: "12px", border: "1px solid rgba(0,0,0,0.05)", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                        <div style={{ width: "8px", height: "8px", borderRadius: "2px", background: "#94a3b8" }} />
-                        <span style={{ fontSize: "0.85rem", fontWeight: "600", color: "var(--ink2)" }}>Report Files</span>
-                      </div>
-                      {/* Logs */}
-                      <div style={{ background: "white", padding: "0.75rem 1.25rem", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.03)", border: "1px solid rgba(0,0,0,0.05)", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                        <div style={{ width: "8px", height: "8px", borderRadius: "2px", background: "#cbd5e1" }} />
-                        <span style={{ fontSize: "0.85rem", fontWeight: "600", color: "var(--ink2)" }}>Logs</span>
-                      </div>
-                    </div>
-
-                    <div style={{ marginTop: "2.5rem", position: "relative", height: "80px", width: "100%", opacity: 0.4 }}>
-                      <svg width="100%" height="80" viewBox="0 0 400 80" preserveAspectRatio="none">
-                        <path d="M100,10 Q120,40 80,70" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
-                        <path d="M200,10 Q180,45 230,75" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
-                        <path d="M300,10 Q320,35 280,70" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
-                        {/* Little arrow heads */}
-                        <path d="M80,70 L85,62 M80,70 L72,68" stroke="#94a3b8" strokeWidth="1.5" fill="none" />
-                        <path d="M230,75 L222,68 M230,75 L228,78" stroke="#94a3b8" strokeWidth="1.5" fill="none" />
-                        <path d="M280,70 L285,62 M280,70 L275,64" stroke="#94a3b8" strokeWidth="1.5" fill="none" />
-                      </svg>
-                    </div>
-
-                    <div style={{ marginTop: "1rem", color: "#94a3b8", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.15em", fontWeight: "700" }}>
-                      Fragmented Outputs
-                    </div>
-                  </div>
+                  <FragmentedOutputsVis />
                 </div>
               </div>
             </div>
           </section>
         </div> {/* CLOSE .wrap to breakthrough full-width */}
 
-          {/* THE BREAKTHROUGH: MAKING SYSTEM BEHAVIOR VISIBLE */}
-          <section id="breakthrough" className="reveal" style={{ 
-            padding: "8rem 2rem", 
-            background: "#FAF9F6", // Slightly different white/cream for depth
-            borderTop: "none",
-            width: "100%"
+        {/* THE BREAKTHROUGH: MAKING SYSTEM BEHAVIOR VISIBLE */}
+        <section id="solution" className="cs-section reveal" style={{
+          padding: "8rem 2rem",
+          background: "#FAF9F6", // Slightly different white/cream for depth
+          borderTop: "none",
+          width: "100%",
+          maxWidth: "none",
+          margin: "0 auto"
+        }}>
+          <div style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+            border: "1px solid var(--border)",
+            borderRadius: "48px",
+            padding: "6rem 5rem",
+            background: "white",
+            textAlign: "center"
           }}>
             <div style={{
-              maxWidth: "1100px",
-              margin: "0 auto",
-              border: "1px solid var(--border)",
-              borderRadius: "48px",
-              padding: "6rem 5rem",
-              background: "white",
+              fontSize: "0.7rem",
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              color: "var(--accent)",
+              fontWeight: "700",
+              marginBottom: "2rem"
+            }}>
+              The Breakthrough
+            </div>
+
+            <h2 style={{
+              fontFamily: "var(--serif)",
+              fontSize: "2.8rem",
+              marginBottom: "2.5rem",
+              color: "var(--ink)",
+              fontWeight: "400",
+              lineHeight: "1.2"
+            }}>
+              Making System Behavior Visible
+            </h2>
+
+            <p style={{
+              fontSize: "1.25rem",
+              color: "var(--ink2)",
+              lineHeight: "1.6",
+              maxWidth: "800px",
+              margin: "0 auto 5rem",
+              fontWeight: "400"
+            }}>
+              To solve the problem, we shifted from building a tool that runs validation to designing a system that makes validation behavior visible, predictable, and actionable.
+            </p>
+
+            {/* DESIGN PRINCIPLES (VERTICAL LIST) */}
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+              maxWidth: "600px",
+              margin: "0 auto 6rem",
               textAlign: "center"
             }}>
-              <div style={{
-                fontSize: "0.7rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.2em",
-                color: "var(--accent)",
-                fontWeight: "700",
-                marginBottom: "2rem"
-              }}>
-                The Breakthrough
+              <div style={{ borderBottom: "1px solid rgba(0,0,0,0.04)", paddingBottom: "20px" }}>
+                <div style={{ fontWeight: "700", color: "var(--ink)", marginBottom: "4px" }}>Make execution predictable</div>
+                <div style={{ color: "var(--ink3)", fontSize: "1rem" }}>Expose what will run before validation begins</div>
               </div>
-
-              <h2 style={{
-                fontFamily: "var(--serif)",
-                fontSize: "2.8rem",
-                marginBottom: "2.5rem",
-                color: "var(--ink)",
-                fontWeight: "400",
-                lineHeight: "1.2"
-              }}>
-                Making System Behavior Visible
-              </h2>
-
-              <p style={{
-                fontSize: "1.25rem",
-                color: "var(--ink2)",
-                lineHeight: "1.6",
-                maxWidth: "800px",
-                margin: "0 auto 5rem",
-                fontWeight: "400"
-              }}>
-                To solve the problem, we shifted from building a tool that runs validation to designing a system that makes validation behavior visible, predictable, and actionable.
-              </p>
-
-              {/* DESIGN PRINCIPLES (VERTICAL LIST) */}
-              <div style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
-                maxWidth: "600px",
-                margin: "0 auto 6rem",
-                textAlign: "center"
-              }}>
-                <div style={{ borderBottom: "1px solid rgba(0,0,0,0.04)", paddingBottom: "20px" }}>
-                  <div style={{ fontWeight: "700", color: "var(--ink)", marginBottom: "4px" }}>Make execution predictable</div>
-                  <div style={{ color: "var(--ink3)", fontSize: "1rem" }}>Expose what will run before validation begins</div>
-                </div>
-                <div style={{ borderBottom: "1px solid rgba(0,0,0,0.04)", paddingBottom: "20px" }}>
-                  <div style={{ fontWeight: "700", color: "var(--ink)", marginBottom: "4px" }}>Make outcomes visible at system level</div>
-                  <div style={{ color: "var(--ink3)", fontSize: "1rem" }}>Aggregate results into a unified project view</div>
-                </div>
-                <div style={{ borderBottom: "1px solid rgba(0,0,0,0.04)", paddingBottom: "20px" }}>
-                  <div style={{ fontWeight: "700", color: "var(--ink)", marginBottom: "4px" }}>Connect configuration to results</div>
-                  <div style={{ color: "var(--ink3)", fontSize: "1rem" }}>Bridge what was configured to what actually ran</div>
-                </div>
-                <div>
-                  <div style={{ fontWeight: "700", color: "var(--ink)", marginBottom: "4px" }}>Enable traceability across the system</div>
-                  <div style={{ color: "var(--ink3)", fontSize: "1rem" }}>Allow users to move from project → model → issue seamlessly</div>
-                </div>
+              <div style={{ borderBottom: "1px solid rgba(0,0,0,0.04)", paddingBottom: "20px" }}>
+                <div style={{ fontWeight: "700", color: "var(--ink)", marginBottom: "4px" }}>Make outcomes visible at system level</div>
+                <div style={{ color: "var(--ink3)", fontSize: "1rem" }}>Aggregate results into a unified project view</div>
               </div>
-
-              {/* CONCEPTUAL TRANSFORMATION VISUAL */}
-              {/* CONCEPTUAL TRANSFORMATION VIDEO */}
-              <div style={{
-                maxWidth: "1000px",
-                margin: "0 auto",
-                borderRadius: "24px",
-                overflow: "hidden",
-                border: "1px solid var(--border)",
-                boxShadow: "none",
-                background: "#fff"
-              }}>
-                <ScrollVideo
-                  src="PA Intro.mov"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  style={{ width: "100%", height: "auto", display: "block" }}
-                />
+              <div style={{ borderBottom: "1px solid rgba(0,0,0,0.04)", paddingBottom: "20px" }}>
+                <div style={{ fontWeight: "700", color: "var(--ink)", marginBottom: "4px" }}>Connect configuration to results</div>
+                <div style={{ color: "var(--ink3)", fontSize: "1rem" }}>Bridge what was configured to what actually ran</div>
+              </div>
+              <div>
+                <div style={{ fontWeight: "700", color: "var(--ink)", marginBottom: "4px" }}>Enable traceability across the system</div>
+                <div style={{ color: "var(--ink3)", fontSize: "1rem" }}>Allow users to move from project → model → issue seamlessly</div>
               </div>
             </div>
-          </section>
 
-          <div className="wrap">
-            {/* 9. SOLUTION OVERVIEW (COMMENTED OUT)
+            {/* CONCEPTUAL TRANSFORMATION VISUAL */}
+            <div style={{
+              maxWidth: "1000px",
+              margin: "0 auto",
+              padding: "2rem",
+              borderRadius: "32px",
+              overflow: "hidden",
+              border: "1px solid var(--border)",
+              background: "#fcfcfc",
+              boxShadow: "0 20px 50px rgba(0,0,0,0.03)",
+              minHeight: "450px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}>
+              <UnifiedWorkspaceVis />
+            </div>
+          </div>
+        </section>
+
+        <div className="wrap">
+          {/* 9. SOLUTION OVERVIEW (COMMENTED OUT)
             <section id="solution" className="cs-section">
               ...
             </section>
             */}
 
-            {/* 11. HOW THE SYSTEM WORKS IN PRACTICE (MOVED AND REFINED) */}
-            <section id="in-practice" className="cs-section" style={{ paddingBottom: "4rem" }}>
-              <div style={{ textAlign: "left", marginBottom: "5rem" }}>
-                <h2 className="cs-section-title" style={{ margin: "0" }}>How the System Works in Practice</h2>
-                <p style={{ fontSize: "1.15rem", color: "var(--ink2)", lineHeight: "1.6", margin: "1.5rem 0 0", maxWidth: "700px" }}>
-                  A guided walkthrough of the enterprise validation workflow, moving from high-level configuration down to granular issue resolution.
-                </p>
+          {/* 11. HOW THE SYSTEM WORKS IN PRACTICE (MOVED AND REFINED) */}
+          <section id="in-practice" className="cs-section" style={{ paddingBottom: "4rem" }}>
+            <div style={{ textAlign: "left", marginBottom: "5rem" }}>
+              <h2 className="cs-section-title" style={{ margin: "0" }}>How the System Works in Practice</h2>
+              <p style={{ fontSize: "1.15rem", color: "var(--ink2)", lineHeight: "1.6", margin: "1.5rem 0 0", maxWidth: "700px" }}>
+                A guided walkthrough of the enterprise validation workflow, moving from high-level configuration down to granular issue resolution.
+              </p>
+            </div>
+
+            <div className="cs-pa-walkthrough">
+
+              {/* Step 1 */}
+              <div className="cs-pa-wt-step">
+                <div className="wt-content">
+                  <div className="wt-meta">
+                    <span className="wt-num">Step 1</span>
+                  </div>
+                  <div style={{ display: "flex", gap: "6px", marginBottom: "0.5rem" }}>
+                    {["System Engineer", "Validation Lead"].map(p => (
+                      <span key={p} style={{ fontSize: "0.65rem", padding: "3px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.03em" }}>{p}</span>
+                    ))}
+                  </div>
+                  <h3 className="wt-title">Entry into the system</h3>
+                  <p className="wt-desc">Users initiate Project Advisor directly from the root of their Simulink Project, loading the entire hierarchical structure instantly without opening individual files.</p>
+                </div>
+                <div className="wt-visual">
+                  <div style={{
+                    width: "100%",
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                    background: "white"
+                  }}>
+                    <div className="mock-header" style={{ padding: "0.85rem 1.25rem", borderBottom: "1px solid rgba(0,0,0,0.06)", fontWeight: 600, fontSize: "0.95rem", color: "var(--ink)" }}>
+                      Entry into the system
+                    </div>
+                    <div style={{ width: "100%", aspectRatio: "1280 / 665", background: "var(--pa-surface)", position: "relative" }}>
+                      <ScrollVideo
+                        src="/PA Launch.mov"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      />
+                    </div>
+                  </div>
+                  <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "var(--ink3)", fontStyle: "italic", textAlign: "center" }}>
+                    Refined through multiple usability testing iterations
+                  </div>
+                </div>
               </div>
 
-              <div className="cs-pa-walkthrough">
-
-                {/* Step 1 */}
-                <div className="cs-pa-wt-step">
-                  <div className="wt-content">
-                    <div className="wt-meta">
-                      <span className="wt-num">Step 1</span>
-                    </div>
-                    <div style={{ display: "flex", gap: "6px", marginBottom: "0.5rem" }}>
-                      {["System Engineer", "Validation Lead"].map(p => (
-                        <span key={p} style={{ fontSize: "0.65rem", padding: "3px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.03em" }}>{p}</span>
-                      ))}
-                    </div>
-                    <h3 className="wt-title">Entry into the system</h3>
-                    <p className="wt-desc">Users initiate Project Advisor directly from the root of their Simulink Project, loading the entire hierarchical structure instantly without opening individual files.</p>
+              {/* Step 2 */}
+              <div className="cs-pa-wt-step">
+                <div className="wt-content">
+                  <div className="wt-meta">
+                    <span className="wt-num">Step 2</span>
                   </div>
-                  <div className="wt-visual">
-                    <div className="wt-mockup">
-                      <div className="mock-header">
-                        <div className="mock-title">Vehicle_Control_System.prj</div>
-                      </div>
-                      <div className="mock-body split">
-                        <div className="mock-sidebar">
-                          <div className="tree-node parent">Project Root</div>
-                          <div className="tree-node child active">Braking Models</div>
-                          <div className="tree-node child">Steering Models</div>
-                          <div className="tree-node child">Sensors</div>
-                        </div>
-                        <div className="mock-main">
-                          <div className="mock-btn-primary">Launch Project Advisor</div>
-                        </div>
-                      </div>
-                      <div className="wt-annotation" style={{ top: "40%", left: "10%" }}>
-                        <span>Preserves project hierarchy context</span>
-                      </div>
-                      <div className="wt-annotation right" style={{ top: "50%", right: "20%" }}>
-                        <span>Single entry point for all checks</span>
-                      </div>
+                  <div style={{ display: "flex", gap: "6px", marginBottom: "0.5rem" }}>
+                    {["Validation Lead", "Program Manager"].map(p => (
+                      <span key={p} style={{ fontSize: "0.65rem", padding: "3px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.03em" }}>{p}</span>
+                    ))}
+                  </div>
+                  <h3 className="wt-title">Setting configuration</h3>
+                  <p className="wt-desc">Project-level validation rules are selected. The UI explicitly flags any subsystems that harbor conflicting legacy overrides to prevent baseline drift.</p>
+                </div>
+                <div className="wt-visual">
+                  <div style={{
+                    width: "100%",
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                    background: "white"
+                  }}>
+                    <div className="mock-header" style={{ padding: "0.85rem 1.25rem", borderBottom: "1px solid rgba(0,0,0,0.06)", fontWeight: 600, fontSize: "0.95rem", color: "var(--ink)" }}>
+                      Setting configuration
                     </div>
-                    <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "var(--ink3)", fontStyle: "italic", textAlign: "center" }}>
-                      Refined through multiple usability testing iterations
+                    <div style={{ width: "100%", aspectRatio: "1280 / 665", background: "var(--pa-surface)", position: "relative" }}>
+                      <ScrollVideo
+                        src="/Config-video.mp4"
+                        loop
+                        muted
+                        playsInline
+                        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      />
                     </div>
+                  </div>
+                  <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "var(--ink3)", fontStyle: "italic", textAlign: "center" }}>
+                    Validated with enterprise users across workflows
                   </div>
                 </div>
-
-                {/* Step 2 */}
-                <div className="cs-pa-wt-step">
-                  <div className="wt-content">
-                    <div className="wt-meta">
-                      <span className="wt-num">Step 2</span>
-                    </div>
-                    <div style={{ display: "flex", gap: "6px", marginBottom: "0.5rem" }}>
-                      {["Validation Lead", "Program Manager"].map(p => (
-                        <span key={p} style={{ fontSize: "0.65rem", padding: "3px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.03em" }}>{p}</span>
-                      ))}
-                    </div>
-                    <h3 className="wt-title">Setting configuration</h3>
-                    <p className="wt-desc">Project-level validation rules are selected. The UI explicitly flags any subsystems that harbor conflicting legacy overrides to prevent baseline drift.</p>
-                  </div>
-                  <div className="wt-visual">
-                    <div style={{
-                      width: "100%",
-                      borderRadius: "12px",
-                      overflow: "hidden",
-                      border: "1px solid rgba(0, 0, 0, 0.08)",
-                      background: "white"
-                    }}>
-                      <div className="mock-header" style={{ padding: "0.85rem 1.25rem", borderBottom: "1px solid rgba(0,0,0,0.06)", fontWeight: 600, fontSize: "0.95rem", color: "var(--ink)" }}>
-                        Setting configuration
-                      </div>
-                      <div style={{ width: "100%", aspectRatio: "1280 / 665", background: "var(--pa-surface)", position: "relative" }}>
-                        <ScrollVideo
-                          src="/Config-video.mp4"
-                          loop
-                          muted
-                          playsInline
-                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                        />
-                      </div>
-                    </div>
-                    <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "var(--ink3)", fontStyle: "italic", textAlign: "center" }}>
-                      Validated with enterprise users across workflows
-                    </div>
-                  </div>
-                </div>
-
-                {/* Step 3 */}
-                <div className="cs-pa-wt-step">
-                  <div className="wt-content">
-                    <div className="wt-meta">
-                      <span className="wt-num">Step 3</span>
-                    </div>
-                    <div style={{ display: "flex", gap: "6px", marginBottom: "0.5rem" }}>
-                      {["Model Engineer", "System Engineer"].map(p => (
-                        <span key={p} style={{ fontSize: "0.65rem", padding: "3px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.03em" }}>{p}</span>
-                      ))}
-                    </div>
-                    <h3 className="wt-title">Running validation</h3>
-                    <p className="wt-desc">Checks execute in parallel across the background architecture. A live progress stream eliminates the "frozen screen" anxiety of legacy batch processing.</p>
-                  </div>
-                  <div className="wt-visual">
-                    <div style={{
-                      width: "100%",
-                      borderRadius: "12px",
-                      overflow: "hidden",
-                      border: "1px solid rgba(0, 0, 0, 0.08)",
-                      background: "white"
-                    }}>
-                      <div className="mock-header" style={{ padding: "0.85rem 1.25rem", borderBottom: "1px solid rgba(0,0,0,0.06)", fontWeight: 600, fontSize: "0.95rem", color: "var(--ink)" }}>
-                        Running validation
-                      </div>
-                      <div style={{ width: "100%", aspectRatio: "1280 / 665", background: "var(--pa-surface)", position: "relative" }}>
-                        <ScrollVideo
-                          src="/Run-video.mp4"
-                          loop
-                          muted
-                          playsInline
-                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                        />
-                      </div>
-                    </div>
-                    <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "var(--ink3)", fontStyle: "italic", textAlign: "center" }}>
-                      Iterated to balance flexibility and predictability
-                    </div>
-                  </div>
-                </div>
-
-                {/* Step 4 */}
-                <div className="cs-pa-wt-step">
-                  <div className="wt-content">
-                    <div className="wt-meta">
-                      <span className="wt-num">Step 4</span>
-                    </div>
-                    <div style={{ display: "flex", gap: "6px", marginBottom: "0.5rem" }}>
-                      {["Validation Lead", "Program Manager"].map(p => (
-                        <span key={p} style={{ fontSize: "0.65rem", padding: "3px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.03em" }}>{p}</span>
-                      ))}
-                    </div>
-                    <h3 className="wt-title">Understanding results</h3>
-                    <p className="wt-desc">Results are presented in an aggregated, spreadsheet-like view where users can instantly sort by severity or filter out noise to see only critical failures.</p>
-                  </div>
-                  <div className="wt-visual">
-                    <div className="wt-mockup">
-                      <div className="mock-header filters">
-                        <div className="filter-pill active">Critical (12)</div>
-                        <div className="filter-pill">Warnings (45)</div>
-                        <div className="filter-pill">Passed (2,890)</div>
-                      </div>
-                      <div className="mock-body list">
-                        <div className="list-item warning"><span className="indicator" /> Block configuration mismatch</div>
-                        <div className="list-item error"><span className="indicator" /> Invalid data type propagation</div>
-                        <div className="list-item error"><span className="indicator" /> Unconnected port identified</div>
-                      </div>
-                      <div className="wt-annotation" style={{ top: "15%", left: "50%", transform: "translateX(-50%)" }}>
-                        <span>High-level aggregation</span>
-                      </div>
-                    </div>
-                    <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "var(--ink3)", fontStyle: "italic", textAlign: "center" }}>
-                      Refined through multiple usability testing iterations
-                    </div>
-                  </div>
-                </div>
-
-                {/* Step 5 */}
-                <div className="cs-pa-wt-step">
-                  <div className="wt-content">
-                    <div className="wt-meta">
-                      <span className="wt-num">Step 5</span>
-                    </div>
-                    <div style={{ display: "flex", gap: "6px", marginBottom: "0.5rem" }}>
-                      {["Model Engineer", "System Engineer"].map(p => (
-                        <span key={p} style={{ fontSize: "0.65rem", padding: "3px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.03em" }}>{p}</span>
-                      ))}
-                    </div>
-                    <h3 className="wt-title">Investigating & resolving</h3>
-                    <p className="wt-desc">Selecting a failure opens an inspector panel. Engineers can review the violation, read the guideline, and apply an automated fix or leave a tracked justification.</p>
-                  </div>
-                  <div className="wt-visual">
-                    <div className="wt-mockup">
-                      <div className="mock-body split">
-                        <div className="mock-main list half">
-                          <div className="list-item error active"><span className="indicator" /> Invalid data type</div>
-                          <div className="list-item error"><span className="indicator" /> Unconnected port</div>
-                        </div>
-                        <div className="mock-inspector">
-                          <div className="ins-title">Invalid data type propagation</div>
-                          <div className="ins-desc">Guideline jc_0131 violated. Expected boolean, received double.</div>
-                          <div className="ins-actions">
-                            <div className="btn primary">Auto-Fix</div>
-                            <div className="btn secondary">Justify</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="wt-annotation right" style={{ top: "40%", right: "10%" }}>
-                        <span>Contextual resolution panel</span>
-                      </div>
-                    </div>
-                    <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "var(--ink3)", fontStyle: "italic", textAlign: "center" }}>
-                      Validated with enterprise users across workflows
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </section>
-
-            {/* 11. INTERFACE IN MOTION */}
-            <section id="interface-motion" className="cs-section" style={{ background: "#fff", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "10rem 0" }}>
-              <div style={{ textAlign: "center", marginBottom: "6rem" }}>
-                <h2 className="cs-section-title" style={{ marginBottom: "1rem" }}>Interface in Motion</h2>
-                <p style={{ fontSize: "1.25rem", color: "var(--ink2)", maxWidth: "700px", margin: "0 auto", lineHeight: "1.6" }}>
-                  See how Project Advisor brings configuration, validation, and results together — enabling users to move from system understanding to issue resolution seamlessly.
-                </p>
               </div>
 
-              <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-                {/* SCREEN / BROWSER FRAME */}
-                <div style={{ 
-                  position: "relative", 
-                  borderRadius: "24px", 
-                  overflow: "hidden", 
-                  border: "12px solid #1a1a1a", /* Dark Bezel */
-                  boxShadow: "0 40px 100px rgba(0,0,0,0.12)",
-                  background: "#000"
+              {/* Step 3 */}
+              <div className="cs-pa-wt-step">
+                <div className="wt-content">
+                  <div className="wt-meta">
+                    <span className="wt-num">Step 3</span>
+                  </div>
+                  <div style={{ display: "flex", gap: "6px", marginBottom: "0.5rem" }}>
+                    {["Model Engineer", "System Engineer"].map(p => (
+                      <span key={p} style={{ fontSize: "0.65rem", padding: "3px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.03em" }}>{p}</span>
+                    ))}
+                  </div>
+                  <h3 className="wt-title">Running validation</h3>
+                  <p className="wt-desc">Checks execute in parallel across the background architecture. A live progress stream eliminates the "frozen screen" anxiety of legacy batch processing.</p>
+                </div>
+                <div className="wt-visual">
+                  <div style={{
+                    width: "100%",
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                    background: "white"
+                  }}>
+                    <div className="mock-header" style={{ padding: "0.85rem 1.25rem", borderBottom: "1px solid rgba(0,0,0,0.06)", fontWeight: 600, fontSize: "0.95rem", color: "var(--ink)" }}>
+                      Running validation
+                    </div>
+                    <div style={{ width: "100%", aspectRatio: "1280 / 665", background: "var(--pa-surface)", position: "relative" }}>
+                      <ScrollVideo
+                        src="/Run-video.mp4"
+                        loop
+                        muted
+                        playsInline
+                        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      />
+                    </div>
+                  </div>
+                  <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "var(--ink3)", fontStyle: "italic", textAlign: "center" }}>
+                    Iterated to balance flexibility and predictability
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 4 */}
+              <div className="cs-pa-wt-step">
+                <div className="wt-content">
+                  <div className="wt-meta">
+                    <span className="wt-num">Step 4</span>
+                  </div>
+                  <div style={{ display: "flex", gap: "6px", marginBottom: "0.5rem" }}>
+                    {["Validation Lead", "Program Manager"].map(p => (
+                      <span key={p} style={{ fontSize: "0.65rem", padding: "3px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.03em" }}>{p}</span>
+                    ))}
+                  </div>
+                  <h3 className="wt-title">Understanding results</h3>
+                  <p className="wt-desc">Results are presented in an aggregated, spreadsheet-like view where users can instantly sort by severity or filter out noise to see only critical failures.</p>
+                </div>
+                <div className="wt-visual">
+                  <div style={{
+                    width: "100%",
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                    background: "white"
+                  }}>
+                    <div className="mock-header" style={{ padding: "0.85rem 1.25rem", borderBottom: "1px solid rgba(0,0,0,0.06)", fontWeight: 600, fontSize: "0.95rem", color: "var(--ink)" }}>
+                      Understanding results
+                    </div>
+                    <div style={{ width: "100%", aspectRatio: "1280 / 665", background: "var(--pa-surface)", position: "relative" }}>
+                      <ScrollVideo
+                        src="/PA details.mov"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      />
+                    </div>
+                  </div>
+                  <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "var(--ink3)", fontStyle: "italic", textAlign: "center" }}>
+                    Refined through multiple usability testing iterations
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 5 */}
+              <div className="cs-pa-wt-step">
+                <div className="wt-content">
+                  <div className="wt-meta">
+                    <span className="wt-num">Step 5</span>
+                  </div>
+                  <div style={{ display: "flex", gap: "6px", marginBottom: "0.5rem" }}>
+                    {["Model Engineer", "System Engineer"].map(p => (
+                      <span key={p} style={{ fontSize: "0.65rem", padding: "3px 8px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.03em" }}>{p}</span>
+                    ))}
+                  </div>
+                  <h3 className="wt-title">Investigating & resolving</h3>
+                  <p className="wt-desc">Selecting a failure opens an inspector panel. Engineers can review the violation, read the guideline, and apply an automated fix or leave a tracked justification.</p>
+                </div>
+                <div className="wt-visual">
+                  <div style={{
+                    width: "100%",
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                    background: "white"
+                  }}>
+                    <div className="mock-header" style={{ padding: "0.85rem 1.25rem", borderBottom: "1px solid rgba(0,0,0,0.06)", fontWeight: 600, fontSize: "0.95rem", color: "var(--ink)" }}>
+                      Investigating & resolving
+                    </div>
+                    <div style={{ width: "100%", aspectRatio: "1280 / 665", background: "var(--pa-surface)", position: "relative" }}>
+                      <ScrollVideo
+                        src="/PA justify.mov"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      />
+                    </div>
+                  </div>
+                  <div style={{ marginTop: "1.5rem", fontSize: "0.85rem", color: "var(--ink3)", fontStyle: "italic", textAlign: "center" }}>
+                    Validated with enterprise users across workflows
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* 11. INTERFACE IN MOTION */}
+          <section id="interface-motion" className="cs-section" style={{ background: "#fff", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "10rem 0" }}>
+            <div style={{ textAlign: "center", marginBottom: "6rem" }}>
+              <h2 className="cs-section-title" style={{ marginBottom: "1rem" }}>Interface in Motion</h2>
+              <p style={{ fontSize: "1.25rem", color: "var(--ink2)", maxWidth: "700px", margin: "0 auto", lineHeight: "1.6" }}>
+                See how Project Advisor brings configuration, validation, and results together — enabling users to move from system understanding to issue resolution seamlessly.
+              </p>
+            </div>
+
+            <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+              {/* AESTHETIC VIDEO FRAME */}
+              <div style={{
+                position: "relative",
+                margin: "0 auto",
+                maxWidth: "1100px",
+                background: "#fdfdfd",
+                borderRadius: "32px",
+                padding: "1.25rem",
+                border: "1px solid rgba(0,0,0,0.05)",
+                boxShadow: "0 30px 60px rgba(0,0,0,0.03)"
+              }}>
+                {/* INNER VIDEO WRAPPER */}
+                <div style={{
+                  background: "white",
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  width: "100%",
+                  display: "flex",
+                  border: "1px solid rgba(0,0,0,0.03)"
                 }}>
-                  {/* BROWSER TOP BAR (DOTS) */}
-                  <div style={{
-                    height: "32px",
-                    background: "#1a1a1a",
-                    display: "flex",
-                    alignItems: "center",
-                    padding: "0 16px",
-                    gap: "8px",
-                    borderBottom: "1px solid #333"
-                  }}>
-                    <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#ff5f56" }}></div>
-                    <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#ffbd2e" }}></div>
-                    <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "#27c93f" }}></div>
-                  </div>
-
-                  {/* DYNAMIC TEXT OVERLAYS (STILL ABSOLUTE OVER VIDEO) */}
-                  <div style={{
-                    position: "absolute",
-                    inset: "32px 0 0 0", /* Account for top bar */
-                    zIndex: 10,
-                    pointerEvents: "none",
-                    background: "transparent"
-                  }}>
-                    {/* Part 1: Configuration */}
-                    <div style={{
-                      position: "absolute",
-                      bottom: "10%",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      background: "rgba(0,0,0,0.75)",
-                      color: "white",
-                      padding: "10px 24px",
-                      borderRadius: "100px",
-                      fontSize: "1rem",
-                      fontWeight: 600,
-                      animation: "pa-overlay-seq 12s infinite",
-                      opacity: 0
-                    }}>
-                      Understand what will run
-                    </div>
-
-                    <style>{`
-                      @keyframes pa-overlay-seq {
-                        0%, 30% { opacity: 0; transform: translate(-50%, 20px); }
-                        5%, 25% { opacity: 1; transform: translate(-50%, 0); }
-                        33%, 63% { opacity: 0; transform: translate(-50%, 20px); }
-                        38%, 58% { opacity: 1; transform: translate(-50%, 0); content: 'See system-level outcomes'; }
-                        66%, 96% { opacity: 0; transform: translate(-50%, 20px); }
-                        71%, 91% { opacity: 1; transform: translate(-50%, 0); content: 'Trace issues and take action'; }
-                        100% { opacity: 0; }
-                      }
-                      
-                      @keyframes pa-overlay-text-1 {
-                        0%, 32% { opacity: 1; transform: translate(-50%, 0); }
-                        33%, 100% { opacity: 0; transform: translate(-50%, 20px); }
-                      }
-                      @keyframes pa-overlay-text-2 {
-                        0%, 33% { opacity: 0; transform: translate(-50%, 20px); }
-                        34%, 65% { opacity: 1; transform: translate(-50%, 0); }
-                        66%, 100% { opacity: 0; transform: translate(-50%, 20px); }
-                      }
-                      @keyframes pa-overlay-text-3 {
-                        0%, 66% { opacity: 0; transform: translate(-50%, 20px); }
-                        67%, 99% { opacity: 1; transform: translate(-50%, 0); }
-                        100% { opacity: 0; }
-                      }
-                    `}</style>
-                    
-                    {/* Separate DIVs for each text to fix the content replacement issue */}
-                    <div style={{
-                      position: "absolute",
-                      bottom: "10%",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      background: "rgba(0,0,0,0.8)",
-                      color: "white",
-                      padding: "10px 24px",
-                      borderRadius: "100px",
-                      fontSize: "1rem",
-                      fontWeight: 600,
-                      backdropFilter: "blur(8px)",
-                      animation: "pa-overlay-text-1 12s infinite ease-out"
-                    }}>
-                      Understand what will run
-                    </div>
-                    <div style={{
-                      position: "absolute",
-                      bottom: "10%",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      background: "rgba(0,0,0,0.8)",
-                      color: "white",
-                      padding: "10px 24px",
-                      borderRadius: "100px",
-                      fontSize: "1rem",
-                      fontWeight: 600,
-                      backdropFilter: "blur(8px)",
-                      animation: "pa-overlay-text-2 12s infinite ease-out",
-                      opacity: 0
-                    }}>
-                      See system-level outcomes
-                    </div>
-                    <div style={{
-                      position: "absolute",
-                      bottom: "10%",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      background: "rgba(0,0,0,0.8)",
-                      color: "white",
-                      padding: "10px 24px",
-                      borderRadius: "100px",
-                      fontSize: "1rem",
-                      fontWeight: 600,
-                      backdropFilter: "blur(8px)",
-                      animation: "pa-overlay-text-3 12s infinite ease-out",
-                      opacity: 0
-                    }}>
-                      Trace issues and take action
-                    </div>
-                  </div>
-
                   <ScrollVideo
-                    src="PA Intro.mov"
+                    src={`PA demo.mov?v=${Date.now()}`}
                     autoPlay
                     muted
                     loop
@@ -1083,21 +995,22 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
                     style={{ width: "100%", height: "auto", display: "block" }}
                   />
                 </div>
-
-                {/* BOTTOM CAPTION */}
-                <div style={{ 
-                  marginTop: "3rem", 
-                  textAlign: "center", 
-                  fontSize: "1.1rem", 
-                  fontWeight: 600, 
-                  color: "var(--ink2)",
-                  letterSpacing: "0.05em",
-                  textTransform: "uppercase"
-                }}>
-                  Understand <span style={{ mx: "1.5rem", color: "var(--border)" }}>→</span> See <span style={{ mx: "1.5rem", color: "var(--border)" }}>→</span> Act
-                </div>
               </div>
-            </section>
+
+              {/* BOTTOM CAPTION */}
+              <div style={{
+                marginTop: "3rem",
+                textAlign: "center",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+                color: "var(--ink2)",
+                letterSpacing: "0.05em",
+                textTransform: "uppercase"
+              }}>
+                Understand <span style={{ mx: "1.5rem", color: "var(--border)" }}>→</span> See <span style={{ mx: "1.5rem", color: "var(--border)" }}>→</span> Act
+              </div>
+            </div>
+          </section>
 
           {/* 10. DESIGN DECISIONS & TRADE-OFFS */}
           <section id="decisions" className="cs-dd-section-modern">
@@ -1106,8 +1019,10 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
               {/* Header */}
               <div className="cs-dd-header">
                 <span className="cs-dd-eyebrow-modern">Design Strategy</span>
-                <h2 className="cs-dd-heading-modern">Decisions &amp; <span className="accent-text">Trade-Offs</span></h2>
-                <p className="cs-dd-lead-modern">Five pivotal choices that shaped the system — each evaluated through real user evidence and technical constraints.</p>
+                <h2 className="cs-dd-heading-modern">Design Decisions &amp; <span className="accent-text">Trade-Offs</span></h2>
+                <p className="cs-dd-lead-modern" style={{ maxWidth: "800px", marginTop: "1rem" }}>
+                  Each decision was shaped through usability studies and iterative concept testing — balancing real user behavior with system constraints.
+                </p>
               </div>
 
               {/* Decision Cards */}
@@ -1115,59 +1030,84 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
                 {
                   num: '01',
                   title: 'Navigation Model',
-                  tension: 'Tabs vs. unified workspace',
-                  final: 'Filterable unified table with hierarchy',
-                  why: 'Tabs broke spatial context on every switch. A single workspace cut triage time by 60%.',
+                  tension: 'Tabs vs. Unified Workspace',
+                  decision: 'Filterable unified table with hierarchy',
+                  tradeoff: 'Higher initial cognitive load to learn filtering mechanics.',
+                  evidence: 'Users lost spatial context switching tabs; a single workspace cut triage time by 60%.',
                   exploredSrc: 'Navigation Model E.png',
                   finalSrc: 'Navigation Model F.png',
                 },
                 {
                   num: '02',
                   title: 'Data Visualization',
-                  tension: 'Tree map / Bar charts vs. drill-down list',
-                  final: 'Aggregated view → list → contextual panel',
-                  why: 'Visualizations that support scalability and large scale result handling were preffered',
+                  tension: 'Tree Maps vs. Drill-down Lists',
+                  decision: 'Aggregated view leading to contextual drill-down panels',
+                  tradeoff: 'Less "at-a-glance" visual pop compared to dashboard charts.',
+                  evidence: 'Tree maps failed at scale (100+ models). Lists enabled precise, actionable issue hunting.',
                   exploredSrc: 'DV E.png',
                   finalSrc: 'DV F.png',
                 },
                 {
                   num: '03',
                   title: 'Configuration Scope',
-                  tension: 'Central Vs Bifurcated Configuration',
-                  final: 'Project-default layer with explicit inheritance indicators',
-                  why: 'User needs to know all the time the configurations scope to understand results',
+                  tension: 'Centralized vs. Bifurcated Settings',
+                  decision: 'Project-default layer with explicit inheritance indicators',
+                  tradeoff: 'Added UI complexity in displaying override states inline.',
+                  evidence: 'Engineers needed constant scope visibility; hidden logic caused baseline drift.',
                   exploredSrc: 'CS E.png',
                   finalSrc: 'CS F.png',
                 },
                 {
                   num: '04',
                   title: 'Action Scope',
-                  tension: 'Global fix-all vs. row-scoped actions',
-                  final: 'Scope-aware actions with visible scope label',
-                  why: 'Global-by-default caused unintended cascades. Explicit scope labels eliminated triage mistakes.',
+                  tension: 'Global Fix-all vs. Row-scoped Actions',
+                  decision: 'Scope-aware actions with highly visible boundary labels',
+                  tradeoff: 'Slightly slower execution for bulk updates across diverse issues.',
+                  evidence: 'Global defaults caused unintended cascades. Explicit labels eliminated triage mistakes.',
                   exploredSrc: 'AS E.png',
                   finalSrc: 'AS F.png',
                 },
-                {
-                  num: '05',
-                  title: 'Information Density',
-                  tension: 'All upfront vs. progressive disclosure',
-                  final: 'Aggregated health first — detail revealed on demand',
-                  why: 'Raw diagnostics upfront collapsed trust. Engineers scan before they read.',
-                  exploredSrc: '/dd-density-explored.png',
-                  finalSrc: '/dd-density-final.png',
-                },
               ].map((d, i) => (
                 <div key={i} className="cs-dd-card-modern reveal">
-                  <div className="cs-dd-card-left">
-                    <div className="cs-dd-card-num-modern">{d.num}</div>
-                    <h3 className="cs-dd-card-title-modern">{d.title}</h3>
-                    <p className="cs-dd-card-tension-modern">{d.tension}</p>
-                    <div className="cs-dd-card-decision-wrap-modern">
-                      <span className="cs-dd-decision-label-modern">Final Decision</span>
-                      <p className="cs-dd-card-decision-modern">{d.final}</p>
+                  <div className="cs-dd-card-left" style={{ paddingRight: "1rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2rem" }}>
+                      <div className="cs-dd-card-num-modern" style={{ margin: 0 }}>{d.num}</div>
+                      <h3 className="cs-dd-card-title-modern" style={{ margin: 0 }}>{d.title}</h3>
                     </div>
-                    <p className="cs-dd-card-why-modern">{d.why}</p>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+                      <div>
+                        <div style={{ fontWeight: 600, color: "var(--ink)", marginBottom: "4px", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 4v16" /><path d="M8 8l-4 4 4 4" /><path d="M16 16l4-4-4-4" /></svg>
+                          Tension
+                        </div>
+                        <div style={{ color: "var(--ink2)", fontSize: "0.95rem", lineHeight: "1.5", paddingLeft: "22px" }}>{d.tension}</div>
+                      </div>
+
+                      <div>
+                        <div style={{ fontWeight: 600, color: "var(--ink)", marginBottom: "4px", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                          Decision
+                        </div>
+                        <div style={{ color: "var(--ink2)", fontSize: "0.95rem", lineHeight: "1.5", paddingLeft: "22px" }}>{d.decision}</div>
+                      </div>
+
+                      <div>
+                        <div style={{ fontWeight: 600, color: "var(--ink)", marginBottom: "4px", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8v12M17 20l-4-4M17 20l4-4" /></svg>
+                          Trade-off
+                        </div>
+                        <div style={{ color: "var(--ink2)", fontSize: "0.95rem", lineHeight: "1.5", paddingLeft: "22px" }}>{d.tradeoff}</div>
+                      </div>
+
+                      <div style={{ background: "#f8fafc", padding: "16px", borderRadius: "12px", borderLeft: "3px solid var(--accent)" }}>
+                        <div style={{ fontWeight: 600, color: "var(--ink)", marginBottom: "6px", fontSize: "0.9rem", display: "flex", alignItems: "center", gap: "8px" }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+                          Evidence
+                        </div>
+                        <div style={{ color: "var(--ink3)", fontSize: "0.9rem", lineHeight: "1.5", paddingLeft: "22px" }}>{d.evidence}</div>
+                      </div>
+                    </div>
                   </div>
                   <div className="cs-dd-card-right">
                     <div className="cs-dd-img-pair">
@@ -1185,10 +1125,12 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
                         </div>
                       </div>
                     </div>
+                    <div style={{ marginTop: "1rem", fontSize: "0.8rem", color: "var(--ink3)", textAlign: "center", fontStyle: "italic" }}>
+                      Explored → Final direction validated through usability testing
+                    </div>
                   </div>
                 </div>
               ))}
-
             </div>
           </section>
 

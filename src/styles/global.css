@@ -198,7 +198,14 @@ nav {
   font-style: italic;
   position: relative;
   display: inline-block;
-  transition: color .25s ease;
+  color: var(--accent);
+  animation: colorReveal 1s ease forwards;
+  animation-delay: 0.5s; /* Small delay for better effect */
+}
+
+@keyframes colorReveal {
+  0% { color: var(--ink); }
+  100% { color: var(--accent); }
 }
 
 /* underline */
@@ -207,19 +214,18 @@ nav {
   position: absolute;
   left: 0;
   bottom: 6px;
-  /* adjust slightly if needed */
-  width: 0%;
+  width: 100%;
   height: 2px;
   background: var(--accent);
-  transition: width .3s cubic-bezier(.4, 0, .2, 1);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: widthReveal 1s cubic-bezier(.4, 0, .2, 1) forwards;
+  animation-delay: 0.5s;
 }
 
-.hero-emphasis:hover {
-  color: var(--accent);
-}
-
-.hero-emphasis:hover::after {
-  width: 100%;
+@keyframes widthReveal {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
 }
 
 /* ================= HERO TOOLTIP — SUBTLE VERSION ================= */
@@ -535,24 +541,25 @@ nav {
   margin-bottom: 0;
 }
 
-/* Hover: lift active card */
+/* Hover: refined tonal lift — professional, no colour shock */
 .impact-card.active {
-  transform: translateY(-16px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.09), 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.15);
   z-index: 10;
   margin-bottom: -1.5rem;
 }
 
 /* Cards BEFORE the hovered card */
 .impact-card.dimmed-before {
-  opacity: 0.6;
-  transform: translateY(-12px) scale(0.96);
+  opacity: 0.55;
+  transform: translateY(-8px) scale(0.985);
 }
 
 /* Cards AFTER the hovered card */
 .impact-card.dimmed-after {
-  opacity: 0.6;
-  transform: translateY(24px) scale(0.96);
+  opacity: 0.55;
+  transform: translateY(18px) scale(0.985);
 }
 
 /* --- LEFT: Content --- */
@@ -585,7 +592,12 @@ nav {
   transition: opacity 0.3s ease;
 }
 
+.impact-card.active .impact-headline {
+  color: var(--ink2);
+}
+
 .impact-card.active .impact-tags {
+
   opacity: 1;
 }
 
@@ -598,6 +610,14 @@ nav {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.impact-card.active .impact-tag {
+  background: var(--surface);
+  color: var(--ink2);
+  border-color: transparent;
 }
 
 .impact-footer {
@@ -626,6 +646,13 @@ nav {
   padding: 0.15rem 0.5rem;
   border-radius: 100px;
   font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.impact-card.active .impact-nda {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border);
 }
 
 .impact-arrow {
@@ -643,10 +670,10 @@ nav {
 }
 
 .impact-card.active .impact-arrow {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-t);
-  transform: translateX(3px);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: var(--ink);
+  background: var(--surface);
+  transform: translateX(4px);
 }
 
 /* --- RIGHT: Image --- */
@@ -821,6 +848,7 @@ nav {
 .cs-section {
   padding: 80px 0;
   border-top: 1px solid #eaeaea;
+  scroll-margin-top: 100px;
 }
 
 .cs-section-title {
@@ -1429,6 +1457,40 @@ nav {
   border-color: var(--accent);
 }
 
+/* Clickable card (article opens on click) */
+.note-card--clickable {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.note-card--clickable:hover {
+  transform: translateY(-6px);
+  border-color: var(--ink1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.note-card--clickable:focus-visible {
+  outline: 2px solid var(--ink1);
+  outline-offset: 2px;
+}
+
+.note-read-cta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--ink1);
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.note-card--clickable:hover .note-read-cta {
+  opacity: 1;
+}
+
+
 .note-num {
   font-family: var(--serif);
   color: var(--border);
@@ -1579,10 +1641,10 @@ nav {
 .cs-topbar-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 6px 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
 
 
@@ -1660,7 +1722,8 @@ nav {
 /* HERO */
 
 .cs-hero {
-  margin-top: 60px;
+  padding-top: 2rem !important;
+  margin-top: 0;
   margin-bottom: 80px;
 }
 
@@ -2991,8 +3054,8 @@ nav {
   aspect-ratio: 16 / 10;
   border-radius: 10px;
   overflow: hidden;
-  background: #1e2330;
-  border: 1px solid rgba(255,255,255,0.06);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3011,8 +3074,8 @@ nav {
 }
 
 .cs-dd-img-frame.final {
-  border-color: rgba(110, 231, 183, 0.2);
-  background: #1a2430;
+  border-color: rgba(16, 185, 129, 0.4);
+  background: #ffffff;
 }
 
 .cs-dd-img {
@@ -3028,7 +3091,7 @@ nav {
 .cs-dd-img-frame:has(.cs-dd-img[src$=".png"][src*="dd-"]:not([src=""]):not([src$=" "]))
 .cs-dd-img,
 .cs-dd-img-frame .cs-dd-img {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 /* Fallback placeholder text when image is missing */
@@ -3059,7 +3122,7 @@ nav {
   padding: 8rem 2rem;
   border-radius: 48px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.03);
 }
@@ -5343,3 +5406,282 @@ nav {
     transform: translateY(-8px) scale(1.02) !important;
   }
 }
+
+/* ==================================================== */
+/* PROJECT CARD THEME OVERRIDES (HOMEPAGE)              */
+/* ==================================================== */
+.cosmic-theme-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f4f6ff 100%) !important;
+  border-color: rgba(99, 102, 241, 0.15) !important;
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.08) !important;
+}
+
+.cosmic-theme-card:hover {
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.15) !important;
+}
+
+.cosmic-theme-card .impact-headline {
+  background: linear-gradient(90deg, #1e1b4b, #4338ca);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cosmic-theme-card .impact-desc,
+.cosmic-theme-card .impact-title,
+.cosmic-theme-card .impact-arrow {
+  color: var(--ink) !important;
+}
+
+.cosmic-theme-card .impact-tag {
+  background: rgba(99, 102, 241, 0.08) !important;
+  color: #4338ca !important;
+  border: 1px solid rgba(99, 102, 241, 0.15) !important;
+}
+
+.cosmic-theme-card .impact-footer {
+  border-top-color: rgba(99, 102, 241, 0.1) !important;
+}
+
+.cosmic-theme-card .impact-nda {
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #059669 !important;
+}
+
+/* ======================================================= */
+/* ============ MOBILE SUPPLEMENTAL (≤ 768px) ============ */
+/* Targeting gaps not covered by the main block (L4231).   */
+/* Desktop view MUST remain completely unchanged.          */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+
+  /* ── Impact Stack — hide visual panel, disable stack FX ── */
+  .impact-card-visual {
+    display: none; /* Free up full-width for content */
+  }
+
+  .impact-card {
+    grid-template-columns: 1fr;
+    margin-bottom: 1.25rem; /* Remove negative-margin stacking on mobile */
+    padding: 1.75rem 1.5rem;
+  }
+
+  /* Remove all stack transforms on mobile — just linear list */
+  .impact-card.active,
+  .impact-card.dimmed-before,
+  .impact-card.dimmed-after {
+    transform: none;
+    opacity: 1;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .impact-card.active {
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .impact-stack {
+    padding-bottom: 0;
+    gap: 0;
+  }
+
+  /* ── Navigation — compact single horizontal row ── */
+  .nav-in {
+    flex-direction: row;          /* Keep logo + links on one line */
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    padding: 0.875rem 0;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+  }
+
+  /* ── Hero — hide decorative SVG on mobile ── */
+  .hero-right {
+    display: none; /* SVG canvas is decorative; makes text breathe */
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 2rem;
+  }
+
+  .hero-hl {
+    font-size: 2.25rem;
+    line-height: 1.12;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-support {
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-highlights {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    text-align: center;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+  }
+
+  /* ── Homepage section titles ── */
+  .sec-title {
+    font-size: 2rem;
+    line-height: 1.18;
+    margin-bottom: 1rem;
+  }
+
+  .sec-sub {
+    font-size: 0.95rem;
+  }
+
+  /* ── Notes — disable hover lifts ── */
+  .note-card:hover,
+  .note-card--clickable:hover {
+    transform: none;
+  }
+
+  /* ── Research interview image grid: 1 column ── */
+  .cs-section figure {
+    margin-bottom: 0;
+  }
+
+  /* Target the 2×2 photo grid in PA research section */
+  .cs-section [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Project Advisor — PA-specific ── */
+  .cs-pa-metrics {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cs-pa-users-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cs-pa-user-card {
+    width: 100%;
+  }
+
+  .cs-pa-process-diagram {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+  }
+
+  /* research synthesis callout */
+  .cs-section [style*="borderLeft: \"3px solid var(--accent)\""],
+  .cs-section [style*="border-left: 3px solid var(--accent)"] {
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.25rem;
+  }
+
+  /* ── About — timeline ── */
+  .tl-row,
+  .tl-entry {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .tl-year {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* ── Case study top bar / hero ── */
+  .cs-hero-content {
+    padding-top: 5rem;
+  }
+
+  .cs-title {
+    font-size: 2rem;
+  }
+
+  .cs-subtitle-row {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  /* ── Gecko AI inline grids (set via style props) ── */
+  /* Any 3+ col flex rows inside gecko sections become column */
+  .cs-section > div > div[style*="display: flex"][style*="gap"],
+  .cs-section > div[style*="display: grid"][style*="grid-template-columns: repeat"] {
+    flex-direction: column !important;
+  }
+
+  /* ── Case study back nav ── */
+  .cs-back-nav {
+    padding: 0.75rem 1.25rem;
+  }
+
+  /* ── Patent/Sensor card ── */
+  .patent-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* ── Notes article modal nav ── */
+  /* (Inline styles, handled by React — nothing to override here) */
+
+  /* ── Ensure images in research grid don't overflow ── */
+  figure img,
+  .impact-image-wrap img {
+    max-width: 100%;
+    height: auto;
+  }
+
+}
+
+/* ── Extra small (phones < 390px) ── */
+@media (max-width: 390px) {
+  .hero-hl {
+    font-size: 1.9rem;
+  }
+
+  .sec-title {
+    font-size: 1.75rem;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+  }
+
+  .impact-card {
+    padding: 1.25rem;
+  }
+
+  .impact-headline {
+    font-size: 1.4rem;
+  }
+}
+

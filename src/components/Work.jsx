@@ -17,7 +17,9 @@ export default function Work({ setActiveProject }) {
       title: "Project Advisor",
       tags: ["Workflow Systems", "Engineering UX", "Cognitive Load"],
       image: "/pa-hero-showcase.png",
-      imgStyle: { objectFit: "cover", objectPosition: "45% 45%", backgroundColor: "#0f172a" }
+      imgStyle: { objectFit: "cover", objectPosition: "45% 45%", backgroundColor: "#0f172a" },
+      brandColor: "#0284c7", // Light Blue
+      brandLight: "rgba(2, 132, 199, 0.08)"
     },
     {
       id: "gecko-ai",
@@ -26,7 +28,9 @@ export default function Work({ setActiveProject }) {
       description: "AI system transforming large bug report datasets into actionable UX intelligence.",
       title: "AI-Driven UX Mining",
       tags: ["AI Workflows", "UX Intelligence", "Data Mining"],
-      image: "/images/discoverability.jpg"
+      image: "/images/gecko_ai_card_thumb.png",
+      brandColor: "#4338ca", // Indigo
+      brandLight: "rgba(67, 56, 202, 0.08)"
     },
     {
       id: "model-finder",
@@ -35,7 +39,9 @@ export default function Work({ setActiveProject }) {
       description: "Enterprise search experience for navigating large Simulink repositories.",
       title: "Model Finder for Enterprises",
       tags: ["Enterprise Search", "API Design", "Data Discovery"],
-      image: "/images/navigation.jpg"
+      image: "/images/navigation.jpg",
+      brandColor: "#059669", // Emerald
+      brandLight: "rgba(5, 150, 105, 0.08)"
     }
   ];
 
@@ -65,7 +71,11 @@ export default function Work({ setActiveProject }) {
               <div
                 key={project.id}
                 className={`impact-card${stateClass}`}
-                style={{ '--card-index': index }}
+                style={{ 
+                  '--card-index': index,
+                  '--brand-color': project.brandColor,
+                  '--brand-light': project.brandLight
+                }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => handleClick(project.id, project.nda)}
