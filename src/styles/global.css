@@ -917,13 +917,12 @@ nav {
   grid-template-columns: 1.4fr 1fr;
   gap: 3rem;
   align-items: center;
-  background: var(--accent-t); /* Highlight Green Background */
-  border: 1px solid rgba(43, 84, 64, 0.1);
-  border-left: 4px solid var(--accent); /* Unique featured accent */
+  background: #122C23; /* Dark Green from Contact Section */
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 2.5rem 3rem;
   cursor: pointer;
-  box-shadow: 0 12px 40px rgba(43, 84, 64, 0.06); /* Subtle green shadow */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               border-color 0.35s ease,
@@ -933,9 +932,9 @@ nav {
 /* Make it POP on hover (Special Patent styling) */
 .patent-impact-card:hover {
   transform: translateY(-8px);
-  border-color: var(--accent); /* Dark green outline */
-  background: #E1E9E4; /* Slightly deeper green on hover */
-  box-shadow: 0 20px 50px rgba(43, 84, 64, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: #16362B; /* Slightly lighter on hover */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 /* --- LEFT: Content --- */
@@ -949,7 +948,7 @@ nav {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--accent); /* Highlighted eyebrow */
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 600;
 }
 
@@ -957,13 +956,13 @@ nav {
   font-family: var(--serif);
   font-size: 2.2rem;
   line-height: 1.15;
-  color: var(--ink);
+  color: #FFFFFF;
   letter-spacing: -0.02em;
 }
 
 .patent-desc {
   font-size: 1rem;
-  color: var(--ink2);
+  color: #F5F3EF;
   line-height: 1.6;
   max-width: 480px;
 }
@@ -975,40 +974,45 @@ nav {
   margin-top: 0.5rem;
 }
 
+.patent-tags .impact-tag {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
 .patent-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .patent-title-foot {
   font-family: var(--sans);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--ink);
+  color: #FFFFFF;
 }
 
 .patent-arrow {
   width: 2.2rem;
   height: 2.2rem;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ink3);
+  color: #FFFFFF;
   font-size: 1rem;
   transition: all 0.25s ease;
   flex-shrink: 0;
 }
 
 .patent-impact-card:hover .patent-arrow {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-t);
+  border-color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.1);
   transform: translateX(3px);
 }
 
@@ -1114,7 +1118,7 @@ nav {
   justify-content: space-between;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .patent-title-foot {
