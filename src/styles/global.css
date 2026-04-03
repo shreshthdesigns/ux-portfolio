@@ -1196,6 +1196,23 @@ nav {
   padding: 0.4rem 0.75rem;
   border-radius: 100px;
   border: 1px solid rgba(0,0,0,0.05);
+  .nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  opacity: 0.6;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  opacity: 1;
+}
+
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--ink);

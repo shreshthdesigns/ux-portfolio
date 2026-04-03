@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Hero from "./components/Hero";
 import Work from "./components/Work";
@@ -12,6 +12,37 @@ import NDAGate from "./components/NDAGate";
 
 export default function App() {
   const [activeProject, setActiveProject] = useState(null);
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    if (activeProject) return; // Don't track scroll if in case study
+
+    const sections = ["hero", "work", "patent", "about", "notes", "shapes", "contact"];
+    const observers = [];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px", // Trigger when section is mostly in upper-middle view
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [activeProject]);
 
   const getLogoColor = () => {
     if (!activeProject) return "";
@@ -54,12 +85,12 @@ export default function App() {
               </li>
             ) : (
               <>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#patent">Patent</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#notes">Notes</a></li>
-                <li><a href="#shapes">Beyond Screen</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#work" className={activeSection === "work" ? "active" : ""}>Work</a></li>
+                <li><a href="#patent" className={activeSection === "patent" ? "active" : ""}>Patent</a></li>
+                <li><a href="#about" className={activeSection === "about" ? "active" : ""}>About</a></li>
+                <li><a href="#notes" className={activeSection === "notes" ? "active" : ""}>Notes</a></li>
+                <li><a href="#shapes" className={activeSection === "shapes" ? "active" : ""}>Beyond Screen</a></li>
+                <li><a href="#contact" className={activeSection === "contact" ? "active" : ""}>Contact</a></li>
               </>
             )}
           </ul>
