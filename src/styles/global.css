@@ -917,24 +917,21 @@ nav {
   grid-template-columns: 1.4fr 1fr;
   gap: 3rem;
   align-items: center;
-  background: #122C23; /* Dark Green from Contact Section */
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 2.5rem 3rem;
   cursor: pointer;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.35s ease,
-              background 0.35s ease;
+              border-color 0.35s ease;
 }
 
 /* Make it POP on hover (Special Patent styling) */
 .patent-impact-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.3);
-  background: #16362B; /* Slightly lighter on hover */
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent); /* Dark green outline */
+  box-shadow: 0 20px 50px rgba(43, 84, 64, 0.15); /* Soft green glow */
 }
 
 /* --- LEFT: Content --- */
@@ -948,7 +945,7 @@ nav {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--accent); /* Highlighted eyebrow */
   font-weight: 600;
 }
 
@@ -956,13 +953,13 @@ nav {
   font-family: var(--serif);
   font-size: 2.2rem;
   line-height: 1.15;
-  color: #FFFFFF;
+  color: var(--ink);
   letter-spacing: -0.02em;
 }
 
 .patent-desc {
   font-size: 1rem;
-  color: #F5F3EF;
+  color: var(--ink2);
   line-height: 1.6;
   max-width: 480px;
 }
@@ -974,45 +971,40 @@ nav {
   margin-top: 0.5rem;
 }
 
-.patent-tags .impact-tag {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
-}
-
 .patent-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border);
 }
 
 .patent-title-foot {
   font-family: var(--sans);
   font-size: 0.95rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--ink);
 }
 
 .patent-arrow {
   width: 2.2rem;
   height: 2.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: var(--ink3);
   font-size: 1rem;
   transition: all 0.25s ease;
   flex-shrink: 0;
 }
 
 .patent-impact-card:hover .patent-arrow {
-  border-color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-t);
   transform: translateX(3px);
 }
 
@@ -1118,7 +1110,7 @@ nav {
   justify-content: space-between;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border);
 }
 
 .patent-title-foot {
