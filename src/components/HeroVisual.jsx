@@ -85,7 +85,7 @@ export default function HeroVisual() {
             cx={node.x}
             cy={node.y}
             r="6"
-            fill="var(--accent)"
+            fill={solved ? "var(--accent)" : "#FF4B4B"}
             style={{
               transition: `all ${1.0 + i * 0.05}s cubic-bezier(.25,.1,.25,1)`,
             }}
