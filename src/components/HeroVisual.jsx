@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function HeroVisual() {
   const [solved, setSolved] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSolved((prev) => !prev);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   const chaoticPositions = [
     { x: 60, y: 80 },
@@ -36,11 +43,7 @@ export default function HeroVisual() {
   const positions = solved ? structuredPositions : chaoticPositions;
 
   return (
-    <div
-      className="hero-visual clickable"
-      onMouseEnter={() => setSolved(true)}
-      onMouseLeave={() => setSolved(false)}
-    >
+    <div className="hero-visual">
       {/* Crossfade text labels */}
       <div className="hero-tooltip" style={{
         opacity: solved ? 0 : 1,
