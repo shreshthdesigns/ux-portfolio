@@ -1196,7 +1196,16 @@ nav {
   padding: 0.4rem 0.75rem;
   border-radius: 100px;
   border: 1px solid rgba(0,0,0,0.05);
-  .nav-links a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  pointer-events: none;
+}
+
+.nav-links a {
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--ink);
@@ -1212,14 +1221,6 @@ nav {
 .nav-links a.active {
   color: var(--accent);
   font-weight: 600;
-}
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--ink);
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  pointer-events: none;
 }
 
 .annot-dot {
