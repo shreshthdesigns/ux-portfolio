@@ -28,7 +28,7 @@ function GeckoHero() {
             Designing an AI-Powered <span className="cosmic-text-gradient-blue">UX Intelligence</span> System
           </h1>
           <p style={{ fontSize: "clamp(1.1rem, 2vw, 1.35rem)", lineHeight: "1.6", color: "var(--cosmic-muted-fg)", maxWidth: "700px", margin: "0 auto", fontWeight: "400" }}>
-            Scaling UX insight generation from raw issue logs using AI workflows, RAG, and privacy-first architecture.
+            Transforming raw issue logs into structured UX signals using context-aware AI pipelines, privacy-first processing, and retrieval-inspired reasoning.
           </p>
         </motion.div>
         {/* Abstract AI Pipeline Visual */}
@@ -46,7 +46,7 @@ function GeckoHero() {
             <div className="cosmic-glass" style={{ position: "relative", zIndex: 1, width: "90px", height: "90px", borderRadius: "24px", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.25rem", background: "rgba(3,5,10,0.8)", border: "1px solid var(--cosmic-purple)" }}>
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--cosmic-purple)" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
             </div>
-            <div style={{ color: "var(--cosmic-fg)", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" }}>Privacy + RAG</div>
+            <div style={{ color: "var(--cosmic-fg)", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase" }}>AI Intelligence Pipeline</div>
           </div>
           <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, var(--cosmic-border) 0%, var(--cosmic-blue) 50%, var(--cosmic-border) 100%)", opacity: 0.6, margin: "0 1rem" }} />
           <div style={{ textAlign: "center", position: "relative", width: "120px" }}>
@@ -152,8 +152,8 @@ function GeckoProblem() {
 function GeckoResearch() {
   const quotes = [
     { text: "Takes me solid weeks just to manually tag issues and identify reliable patterns across the entire log dump.", role: "UX Researcher", icon: <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" /> },
-    { text: "We sometimes script AI manually to parse the CSVs, but the prompting isn't standardized so it's wildly inconsistent.", role: "Product Designer", icon: <><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><polyline points="14 2 14 8 20 8" /></> },
-    { text: "It's extremely hard to trace a fragmented error log back to poor system design or complex cross-product interactions.", role: "System Architect", icon: <><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></> }
+    { text: "We sometimes script AI manually to parse the CSVs, but the prompting isn't standardized so it's wildly inconsistent.", role: "UX Designer", icon: <><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><polyline points="14 2 14 8 20 8" /></> },
+    { text: "It's extremely hard to trace a fragmented error log back to poor system design or complex cross-product interactions.", role: "UX Researcher", icon: <><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></> }
   ];
   return (
     <section id="research" className="cosmic-section-padding" style={{ background: "rgba(3, 5, 10, 0.4)", borderBottom: "1px solid var(--cosmic-border)" }}>
