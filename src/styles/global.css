@@ -1303,20 +1303,20 @@ nav {
 
 .about-tools-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  max-width: 160px;
+  grid-template-columns: repeat(3, 80px); /* Fixed larger size for balance */
+  gap: 1.25rem;
 }
 
 .tool-icon-item {
-  aspect-ratio: 1/1;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: white;
   border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 12px;
+  padding: 16px; /* More breathing room */
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 1px 2px rgba(0,0,0,0.02);
 }
