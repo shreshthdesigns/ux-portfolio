@@ -30,4 +30,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ./public_html/  # Usually public_html for Namecheap Stellar hosting
+          server-dir: ./  # Upload to the root of the FTP account's landing folder
