@@ -917,21 +917,25 @@ nav {
   grid-template-columns: 1.4fr 1fr;
   gap: 3rem;
   align-items: center;
-  background: var(--white);
-  border: 1px solid var(--border);
+  background: var(--accent-t); /* Highlight Green Background */
+  border: 1px solid rgba(43, 84, 64, 0.1);
+  border-left: 4px solid var(--accent); /* Unique featured accent */
   border-radius: 12px;
   padding: 2.5rem 3rem;
   cursor: pointer;
+  box-shadow: 0 12px 40px rgba(43, 84, 64, 0.06); /* Subtle green shadow */
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.35s ease;
+              border-color 0.35s ease,
+              background 0.35s ease;
 }
 
 /* Make it POP on hover (Special Patent styling) */
 .patent-impact-card:hover {
   transform: translateY(-8px);
   border-color: var(--accent); /* Dark green outline */
-  box-shadow: 0 20px 50px rgba(43, 84, 64, 0.15); /* Soft green glow */
+  background: #E1E9E4; /* Slightly deeper green on hover */
+  box-shadow: 0 20px 50px rgba(43, 84, 64, 0.12);
 }
 
 /* --- LEFT: Content --- */
