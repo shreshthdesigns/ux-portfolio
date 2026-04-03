@@ -42,32 +42,37 @@ export default function About() {
                     <path d="M0 28.5C0 31.1522 1.05357 33.6957 2.92893 35.5711C4.8043 37.4464 7.34784 38.5 10 38.5H20V19H10C7.34784 19 4.8043 20.0536 2.92893 21.9289C1.05357 23.8043 0 26.3478 0 28.5V28.5Z" fill="#A259FF"/>
                   </svg>
                 </div>
-                <div className="tool-icon-item" title="Matlab">
-                  <img src="/Matlab.png" alt="Matlab" />
-                </div>
-                <div className="tool-icon-item" title="Excel">
-                  <img src="/Excel.png" alt="Excel" />
-                </div>
-                <div className="tool-icon-item" title="Adobe Suite">
-                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19.16 4H28.7L16.01 27.5L3.3 4H12.84L16.01 10.32L19.16 4ZM16.01 16.06L20.44 24.87H11.58L16.01 16.06Z" fill="#FF0000"/>
+                <div className="tool-icon-item" title="Confluence">
+                  <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M465 198.8h-110c-15.6 0-28.2 12.6-28.2 28.2v110c0 15.6 12.6 28.2 28.2 28.2h110c15.6 0 28.2-12.6 28.2-28.2v-110c0-15.6-12.6-28.2-28.2-28.2z" fill="#0052CC"/>
+                    <path d="M465 198.8c0-103.4-83.8-187.2-187.2-187.2H251.2l6 142h161c15.6 0 28.2 12.6 28.2 28.2v17c13.2 0 26.6 0 38.6 0v-110z" fill="#2684FF"/>
+                    <path d="M47 313.2h110c15.6 0 28.2-12.6 28.2-28.2v-110c0-15.6-12.6-28.2-28.2-28.2h-110C31.4 146.8 18.8 159.4 18.8 175v110c0 15.6 12.6 28.2 28.2 28.2z" fill="#0052CC"/>
+                    <path d="M47 313.2c0 103.4 83.8 187.2 187.2 187.2h26.6l-6-142H93.8c-15.6 0-28.2-12.6-28.2-28.2v-17c-13.2 0-26.6 0-38.6 0v110z" fill="#2684FF"/>
                   </svg>
                 </div>
-                <div className="tool-icon-item" title="React">
-                  <svg viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="0" cy="0" r="2.05" fill="#61dafb"/>
-                    <g stroke="#61dafb" strokeWidth="1" fill="none">
-                      <ellipse rx="11" ry="4.2"/>
-                      <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
-                      <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
-                    </g>
+                <div className="tool-icon-item" title="Jira">
+                  <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M224 0h110c15.6 0 28.2 12.6 28.2 28.2v110c0 15.6-12.6 28.2-28.2 28.2H224c-15.6 0-28.2-12.6-28.2-28.2V28.2c0-15.6 12.6-28.2 28.2-28.2z" fill="#0052CC"/>
+                    <path d="M224 0c-103.4 0-187.2 83.8-187.2 187.2V211l142-6v-161c0-15.6 12.6-28.2 28.2-28.2h17v-16z" fill="#2684FF"/>
+                    <path d="M224 512H114c-15.6 0-28.2-12.6-28.2-28.2v-110c0-15.6 12.6-28.2 28.2-28.2h110c15.6 0 28.2 12.6 28.2 28.2v110c0 15.6-12.6 28.2-28.2 28.2z" fill="#0052CC"/>
+                    <path d="M224 512c103.4 0 187.2-83.8 187.2-187.2V301l-142 6v161c0 15.6-12.6 28.2-28.2 28.2h-17v16z" fill="#2684FF"/>
                   </svg>
                 </div>
-                <div className="tool-icon-item" title="AI / LLM">
+                <div className="tool-icon-item" title="VS Code">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 0l3.072 2.341c.21.16.33.411.33.68v18.06c0 .269-.12.52-.33.68L17.472 24l-11.76-8.91L1 18.252V5.748l4.712 3.162 11.76-8.91zM5.712 11.688l-2.448-1.584v3.792l2.448-1.584.024-.624h-.024z" fill="#007ACC"/>
+                  </svg>
+                </div>
+                <div className="tool-icon-item" title="Python">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.9 0C5.358 0 5.485 2.84 5.485 2.84l.012 2.944h5.613V6.21H3.65S0 5.613 0 11.9c0 6.287 3.25 6.062 3.25 6.062h1.942v-2.73s-.05-3.25 3.25-3.25h5.5l.012-5.612s.225-3.25-6.064-3.25l-.012-.12zm2.213 24c6.541 0 6.415-2.84 6.415-2.84l-.012-2.944h-5.613v-.426h7.461s3.65.597 3.65-5.69c0-6.287-3.25-6.062-3.25-6.062h-1.942v2.73s.05 3.25-3.25 3.25h-5.5l-.012 5.612s-.225 3.25 6.064 3.25l.012.12z" fill="#3776AB"/><path d="M8.514 2.14a.63.63 0 1 1 0 1.26.63.63 0 0 1 0-1.26zm6.972 18.46a.63.63 0 1 1 0 1.26.63.63 0 0 1 0-1.26z" fill="#FFE873"/>
+                  </svg>
+                </div>
+                <div className="tool-icon-item" title="Qualaroo">
                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L14.85 8.15L21 11L14.85 13.85L12 20L9.15 13.85L3 11L9.15 8.15L12 2Z" fill="#6b46c1" opacity="0.8"/>
-                    <path d="M19 16L20.14 18.86L23 20L20.14 21.14L19 24L17.86 21.14L15 20L17.86 18.86L19 16Z" fill="#6b46c1"/>
-                    <path d="M5 4L5.86 5.86L8 7L5.86 8.14L5 10L4.14 8.14L2 7L4.14 5.86L5 4Z" fill="#6b46c1"/>
+                    <circle cx="12" cy="12" r="10" stroke="#0071CE" strokeWidth="2.5"/>
+                    <path d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6" stroke="#0071CE" strokeWidth="2.5" strokeLinecap="round"/>
+                    <path d="M8 12H16" stroke="#0071CE" strokeWidth="2.5" strokeLinecap="round"/>
                   </svg>
                 </div>
               </div>
