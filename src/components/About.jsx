@@ -12,7 +12,7 @@ export default function About() {
           <div className="about-identity-col">
             <div className="about-portrait-wrap">
               <img
-                src="/Selfpotrait1.jpeg"
+                src="/self portrait.jpeg"
                 alt="Shubham Shreshth"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }}
               />
