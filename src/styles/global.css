@@ -909,7 +909,51 @@ nav {
 /* ===================================================== */
 
 #patent {
+  background-color: var(--accent);
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  position: relative;
+  overflow: hidden;
   padding: 6rem 0;
+}
+
+.patent-bg-decor {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+.schematic-circle {
+  position: absolute;
+  border: 1px solid white;
+  border-radius: 50%;
+  opacity: 0.2;
+}
+
+.schematic-line {
+  position: absolute;
+  background: white;
+  opacity: 0.1;
+}
+
+.patent-impact-card {
+  z-index: 1; /* Above background decor */
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.patent-impact-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 50px 120px rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .patent-impact-card {
