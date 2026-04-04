@@ -1581,11 +1581,6 @@ nav {
   border-radius: 4px;
 }
 
-.timeline-node.highlight .tl-role {
-  color: var(--accent);
-  font-weight: 700;
-}
-
 .tl-detail {
   font-size: 0.95rem;
   line-height: 1.6;

@@ -116,14 +116,14 @@ export default function About() {
                     <div className="tl-year">2023 — Present</div>
                     <div className="tl-role">UX Designer</div>
                     <div className="tl-org-row">
-                      <img src="/mathworks_logo.png" alt="MathWorks" className="tl-logo" />
+                      <img src="/Mathworks.png" alt="MathWorks" className="tl-logo" />
                       <div className="tl-org">MathWorks · Bangalore</div>
                     </div>
                     <p className="tl-detail">Designing engineering tools used by global teams. Focused on workflow optimization and discoverability.</p>
                   </div>
                 </div>
 
-                <div className="timeline-node highlight">
+                <div className="timeline-node">
                   <div className="node-dot"></div>
                   <div className="node-content">
                     <div className="tl-year">2021 — 2023</div>
@@ -132,7 +132,7 @@ export default function About() {
                       <span className="patent-granted-pill">Patent Granted</span>
                     </div>
                     <div className="tl-org-row">
-                      <img src="/iisc_logo.png" alt="IISc" className="tl-logo" />
+                      <img src="/IISC.png" alt="IISc" className="tl-logo" />
                       <div className="tl-org">Indian Institute of Science, Bangalore</div>
                     </div>
                     <p className="tl-detail">Research focused on cognitive load in engineering interfaces.</p>
@@ -145,7 +145,7 @@ export default function About() {
                     <div className="tl-year">2018 — 2021</div>
                     <div className="tl-role">Solution Consultant (Enterprise Systems)</div>
                     <div className="tl-org-row">
-                      <img src="/godrej_logo.png" alt="Godrej & Boyce" className="tl-logo" />
+                      <img src="/Godrej.png" alt="Godrej & Boyce" className="tl-logo" />
                       <div className="tl-org">Godrej & Boyce </div>
                     </div>
                     <p className="tl-detail">Engaged with users to uncover needs, pain points, and real-world workflows.
@@ -159,7 +159,7 @@ export default function About() {
                     <div className="tl-year">2014 — 2018</div>
                     <div className="tl-role">B.Tech Mechanical Engineering</div>
                     <div className="tl-org-row">
-                      <img src="/sliet_logo.png" alt="SLIET" className="tl-logo" />
+                      <img src="/sliet.png" alt="SLIET" className="tl-logo" />
                       <div className="tl-org">SLIET</div>
                     </div>
                     <p className="tl-detail">Technical foundation in engineering systems, mechanics, and design thinking.</p>
