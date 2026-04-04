@@ -32,13 +32,15 @@ export default function Hero() {
               → View Selected Work
             </a>
 
-            <a href="#about" className="btn-secondary">
-              → My Approach to Systems Design
-            </a>
-            
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-resume-pill">
-              → Download Resume
-            </a>
+            <div className="hero-secondary-group">
+              <a href="#about" className="btn-secondary">
+                → My Approach to Systems Design
+              </a>
+              
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-resume-pill">
+                → Download Resume
+              </a>
+            </div>
           </div>
 
         </div>
