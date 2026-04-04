@@ -991,6 +991,74 @@ const GeckoDemo = () => {
 };
 
 // =============================================================
+// EXCEL REPORT DEMO
+// Light-mode Excel simulation showcasing extracted telemetry data.
+// =============================================================
+const GeckoExcelReport = () => {
+  const excelData = [
+    { no: "GCK-102", rel: "R2024b", domain: "Control Systems", tool: "Simulink", problem: "Property Inspector context menu unfindable in nested subsystems.", verdict: "Yes", category: "Discoverability", confidence: "94%", solution: "Promote menu to top-level or add search-in-context." },
+    { no: "GCK-341", rel: "R2024a", domain: "Code Gen", tool: "Embedded Coder", problem: "Configuration parameters for AUTOSAR mapping are visually overlapping.", verdict: "Yes", category: "Accessibility", confidence: "89%", solution: "Implement dynamic spacing and responsive grid for params." },
+    { no: "GCK-089", rel: "R2024b", domain: "Data Analysis", tool: "MATLAB", problem: "Exporting 50+ variables requires manual selection for each, causing fatigue.", verdict: "Yes", category: "Efficiency", confidence: "97%", solution: "Add 'Select All' and 'Batch Export' mechanisms." },
+    { no: "GCK-512", rel: "R2023b", domain: "UI Components", tool: "App Designer", problem: "Drag-and-drop handles are too small for touch-interface laptops.", verdict: "Yes", category: "Discoverability", confidence: "91%", solution: "Increase hit-area padding and add visual hover state." }
+  ];
+
+  return (
+    <div style={{ background: "#f3f4f6", borderRadius: "12px", border: "1px solid #d1d5db", overflow: "hidden", color: "#374151", textAlign: "left", boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}>
+      {/* Excel Header/Ribbon */}
+      <div style={{ background: "#1b5e20", color: "white", padding: "0.5rem 1rem", fontSize: "0.75rem", display: "flex", gap: "1.5rem", alignItems: "center", fontWeight: "500" }}>
+        <div style={{ background: "white", color: "#1b5e20", padding: "2px 8px", borderRadius: "2px", fontWeight: "700" }}>File</div>
+        <div>Home</div>
+        <div>Insert</div>
+        <div>Page Layout</div>
+        <div>Data</div>
+        <div style={{ marginLeft: "auto", opacity: 0.8 }}>Gecko_Archive_Q3_Insights.xlsx</div>
+      </div>
+      <div style={{ background: "white", padding: "0.4rem 1rem", borderBottom: "1px solid #e5e7eb", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <div style={{ width: "60px", height: "20px", background: "#f3f4f6", border: "1px solid #d1d5db", borderRadius: "2px", fontSize: "0.7rem", display: "flex", alignItems: "center", justifyContent: "center", color: "#6b7280" }}>A1</div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        <div style={{ flex: 1, height: "20px", background: "#fff", border: "1px solid #d1d5db", borderRadius: "2px", padding: "0 8px", fontSize: "0.75rem", display: "flex", alignItems: "center" }}>Geck Number</div>
+      </div>
+      {/* Table Container */}
+      <div style={{ overflowX: "auto" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.75rem", background: "white" }}>
+          <thead>
+            <tr style={{ background: "#f9fafb" }}>
+              <th style={{ width: "30px", border: "1px solid #e5e7eb" }}></th>
+              {["Geck No.", "Release", "Product Domain", "Related Tool", "Geck Problem Statement", "Verdict (Usability?)", "Category", "AI Confidence", "Solution Direction"].map((h) => (
+                <th key={h} style={{ border: "1px solid #e5e7eb", padding: "0.5rem 0.75rem", fontWeight: "600", color: "#4b5563" }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {excelData.map((row, i) => (
+              <tr key={i}>
+                <td style={{ background: "#f9fafb", border: "1px solid #e5e7eb", textAlign: "center", color: "#9ca3af", fontWeight: "600" }}>{i + 2}</td>
+                <td style={{ border: "1px solid #e5e7eb", padding: "0.75rem", fontWeight: "700", color: "#1b5e20" }}>{row.no}</td>
+                <td style={{ border: "1px solid #e5e7eb", padding: "0.75rem" }}>{row.rel}</td>
+                <td style={{ border: "1px solid #e5e7eb", padding: "0.75rem" }}>{row.domain}</td>
+                <td style={{ border: "1px solid #e5e7eb", padding: "0.75rem" }}>{row.tool}</td>
+                <td style={{ border: "1px solid #e5e7eb", padding: "0.75rem", minWidth: "200px", lineHeight: "1.4" }}>{row.problem}</td>
+                <td style={{ border: "1px solid #e5e7eb", padding: "0.75rem", textAlign: "center", background: "#ecfdf5", color: "#065f46", fontWeight: "600" }}>{row.verdict}</td>
+                <td style={{ border: "1px solid #e5e7eb", padding: "0.75rem" }}><span style={{ padding: "2px 6px", background: "#f3f4f6", borderRadius: "4px", fontSize: "0.7rem" }}>{row.category}</span></td>
+                <td style={{ border: "1px solid #e5e7eb", padding: "0.75rem", textAlign: "right", fontWeight: "600" }}>{row.confidence}</td>
+                <td style={{ border: "1px solid #e5e7eb", padding: "0.75rem", fontSize: "0.7rem", color: "#6b7280", fontStyle: "italic", lineHeight: "1.4" }}>{row.solution}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {/* Footer bar */}
+      <div style={{ background: "#f9fafb", borderTop: "1px solid #e5e7eb", padding: "0.3rem 1rem", fontSize: "0.65rem", display: "flex", gap: "1rem", color: "#6b7280" }}>
+        <div style={{ color: "#1b5e20", fontWeight: "700", borderBottom: "2px solid #1b5e20" }}>Sheet1</div>
+        <div>Sheet2</div>
+        <div>Sheet3</div>
+        <div style={{ marginLeft: "auto" }}>Ready</div>
+      </div>
+    </div>
+  );
+};
+
+// =============================================================
 // MAIN EXPORT — CaseStudyGeckoAI
 // Renders sticky nav + all 14 sections in order + demo prototype.
 // All component logic lives in this single file for easy maintenance.
@@ -1076,6 +1144,16 @@ export default function CaseStudyGeckoAI({ onBack, displaySections, project }) {
           <p className="reveal" style={{ color: "var(--cosmic-muted-fg)", marginBottom: "4rem" }}>Conceptualized flow simulating the user journey through the Gecko AI workspace.</p>
           <div className="reveal"><GeckoDemo /></div>
         </div>
+        
+        {/* Excel Report Section */}
+        <div className="cosmic-section-padding" style={{ maxWidth: "80rem", margin: "0 auto", textAlign: "center", borderTop: "1px solid var(--cosmic-border)" }}>
+          <h2 className="reveal" style={{ fontSize: "2.5rem", fontWeight: "700", marginBottom: "2rem", color: "var(--cosmic-fg)" }}>Automated Insight Exports</h2>
+          <p className="reveal" style={{ color: "var(--cosmic-muted-fg)", marginBottom: "4rem", maxWidth: "40rem", margin: "0 auto 4rem" }}>
+            The final output of the pipeline is a structured qualitative database. Researchers can extract these high-confidence insights instantly as formatted reports for cross-team prioritization.
+          </p>
+          <div className="reveal"><GeckoExcelReport /></div>
+        </div>
+
         <div style={{ height: "10rem" }} />
       </main>
     </div>
