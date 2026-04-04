@@ -1542,12 +1542,48 @@ nav {
   margin-bottom: 0.25rem;
 }
 
+.tl-role-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.tl-org-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.tl-logo {
+  height: 20px;
+  width: auto;
+  opacity: 0.9;
+}
+
 .tl-org {
   font-family: var(--sans);
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--ink2);
-  margin-bottom: 0.75rem;
+}
+
+.patent-granted-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--accent);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.timeline-node.highlight .tl-role {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .tl-detail {
