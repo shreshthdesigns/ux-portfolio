@@ -362,8 +362,13 @@ function GeckoArchitecture() {
           </p>
         </div>
         <div style={{ maxWidth: "900px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "1rem" }}>
-          {layers.map((layer, i) => (
-            <div key={layer.id} style={{ display: "grid", gridTemplateColumns: "180px 1fr", background: layer.isHero ? "rgba(255,255,255,0.03)" : "rgba(3, 5, 10, 0.6)", border: "1px solid", borderColor: layer.isHero ? "var(--cosmic-purple)" : "var(--cosmic-border)", borderRadius: "16px", padding: "2rem", position: "relative", overflow: "hidden", boxShadow: layer.isHero ? "0 0 30px rgba(168, 85, 247, 0.15)" : "0 10px 30px rgba(0,0,0,0.2)", transform: `scale(${1 - i * 0.02})`, transformOrigin: "bottom center", zIndex: 10 - i }}>
+          <div style={{ textAlign: "center", color: "var(--cosmic-muted-fg)", fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: "700", marginBottom: "0.5rem" }}>RAW telemetry flow</div>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "2rem" }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cosmic-muted-fg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="4" x2="12" y2="20" /><polyline points="19 13 12 20 5 13" /></svg>
+          </div>
+
+          {layers.slice().reverse().map((layer, i) => (
+            <div key={layer.id} style={{ display: "grid", gridTemplateColumns: "180px 1fr", background: layer.isHero ? "rgba(255,255,255,0.03)" : "rgba(3, 5, 10, 0.6)", border: "1px solid", borderColor: layer.isHero ? "var(--cosmic-purple)" : "var(--cosmic-border)", borderRadius: "16px", padding: "2rem", position: "relative", overflow: "hidden", boxShadow: layer.isHero ? "0 0 30px rgba(168, 85, 247, 0.15)" : "0 10px 30px rgba(0,0,0,0.2)", transform: `scale(${1 - i * 0.02})`, transformOrigin: "top center", zIndex: 10 - i }}>
               {layer.isHero && <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "200px", background: "linear-gradient(90deg, rgba(168, 85, 247, 0.15), transparent)", zIndex: 0 }} />}
               <div style={{ position: "relative", zIndex: 1, borderRight: "1px solid rgba(255,255,255,0.05)", paddingRight: "2rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                 <div style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", marginBottom: "0.5rem" }}>{layer.id}</div>
@@ -381,10 +386,6 @@ function GeckoArchitecture() {
               </div>
             </div>
           ))}
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cosmic-muted-fg)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="20" x2="12" y2="4" /><polyline points="5 13 12 4 19 13" /></svg>
-          </div>
-          <div style={{ textAlign: "center", color: "var(--cosmic-muted-fg)", fontSize: "0.75rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: "700" }}>Raw Telemetry Flow</div>
         </div>
       </div>
     </section>
