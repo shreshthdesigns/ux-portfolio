@@ -13,7 +13,6 @@ import NDAGate from "./components/NDAGate";
 export default function App() {
   const [activeProject, setActiveProject] = useState(null);
   const [activeSection, setActiveSection] = useState("hero");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (activeProject) return; // Don't track scroll if in case study
@@ -62,14 +61,14 @@ export default function App() {
         <div className="wrap nav-in">
           <a 
             href="#hero" 
-            className="logo-container"
+            className="logo"
             style={activeProject ? { color: getLogoColor() } : {}}
             onClick={() => setActiveProject(null)}
           >
             Shubham Shreshth
           </a>
 
-          <ul className="nav-links desktop-only">
+          <ul className="nav-links">
             {activeProject ? (
               <li>
                 <a href="#contact" onClick={(e) => {
@@ -95,15 +94,6 @@ export default function App() {
               </>
             )}
           </ul>
-
-          <div className="mobile-nav-row mobile-only">
-             <a href="#work" onClick={() => setActiveProject(null)}>Works</a>
-             <a href="#patent" onClick={() => setActiveProject(null)}>Patent</a>
-             <a href="#about" onClick={() => setActiveProject(null)}>About</a>
-             <a href="#notes" onClick={() => setActiveProject(null)}>Notes</a>
-             <a href="#shapes" onClick={() => setActiveProject(null)}>Beyond Scr..</a>
-             <a href="#contact" onClick={() => setActiveProject(null)}>Contact</a>
-          </div>
         </div>
       </nav>
 

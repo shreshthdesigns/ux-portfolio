@@ -61,7 +61,7 @@ export default function HeroVisual() {
         System Clarity
       </div>
 
-      <svg viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
+      <svg viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet">
         {positions.map((node, i) =>
           positions.map((target, j) =>
             i < j ? (

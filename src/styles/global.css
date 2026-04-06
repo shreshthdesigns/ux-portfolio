@@ -40,6 +40,12 @@ body {
   line-height: 1.7;
 }
 
+/* Base Link Reset */
+a, a:link, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 .wrap {
   max-width: 1100px;
   margin: 0 auto;
@@ -76,7 +82,7 @@ nav {
   padding: 1rem 0;
 }
 
-.logo {
+.logo, .logo:visited, .logo:active {
   font-family: var(--sans);
   font-weight: 600;
   font-size: 1.15rem;
@@ -96,7 +102,7 @@ nav {
   list-style: none;
 }
 
-.nav-links a {
+.nav-links a, .nav-links a:visited, .nav-links a:active {
   font-family: var(--sans);
   font-size: .95rem;
   font-weight: 500;
@@ -174,7 +180,7 @@ nav {
   align-items: flex-start;
 }
 
-.btn-resume-pill {
+.btn-resume-pill, .btn-resume-pill:visited, .btn-resume-pill:active {
   display: inline-flex;
   align-items: center;
   padding: 0.6rem 1.2rem;
@@ -5983,113 +5989,10 @@ nav {
     text-align: center;
   }
 
-  /* Figma Mobile Nav - Single Container Centered Row */
-  nav .nav-in {
-    padding: 1.25rem 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .logo-container {
-    font-size: 1.3rem !important;
-    font-weight: 700 !important;
-    color: var(--ink) !important;
-    text-align: center !important;
-    width: 100% !important;
-    margin-bottom: 0.75rem !important;
-    display: block !important;
-    text-decoration: none;
-  }
-
-  .mobile-nav-row {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 0.75rem !important;
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    list-style: none;
-  }
-
-  .mobile-nav-row a {
-    font-size: 0.75rem !important;
-    font-weight: 600 !important;
-    color: var(--ink3) !important;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-  }
-
-  /* Centered Hero - Aggressive */
-  #hero .hero-content {
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-  }
-
-  #hero .section-label {
-    margin: 0 auto 1.5rem !important;
-    text-align: center !important;
-  }
-
-  #hero .hero-hl {
-    text-align: center !important;
-    margin: 0 auto 1.5rem !important;
-  }
-
-  #hero .hero-sub {
-    text-align: center !important;
-    margin: 0 auto 2.5rem !important;
-  }
-
-  #hero .hero-highlights {
-    justify-content: center !important;
-    align-items: center !important;
-    margin-bottom: 2.5rem !important;
-  }
-
-  /* SVG Visual Position per Figma */
-  .hero-visual-mobile {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    height: 300px !important; /* Generous height */
-    margin: 2rem auto !important;
-    background: rgba(0,0,0,0.02);
-    border-radius: 12px;
-  }
-
-  .hero-visual-mobile .hero-visual {
-    width: 100% !important;
-    height: 240px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  .hero-visual-mobile .hero-visual svg {
-    width: 100% !important;
-    height: 100% !important;
-  }
-
-  .svg-label {
-    margin-top: 1rem !important;
-    font-size: 0.7rem !important;
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    color: var(--ink3);
-    font-weight: 700;
-  }
-
-  #hero .hero-cta {
-    justify-content: center !important;
-    align-items: center !important;
+  /* Contact section stack */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
   }
 }
 

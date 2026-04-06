@@ -20,13 +20,7 @@ export default function Hero() {
             Focused on reducing cognitive load and improving system-level usability.
           </p>
 
-          {/* 🔹 Mobile Video Position — now per Figma: below subtitle */}
-          <div className="mobile-only hero-visual-mobile">
-            <HeroVisual />
-            <div className="svg-label">SYSTEM CLARITY</div>
-          </div>
-
-          {/* 🔹 Highlights — centered below visual on mobile */}
+          {/* 🔹 Highlights — moved outside CTA */}
           <div className="hero-highlights">
             <div className="hero-nugget">Empathy-led Initiatives</div>
             <div className="hero-nugget">Engineer-aligned Decisions</div>
@@ -40,11 +34,11 @@ export default function Hero() {
 
             <div className="hero-secondary-group">
               <a href="#about" className="btn-secondary">
-                → My Approach to System Design
+                → My Approach to Systems Design
               </a>
               
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-resume-link">
-                Download Resume
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-resume-pill">
+                → Download Resume
               </a>
             </div>
           </div>
