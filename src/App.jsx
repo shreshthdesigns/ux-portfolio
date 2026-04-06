@@ -13,6 +13,7 @@ import NDAGate from "./components/NDAGate";
 export default function App() {
   const [activeProject, setActiveProject] = useState(null);
   const [activeSection, setActiveSection] = useState("hero");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (activeProject) return; // Don't track scroll if in case study
@@ -68,7 +69,7 @@ export default function App() {
             Shubham Shreshth
           </a>
 
-          <ul className="nav-links">
+          <ul className="nav-links desktop-only">
             {activeProject ? (
               <li>
                 <a href="#contact" onClick={(e) => {
@@ -94,7 +95,32 @@ export default function App() {
               </>
             )}
           </ul>
+
+          <div className="mobile-nav-controls mobile-only">
+             <ul className="mobile-primary-links">
+                <li><a href="#work" onClick={() => setActiveProject(null)}>Work</a></li>
+                <li><a href="#patent" onClick={() => setActiveProject(null)}>Patent</a></li>
+                <li><a href="#about" onClick={() => setActiveProject(null)}>About</a></li>
+             </ul>
+             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                {isMenuOpen ? "Close" : "Menu"}
+             </button>
+          </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div className="mobile-menu-overlay">
+            <ul className="mobile-menu-links">
+              <li><a href="#work" onClick={() => setIsMenuOpen(false)}>Work</a></li>
+              <li><a href="#patent" onClick={() => setIsMenuOpen(false)}>Patent</a></li>
+              <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About</a></li>
+              <li><a href="#notes" onClick={() => setIsMenuOpen(false)}>Notes</a></li>
+              <li><a href="#shapes" onClick={() => setIsMenuOpen(false)}>Beyond Screen</a></li>
+              <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
+            </ul>
+          </div>
+        )}
       </nav>
 
       {activeProject ? (
