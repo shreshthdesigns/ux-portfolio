@@ -6008,9 +6008,9 @@ nav {
 
   /* Mobile Nav Refinement */
   .mobile-nav-controls {
-    display: flex;
+    display: flex !important; /* Override .mobile-only display: block */
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
     flex: 1;
     justify-content: flex-end;
   }
@@ -6076,13 +6076,20 @@ nav {
   /* Hero Visual Visibility Fix */
   .hero-visual-mobile {
     width: 100%;
-    min-height: 250px; /* Ensure it has height */
+    min-height: 280px !important; /* Force height */
     margin: 1.5rem auto 2.5rem;
     display: flex !important;
     justify-content: center;
     align-items: center;
-    background: rgba(0,0,0,0.02); /* Subtle bg to see area */
+    background: rgba(0,0,0,0.03); 
     border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .hero-visual-mobile .hero-visual {
+     width: 100%;
+     height: 100%;
+     display: flex !important;
   }
 }
 

@@ -98,9 +98,9 @@ export default function App() {
 
           <div className="mobile-nav-controls mobile-only">
              <ul className="mobile-primary-links">
-                <li><a href="#work" onClick={() => setActiveProject(null)}>Work</a></li>
-                <li><a href="#patent" onClick={() => setActiveProject(null)}>Patent</a></li>
-                <li><a href="#about" onClick={() => setActiveProject(null)}>About</a></li>
+                <li><a href="#work" onClick={() => { setActiveProject(null); setIsMenuOpen(false); }}>Works</a></li>
+                <li><a href="#patent" onClick={() => { setActiveProject(null); setIsMenuOpen(false); }}>Patent</a></li>
+                <li><a href="#about" onClick={() => { setActiveProject(null); setIsMenuOpen(false); }}>About</a></li>
              </ul>
              <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? "Close" : "Menu"}
