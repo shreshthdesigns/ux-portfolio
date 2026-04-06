@@ -25,7 +25,7 @@ export default function About() {
             <div className="about-identity-info">
               <h3 className="about-name">Shubham Shreshth</h3>
               <p className="about-role">UX Designer — Systems &amp; Enterprise</p>
-              <p className="about-location desktop-only">Bangalore</p>
+              <p className="about-location">Bangalore</p>
             </div>
 
             <div className="about-tags">
@@ -34,7 +34,7 @@ export default function About() {
               <span className="impact-tag">AI-Assisted Design</span>
             </div>
 
-            <div className="about-tools-section desktop-only">
+            <div className="about-tools-section">
               <div className="about-tools-label">Tools I Use</div>
               <div className="about-tools-grid">
                 <div className="tool-icon-item" title="Figma">
@@ -72,75 +72,44 @@ export default function About() {
           {/* ================= RIGHT – NARRATIVE & TIMELINE ================= */}
           <div className="about-narrative-col">
 
-            {/* Narrative Story - Condensed on Mobile */}
-            <div className={`about-story ${!isNarrativeExpanded ? 'mobile-collapsed' : ''}`}>
+            {/* Narrative Story */}
+            <div className={`about-story`}>
               <h3 className="narrative-heading">My Journey into Systems UX</h3>
 
               <div className="narrative-body">
                 <p>
                   I began my career as a Solution Consultant at Godrej & Boyce, engaging with enterprise users to uncover needs, navigate constraints, and shape solutions grounded in real-world workflows.
                 </p>
-                <div className="desktop-only">
-                  <p>
-                    At MathWorks, I realized usability issues often stem from deeper system behavior — not just the interface. I focus on turning that complexity into clear, predictable experiences.
-                  </p>
-                  <p>
-                    Today, I design for scale — simplifying engineering workflows and making complex systems understandable.
-                  </p>
-                </div>
-                {isNarrativeExpanded && (
-                  <div className="mobile-only">
-                    <p>
-                      At MathWorks, I realized usability issues often stem from deeper system behavior — not just the interface. I focus on turning that complexity into clear, predictable experiences.
-                    </p>
-                    <p>
-                      Today, I design for scale — simplifying engineering workflows and making complex systems understandable.
-                    </p>
-                  </div>
-                )}
+                <p>
+                  At MathWorks, I realized usability issues often stem from deeper system behavior — not just the interface. I focus on turning that complexity into clear, predictable experiences.
+                </p>
+                <p>
+                  Today, I design for scale — simplifying engineering workflows and making complex systems understandable.
+                </p>
               </div>
             </div>
 
-            <button 
-              className="mobile-only btn-read-more" 
-              onClick={() => setIsNarrativeExpanded(!isNarrativeExpanded)}
-              style={{
-                background: "none",
-                border: "none",
-                color: "var(--accent)",
-                fontWeight: "600",
-                fontSize: "0.85rem",
-                padding: "0.5rem 0",
-                cursor: "pointer",
-                marginBottom: "2rem"
-              }}
-            >
-              {isNarrativeExpanded ? "↑ Show less" : "↓ Read more about my journey"}
-            </button>
+            {/* Design Philosophy Blocks */}
+            <div className="about-philosophy">
+              <h3 className="narrative-heading">Design Philosophy</h3>
 
-            {/* Design Philosophy Blocks - Hidden on Mobile unless expanded */}
-            {(isNarrativeExpanded || window.innerWidth > 1024) && (
-              <div className="about-philosophy">
-                <h3 className="narrative-heading">Design Philosophy</h3>
+              <div className="philosophy-grid">
+                <div className="philosophy-card">
+                  <h4>Systems Lens</h4>
+                  <p>I approach UX problems by understanding the larger system behind the interface.</p>
+                </div>
 
-                <div className="philosophy-grid">
-                  <div className="philosophy-card">
-                    <h4>Systems Lens</h4>
-                    <p>I approach UX problems by understanding the larger system behind the interface.</p>
-                  </div>
+                <div className="philosophy-card">
+                  <h4>Precision Empathy</h4>
+                  <p>Enterprise UX requires identifying friction that expert users rarely articulate.</p>
+                </div>
 
-                  <div className="philosophy-card">
-                    <h4>Precision Empathy</h4>
-                    <p>Enterprise UX requires identifying friction that expert users rarely articulate.</p>
-                  </div>
-
-                  <div className="philosophy-card">
-                    <h4>Business Sensibility</h4>
-                    <p>Good design balances user needs, technical realities, and business goals.</p>
-                  </div>
+                <div className="philosophy-card">
+                  <h4>Business Sensibility</h4>
+                  <p>Good design balances user needs, technical realities, and business goals.</p>
                 </div>
               </div>
-            )}
+            </div>
 
             <div className="about-timeline">
               <div className="about-timeline-header">

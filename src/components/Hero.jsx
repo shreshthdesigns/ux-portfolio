@@ -45,9 +45,7 @@ export default function Hero() {
 
         </div>
 
-        <div className="desktop-only">
-          <HeroVisual />
-        </div>
+        <HeroVisual />
 
       </div>
     </section>
