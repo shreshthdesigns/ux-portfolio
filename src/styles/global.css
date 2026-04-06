@@ -333,7 +333,7 @@ nav {
 /* ====================== BUTTONS ====================== */
 /* ===================================================== */
 
-.btn-primary {
+.btn-primary, .btn-primary:visited, .btn-primary:active {
   background: var(--accent);
   color: white;
   padding: .95rem 1.9rem;
@@ -348,7 +348,7 @@ nav {
   opacity: .9;
 }
 
-.btn-secondary {
+.btn-secondary, .btn-secondary:visited, .btn-secondary:active {
   border: 1px solid var(--border);
   padding: .95rem 1.9rem;
   border-radius: 100px;
