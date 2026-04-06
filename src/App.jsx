@@ -62,7 +62,7 @@ export default function App() {
         <div className="wrap nav-in">
           <a 
             href="#hero" 
-            className="logo"
+            className="logo-container"
             style={activeProject ? { color: getLogoColor() } : {}}
             onClick={() => setActiveProject(null)}
           >
@@ -96,16 +96,13 @@ export default function App() {
             )}
           </ul>
 
-          <div className="mobile-nav-ref mobile-only">
-            <div className="mobile-name">Shubham Shreshth</div>
-            <ul className="mobile-nav-row">
-              <li><a href="#work" onClick={() => setActiveProject(null)}>Works</a></li>
-              <li><a href="#patent" onClick={() => setActiveProject(null)}>Patent</a></li>
-              <li><a href="#about" onClick={() => setActiveProject(null)}>About</a></li>
-              <li><a href="#notes" onClick={() => setActiveProject(null)}>Notes</a></li>
-              <li><a href="#shapes" onClick={() => setActiveProject(null)}>Beyond Scr..</a></li>
-              <li><a href="#contact" onClick={() => setActiveProject(null)}>Contact</a></li>
-            </ul>
+          <div className="mobile-nav-row mobile-only">
+             <a href="#work" onClick={() => setActiveProject(null)}>Works</a>
+             <a href="#patent" onClick={() => setActiveProject(null)}>Patent</a>
+             <a href="#about" onClick={() => setActiveProject(null)}>About</a>
+             <a href="#notes" onClick={() => setActiveProject(null)}>Notes</a>
+             <a href="#shapes" onClick={() => setActiveProject(null)}>Beyond Scr..</a>
+             <a href="#contact" onClick={() => setActiveProject(null)}>Contact</a>
           </div>
         </div>
       </nav>

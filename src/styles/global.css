@@ -5983,92 +5983,73 @@ nav {
     text-align: center;
   }
 
-  /* Figma Mobile Nav - 2 Row Centered */
+  /* Figma Mobile Nav - Single Container Centered Row */
   nav .nav-in {
-    padding: 1rem 0 !important;
+    padding: 1.25rem 0 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    text-align: center !important;
   }
 
-  .mobile-nav-ref {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    gap: 0.5rem !important;
-  }
-
-  .mobile-name {
-    font-size: 1.2rem !important;
+  .logo-container {
+    font-size: 1.3rem !important;
     font-weight: 700 !important;
     color: var(--ink) !important;
-    margin-bottom: 0.5rem !important;
     text-align: center !important;
     width: 100% !important;
+    margin-bottom: 0.75rem !important;
+    display: block !important;
+    text-decoration: none;
   }
 
   .mobile-nav-row {
     display: flex !important;
     justify-content: center !important;
-    gap: 0.6rem !important;
-    list-style: none !important;
+    gap: 0.75rem !important;
     width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
-  }
-
-  .mobile-nav-row li {
-    display: inline-block !important;
+    list-style: none;
   }
 
   .mobile-nav-row a {
-    font-size: 0.7rem !important;
+    font-size: 0.75rem !important;
     font-weight: 600 !important;
     color: var(--ink3) !important;
-    text-decoration: none !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.02em !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
   }
 
-  /* Centered Hero - Figma Style */
+  /* Centered Hero - Aggressive */
   #hero .hero-content {
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    max-width: 100% !important;
-    padding: 0 1rem !important;
+    width: 100% !important;
+  }
+
+  #hero .section-label {
+    margin: 0 auto 1.5rem !important;
+    text-align: center !important;
   }
 
   #hero .hero-hl {
     text-align: center !important;
     margin: 0 auto 1.5rem !important;
-    font-size: 2.2rem !important;
   }
 
   #hero .hero-sub {
     text-align: center !important;
-    margin: 0 auto 2rem !important;
-    font-size: 0.95rem !important;
-    max-width: 90% !important;
+    margin: 0 auto 2.5rem !important;
   }
 
   #hero .hero-highlights {
-    width: 100% !important;
     justify-content: center !important;
     align-items: center !important;
-    flex-direction: column !important;
-    gap: 0.5rem !important;
-    margin-bottom: 2rem !important;
-  }
-
-  #hero .hero-nugget {
-    text-align: center !important;
-    font-size: 0.85rem !important;
-    padding: 0.25rem 0 !important;
+    margin-bottom: 2.5rem !important;
   }
 
   /* SVG Visual Position per Figma */
@@ -6078,52 +6059,37 @@ nav {
     align-items: center !important;
     justify-content: center !important;
     width: 100% !important;
-    height: 250px !important; /* Fixed height for mobile */
-    margin: 1.5rem auto !important;
+    height: 300px !important; /* Generous height */
+    margin: 2rem auto !important;
+    background: rgba(0,0,0,0.02);
+    border-radius: 12px;
   }
 
   .hero-visual-mobile .hero-visual {
     width: 100% !important;
-    height: 200px !important;
+    height: 240px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
   }
 
   .hero-visual-mobile .hero-visual svg {
-    width: auto !important;
+    width: 100% !important;
     height: 100% !important;
-    max-width: 100% !important;
   }
 
   .svg-label {
-    margin-top: 0.75rem !important;
-    font-size: 0.6rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.2em !important;
-    color: var(--ink3) !important;
-    font-weight: 700 !important;
+    margin-top: 1rem !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--ink3);
+    font-weight: 700;
   }
 
   #hero .hero-cta {
-    width: 100% !important;
-    align-items: center !important;
     justify-content: center !important;
-    margin-top: 1rem !important;
-  }
-
-  #hero .hero-secondary-group {
-    width: 100% !important;
     align-items: center !important;
-    gap: 1rem !important;
-  }
-
-  .btn-resume-link {
-    font-size: 0.95rem !important;
-    color: var(--accent) !important;
-    text-decoration: underline !important;
-    font-weight: 600 !important;
-    margin-top: 0.75rem !important;
   }
 }
 
