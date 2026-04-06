@@ -48,7 +48,25 @@ function GeckoHero() {
 // =============================================================
 function GeckoProblem() {
   const generateLogs = () => {
-    // ...
+    const logs = [];
+    const types = ["ERR", "WARN", "INFO", "DEBUG"];
+    const contexts = ["LayoutEngine", "DataGrid", "APIGateway", "AuthService", "RenderThread"];
+    const msgs = [
+      "Cannot read properties of undefined (reading 'length')",
+      "Failed to load resource: the server responded with a status of 404",
+      "Unhandled promise rejection: NetworkError",
+      "Component remounted 42 times unnecessarily",
+      "Memory leak detected in DOM node detachment",
+      "Null reference exception in callback handler",
+      "Maximum call stack size exceeded"
+    ];
+    for (let i = 0; i < 30; i++) {
+      const type = types[Math.floor(Math.random() * types.length)];
+      const ctx = contexts[Math.floor(Math.random() * contexts.length)];
+      const msg = msgs[Math.floor(Math.random() * msgs.length)];
+      const ts = new Date(Date.now() - Math.random() * 10000000).toISOString();
+      logs.push(`[${ts}] [${type}] [${ctx}] ${msg}`);
+    }
     return logs;
   };
   const logs = generateLogs();
