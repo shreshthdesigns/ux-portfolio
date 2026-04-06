@@ -10,7 +10,7 @@ export default function Contact() {
               Let’s Work Together
             </div>
 
-            <h2 className="contact-title">
+            <h2 className="contact-title desktop-only">
               Designing clarity
               <br />
               for complex systems.
@@ -34,7 +34,7 @@ export default function Contact() {
           <div className="contact-right">
 
             {/* Location */}
-            <div className="contact-block">
+            <div className="contact-block desktop-only">
               <div className="contact-label">Location</div>
               <div className="contact-value">Bangalore, India</div>
             </div>
@@ -56,14 +56,14 @@ export default function Contact() {
                 href="https://www.behance.net/YOUR-BEHANCE"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="contact-link"
+                className="contact-link desktop-only"
               >
                 Behance →
               </a>
 
               <a
                 href="tel:+91XXXXXXXXXX"
-                className="contact-phone"
+                className="contact-phone desktop-only"
               >
                 +91 XXXXX XXXXX
               </a>

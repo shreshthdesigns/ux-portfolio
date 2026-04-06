@@ -5646,9 +5646,37 @@ nav {
   }
 
   .impact-card {
-    grid-template-columns: 1fr;
-    margin-bottom: 1.25rem; /* Remove negative-margin stacking on mobile */
-    padding: 1.75rem 1.5rem;
+    grid-template-columns: 1fr !important;
+    margin-bottom: 1.25rem;
+    padding: 1.5rem !important;
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column-reverse; /* Thumbnail at bottom for better flow if desired, or content first? User said Title first. */
+  }
+
+  /* Title first strategy */
+  .impact-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .impact-card-content {
+    order: 1;
+  }
+
+  .impact-card-visual {
+    order: 2;
+    display: block !important; /* Ensure it shows */
+    margin-top: 1rem;
+  }
+
+  .impact-image-wrap {
+    height: 180px; /* Reduced height for mobile */
+  }
+
+  .impact-headline {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.5rem;
   }
 
   /* Remove all stack transforms on mobile — just linear list */
@@ -5866,5 +5894,104 @@ nav {
   .impact-headline {
     font-size: 1.4rem;
   }
+}
+
+/* ======================================================= */
+/* ============ COMPREHENSIVE MOBILE OVERRIDES =========== */
+/* ============ TARGET: 320px – 1024px         ============ */
+/* ======================================================= */
+
+@media (max-width: 1024px) {
+  :root {
+    --section-pad: 4rem; /* Reduced from 8rem */
+  }
+
+  /* Global Layout */
+  .wrap {
+    padding: 0 1.25rem !important; /* ~16-20px */
+  }
+
+  section {
+    padding: var(--section-pad) 0 !important;
+  }
+
+  /* Typography Scale */
+  h1, .hero-hl {
+    font-size: 2.25rem !important; /* ~36px */
+    line-height: 1.1 !important;
+  }
+
+  h2, .sec-title {
+    font-size: 1.75rem !important; /* ~28px */
+    line-height: 1.2 !important;
+  }
+
+  body, p, .hero-sub, .sec-sub {
+    font-size: 0.95rem !important; /* ~15px */
+    line-height: 1.6 !important;
+  }
+
+  /* Utility removals */
+  .desktop-only {
+    display: none !important;
+  }
+  
+  .mobile-only {
+    display: block !important;
+  }
+}
+
+/* Phone Focus: 320px – 480px */
+@media (max-width: 480px) {
+  :root {
+    --section-pad: 3.5rem;
+  }
+
+  .wrap {
+    padding: 0 1rem !important; /* Strict 16px */
+  }
+
+  h1, .hero-hl {
+    font-size: 2rem !important; /* ~32px */
+  }
+
+  h2, .sec-title {
+    font-size: 1.5rem !important; /* ~24px */
+  }
+
+  .hero-support, .hero-sub {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Thumb-friendly targets */
+  a, button, .btn-primary, .btn-secondary, .btn-resume-pill {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-cta {
+    width: 100%;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  /* Contact section stack */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Default Desktop State for Mobile Specific Utilities */
+.mobile-only {
+  display: none !important;
 }
 

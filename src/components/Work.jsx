@@ -83,9 +83,9 @@ export default function Work({ setActiveProject }) {
               {/* Left: Content */}
               <div className="impact-card-content">
                 <div className="impact-headline">{project.impact}</div>
-                <div className="impact-desc">{project.description}</div>
+                <div className="impact-desc desktop-only">{project.description}</div>
 
-                <div className="impact-tags">
+                <div className="impact-tags desktop-only">
                   {project.tags.map((tag, i) => (
                     <span key={i} className="impact-tag">{tag}</span>
                   ))}
