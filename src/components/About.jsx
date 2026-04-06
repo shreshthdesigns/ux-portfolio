@@ -52,20 +52,11 @@ export default function About() {
                 <div className="tool-icon-item" title="Excel">
                   <img src="/Excel.png" alt="Excel" />
                 </div>
-                <div className="tool-icon-item" title="Adobe Suite">
-                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19.16 4H28.7L16.01 27.5L3.3 4H12.84L16.01 10.32L19.16 4ZM16.01 16.06L20.44 24.87H11.58L16.01 16.06Z" fill="#FF0000"/>
-                  </svg>
+                <div className="tool-icon-item" title="Miro">
+                  <img src="/miro icon.png" alt="Miro" />
                 </div>
-                <div className="tool-icon-item" title="React">
-                  <svg viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="0" cy="0" r="2.05" fill="#61dafb"/>
-                    <g stroke="#61dafb" strokeWidth="1" fill="none">
-                      <ellipse rx="11" ry="4.2"/>
-                      <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
-                      <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
-                    </g>
-                  </svg>
+                <div className="tool-icon-item" title="Jira">
+                  <img src="/jiraicon.jpg" alt="Jira" />
                 </div>
                 <div className="tool-icon-item" title="AI / LLM">
                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
