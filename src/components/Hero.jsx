@@ -28,6 +28,11 @@ export default function Hero() {
           </div>
 
           <div className="hero-cta">
+            {/* 🔹 Mobile Video Position — below title/highlights, above CTAs */}
+            <div className="mobile-only hero-visual-mobile">
+              <HeroVisual />
+            </div>
+
             <a href="#work" className="btn-primary">
               → View Selected Work
             </a>
