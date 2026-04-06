@@ -96,31 +96,18 @@ export default function App() {
             )}
           </ul>
 
-          <div className="mobile-nav-controls mobile-only">
-             <ul className="mobile-primary-links">
-                <li><a href="#work" onClick={() => { setActiveProject(null); setIsMenuOpen(false); }}>Works</a></li>
-                <li><a href="#patent" onClick={() => { setActiveProject(null); setIsMenuOpen(false); }}>Patent</a></li>
-                <li><a href="#about" onClick={() => { setActiveProject(null); setIsMenuOpen(false); }}>About</a></li>
-             </ul>
-             <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                {isMenuOpen ? "Close" : "Menu"}
-             </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu Overlay */}
-        {isMenuOpen && (
-          <div className="mobile-menu-overlay">
-            <ul className="mobile-menu-links">
-              <li><a href="#work" onClick={() => setIsMenuOpen(false)}>Work</a></li>
-              <li><a href="#patent" onClick={() => setIsMenuOpen(false)}>Patent</a></li>
-              <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About</a></li>
-              <li><a href="#notes" onClick={() => setIsMenuOpen(false)}>Notes</a></li>
-              <li><a href="#shapes" onClick={() => setIsMenuOpen(false)}>Beyond Screen</a></li>
-              <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
+          <div className="mobile-nav-ref mobile-only">
+            <div className="mobile-name">Shubham Shreshth</div>
+            <ul className="mobile-nav-row">
+              <li><a href="#work" onClick={() => setActiveProject(null)}>Works</a></li>
+              <li><a href="#patent" onClick={() => setActiveProject(null)}>Patent</a></li>
+              <li><a href="#about" onClick={() => setActiveProject(null)}>About</a></li>
+              <li><a href="#notes" onClick={() => setActiveProject(null)}>Notes</a></li>
+              <li><a href="#shapes" onClick={() => setActiveProject(null)}>Beyond Scr..</a></li>
+              <li><a href="#contact" onClick={() => setActiveProject(null)}>Contact</a></li>
             </ul>
           </div>
-        )}
+        </div>
       </nav>
 
       {activeProject ? (
