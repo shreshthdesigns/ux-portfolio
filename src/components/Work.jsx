@@ -1,4 +1,5 @@
 import { useState } from "react";
+import GeckoTableArt from "./case-study/GeckoTableArt";
 
 export default function Work({ setActiveProject }) {
 
@@ -28,7 +29,7 @@ export default function Work({ setActiveProject }) {
       description: "AI system transforming large bug report datasets into actionable UX intelligence.",
       title: "AI-Driven UX Mining",
       tags: ["AI Workflows", "UX Intelligence", "Data Mining"],
-      image: "/images/gecko_ai_card_thumb.png",
+      customArt: <GeckoTableArt />,
       brandColor: "#4338ca", // Indigo
       brandLight: "rgba(67, 56, 202, 0.08)"
     },
@@ -103,7 +104,11 @@ export default function Work({ setActiveProject }) {
               {/* Right: Image */}
               <div className="impact-card-visual">
                 <div className="impact-image-wrap">
-                  <img src={project.image} alt={project.title} style={project.imgStyle || {}} />
+                  {project.customArt ? (
+                    project.customArt
+                  ) : (
+                    <img src={project.image} alt={project.title} style={project.imgStyle || {}} />
+                  )}
                 </div>
               </div>
               </div>
