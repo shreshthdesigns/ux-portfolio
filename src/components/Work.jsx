@@ -32,6 +32,7 @@ export default function Work({ setActiveProject }) {
       brandColor: "#4338ca", // Indigo
       brandLight: "rgba(67, 56, 202, 0.08)"
     },
+/*
     {
       id: "model-finder",
       nda: true,
@@ -42,6 +43,19 @@ export default function Work({ setActiveProject }) {
       image: "/images/navigation.jpg",
       brandColor: "#059669", // Emerald
       brandLight: "rgba(5, 150, 105, 0.08)"
+    },
+*/
+    {
+      id: "polyspace-copilot",
+      nda: true,
+      impact: "3× faster debugging with AI",
+      description: "Designing an agentic copilot that understands context, reasons through engineering workflows, and assists users in real-time.",
+      title: "Polyspace Copilot",
+      tags: ["AI Systems", "Agentic UX", "Human-AI Interaction", "Engineering UX"],
+      image: "/copilot-hero.png",
+      imgStyle: { objectFit: "cover", objectPosition: "center", backgroundColor: "#1E1B4B" },
+      brandColor: "#4338ca", // Indigo
+      brandLight: "rgba(67, 56, 202, 0.08)"
     }
   ];
 

@@ -1,0 +1,257 @@
+/* ======================================================= */
+/* ============ MODEL FINDER: EDITORIAL REDESIGN ======== */
+/* ======================================================= */
+
+.cs-modelfinder-editorial {
+  background: #FFFFFF !important;
+  color: var(--ink);
+  --section-pad-ed: 160px;
+  --ed-border-radius: 12px;
+  font-family: var(--sans);
+}
+
+.cs-modelfinder-editorial .wrap {
+  max-width: 1300px; /* Wider for editorial feel */
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+/* Typography Overrides */
+.cs-ed-h1 {
+  font-size: 4.5rem;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-family: var(--serif);
+  margin-bottom: 2rem;
+}
+
+.cs-ed-h2 {
+  font-size: 1rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.cs-ed-body {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.cs-ed-quote {
+  font-size: 3.5rem;
+  line-height: 1.15;
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* Sections */
+.cs-ed-section {
+  padding: var(--section-pad-ed) 0;
+  position: relative;
+}
+
+.cs-ed-hero {
+  background-color: #2B5440;
+  color: #FFFFFF;
+  padding: 160px 0 120px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.cs-ed-hero .cs-ed-h1 {
+  color: #FFFFFF;
+}
+
+.cs-ed-hero .cs-minimal-label {
+  color: rgba(255,255,255,0.7);
+  letter-spacing: .2em;
+}
+
+.cs-ed-hero-subtitle {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.8);
+  font-weight: 300;
+}
+
+/* Structural Grids */
+.cs-ed-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  align-items: center;
+}
+
+.cs-ed-split.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.cs-ed-split.reverse .split-text {
+  order: 2;
+}
+
+.cs-ed-split.reverse .split-visual {
+  order: 1;
+}
+
+/* Specific Big Items */
+.cs-ed-drama-text {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* Exploration Alternate Rows */
+.cs-ed-exploration-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+  background: #FAFAFA;
+  padding: 4rem;
+  border-radius: var(--ed-border-radius);
+  align-items: center;
+}
+
+.cs-ed-exploration-desc h3 {
+  font-size: 1.5rem;
+  font-family: var(--serif);
+  margin-bottom: 1rem;
+}
+
+/* Tradeoffs */
+.cs-ed-tradeoff-row {
+  display: grid;
+  grid-template-columns: 350px 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid #f1f1f1;
+  align-items: flex-start;
+}
+
+.cs-ed-tradeoff-title {
+  font-size: 1.5rem;
+  font-family: var(--serif);
+  font-weight: 600;
+}
+
+.cs-ed-tradeoff-box {
+  background: #FAFAFA;
+  border: 1px solid #EAEAEA;
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cs-ed-tradeoff-box.chosen {
+  background: #E8F0EC;
+  border-color: #2B5440;
+}
+
+.tradeoff-label {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.tradeoff-label.reject { color: #E53E3E; }
+.tradeoff-label.accept { color: #2B5440; }
+
+/* Visual Containers */
+.cs-ed-visual {
+  width: 100%;
+  border-radius: var(--ed-border-radius);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Sophisticated shadow */
+  background: #FFFFFF;
+}
+
+.cs-ed-visual-flat {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #F8F8F8;
+  border: 1px solid #EAEAEA;
+}
+
+/* Impact */
+.cs-ed-impact-statement {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-family: var(--serif);
+  font-weight: 600;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  color: var(--ink);
+}
+
+.cs-ed-impact-statement span {
+  color: #2B5440;
+}
+
+.cs-ed-reflection-para {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: var(--ink2);
+}
+
+.cs-ed-reflection-para strong {
+  color: var(--ink);
+}
+
+/* Micro-interactions */
+.cs-ed-zoom-wrap {
+  overflow: hidden;
+  border-radius: var(--ed-border-radius);
+}
+
+.cs-ed-zoom-wrap svg,
+.cs-ed-zoom-wrap img {
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cs-ed-zoom-wrap:hover svg,
+.cs-ed-zoom-wrap:hover img {
+  transform: scale(1.03);
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+  .cs-ed-hero, .cs-ed-split, .cs-ed-tradeoff-row, .cs-ed-exploration-row, .cs-ed-split.reverse {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .cs-modelfinder-editorial .wrap {
+    padding: 0 2rem;
+  }
+
+  .cs-ed-split.reverse .split-text { order: 1; }
+  .cs-ed-split.reverse .split-visual { order: 2; }
+
+  .cs-ed-h1 { font-size: 3rem; }
+  .cs-ed-quote { font-size: 2.5rem; }
+  .cs-ed-drama-text { font-size: 2.5rem; }
+  
+  .cs-ed-section { padding: 80px 0; }
+  .cs-ed-hero { padding: 120px 0 80px; }
+}

@@ -51,6 +51,7 @@ export default function App() {
       case 'gecko-ai': return '#3b82f6';
       case 'model-finder': return '#0284c7';
       case 'patent': return 'var(--patent-accent, #2b5440)';
+      case 'polyspace-copilot': return '#4338ca';
       default: return 'var(--ink)';
     }
   };

@@ -419,13 +419,14 @@ export default function Notes() {
               </div>
             </div>
 
-            {/* Card 03 */}
+            {/* 
             <div className="note-card">
               <div className="note-num">03</div>
               <div className="note-title">Emotional Friction in Technical Tools</div>
               <div className="note-excerpt">The hesitation before clicking is the real UX problem.</div>
               <span className="note-tag">Enterprise UX</span>
             </div>
+            */}
 
           </div>
         </div>

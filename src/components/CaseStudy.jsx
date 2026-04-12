@@ -3,6 +3,7 @@ import CaseStudyProjectAdvisor from "./CaseStudyProjectAdvisor";
 import CaseStudyModelFinder from "./CaseStudyModelFinder";
 import CaseStudyGeckoAI from "./CaseStudyGeckoAI";
 import CaseStudyPatent from "./CaseStudyPatent";
+import CaseStudyCopilot from "./CaseStudyCopilot";
 
 export default function CaseStudy({ project, onBack }) {
 
@@ -56,6 +57,19 @@ export default function CaseStudy({ project, onBack }) {
       { id: "architecture", label: "Solution" },
       { id: "impact", label: "Impact" }
     ];
+  } else if (project === "polyspace-copilot") {
+    sections = ["overview", "intro", "insight", "constraints", "principles", "system", "experiences", "tradeoffs", "impact", "reflection"];
+    displaySections = [
+      { id: "overview", label: "Overview" },
+      { id: "intro", label: "Problem" },
+      { id: "insight", label: "Insight" },
+      { id: "constraints", label: "Constraints" },
+      { id: "principles", label: "Approach" },
+      { id: "system", label: "System" },
+      { id: "experiences", label: "Experiences" },
+      { id: "impact", label: "Impact" },
+      { id: "reflection", label: "Reflection" }
+    ];
   }
 
   const [activeSection, setActiveSection] = useState("overview");
@@ -104,6 +118,10 @@ export default function CaseStudy({ project, onBack }) {
 
   if (project === "patent") {
     return <CaseStudyPatent onBack={onBack} activeSection={activeSection} displaySections={displaySections} />;
+  }
+
+  if (project === "polyspace-copilot") {
+    return <CaseStudyCopilot onBack={onBack} activeSection={activeSection} displaySections={displaySections} />;
   }
 
   return null;

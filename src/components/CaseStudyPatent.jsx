@@ -149,22 +149,22 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <div style={{ marginBottom: '1.5rem', fontSize: '.8rem', color: '#2b5440', fontWeight: 600, letterSpacing: '.12em', textTransform: 'uppercase' }}>
               Research-Led Systems Design
             </div>
-            <h1 className="cs-title" style={{ fontSize: '3.25rem', lineHeight: 1.08, marginBottom: '1.5rem', letterSpacing: '-0.03em', maxWidth: '900px' }}>
+            <h1 className="cs-title">
               Walksafe — Designing for Safer Mobility in Elderly
             </h1>
             <p style={{ fontSize: '1.25rem', color: '#4a5568', marginBottom: '2rem', maxWidth: '1200px', lineHeight: 1.6 }}>
               Designing for fall prevention is not just about detecting motion — it's about addressing <strong>fear, confidence, and independence</strong> in everyday movement.
             </p>
 
-            <div style={{ display: 'flex', gap: '3rem', borderTop: '1px solid rgba(0,0,0,0.06)', borderBottom: '1px solid rgba(0,0,0,0.06)', padding: '1.5rem 0', marginBottom: '3rem', flexWrap: 'wrap' }}>
+            <div className="cs-meta-grid">
               {[
                 { label: 'Role', value: 'UX Researcher / Systems Designer' },
                 { label: 'Duration', value: '5 months' },
                 { label: 'Outcome', value: 'US Patent Granted' }
               ].map((m, i) => (
-                <div key={i}>
-                  <div style={{ fontSize: '.7rem', textTransform: 'uppercase', letterSpacing: '.1em', color: '#a0aec0', marginBottom: '.35rem' }}>{m.label}</div>
-                  <div style={{ fontWeight: 500, fontSize: '.95rem' }}>{m.value}</div>
+                <div key={i} className="cs-meta-item">
+                  <div className="cs-meta-label">{m.label}</div>
+                  <div className="cs-meta-value">{m.value}</div>
                 </div>
               ))}
             </div>
@@ -183,14 +183,14 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <div className="cs-snapshot-grid">
               {/* LEFT — Product Visualization */}
               <div className="cs-snapshot-visual">
-                <img src="/WS PATENT INTRO.png" alt="WALKsafe System" style={{ width: '100%', borderRadius: '12px', marginBottom: '2rem' }} />
-                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <img src="/WS PATENT INTRO.png" alt="WALKsafe System" className="cs-main-img" />
+                <div className="cs-pill-tags">
                   {[
                     { label: 'Instability Detection', icon: '📡' },
                     { label: 'Real-time Processing', icon: '⚡' },
                     { label: 'Rapid Stabilization', icon: '🛡️' }
                   ].map((tag, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '.5rem', background: '#e8f0ec', border: '1px solid rgba(43,84,64,0.15)', borderRadius: '100px', padding: '.5rem 1rem', fontSize: '.8rem', fontWeight: 600, color: '#2b5440' }}>
+                    <div key={i} className="cs-pill-tag">
                       <span>{tag.icon}</span>{tag.label}
                     </div>
                   ))}
@@ -215,57 +215,57 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             </div>
 
             {/* System Flow + Impact Side-by-Side */}
-            <div style={{ marginTop: '3rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+            <div className="cs-mechanism-impact-row">
 
               {/* LEFT — Mechanism Flowchart */}
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <div style={{ background: 'white', borderRadius: '16px', border: '1px solid var(--border)', padding: '2rem', boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
-                  <img src="/Mechanism Flowchart.png" alt="System Flow — From user movement to fall prevention" style={{ maxWidth: '400px', width: '100%', display: 'block', borderRadius: '8px' }} />
+              <div className="cs-mechanism-visual">
+                <div className="cs-white-card">
+                  <img src="/Mechanism Flowchart.png" alt="System Flow — From user movement to fall prevention" className="cs-flow-img" />
                 </div>
               </div>
 
               {/* RIGHT — Compact Impact */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div className="cs-impact-summary">
 
                 {/* Label */}
-                <div style={{ fontSize: '.7rem', textTransform: 'uppercase', letterSpacing: '.14em', color: '#a0aec0', fontWeight: 600 }}>Impact</div>
+                <div className="cs-impact-label">Impact</div>
 
                 {/* Headline */}
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--ink)', lineHeight: 1.2, margin: 0 }}>
+                <h3 className="cs-impact-title">
                   Real-time fall prevention system
                 </h3>
 
                 {/* Metrics Row */}
-                <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                <div className="cs-impact-metrics">
                   {[
                     { value: '0.4s', label: 'Detection' },
                     { value: '0.7s', label: 'Response' },
                     { value: 'Patent', label: 'US Granted' }
                   ].map((m, i) => (
-                    <div key={i} style={{ display: 'flex', flexDirection: 'column' }}>
-                      <div style={{ fontSize: '1.75rem', fontWeight: 700, color: '#2b5440', lineHeight: 1 }}>{m.value}</div>
-                      <div style={{ fontSize: '.75rem', color: '#718096', marginTop: '.25rem', fontWeight: 500 }}>{m.label}</div>
+                    <div key={i} className="cs-impact-metric-item">
+                      <div className="cs-metric-value">{m.value}</div>
+                      <div className="cs-metric-label">{m.label}</div>
                     </div>
                   ))}
                 </div>
 
                 {/* Keyword Tags */}
-                <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
+                <div className="cs-pill-tags">
                   {['Instability Detection', 'Real-time Processing', 'Passive Safety', 'Low Cognitive Load'].map((tag, i) => (
-                    <span key={i} style={{ background: '#e8f0ec', border: '1px solid rgba(43,84,64,0.12)', borderRadius: '100px', padding: '.35rem .85rem', fontSize: '.72rem', fontWeight: 600, color: '#2b5440' }}>
+                    <span key={i} className="cs-pill-tag">
                       {tag}
                     </span>
                   ))}
                 </div>
 
                 {/* Micro Line */}
-                <p style={{ fontSize: '.85rem', color: '#a0aec0', margin: 0, fontStyle: 'italic' }}>
+                <p className="cs-ital-muted">
                   Prevents falls before impact
                 </p>
 
                 {/* Explore CTA */}
-                <div>
-                  <a href="#timeline" style={{ display: 'inline-flex', alignItems: 'center', gap: '.5rem', color: '#2b5440', fontWeight: 600, fontSize: '.95rem', textDecoration: 'none', borderBottom: '2px solid #2b5440', paddingBottom: '.25rem' }}>
+                <div className="cs-impact-cta">
+                  <a href="#timeline" className="cs-text-cta">
                     Explore Full Case Study →
                   </a>
                 </div>
@@ -279,105 +279,92 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <h2 className="cs-section-title">Research & Design Journey</h2>
             <p>A 12-month structured exploration — from observing real-world failure patterns to delivering a validated system-level intervention.</p>
 
-            <div style={{ marginTop: '3rem' }}>
+            <div className="cs-timeline-container">
 
-              {/* TIME AXIS */}
-              <div style={{ position: 'relative', marginBottom: '0.5rem', paddingLeft: '140px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
+              {/* TIME AXIS — Desktop Only */}
+              <div className="cs-timeline-axis desktop-only">
+                <div className="cs-axis-labels">
                   {[0, 3, 6, 9, 12].map((m) => (
-                    <div key={m} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '0' }}>
-                      <div style={{ fontSize: '.65rem', color: '#a0aec0', fontWeight: 600, marginBottom: '.35rem' }}>{m === 0 ? 'Start' : `${m}mo`}</div>
-                      <div style={{ width: '1px', height: '8px', background: '#cbd5e0' }}></div>
+                    <div key={m} className="cs-axis-marker">
+                      <div className="cs-marker-label">{m === 0 ? 'Start' : `${m}mo`}</div>
+                      <div className="cs-marker-tick"></div>
                     </div>
                   ))}
                 </div>
-                <div style={{ height: '1px', background: '#e2e8f0', marginTop: '-1px' }}></div>
+                <div className="cs-axis-line"></div>
               </div>
 
-              {/* PHASE ROWS */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              {/* PHASE ROWS — Transformed for Desktop/Mobile via CSS */}
+              <div className="cs-timeline-phases">
 
-                {/* Phase 1: Understanding — Month 0–3 (25% width) */}
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0' }}>
-                  <div style={{ width: '140px', flexShrink: 0, paddingRight: '1rem', paddingTop: '.6rem' }}>
-                    <div style={{ fontSize: '.65rem', textTransform: 'uppercase', letterSpacing: '.1em', color: '#a0aec0', fontWeight: 600, marginBottom: '.2rem' }}>Phase 1</div>
-                    <div style={{ fontSize: '.85rem', fontWeight: 600, color: 'var(--ink)' }}>Understanding</div>
+                {/* Phase 1: Understanding */}
+                <div className="cs-timeline-phase-row p1">
+                  <div className="cs-phase-info">
+                    <div className="cs-phase-label">Phase 1</div>
+                    <div className="cs-phase-name">Understanding</div>
                   </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ width: '25%', background: '#f1f5f9', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '.6rem 1rem', display: 'flex', gap: '.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                  <div className="cs-phase-track-wrapper">
+                    <div className="cs-phase-track">
                       {['Observation', 'Framing', 'Research'].map((t, i) => (
-                        <span key={i} style={{ fontSize: '.72rem', color: '#64748b', fontWeight: 500 }}>{t}{i < 2 ? <span style={{ color: '#cbd5e0', margin: '0 .15rem' }}> · </span> : ''}</span>
+                        <span key={i} className="cs-track-tag">{t}</span>
                       ))}
                     </div>
-                    {/* Detail cards */}
-                    <div style={{ width: '25%', display: 'flex', gap: '.5rem', marginTop: '.5rem' }}>
-                      <div style={{ flex: 1, fontSize: '.68rem', color: '#94a3b8', lineHeight: 1.4 }}>
+                    <div className="cs-phase-details">
                         Identified predictable fall patterns through field observation
-                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Phase 2: Defining & Exploring — Month 3–7 (33% width, offset 25%) */}
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0' }}>
-                  <div style={{ width: '140px', flexShrink: 0, paddingRight: '1rem', paddingTop: '.6rem' }}>
-                    <div style={{ fontSize: '.65rem', textTransform: 'uppercase', letterSpacing: '.1em', color: '#a0aec0', fontWeight: 600, marginBottom: '.2rem' }}>Phase 2</div>
-                    <div style={{ fontSize: '.85rem', fontWeight: 600, color: 'var(--ink)' }}>Defining</div>
+                {/* Phase 2: Defining & Exploring */}
+                <div className="cs-timeline-phase-row p2">
+                  <div className="cs-phase-info">
+                    <div className="cs-phase-label">Phase 2</div>
+                    <div className="cs-phase-name">Defining</div>
                   </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ marginLeft: '25%', width: '33.3%', background: '#eef2f6', border: '1px solid #dce3ea', borderRadius: '8px', padding: '.6rem 1rem', display: 'flex', gap: '.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                  <div className="cs-phase-track-wrapper">
+                    <div className="cs-phase-track">
                       {['Validation', 'Exploration'].map((t, i) => (
-                        <span key={i} style={{ fontSize: '.72rem', color: '#475569', fontWeight: 500 }}>{t}{i < 1 ? <span style={{ color: '#cbd5e0', margin: '0 .15rem' }}> · </span> : ''}</span>
+                        <span key={i} className="cs-track-tag">{t}</span>
                       ))}
                     </div>
-                    <div style={{ marginLeft: '25%', width: '33.3%', display: 'flex', gap: '.5rem', marginTop: '.5rem' }}>
-                      <div style={{ flex: 1, fontSize: '.68rem', color: '#94a3b8', lineHeight: 1.4 }}>
+                    <div className="cs-phase-details">
                         40 interviews across users, physicians & caregivers
-                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Phase 3: Validation — Month 7–9 (16.6% width, offset 58.3%) */}
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0' }}>
-                  <div style={{ width: '140px', flexShrink: 0, paddingRight: '1rem', paddingTop: '.6rem' }}>
-                    <div style={{ fontSize: '.65rem', textTransform: 'uppercase', letterSpacing: '.1em', color: '#a0aec0', fontWeight: 600, marginBottom: '.2rem' }}>Phase 3</div>
-                    <div style={{ fontSize: '.85rem', fontWeight: 600, color: 'var(--ink)' }}>Validation</div>
+                {/* Phase 3: Validation */}
+                <div className="cs-timeline-phase-row p3">
+                  <div className="cs-phase-info">
+                    <div className="cs-phase-label">Phase 3</div>
+                    <div className="cs-phase-name">Validation</div>
                   </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ marginLeft: '58.3%', width: '16.6%', background: '#e5ede8', border: '1px solid #c8d9cf', borderRadius: '8px', padding: '.6rem 1rem', minWidth: '120px' }}>
-                      <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                        {['System Design', 'Testing'].map((t, i) => (
-                          <span key={i} style={{ fontSize: '.72rem', color: '#374a3e', fontWeight: 500 }}>{t}{i < 1 ? <span style={{ color: '#a3bfad', margin: '0 .15rem' }}> · </span> : ''}</span>
-                        ))}
-                      </div>
+                  <div className="cs-phase-track-wrapper">
+                    <div className="cs-phase-track">
+                      {['System Design', 'Testing'].map((t, i) => (
+                        <span key={i} className="cs-track-tag">{t}</span>
+                      ))}
                     </div>
-                    <div style={{ marginLeft: '58.3%', width: '16.6%', display: 'flex', gap: '.5rem', marginTop: '.5rem', minWidth: '120px' }}>
-                      <div style={{ flex: 1, fontSize: '.68rem', color: '#94a3b8', lineHeight: 1.4 }}>
+                    <div className="cs-phase-details">
                         Fall simulations & sensor threshold calibration
-                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Phase 4: Delivery — Month 9–12 (25% width, offset 75%) */}
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0' }}>
-                  <div style={{ width: '140px', flexShrink: 0, paddingRight: '1rem', paddingTop: '.6rem' }}>
-                    <div style={{ fontSize: '.65rem', textTransform: 'uppercase', letterSpacing: '.1em', color: '#a0aec0', fontWeight: 600, marginBottom: '.2rem' }}>Phase 4</div>
-                    <div style={{ fontSize: '.85rem', fontWeight: 600, color: '#2b5440' }}>Delivery</div>
+                {/* Phase 4: Delivery */}
+                <div className="cs-timeline-phase-row p4">
+                  <div className="cs-phase-info">
+                    <div className="cs-phase-label">Phase 4</div>
+                    <div className="cs-phase-name">Delivery</div>
                   </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ marginLeft: '75%', width: '25%', background: '#e8f0ec', border: '1px solid rgba(43,84,64,0.2)', borderRadius: '8px', padding: '.6rem 1rem', minWidth: '160px' }}>
-                      <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                        {['Prototype', 'TRL-3', 'Patent'].map((t, i) => (
-                          <span key={i} style={{ fontSize: '.72rem', color: '#2b5440', fontWeight: 600 }}>{t}{i < 2 ? <span style={{ color: '#8ab59c', margin: '0 .15rem' }}> · </span> : ''}</span>
-                        ))}
-                      </div>
+                  <div className="cs-phase-track-wrapper">
+                    <div className="cs-phase-track">
+                      {['Prototype', 'TRL-3', 'Patent'].map((t, i) => (
+                        <span key={i} className="cs-track-tag">{t}</span>
+                      ))}
                     </div>
-                    <div style={{ marginLeft: '75%', width: '25%', display: 'flex', gap: '.5rem', marginTop: '.5rem', minWidth: '160px' }}>
-                      <div style={{ flex: 1, fontSize: '.68rem', color: '#94a3b8', lineHeight: 1.4 }}>
+                    <div className="cs-phase-details highlighted">
                         Functional prototype validated · US Patent Granted
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -487,7 +474,7 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <h2 className="cs-section-title">Research & Validation</h2>
             <p>We conducted 40 interviews across three stakeholder groups in assisted living environments to validate assumptions around assistive devices and map real-world failure points.</p>
 
-            <div className="cs-stakeholder-grid" style={{ marginTop: '3rem' }}>
+            <div className="cs-stakeholder-grid">
               {[
                 { img: '/old%20lady.jpg', title: 'Elderly Users', count: '20', desc: 'Mobility anxiety, device abandonment, fear-driven inactivity.' },
                 { img: '/Doctor.png', title: 'Physicians', count: '12', desc: 'Fracture patterns, recovery timelines, readmission insights.' },
