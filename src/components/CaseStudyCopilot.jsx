@@ -281,153 +281,232 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
           </div>
 
           {/* ═══════════════════════════════════════ */}
-          {/* PRINCIPLES                             */}
+          {/* SECTION 1: PRINCIPLES                  */}
           {/* ═══════════════════════════════════════ */}
           <section id="principles" className="cp-section">
-            <p className="cp-label">WHAT I DID</p>
+            <p className="cp-label">PRINCIPLES</p>
             <h2 className="cp-heading">Designing for Controlled Intelligence</h2>
-
-            <ul className="cp-principles-intro">
-              <li>AI systems cannot be designed purely for capability, they must be designed within clear behavioral boundaries.</li>
-              <li>Based on user tensions and system constraints, I defined a set of principles to guide how the Copilot operates within engineering workflows.</li>
-            </ul>
-
-            <div className="cp-principle-item">
-              <h3 className="cp-principle-title">1. AI Suggests, Never Assumes</h3>
-              <p className="cp-principle-desc">System outputs are always presented as suggestions. No silent execution. Users remain in control.</p>
-              <div className="cp-principle-placeholder" />
-            </div>
-
-            <div className="cp-principle-item">
-              <h3 className="cp-principle-title">2. Every Output is Traceable</h3>
-              <p className="cp-principle-desc">Responses are grounded in user context, code, and system data. Users can always understand where outputs come from.</p>
-              <div className="cp-principle-placeholder" />
-            </div>
-
-            <div className="cp-principle-item">
-              <h3 className="cp-principle-title">3. Actions Require Approval</h3>
-              <p className="cp-principle-desc">Critical actions introduce human-in-the-loop checkpoints. Execution is always user-governed.</p>
-              <div className="cp-principle-placeholder" />
-            </div>
-
-            <div className="cp-principle-item">
-              <h3 className="cp-principle-title">4. Reasoning is Visible</h3>
-              <p className="cp-principle-desc">The system exposes how it interprets problems and plans actions. Not just answers — but thinking.</p>
-              <div className="cp-principle-placeholder" />
-            </div>
-
-            <div className="cp-principle-item">
-              <h3 className="cp-principle-title">5. Context is Scoped</h3>
-              <p className="cp-principle-desc">AI operates only within explicitly provided inputs. No hidden data usage or assumptions.</p>
-              <div className="cp-principle-placeholder" />
-            </div>
-          </section>
-
-          {/* ═══════════════════════════════════════ */}
-          {/* SYSTEM DESIGN                          */}
-          {/* ═══════════════════════════════════════ */}
-          <section id="system" className="cp-section">
-            <p className="cp-label">SYSTEM DESIGN</p>
-            <h2 className="cp-heading">Designing the Copilot as a System</h2>
-            <p className="cp-body">
-              Instead of a chat interface, the Copilot was designed as a system that understands context, plans actions, and operates within control boundaries.
+            
+            <p className="cp-body" style={{ marginBottom: '3rem' }}>
+              AI systems cannot be designed purely for capability.<br />
+              They must operate within clear behavioral boundaries.
             </p>
 
-            <div className="cp-layers-row">
-              <div className="cp-layer-card"><h4>Context Layer</h4><p>Context-aware</p></div>
-              <div className="cp-layer-card"><h4>Reasoning Layer</h4><p>Traceable</p></div>
-              <div className="cp-layer-card"><h4>Control Layer</h4><p>Human-in-loop</p></div>
-            </div>
-
-            <div className="cp-system-flow">
-              <div className="cp-flow-node"><div className="cp-flow-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="1.5"><circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 4-7 8-7s8 3 8 7" /></svg></div><span>User Intent</span></div>
-              <div className="cp-flow-arrow">→</div>
-              <div className="cp-flow-node"><div className="cp-flow-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M3 9h18" /></svg></div><span>Context</span></div>
-              <div className="cp-flow-arrow">→</div>
-              <div className="cp-flow-node cp-flow-node--agent"><div className="cp-flow-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg></div><span>Agent</span></div>
-              <div className="cp-flow-arrow">→</div>
-              <div className="cp-flow-node"><div className="cp-flow-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="1.5"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" /><rect x="9" y="3" width="6" height="4" rx="1" /></svg></div><span>Plan</span></div>
-              <div className="cp-flow-arrow">→</div>
-              <div className="cp-flow-node cp-flow-node--approval"><div className="cp-flow-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg></div><span>Approval</span></div>
-              <div className="cp-flow-arrow">→</div>
-              <div className="cp-flow-node"><div className="cp-flow-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg></div><span>Action</span></div>
-              <div className="cp-flow-arrow">→</div>
-              <div className="cp-flow-node"><div className="cp-flow-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg></div><span>Feedback</span></div>
+            <div className="cp-principles-grid">
+              {[
+                { title: 'AI Suggests — Never Assumes', desc: 'Outputs are always suggestions. No silent execution.' },
+                { title: 'Every Output Is Traceable', desc: 'Responses are grounded in context, code, and system state.' },
+                { title: 'Actions Require Approval', desc: 'Critical actions introduce human-in-the-loop checkpoints.' },
+                { title: 'Reasoning Is Visible', desc: 'The system exposes how it interprets and plans.' },
+                { title: 'Context Is Scoped', desc: 'AI operates only within explicitly defined inputs.' }
+              ].map((item, i) => (
+                <div key={i} className="cp-principle-card">
+                  <h3>{i + 1}. {item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              ))}
             </div>
           </section>
 
           {/* ═══════════════════════════════════════ */}
-          {/* EXPERIENCES                            */}
+          {/* SECTION 2: LEARNINGS                    */}
+          {/* ═══════════════════════════════════════ */}
+          <section id="learning" className="cp-section" style={{ background: '#F9F9F9', margin: '0 -4rem', padding: '140px 4rem' }}>
+            <p className="cp-label">ANALYSIS</p>
+            <h2 className="cp-heading">Learning from Existing Copilot Systems</h2>
+
+            <div className="cp-learning-stack">
+              {[
+                { title: 'Chat Alone Is Not Enough', desc: 'Users struggle to know what to ask → Introduce structured actions' },
+                { title: 'Context Is the Hardest Problem', desc: 'Users expect full awareness → Context must be explicit and controlled' },
+                { title: 'AI Needs Continuous Validation', desc: 'Outputs are inconsistent over time → Requires feedback loops and iteration' },
+                { title: 'Trust Is Built Through Constraints', desc: 'Enterprise users demand boundaries → AI must be constrained by design' }
+              ].map((item, i) => (
+                <div key={i} className="cp-learning-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ═══════════════════════════════════════ */}
+          {/* SECTION 3: TRANSLATING                  */}
+          {/* ═══════════════════════════════════════ */}
+          <section id="translating" className="cp-section">
+            <p className="cp-label">STRATEGY</p>
+            <h2 className="cp-heading">Translating Learnings into Design Decisions</h2>
+
+            <div className="cp-decision-grid">
+              <div className="cp-decision-row cp-decision-header">
+                <div className="cp-decision-cell">Learning</div>
+                <div className="cp-decision-cell">Design Decision</div>
+              </div>
+              {[
+                { l: 'Chat insufficient', d: 'Action-based entry points' },
+                { l: 'Context limitations', d: 'Explicit context selection' },
+                { l: 'AI unpredictability', d: 'Approval checkpoints' },
+                { l: 'Black-box behavior', d: 'Visible reasoning' },
+                { l: 'Enterprise constraints', d: 'Scoped AI boundaries' }
+              ].map((row, i) => (
+                <div key={i} className="cp-decision-row">
+                  <div className="cp-decision-cell">{row.l}</div>
+                  <div className="cp-decision-cell">{row.d}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ═══════════════════════════════════════ */}
+          {/* SECTION 4: SYSTEM DESIGN                */}
+          {/* ═══════════════════════════════════════ */}
+          <section id="system" className="cp-section" style={{ textAlign: 'center' }}>
+            <p className="cp-label">THE MODEL</p>
+            <h2 className="cp-heading" style={{ margin: '0 auto 1rem' }}>Designing the Copilot as a System</h2>
+            <p className="cp-subtitle" style={{ margin: '0 auto 4rem' }}>
+              Not a chatbot — but a system that understands, plans, and acts within control boundaries.
+            </p>
+
+            <div className="cp-system-visual-dominant" style={{ background: '#fff', padding: '4rem', borderRadius: '24px', border: '1px solid #E0E0E0', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', marginBottom: '4rem' }}>
+              <div className="cp-system-flow" style={{ background: 'transparent', padding: 0 }}>
+                {[
+                  { label: 'User', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg> },
+                  { label: 'Context', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /></svg> },
+                  { label: 'Plan', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg> },
+                  { label: 'Suggest', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg> },
+                  { label: 'Approve', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg> },
+                  { label: 'Act', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg> },
+                  { label: 'Feedback', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6" /><polyline points="22 4 12 14.01 9 11.01" /></svg> }
+                ].map((node, i) => (
+                  <React.Fragment key={i}>
+                    <div className="cp-flow-node">
+                      <div className="cp-flow-icon" style={node.label === 'Approve' ? { borderColor: 'var(--accent)', borderWidth: '2px' } : {}}>{node.icon}</div>
+                      <span>{node.label}</span>
+                    </div>
+                    {i < 6 && <div className="cp-flow-arrow">→</div>}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+
+            <div className="cp-layers-row">
+              <div className="cp-layer-card">
+                <h4>Context Layer</h4>
+                <p style={{ textTransform: 'none', letterSpacing: 'normal', color: '#333', marginTop: '0.5rem' }}>Code, results, and workflow state</p>
+              </div>
+              <div className="cp-layer-card">
+                <h4>Reasoning Layer</h4>
+                <p style={{ textTransform: 'none', letterSpacing: 'normal', color: '#333', marginTop: '0.5rem' }}>Intent understanding and planning</p>
+              </div>
+              <div className="cp-layer-card">
+                <h4>Control Layer</h4>
+                <p style={{ textTransform: 'none', letterSpacing: 'normal', color: '#333', marginTop: '0.5rem' }}>Approval, interruption, and boundaries</p>
+              </div>
+            </div>
+          </section>
+
+          {/* ═══════════════════════════════════════ */}
+          {/* SECTION 5: EXPERIENCES                 */}
           {/* ═══════════════════════════════════════ */}
           <section id="experiences" className="cp-section">
-            <p className="cp-label">EXPERIENCES</p>
-            <h2 className="cp-heading">Where This Shows Up</h2>
+            <p className="cp-label">WHERE THIS SHOWS UP</p>
+            <h2 className="cp-heading">Experience Modules</h2>
 
-            <div className="cp-exp-grid">
-              <div className="cp-exp-card"><h3>Explaining Errors</h3><p>AI interprets system outputs and provides clear reasoning behind failures.</p></div>
-              <div className="cp-exp-card"><h3>Tracing Bugs</h3><p>Users can trace issues across files and dependencies with guided steps.</p></div>
-              <div className="cp-exp-card"><h3>Generating Tests</h3><p>AI suggests test cases with preview before execution.</p></div>
-              <div className="cp-exp-card"><h3>Contextual Guidance</h3><p>Smart prompts guide users through workflows without breaking context.</p></div>
+            <div className="cp-exp-grid" style={{ marginTop: '3rem' }}>
+              <div className="cp-exp-card">
+                <h3>Explaining Errors</h3>
+                <p>AI interprets failures and explains root causes</p>
+              </div>
+              <div className="cp-exp-card">
+                <h3>Tracing Bugs</h3>
+                <p>Guided navigation across dependencies</p>
+              </div>
+              <div className="cp-exp-card">
+                <h3>Generating Tests</h3>
+                <p>Structured test suggestions with preview</p>
+              </div>
+              <div className="cp-exp-card">
+                <h3>Contextual Guidance</h3>
+                <p>Prompts aligned with user workflow</p>
+              </div>
             </div>
           </section>
 
           {/* ═══════════════════════════════════════ */}
-          {/* TRADE-OFFS                             */}
+          {/* SECTION 6: TRADE-OFFS                  */}
           {/* ═══════════════════════════════════════ */}
           <section id="tradeoffs" className="cp-section">
-            <p className="cp-label">TRADE-OFFS</p>
+            <p className="cp-label">STRATEGIC DECISIONS</p>
             <h2 className="cp-heading">Balancing Intelligence with Control</h2>
 
-            <div className="cp-tradeoff-stack">
+            <div className="cp-tradeoff-stack" style={{ marginTop: '3rem' }}>
               <div className="cp-tradeoff-card">
-                <div className="cp-tradeoff-poles"><span className="cp-tradeoff-pole">Automation</span><span className="cp-tradeoff-divider">↔</span><span className="cp-tradeoff-pole">Accountability</span></div>
-                <p>Reduced autonomy to maintain user ownership</p>
+                <div className="cp-tradeoff-poles">
+                  <span className="cp-tradeoff-pole">Automation</span>
+                  <span className="cp-tradeoff-divider">↔</span>
+                  <span className="cp-tradeoff-pole">Control</span>
+                </div>
+                <p>Reduced autonomy to maintain trust</p>
               </div>
               <div className="cp-tradeoff-card">
-                <div className="cp-tradeoff-poles"><span className="cp-tradeoff-pole">Speed</span><span className="cp-tradeoff-divider">↔</span><span className="cp-tradeoff-pole">Transparency</span></div>
-                <p>Slower but explainable interactions</p>
+                <div className="cp-tradeoff-poles">
+                  <span className="cp-tradeoff-pole">Speed</span>
+                  <span className="cp-tradeoff-divider">↔</span>
+                  <span className="cp-tradeoff-pole">Transparency</span>
+                </div>
+                <p>Slower but explainable responses</p>
               </div>
               <div className="cp-tradeoff-card">
-                <div className="cp-tradeoff-poles"><span className="cp-tradeoff-pole">Flexibility</span><span className="cp-tradeoff-divider">↔</span><span className="cp-tradeoff-pole">Predictability</span></div>
+                <div className="cp-tradeoff-poles">
+                  <span className="cp-tradeoff-pole">Flexibility</span>
+                  <span className="cp-tradeoff-divider">↔</span>
+                  <span className="cp-tradeoff-pole">Predictability</span>
+                </div>
                 <p>Structured workflows over open-ended AI</p>
               </div>
             </div>
           </section>
 
           {/* ═══════════════════════════════════════ */}
-          {/* IMPACT                                 */}
+          {/* SECTION 7: IMPACT                      */}
           {/* ═══════════════════════════════════════ */}
           <section id="impact" className="cp-section">
-            <p className="cp-label">IMPACT</p>
-            <h2 className="cp-heading">Impact</h2>
-
-            <div className="cp-impact-list">
-              <div className="cp-impact-item"><span className="cp-impact-dot" /><p>Faster understanding of errors and system behavior</p></div>
-              <div className="cp-impact-item"><span className="cp-impact-dot" /><p>Reduced reliance on documentation and peer support</p></div>
-              <div className="cp-impact-item"><span className="cp-impact-dot" /><p>Increased confidence in using AI within workflows</p></div>
+            <p className="cp-label">OUTCOMES</p>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', marginTop: '3rem' }}>
+              <div>
+                <h2 className="cp-heading" style={{ marginBottom: '2.5rem' }}>Impact</h2>
+                <div className="cp-impact-list">
+                  <div className="cp-impact-item"><span className="cp-impact-dot" /><p>Faster understanding of system behavior</p></div>
+                  <div className="cp-impact-item"><span className="cp-impact-dot" /><p>Reduced reliance on documentation</p></div>
+                  <div className="cp-impact-item"><span className="cp-impact-dot" /><p>Increased confidence in AI workflows</p></div>
+                </div>
+              </div>
+              <div style={{ background: '#F4F4F4', padding: '4rem', borderRadius: '24px', textAlign: 'center' }}>
+                <p style={{ fontSize: '24px', fontFamily: 'var(--serif)', fontStyle: 'italic', color: 'var(--accent)', lineHeight: 1.4 }}>
+                  “It feels like guidance — but I’m still in control.”
+                </p>
+              </div>
             </div>
           </section>
 
-          {/* Impact quote */}
-          <div className="cp-quote-banner">
-            <p className="cp-quote-text" style={{ fontStyle: 'italic' }}>" It feels like having guidance — but I'm still in control. "</p>
-          </div>
-
           {/* ═══════════════════════════════════════ */}
-          {/* REFLECTION                             */}
+          {/* SECTION 8: REFLECTION                  */}
           {/* ═══════════════════════════════════════ */}
-          <section id="reflection" className="cp-section">
-            <p className="cp-label">REFLECTION</p>
-            <p className="cp-reflection-text">
-              The challenge wasn't making AI powerful.<br />
+          <section id="reflection" className="cp-section" style={{ textAlign: 'center' }}>
+            <p className="cp-label">FINAL THOUGHTS</p>
+            <h2 className="cp-heading" style={{ margin: '0 auto 2rem' }}>Reflection</h2>
+            
+            <p className="cp-reflection-text" style={{ margin: '0 auto', textAlign: 'center' }}>
+              The challenge wasn’t making AI powerful.<br />
               It was making it predictable enough to be trusted.
             </p>
-          </section>
 
-          {/* Final green highlight */}
-          <div className="cp-quote-banner" style={{ marginBottom: '4rem' }}>
-            <p className="cp-quote-text">The future of AI in engineering is not autonomy — it is controlled intelligence.</p>
-          </div>
+            <div className="cp-reflection-highlight">
+              The future of AI in engineering is not autonomy —<br />
+              it is controlled intelligence.
+            </div>
+          </section>
 
         </main>
       </div>

@@ -1,0 +1,152 @@
+<svg width="100%" viewBox="0 0 680 420" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Gecko Analysis Report — Thumbnail Hero</title>
+  <desc>A dark space-themed thumbnail hero for the Gecko Analysis Report case study, featuring an AI pipeline visualization and a highlighted data row.</desc>
+
+  <defs>
+    <radialGradient id="bg-core" cx="42%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#1e1060"/>
+      <stop offset="60%" stop-color="#090d1f"/>
+      <stop offset="100%" stop-color="#04060f"/>
+    </radialGradient>
+    <radialGradient id="glow-ai" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c5df7" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#7c5df7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-ux" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-row" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c5df7" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#7c5df7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aurora" cx="20%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#4f1d96" stop-opacity="0.5"/>
+      <stop offset="55%" stop-color="#0e1340" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#04060f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pipe-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#7c5df7" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="55%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#67e8f9"/>
+    </linearGradient>
+    <linearGradient id="conf-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c5df7"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <clipPath id="card-clip">
+      <rect x="0" y="0" width="680" height="420" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#card-clip)">
+    <rect x="0" y="0" width="680" height="420" fill="url(#bg-core)"/>
+    <rect x="0" y="0" width="680" height="420" fill="url(#aurora)"/>
+
+    <line x1="0" y1="84" x2="680" y2="84" stroke="#ffffff" stroke-opacity="0.025" stroke-width="0.5"/>
+    <line x1="0" y1="168" x2="680" y2="168" stroke="#ffffff" stroke-opacity="0.025" stroke-width="0.5"/>
+    <line x1="0" y1="252" x2="680" y2="252" stroke="#ffffff" stroke-opacity="0.025" stroke-width="0.5"/>
+    <line x1="0" y1="336" x2="680" y2="336" stroke="#ffffff" stroke-opacity="0.025" stroke-width="0.5"/>
+    <line x1="136" y1="0" x2="136" y2="420" stroke="#ffffff" stroke-opacity="0.02" stroke-width="0.5"/>
+    <line x1="272" y1="0" x2="272" y2="420" stroke="#ffffff" stroke-opacity="0.02" stroke-width="0.5"/>
+    <line x1="408" y1="0" x2="408" y2="420" stroke="#ffffff" stroke-opacity="0.02" stroke-width="0.5"/>
+    <line x1="544" y1="0" x2="544" y2="420" stroke="#ffffff" stroke-opacity="0.02" stroke-width="0.5"/>
+
+    <circle cx="52" cy="22" r="1.1" fill="#fff" opacity="0.55"/>
+    <circle cx="138" cy="47" r="0.7" fill="#c4b5fd" opacity="0.6"/>
+    <circle cx="245" cy="15" r="1.3" fill="#fff" opacity="0.45"/>
+    <circle cx="412" cy="28" r="0.8" fill="#bfdbfe" opacity="0.5"/>
+    <circle cx="555" cy="18" r="1" fill="#c4b5fd" opacity="0.65"/>
+    <circle cx="648" cy="38" r="0.7" fill="#fff" opacity="0.4"/>
+    <circle cx="22" cy="140" r="0.6" fill="#fff" opacity="0.3"/>
+    <circle cx="658" cy="110" r="0.8" fill="#bfdbfe" opacity="0.35"/>
+    <circle cx="670" cy="290" r="0.7" fill="#c4b5fd" opacity="0.4"/>
+    <circle cx="30" cy="380" r="0.6" fill="#fff" opacity="0.3"/>
+    <circle cx="620" cy="400" r="0.8" fill="#bfdbfe" opacity="0.35"/>
+    <circle cx="488" cy="398" r="0.5" fill="#fff" opacity="0.3"/>
+
+    <circle cx="340" cy="165" r="180" fill="none" stroke="#7c5df7" stroke-width="0.3" stroke-opacity="0.12"/>
+    <circle cx="340" cy="165" r="220" fill="none" stroke="#7c5df7" stroke-width="0.3" stroke-opacity="0.07"/>
+
+    <text x="340" y="52" text-anchor="middle" font-family="'Segoe UI',system-ui,sans-serif" font-size="30" font-weight="700" fill="url(#title-grad)" letter-spacing="0.5">Gecko Analysis Report</text>
+
+    <rect x="272" y="62" width="136" height="20" rx="10" fill="#7c5df7" fill-opacity="0.18" stroke="#7c5df7" stroke-width="0.6" stroke-opacity="0.5"/>
+    <text x="340" y="76" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#c4b5fd" letter-spacing="1.2" font-weight="600">AI · UX · SIGNALS</text>
+
+    <line x1="174" y1="155" x2="260" y2="155" stroke="url(#pipe-line)" stroke-width="1.5"/>
+    <line x1="420" y1="155" x2="506" y2="155" stroke="url(#pipe-line)" stroke-width="1.5"/>
+
+    <circle cx="200" cy="155" r="2" fill="#4f46e5" opacity="0.5"/>
+    <circle cx="220" cy="155" r="1.4" fill="#6d6aef" opacity="0.4"/>
+    <circle cx="240" cy="155" r="2" fill="#7c5df7" opacity="0.5"/>
+    <circle cx="440" cy="155" r="2" fill="#7c5df7" opacity="0.5"/>
+    <circle cx="460" cy="155" r="1.4" fill="#22d3ee" opacity="0.4"/>
+    <circle cx="480" cy="155" r="2" fill="#06b6d4" opacity="0.5"/>
+
+    <rect x="94" y="127" width="80" height="56" rx="12" fill="#12163a" stroke="#4f46e5" stroke-width="0.8" stroke-opacity="0.7"/>
+    <rect x="94" y="127" width="80" height="56" rx="12" fill="#7c5df7" fill-opacity="0.05"/>
+    <rect x="126" y="136" width="16" height="11" rx="2.5" fill="none" stroke="#818cf8" stroke-width="1.1"/>
+    <path d="M134 136 L134 130 L131 133 L134 130 L137 133" fill="none" stroke="#818cf8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="134" y="158" text-anchor="middle" font-family="sans-serif" font-size="9.5" fill="#818cf8" letter-spacing="0.8" font-weight="600">RAW LOGS</text>
+    <text x="134" y="172" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#3d4475">input stream</text>
+
+    <circle cx="340" cy="155" r="50" fill="url(#glow-ai)"/>
+    <circle cx="340" cy="155" r="36" fill="#150d40" stroke="#7c5df7" stroke-width="1.4"/>
+    <circle cx="340" cy="155" r="30" fill="none" stroke="#7c5df7" stroke-width="0.5" stroke-opacity="0.4"/>
+    <circle cx="340" cy="155" r="24" fill="none" stroke="#a78bfa" stroke-width="0.3" stroke-opacity="0.3"/>
+    <rect x="333" y="148" width="14" height="11" rx="2.5" fill="none" stroke="#a78bfa" stroke-width="1.3"/>
+    <path d="M335.5 148 Q335.5 142.5 340 142.5 Q344.5 142.5 344.5 148" fill="none" stroke="#a78bfa" stroke-width="1.3"/>
+    <circle cx="340" cy="154" r="2" fill="#c4b5fd"/>
+    <text x="340" y="172" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#a78bfa" letter-spacing="0.6" font-weight="600">AI INTELLIGENCE</text>
+    <text x="340" y="183" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#7c5df7" letter-spacing="0.6">PIPELINE</text>
+
+    <circle cx="506" cy="155" r="46" fill="url(#glow-ux)"/>
+    <circle cx="506" cy="155" r="32" fill="#071428" stroke="#06b6d4" stroke-width="1.2"/>
+    <circle cx="506" cy="155" r="26" fill="none" stroke="#06b6d4" stroke-width="0.4" stroke-opacity="0.4"/>
+    <polygon points="506,140 508.4,147.6 516.4,147.6 510,152.4 512.4,160 506,155.2 499.6,160 502,152.4 495.6,147.6 503.6,147.6" fill="none" stroke="#67e8f9" stroke-width="1.1" stroke-linejoin="round"/>
+    <text x="506" y="176" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#67e8f9" letter-spacing="0.8" font-weight="600">UX SIGNALS</text>
+
+    <rect x="60" y="220" width="560" height="30" rx="6" fill="#0c1130" fill-opacity="0.5" stroke="#ffffff" stroke-opacity="0.04" stroke-width="0.5"/>
+    <text x="88" y="240" font-family="sans-serif" font-size="11" fill="#3a4060">GCK-102</text>
+    <text x="200" y="240" font-family="sans-serif" font-size="11" fill="#3a4060">Simulink Check</text>
+    <text x="420" y="240" font-family="sans-serif" font-size="11" fill="#2e6e45">YES</text>
+    <text x="555" y="240" font-family="sans-serif" font-size="11" fill="#3a4060">94%</text>
+
+    <rect x="60" y="258" width="560" height="52" rx="10" fill="url(#glow-row)"/>
+    <rect x="60" y="258" width="560" height="52" rx="10" fill="#1a1040" fill-opacity="0.85" stroke="#7c5df7" stroke-width="1" stroke-opacity="0.7"/>
+    <rect x="60" y="258" width="4" height="52" rx="2" fill="#7c5df7"/>
+    <circle cx="80" cy="284" r="5" fill="#7c5df7" opacity="0.25"/>
+    <circle cx="80" cy="284" r="3" fill="#a78bfa" opacity="0.9"/>
+
+    <text x="100" y="281" font-family="sans-serif" font-size="13" fill="#e2e8f0" font-weight="700">GCK-194</text>
+    <text x="200" y="281" font-family="sans-serif" font-size="12" fill="#c4b5fd" font-weight="500">Simulink Check</text>
+    <text x="200" y="298" font-family="sans-serif" font-size="10.5" fill="#6b7280">Property Inspector config not found</text>
+
+    <rect x="420" y="270" width="36" height="20" rx="6" fill="#166534" fill-opacity="0.6" stroke="#4ade80" stroke-width="0.6"/>
+    <text x="438" y="284" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#4ade80" font-weight="700">YES</text>
+
+    <text x="476" y="277" font-family="sans-serif" font-size="9.5" fill="#8b5cf6">Discoverability</text>
+    <text x="476" y="296" font-family="sans-serif" font-size="18" fill="#c4b5fd" font-weight="700">98%</text>
+
+    <rect x="60" y="318" width="560" height="3" rx="1.5" fill="#1e1e40"/>
+    <rect x="60" y="318" width="549" height="3" rx="1.5" fill="url(#conf-bar)" opacity="0.6"/>
+
+    <rect x="60" y="330" width="560" height="30" rx="6" fill="#0c1130" fill-opacity="0.4" stroke="#ffffff" stroke-opacity="0.03" stroke-width="0.5"/>
+    <text x="88" y="350" font-family="sans-serif" font-size="11" fill="#2a3050">GCK-512</text>
+    <text x="200" y="350" font-family="sans-serif" font-size="11" fill="#2a3050">Image Processing</text>
+    <text x="420" y="350" font-family="sans-serif" font-size="11" fill="#1e5035">YES</text>
+    <text x="555" y="350" font-family="sans-serif" font-size="11" fill="#2a3050">78%</text>
+
+    <line x1="200" y1="394" x2="480" y2="394" stroke="#7c5df7" stroke-width="0.5" stroke-opacity="0.4"/>
+    <circle cx="340" cy="394" r="2.5" fill="#7c5df7" opacity="0.7"/>
+    <circle cx="280" cy="394" r="1.2" fill="#7c5df7" opacity="0.3"/>
+    <circle cx="400" cy="394" r="1.2" fill="#7c5df7" opacity="0.3"/>
+  </g>
+
+  <rect x="0" y="0" width="680" height="420" rx="18" fill="none" stroke="#7c5df7" stroke-width="0.8" stroke-opacity="0.3"/>
+</svg>

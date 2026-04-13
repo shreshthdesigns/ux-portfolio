@@ -25,6 +25,11 @@ export default function CaseStudy({ project, onBack }) {
     return () => observer.disconnect();
   }, [project]);
 
+  // Scroll to top when the component mounts or the project changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [project]);
+
   let sections = [];
   let displaySections = [];
 
@@ -58,14 +63,13 @@ export default function CaseStudy({ project, onBack }) {
       { id: "impact", label: "Impact" }
     ];
   } else if (project === "polyspace-copilot") {
-    sections = ["overview", "intro", "insight", "constraints", "principles", "system", "experiences", "tradeoffs", "impact", "reflection"];
+    sections = ["overview", "intro", "principles", "learning", "translating", "system", "experiences", "tradeoffs", "impact", "reflection"];
     displaySections = [
       { id: "overview", label: "Overview" },
       { id: "intro", label: "Problem" },
-      { id: "insight", label: "Insight" },
-      { id: "constraints", label: "Constraints" },
-      { id: "principles", label: "Approach" },
-      { id: "system", label: "System" },
+      { id: "learning", label: "Learnings" },
+      { id: "principles", label: "Principles" },
+      { id: "system", label: "System Design" },
       { id: "experiences", label: "Experiences" },
       { id: "impact", label: "Impact" },
       { id: "reflection", label: "Reflection" }

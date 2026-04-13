@@ -351,6 +351,140 @@
 }
 
 /* ═══════════════════════════════════════════════════ */
+/* SECTION 1: PRINCIPLES (Horizontal Cards)         */
+/* ═══════════════════════════════════════════════════ */
+
+.cp-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.cp-principle-card {
+  background: #fff;
+  border: 1px solid #D9D9D9;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cp-principle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+}
+
+.cp-principle-card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.cp-principle-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #616161;
+}
+
+/* ═══════════════════════════════════════════════════ */
+/* SECTION 2: LEARNINGS (Stacked Vertical Cards)    */
+/* ═══════════════════════════════════════════════════ */
+
+.cp-learning-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 850px;
+  margin-top: 3rem;
+}
+
+.cp-learning-card {
+  background: #fff;
+  border-left: 4px solid var(--accent);
+  border-radius: 4px 16px 16px 4px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  border: 1px solid #D9D9D9;
+  border-left-width: 4px;
+}
+
+.cp-learning-card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.cp-learning-card p {
+  font-size: 16px;
+  color: #616161;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════ */
+/* SECTION 3: TRANSLATION (Two-column layout)       */
+/* ═══════════════════════════════════════════════════ */
+
+.cp-decision-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 3rem;
+  border: 1px solid #D9D9D9;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.cp-decision-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.cp-decision-row:last-child {
+  border-bottom: none;
+}
+
+.cp-decision-header {
+  background: #F9F9F9;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 13px;
+  color: #333;
+}
+
+.cp-decision-cell {
+  padding: 1.5rem 2rem;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.cp-decision-cell:first-child {
+  border-right: 1px solid #F0F0F0;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ═══════════════════════════════════════════════════ */
+/* SECTION 8: REFLECTION (Final Highlight)          */
+/* ═══════════════════════════════════════════════════ */
+
+.cp-reflection-highlight {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  border-top: 1px solid #D9D9D9;
+}
+
+/* ═══════════════════════════════════════════════════ */
 /* DARK GREEN SECTION — Insight                       */
 /* ═══════════════════════════════════════════════════ */
 

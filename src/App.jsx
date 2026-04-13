@@ -44,6 +44,13 @@ export default function App() {
     return () => observer.disconnect();
   }, [activeProject]);
 
+  // Scroll to top when activeProject changes (entering case study or NDA gate)
+  useEffect(() => {
+    if (activeProject) {
+      window.scrollTo(0, 0);
+    }
+  }, [activeProject]);
+
   const getLogoColor = () => {
     if (!activeProject) return "";
     switch(activeProject.id) {

@@ -28,7 +28,8 @@ export default function Work({ setActiveProject }) {
       description: "AI system transforming large bug report datasets into actionable UX intelligence.",
       title: "AI-Driven UX Mining",
       tags: ["AI Workflows", "UX Intelligence", "Data Mining"],
-      image: "/Gecko Image Card.png",
+      image: "/gecko_analysis_thumbnail_hero.svg",
+      imgStyle: { objectFit: "cover", objectPosition: "center", backgroundColor: "#060918" },
       brandColor: "#4338ca", // Indigo
       brandLight: "rgba(67, 56, 202, 0.08)"
     },

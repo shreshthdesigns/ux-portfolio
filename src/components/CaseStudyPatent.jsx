@@ -199,7 +199,7 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
               {[
                 { label: 'Role', value: 'UX Researcher / Systems Designer' },
                 { label: 'Duration', value: '5 months' },
-                { label: 'Outcome', value: 'US Patent Granted' }
+                { label: 'Outcome', value: 'Indian Patent Granted' }
               ].map((m, i) => (
                 <div key={i} className="cs-meta-item">
                   <div className="cs-meta-label">{m.label}</div>
@@ -243,7 +243,7 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
                   { title: 'Insight', body: 'Users preferred passive safety systems that work invisibly. Trust comes from reliability, not features.' },
                   { title: 'Approach', body: 'A research-driven exploration across prediction, detection, and protection — leading to a system-level intervention.' },
                   { title: 'System', body: 'Real-time motion sensing · Threshold-based fall prediction · Automatic mechanical stabilization' },
-                  { title: 'Outcome', body: 'Functional prototype validated · Detection <0.4s · Deployment <0.7s · US Patent Granted' }
+                  { title: 'Outcome', body: 'Functional prototype validated · Detection <0.4s · Deployment <0.7s · Indian Patent Granted' }
                 ].map((card, i) => (
                   <div key={i} className="cs-snapshot-card">
                     <div className="cs-snapshot-card-title">{card.title}</div>
@@ -279,7 +279,7 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
                   {[
                     { value: '0.4s', label: 'Detection' },
                     { value: '0.7s', label: 'Response' },
-                    { value: 'Patent', label: 'US Granted' }
+                    { value: 'Patent', label: 'Indian Granted' }
                   ].map((m, i) => (
                     <div key={i} className="cs-impact-metric-item">
                       <div className="cs-metric-value">{m.value}</div>
@@ -403,7 +403,7 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
                       ))}
                     </div>
                     <div className="cs-phase-details highlighted">
-                        Functional prototype validated · US Patent Granted
+                        Functional prototype validated · Indian Patent Granted
                     </div>
                   </div>
                 </div>
@@ -546,11 +546,13 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <div className="cs-research-evidence-grid">
               {[
                 { img: '/Interviewpic.png', title: 'Interview Sessions', caption: 'Field interview photos from assisted living research.' },
-                { img: '/Research%20Questions.png', title: 'Research Questions', caption: 'Question framework used to structure stakeholder conversations.' },
+                { img: '/Research Questions.png', title: 'Research Questions', caption: 'Question framework used to structure stakeholder conversations.' },
                 { img: '/Survey.png', title: 'Survey Findings', caption: 'Survey responses mapped into key behavioral and adoption patterns.' }
               ].map((item) => (
                 <figure key={item.title} className="cs-research-evidence-card" tabIndex="0">
-                  <img src={item.img} alt={item.title} />
+                  <div className="cs-research-evidence-img-wrap">
+                    <img src={item.img} alt={item.title} />
+                  </div>
                   <figcaption>
                     <span>{item.title}</span>
                     {item.caption}
@@ -916,17 +918,16 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <p>We chose to enhance an <strong>existing mental model — the walker</strong>. No learning curve, already trusted, seamlessly fits into daily routines. This is a UX decision, not just a product decision.</p>
 
             {/* 3D Prototype Image */}
-            <div style={{ background: 'white', borderRadius: '16px', border: '1px solid var(--border)', padding: '2.5rem', marginTop: '3rem', boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-                <div>
-                  <img src="/walksafe_mechanism.png" alt="Mechanism Close-up" style={{ width: '100%', borderRadius: '10px' }} />
-                  <div style={{ fontSize: '.8rem', color: '#718096', textAlign: 'center', marginTop: '.75rem' }}>Spring-loaded deployment mechanism — exploded view</div>
-                </div>
-                <div>
-                  <img src="/walksafe_prototype.png" alt="Full Walker Prototype" style={{ width: '100%', borderRadius: '10px' }} />
-                  <div style={{ fontSize: '.8rem', color: '#718096', textAlign: 'center', marginTop: '.75rem' }}>Full prototype with integrated stabilization system</div>
-                </div>
-              </div>
+            {/* 3D Prototype Image Card */}
+            <div className="cs-white-card" style={{ padding: '0', overflow: 'hidden', marginBottom: '1.5rem', marginTop: '3rem' }}>
+              <img 
+                src="/Walksafe/Final Product.png" 
+                alt="Walksafe Final Direction & Validation" 
+                style={{ width: '100%', display: 'block' }} 
+              />
+            </div>
+            <div className="cs-image-caption">
+              Spring-loaded deployment mechanism — exploded view (left) and the full prototype with integrated stabilization system (right).
             </div>
 
             {/* Performance Metrics */}
@@ -953,7 +954,7 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <h2 className="cs-section-title">Impact & Outcome</h2>
 
             <div className="cs-patent-callout">
-              <h3>US Patent Granted</h3>
+              <h3>Indian Patent Granted</h3>
               <p>A research-driven assistive technology system combining real-time instability detection with automatic mechanical stabilization — designed around trust, invisibility, and zero cognitive load.</p>
             </div>
 
@@ -994,9 +995,24 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
               <p style={{ color: '#718096', fontSize: '.95rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
                 Detailed research documentation including user insights, systems modeling, sensor validation, and full design methodology.
               </p>
-              <div style={{ display: 'inline-block', background: '#2b5440', color: 'white', padding: '1rem 2.5rem', borderRadius: '8px', fontWeight: 600, fontSize: '.95rem', cursor: 'pointer', boxShadow: '0 4px 12px rgba(43,84,64,0.2)' }}>
+              <a 
+                href="/Walksafe/Major Project Report.pdf" 
+                download="Walksafe_Major_Project_Report.pdf"
+                style={{ 
+                  display: 'inline-block', 
+                  background: '#2b5440', 
+                  color: 'white', 
+                  padding: '1rem 2.5rem', 
+                  borderRadius: '8px', 
+                  fontWeight: 600, 
+                  fontSize: '.95rem', 
+                  textDecoration: 'none',
+                  cursor: 'pointer', 
+                  boxShadow: '0 4px 12px rgba(43,84,64,0.2)' 
+                }}
+              >
                 View Complete Project Report →
-              </div>
+              </a>
             </div>
           </section>
 
