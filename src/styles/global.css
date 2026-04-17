@@ -6488,12 +6488,12 @@ nav {
 }
 
 /* ======================================================= */
-/* ============ MOBILE SUPPLEMENTAL (≤ 768px) ============ */
+/* ====== MOBILE SUPPLEMENTAL (iPad 11th Gen: 834px) ===== */
 /* Targeting gaps not covered by the main block (L4231).   */
 /* Desktop view MUST remain completely unchanged.          */
 /* ======================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 834px) {
 
   /* ── Impact Stack — hide visual panel, disable stack FX ── */
   .impact-card-visual {
@@ -6753,10 +6753,10 @@ nav {
 
 /* ======================================================= */
 /* ============ COMPREHENSIVE MOBILE OVERRIDES =========== */
-/* ============ TARGET: 320px – 1024px         ============ */
+/* ============ TARGET: iPad 11th Gen (834px)  ============ */
 /* ======================================================= */
 
-@media (max-width: 1024px) {
+@media (max-width: 834px) {
   :root {
     --section-pad: 4rem; /* Reduced from 8rem */
   }
@@ -6796,8 +6796,8 @@ nav {
   }
 }
 
-/* Phone Focus: 320px – 480px */
-@media (max-width: 480px) {
+/* Phone Focus: iPhone 15 Pro (430px) */
+@media (max-width: 430px) {
   :root {
     --section-pad: 3.5rem;
   }
