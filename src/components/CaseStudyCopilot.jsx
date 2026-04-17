@@ -91,6 +91,69 @@ function InsightCarousel() {
   );
 }
 
+const COPILOT_ADAPTATIONS = [
+  {
+    id: 1,
+    title: "CHAT → ACTIONS",
+    beforeAlt: "Chat UI mock with user typing Explain this error",
+    beforeImg: "/Polyspace/Card 1.1.svg",
+    afterAlt: "Polyspace UI with Inline Explain Error button",
+    afterImg: "/Polyspace/Card 1.2.svg",
+    caption: "Users struggle to frame the right prompt in complex verification workflows",
+    microLeft: "Chat-based interaction",
+    microRight: "Action-based entry points",
+    callout: "Reduces prompt dependency and cognitive load"
+  },
+  {
+    id: 2,
+    title: "IMPLICIT CONTEXT → EXPLICIT CONTEXT",
+    beforeAlt: "Multiple UI panels disconnected with AI guessing context",
+    beforeImg: "/Polyspace/Card 2.1.svg",
+    afterAlt: "Context selector UI showing selected files",
+    afterImg: "/Polyspace/Card 2.2.svg",
+    caption: "Context is fragmented across files, results, and execution states",
+    microLeft: "Implicit context assumption",
+    microRight: "User-scoped context",
+    callout: "Ensures relevance, privacy, and predictability"
+  },
+  {
+    id: 3,
+    title: "UNPREDICTABLE → CONTROLLED EXECUTION",
+    beforeAlt: "AI output applied automatically",
+    beforeImg: "/Polyspace/unpredictable-before.png",
+    afterAlt: "Approval modal with Approve, Modify, Cancel buttons",
+    afterImg: "/Polyspace/controlled-after.png",
+    caption: "Inconsistent outputs reduce confidence in AI-assisted workflows",
+    microLeft: "Unpredictable outputs",
+    microRight: "Approval checkpoints",
+    callout: "Maintains user ownership of decisions"
+  },
+  {
+    id: 4,
+    title: "BLACK BOX → VISIBLE REASONING",
+    beforeAlt: "AI output without explanation",
+    beforeImg: "/Polyspace/blackbox-before.png",
+    afterAlt: "Reasoning panel showing step-by-step trace",
+    afterImg: "/Polyspace/reasoning-after.png",
+    caption: "Lack of transparency makes AI decisions difficult to trust",
+    microLeft: "Black-box behavior",
+    microRight: "Visible reasoning",
+    callout: "Makes AI explainable within engineering workflows"
+  },
+  {
+    id: 5,
+    title: "UNBOUNDED → SCOPED AI",
+    beforeAlt: "AI accessing full system",
+    beforeImg: "/Polyspace/unbounded-before.png",
+    afterAlt: "Scoped context UI highlighting boundary limits",
+    afterImg: "/Polyspace/scoped-after.png",
+    caption: "Uncontrolled AI access creates risk in enterprise environments",
+    microLeft: "Unbounded AI behavior",
+    microRight: "Scoped AI boundaries",
+    callout: "Aligns with enterprise privacy and control requirements"
+  }
+];
+
 export default function CaseStudyCopilot({ onBack, activeSection, displaySections }) {
 
   useEffect(() => {
@@ -145,6 +208,8 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
 
           {/* Hero Video Card */}
           <div className="cp-hero-mockup">
+            <div className="cp-hero-glow cp-hero-glow--1"></div>
+            <div className="cp-hero-glow cp-hero-glow--2"></div>
             <div className="cp-mockup-inner">
               <video 
                 src="/Polyspace Copilot.mov" 
@@ -155,6 +220,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                 className="cp-hero-video"
               ></video>
             </div>
+            <p className="cp-hero-video-caption">Designed for trust in complex systems</p>
           </div>
 
           {/* ═══════════════════════════════════════ */}
@@ -271,7 +337,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
             <p className="cp-body">AI introduces uncertainty into systems that demand precision, predictability, and accountability.</p>
 
             <div className="cp-constraints-visual">
-              <img src="/Hard problem.png" alt="Engineering Workflow Paradox" className="cp-constraints-image" />
+              <img src="/Polyspace/Ai for engineering.svg" alt="AI Constraints in Engineering Workflows" className="cp-constraints-image" />
             </div>
           </section>
 
@@ -283,77 +349,139 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
           {/* ═══════════════════════════════════════ */}
           {/* SECTION 1: PRINCIPLES                  */}
           {/* ═══════════════════════════════════════ */}
-          <section id="principles" className="cp-section">
+          <section id="principles" className="cp-section" style={{ textAlign: 'center', background: '#F8F9FA', margin: '0 -4rem', padding: '140px 4rem' }}>
             <p className="cp-label">PRINCIPLES</p>
-            <h2 className="cp-heading">Designing for Controlled Intelligence</h2>
+            <h2 className="cp-heading" style={{ margin: '0 auto 1.5rem', color: '#2B5441' }}>Designing for Controlled Intelligence</h2>
             
-            <p className="cp-body" style={{ marginBottom: '3rem' }}>
-              AI systems cannot be designed purely for capability.<br />
-              They must operate within clear behavioral boundaries.
+            <p className="cp-body" style={{ margin: '0 auto 4rem', textAlign: 'center', color: '#4A5568' }}>
+              Modern AI requires a shift from black-box automation to observable, human-centric<br />guidance within the development loop.
             </p>
 
-            <div className="cp-principles-grid">
-              {[
-                { title: 'AI Suggests — Never Assumes', desc: 'Outputs are always suggestions. No silent execution.' },
-                { title: 'Every Output Is Traceable', desc: 'Responses are grounded in context, code, and system state.' },
-                { title: 'Actions Require Approval', desc: 'Critical actions introduce human-in-the-loop checkpoints.' },
-                { title: 'Reasoning Is Visible', desc: 'The system exposes how it interprets and plans.' },
-                { title: 'Context Is Scoped', desc: 'AI operates only within explicitly defined inputs.' }
-              ].map((item, i) => (
-                <div key={i} className="cp-principle-card">
-                  <h3>{i + 1}. {item.title}</h3>
-                  <p>{item.desc}</p>
+            <div className="cp-principles-flex">
+              {/* Top Row: 3 Cards */}
+              <div className="cp-principle-new-card">
+                <h3>AI Suggests — Never Assumes</h3>
+                <div className="cp-new-media">
+                  <img src="/Polyspace/CP1.svg" alt="AI Suggests - Never Assumes" />
                 </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ═══════════════════════════════════════ */}
-          {/* SECTION 2: LEARNINGS                    */}
-          {/* ═══════════════════════════════════════ */}
-          <section id="learning" className="cp-section" style={{ background: '#F9F9F9', margin: '0 -4rem', padding: '140px 4rem' }}>
-            <p className="cp-label">ANALYSIS</p>
-            <h2 className="cp-heading">Learning from Existing Copilot Systems</h2>
-
-            <div className="cp-learning-stack">
-              {[
-                { title: 'Chat Alone Is Not Enough', desc: 'Users struggle to know what to ask → Introduce structured actions' },
-                { title: 'Context Is the Hardest Problem', desc: 'Users expect full awareness → Context must be explicit and controlled' },
-                { title: 'AI Needs Continuous Validation', desc: 'Outputs are inconsistent over time → Requires feedback loops and iteration' },
-                { title: 'Trust Is Built Through Constraints', desc: 'Enterprise users demand boundaries → AI must be constrained by design' }
-              ].map((item, i) => (
-                <div key={i} className="cp-learning-card">
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ═══════════════════════════════════════ */}
-          {/* SECTION 3: TRANSLATING                  */}
-          {/* ═══════════════════════════════════════ */}
-          <section id="translating" className="cp-section">
-            <p className="cp-label">STRATEGY</p>
-            <h2 className="cp-heading">Translating Learnings into Design Decisions</h2>
-
-            <div className="cp-decision-grid">
-              <div className="cp-decision-row cp-decision-header">
-                <div className="cp-decision-cell">Learning</div>
-                <div className="cp-decision-cell">Design Decision</div>
+                <p className="cp-principle-caption">Outputs are always suggestions. No silent execution.</p>
               </div>
-              {[
-                { l: 'Chat insufficient', d: 'Action-based entry points' },
-                { l: 'Context limitations', d: 'Explicit context selection' },
-                { l: 'AI unpredictability', d: 'Approval checkpoints' },
-                { l: 'Black-box behavior', d: 'Visible reasoning' },
-                { l: 'Enterprise constraints', d: 'Scoped AI boundaries' }
-              ].map((row, i) => (
-                <div key={i} className="cp-decision-row">
-                  <div className="cp-decision-cell">{row.l}</div>
-                  <div className="cp-decision-cell">{row.d}</div>
+              <div className="cp-principle-new-card">
+                <h3>Every Output Is Traceable</h3>
+                <div className="cp-new-media">
+                  <img src="/Polyspace/CP2.svg" alt="Every Output Is Traceable" />
+                </div>
+                <p className="cp-principle-caption">Responses are grounded in context, code, and system state.</p>
+              </div>
+              <div className="cp-principle-new-card">
+                <h3>Actions Require Approval</h3>
+                <div className="cp-new-media">
+                  <img src="/Polyspace/CP3.svg" alt="Actions Require Approval" />
+                </div>
+                <p className="cp-principle-caption">Critical actions introduce human-in-the-loop checkpoints.</p>
+              </div>
+
+              {/* Bottom Row: 2 Cards */}
+              <div className="cp-principle-new-card cp-principle-new-card--wide">
+                <h3>Reasoning Is Visible</h3>
+                <div className="cp-new-media">
+                  <img src="/Polyspace/CP4.svg" alt="Reasoning Is Visible" />
+                </div>
+                <p className="cp-principle-caption">The system exposes how it interprets and plans.</p>
+              </div>
+              <div className="cp-principle-new-card cp-principle-new-card--wide">
+                <h3>Context Is Scoped</h3>
+                <div className="cp-new-media">
+                  <img src="/Polyspace/CP5.svg" alt="Context Is Scoped" />
+                </div>
+                <p className="cp-principle-caption">AI operates only within explicitly defined inputs.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* ═══════════════════════════════════════ */}
+          {/* ADAPTATION SECTION                      */}
+          {/* ═══════════════════════════════════════ */}
+          <section id="adaptation" className="cp-section">
+            <p className="cp-label">ADAPTATION</p>
+            <h2 className="cp-heading">Adapting Copilot for Polyspace Workflows</h2>
+            <p className="cp-body">
+              Generic Copilot systems optimize for capability.<br />
+              Polyspace requires systems optimized for correctness, traceability, and control.
+            </p>
+
+            <div className="cp-adaptation-container" style={{ position: 'relative' }}>
+              
+              {/* Subtle Bounding Box for Right Section */}
+              <div style={{
+                position: 'absolute',
+                top: '-2rem',
+                bottom: '-2rem',
+                left: 'calc(50% + 1rem)',
+                right: '-2rem',
+                border: '1px solid #eaeaea',
+                borderRadius: '24px',
+                background: '#fafbfc',
+                zIndex: 0,
+                pointerEvents: 'none'
+              }}></div>
+
+              <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '6rem', width: '100%' }}>
+                <div className="cp-adaptation-visuals" style={{ marginBottom: '-3.5rem', padding: '0', alignItems: 'center' }}>
+                  <div className="cp-adaptation-col" style={{ fontSize: '13px', fontFamily: 'var(--sans)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#888', textAlign: 'center' }}>
+                    Generic AI Copilot
+                  </div>
+                  <div className="cp-adaptation-arrow" style={{ opacity: 0 }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M0 0h24v24H0z" /></svg>
+                  </div>
+                  <div className="cp-adaptation-col" style={{ fontSize: '13px', fontFamily: 'var(--sans)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', textAlign: 'center' }}>
+                    Polyspace Copilot
+                  </div>
+                </div>
+
+              {COPILOT_ADAPTATIONS.map((ad) => (
+                <div key={ad.id} className="cp-adaptation-row">
+                  <div className="cp-adaptation-visuals">
+                    <div className="cp-adaptation-col">
+                      <div className="cp-adaptation-before">
+                        <img src={ad.beforeImg} alt={ad.beforeAlt} />
+                      </div>
+                    </div>
+
+                    <div className="cp-adaptation-arrow">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </div>
+
+                    <div className="cp-adaptation-col">
+                      <div className="cp-adaptation-after">
+                        <img src={ad.afterImg} alt={ad.afterAlt} />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="cp-adaptation-content">
+                    <p className="cp-adaptation-caption">
+                      {ad.caption}
+                    </p>
+                    
+                    <div className="cp-adaptation-meta">
+                      <div className="cp-adaptation-micro">
+                        {ad.microLeft} &nbsp;→&nbsp; <strong style={{color: 'var(--accent)'}}>{ad.microRight}</strong>
+                      </div>
+                      <div className="cp-adaptation-callout">
+                        {ad.callout}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))}
+              </div>
+            </div>
+
+            <div className="cp-adaptation-footer-banner">
+              Adapting Copilot for Polyspace was not about adding features — it was about redefining how AI behaves in systems where correctness and control are critical.
             </div>
           </section>
 
