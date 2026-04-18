@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './styles/global.css'
 import './styles/modelfinder-editorial.css'
 import './styles/copilot-editorial.css'
+import './styles/mobile.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
