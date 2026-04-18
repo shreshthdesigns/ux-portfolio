@@ -128,13 +128,10 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
               Ownership
             </h2>
 
-            <div style={{
+            <div className="cs-pa-ownership-grid" style={{
               background: "#f3f6fb",
               borderRadius: "40px",
               padding: "4rem 3rem",
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))",
-              gap: "4rem 2rem",
               border: "1px solid rgba(0,0,0,0.02)"
             }}>
               {[
@@ -366,7 +363,7 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
             </div>
 
             {/* 2 × 2 image grid */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
+            <div className="cs-pa-research-grid">
 
               {/* Session 1 */}
               <figure style={{ margin: 0 }}>
@@ -638,12 +635,11 @@ export default function CaseStudyProjectAdvisor({ onBack, activeSection, display
           maxWidth: "none",
           margin: "0 auto"
         }}>
-          <div style={{
+          <div className="cs-pa-breakthrough-card" style={{
             maxWidth: "1100px",
             margin: "0 auto",
             border: "1px solid var(--border)",
             borderRadius: "48px",
-            padding: "6rem 5rem",
             background: "white",
             textAlign: "center"
           }}>

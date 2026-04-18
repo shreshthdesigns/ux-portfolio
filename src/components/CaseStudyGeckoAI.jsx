@@ -98,7 +98,7 @@ function GeckoProblem() {
             "We had data. <br /><span style={{ color: "var(--cosmic-muted-fg)" }}>We didn't have intelligence."</span>
           </h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
+        <div className="gecko-problem-grid" style={{ alignItems: "center" }}>
           <div style={{ paddingRight: "2rem" }}>
             <div style={{ color: "var(--cosmic-purple)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>The Problem Space</div>
             <h3 style={{ fontSize: "2rem", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", lineHeight: "1.2" }}>A powerful system buried in noise.</h3>
@@ -183,7 +183,7 @@ function GeckoResearch() {
             <h3 style={{ color: "var(--cosmic-fg)", fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>The Manual Analysis Journey</h3>
             <p style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.95rem" }}>Mapping the operational fatigue of conventional diagnostics.</p>
           </div>
-          <div style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "center", maxWidth: "800px", margin: "0 auto" }}>
+          <div className="gecko-timeline-steps" style={{ position: "relative", maxWidth: "800px", margin: "0 auto" }}>
             <div style={{ position: "absolute", top: "30%", left: "5%", right: "5%", height: "2px", background: "var(--cosmic-border)", zIndex: 0 }} />
             {[
               { label: "Manual Export", desc: "Download thousands of disjointed CSV rows.", color: "var(--cosmic-muted-fg)" },
@@ -211,7 +211,7 @@ function GeckoFailedApproach() {
   return (
     <section id="failed-approach" className="cosmic-section-padding" style={{ borderBottom: "1px solid var(--cosmic-border)" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "4rem", alignItems: "center" }}>
+        <div className="gecko-failed-grid" style={{ alignItems: "center" }}>
           <div>
             <div style={{ color: "#ef4444", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>Initial Prototype</div>
             <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", lineHeight: "1.2", letterSpacing: "-0.02em" }}>The fragility of keyword detection.</h2>
@@ -280,7 +280,7 @@ function GeckoFailedApproach() {
 // =============================================================
 function GeckoOpportunity() {
   return (
-    <section id="opportunity" style={{ padding: "12rem 2rem", background: "var(--cosmic-card)", borderBottom: "1px solid var(--cosmic-border)" }}>
+    <section id="opportunity" className="gecko-opportunity-section" style={{ background: "var(--cosmic-card)", borderBottom: "1px solid var(--cosmic-border)" }}>
       <div style={{ maxWidth: "1000px", margin: "0 auto", textAlign: "center" }}>
         <div style={{ color: "var(--cosmic-cyan)", textTransform: "uppercase", letterSpacing: "0.2em", fontSize: "0.85rem", fontWeight: "700", marginBottom: "3rem" }}>The Opportunity</div>
         <h2 style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", fontFamily: "var(--serif)", fontWeight: "400", color: "var(--cosmic-fg)", lineHeight: "1.1", letterSpacing: "-0.02em", margin: "0 auto" }}>
@@ -315,7 +315,8 @@ function GeckoSolution() {
             A modular pipeline designed explicitly to inject intelligence into an existing raw feedback infrastructure safely and autonomously.
           </p>
         </div>
-        <div style={{ background: "rgba(3, 5, 10, 0.8)", backdropFilter: "blur(20px)", border: "1px solid var(--cosmic-border)", borderRadius: "32px", padding: "5rem 3rem", display: "flex", alignItems: "center", justifyContent: "space-between", position: "relative", boxShadow: "0 20px 40px rgba(0,0,0,0.5)" }}>
+        <div className="gecko-pipeline-scroll-wrapper">
+        <div style={{ background: "rgba(3, 5, 10, 0.8)", backdropFilter: "blur(20px)", border: "1px solid var(--cosmic-border)", borderRadius: "32px", padding: "5rem 3rem", display: "flex", alignItems: "center", justifyContent: "space-between", position: "relative", boxShadow: "0 20px 40px rgba(0,0,0,0.5)", minWidth: "700px" }}>
           <div style={{ position: "absolute", top: "50%", left: "100px", right: "100px", height: "2px", background: "rgba(255,255,255,0.05)", zIndex: 0 }} />
           <motion.div animate={{ backgroundPosition: ["100% 0", "-100% 0"] }} transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
             style={{ position: "absolute", top: "50%", left: "100px", right: "100px", height: "2px", background: "linear-gradient(90deg, transparent 0%, var(--cosmic-blue) 50%, transparent 100%)", backgroundSize: "200% 100%", zIndex: 1, opacity: 0.7 }} />
@@ -332,6 +333,7 @@ function GeckoSolution() {
               </div>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </section>
@@ -368,7 +370,7 @@ function GeckoArchitecture() {
           </div>
 
           {layers.slice().reverse().map((layer, i) => (
-            <div key={layer.id} style={{ display: "grid", gridTemplateColumns: "180px 1fr", background: layer.isHero ? "rgba(255,255,255,0.03)" : "rgba(3, 5, 10, 0.6)", border: "1px solid", borderColor: layer.isHero ? "var(--cosmic-purple)" : "var(--cosmic-border)", borderRadius: "16px", padding: "2rem", position: "relative", overflow: "hidden", boxShadow: layer.isHero ? "0 0 30px rgba(168, 85, 247, 0.15)" : "0 10px 30px rgba(0,0,0,0.2)", transform: `scale(${1 - i * 0.02})`, transformOrigin: "top center", zIndex: 10 - i }}>
+            <div key={layer.id} className="gecko-arch-layer" style={{ background: layer.isHero ? "rgba(255,255,255,0.03)" : "rgba(3, 5, 10, 0.6)", border: "1px solid", borderColor: layer.isHero ? "var(--cosmic-purple)" : "var(--cosmic-border)", borderRadius: "16px", padding: "2rem", position: "relative", overflow: "hidden", boxShadow: layer.isHero ? "0 0 30px rgba(168, 85, 247, 0.15)" : "0 10px 30px rgba(0,0,0,0.2)", transform: `scale(${1 - i * 0.02})`, transformOrigin: "top center", zIndex: 10 - i }}>
               {layer.isHero && <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "200px", background: "linear-gradient(90deg, rgba(168, 85, 247, 0.15), transparent)", zIndex: 0 }} />}
               <div style={{ position: "relative", zIndex: 1, borderRight: "1px solid rgba(255,255,255,0.05)", paddingRight: "2rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                 <div style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", marginBottom: "0.5rem" }}>{layer.id}</div>
@@ -409,7 +411,7 @@ function GeckoPrivacy() {
           </p>
         </div>
         {/* PII Masking Transformation Flow */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr auto 1fr", gap: "1.5rem", alignItems: "center", marginBottom: "4rem" }}>
+        <div className="gecko-pii-flow" style={{ marginBottom: "4rem" }}>
           <div className="cosmic-glass" style={{ padding: "2rem", borderRadius: "24px", textAlign: "center" }}>
             <div style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.5rem" }}>Raw Data</div>
             <div style={{ fontFamily: "monospace", fontSize: "0.85rem", color: "var(--cosmic-fg)", textAlign: "left", opacity: 0.8 }}>
@@ -432,7 +434,7 @@ function GeckoPrivacy() {
           </div>
         </div>
         {/* Multimodal OCR Redaction Visual */}
-        <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--cosmic-border)", borderRadius: "32px", padding: "3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "center" }}>
+        <div className="gecko-ocr-grid" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--cosmic-border)", borderRadius: "32px", padding: "3rem", alignItems: "center" }}>
           <div>
             <h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1rem" }}>Multimodal OCR Redaction</h3>
             <p style={{ color: "var(--cosmic-muted-fg)", lineHeight: "1.6", fontSize: "1rem" }}>
@@ -476,7 +478,7 @@ function GeckoIntelligenceLayer() {
   return (
     <section id="intelligence-layer" className="cosmic-section-padding" style={{ position: "relative", borderBottom: "1px solid var(--cosmic-border)" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "4rem", alignItems: "center" }}>
+        <div className="gecko-intelligence-grid" style={{ alignItems: "center" }}>
           <div>
             <div style={{ color: "var(--cosmic-blue)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>The Intelligence Layer</div>
             <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", lineHeight: "1.2", letterSpacing: "-0.02em" }}>Structuring the unstructured.</h2>
@@ -558,7 +560,8 @@ function GeckoHumanLoop() {
           </p>
         </div>
         {/* Loop Diagram */}
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative", height: "450px", maxWidth: "900px", margin: "0 auto" }}>
+        <div className="gecko-loop-diagram-scroll">
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative", height: "450px", width: "900px", margin: "0 auto" }}>
           <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }} viewBox="0 0 900 450">
             <motion.path d="M 250,225 C 250,100 650,100 650,225 C 650,350 250,350 250,225 Z" fill="none" stroke="var(--cosmic-border)" strokeWidth="2" strokeDasharray="10 10" />
             <motion.path d="M 250,225 C 250,100 650,100 650,225 C 650,350 250,350 250,225 Z" fill="none" stroke="url(#blue-gradient)" strokeWidth="3" strokeLinecap="round"
@@ -598,7 +601,8 @@ function GeckoHumanLoop() {
             </div>
           ))}
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "2rem", marginTop: "3rem", textAlign: "left" }}>
+        </div>{/* end gecko-loop-diagram-scroll */}
+        <div className="gecko-loop-grid" style={{ marginTop: "3rem", textAlign: "left" }}>
           {[
             { title: "1. Pre-Flight PII Check", desc: "Before the payload enters the inference layer, humans sample the masked regex outputs to ensure zero proprietary terminology slipped through the Presidio bounds." },
             { title: "2. Context Engineering", desc: "UX Leads continually adjust the RAG vectors and prompt guardrails to focus the AI on specific releases (e.g., \"Weight accessibility issues strongly for version R2024b\")." },
@@ -632,7 +636,7 @@ function GeckoInterface() {
             The intelligence pipeline required a sophisticated frontier. We abstracted the complexity of RAG and Vector DB queries behind familiar, highly polished SaaS paradigms.
           </p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", alignItems: "start" }}>
+        <div className="gecko-interface-grid" style={{ alignItems: "start" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             {/* Query Filters Card */}
             <motion.div whileHover={{ y: -5 }} className="cosmic-glass" style={{ padding: "2rem", borderRadius: "24px", borderTop: "1px solid rgba(255,255,255,0.1)", boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }}>
@@ -745,7 +749,7 @@ function GeckoImpact() {
             Moving away from raw spreadsheets enabled product leaders to actually govern their ecosystem's trajectory based on explicitly organized UX signals.
           </p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+        <div className="gecko-impact-grid">
           {/* BEFORE */}
           <div className="cosmic-glass" style={{ padding: "3rem", borderRadius: "24px", borderTop: "3px solid #ef4444" }}>
             <h3 style={{ color: "var(--cosmic-fg)", fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>Status Quo</h3>
@@ -917,7 +921,7 @@ const GeckoDemo = () => {
                   </div>
                 </div>
                 <h3 style={{ fontSize: "1.25rem", color: "var(--cosmic-fg)", fontWeight: "600", marginBottom: "1rem" }}>LLM Inference Layer Processing</h3>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", width: "100%", maxWidth: "600px" }}>
+                <div className="gecko-demo-phase2-grid" style={{ width: "100%", maxWidth: "600px" }}>
                   <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }} style={{ background: "rgba(255,255,255,0.03)", padding: "1rem", borderRadius: "8px", border: "1px solid var(--cosmic-border)" }}>
                     <div style={{ fontSize: "0.75rem", color: "var(--cosmic-muted-fg)", textTransform: "uppercase", marginBottom: "4px" }}>Input Text (Sanitized)</div>
                     <div style={{ fontSize: "0.85rem", color: "var(--cosmic-fg)" }}>"I really can't figure out how to export these scopes to a high-res PDF."</div>
@@ -944,7 +948,7 @@ const GeckoDemo = () => {
                   </div>
                   <div style={{ padding: "6px 12px", background: "#10b981", color: "white", fontSize: "0.8rem", fontWeight: "600", borderRadius: "20px" }}>Analysis Complete</div>
                 </div>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginBottom: "2rem" }}>
+                <div className="gecko-demo-phase3-grid" style={{ gap: "1rem", marginBottom: "2rem" }}>
                   <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid var(--cosmic-border)", padding: "1rem", borderRadius: "12px" }}>
                     <div style={{ fontSize: "2rem", color: "var(--cosmic-fg)", fontWeight: "700" }}>142</div>
                     <div style={{ fontSize: "0.75rem", color: "var(--cosmic-muted-fg)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Total Signals</div>

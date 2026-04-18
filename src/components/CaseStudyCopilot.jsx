@@ -349,7 +349,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
           {/* ═══════════════════════════════════════ */}
           {/* SECTION 1: PRINCIPLES                  */}
           {/* ═══════════════════════════════════════ */}
-          <section id="principles" className="cp-section" style={{ textAlign: 'center', background: '#F8F9FA', margin: '0 -4rem', padding: '140px 4rem' }}>
+          <section id="principles" className="cp-section cp-principles-section" style={{ textAlign: 'center', background: '#F8F9FA' }}>
             <p className="cp-label">PRINCIPLES</p>
             <h2 className="cp-heading" style={{ margin: '0 auto 1.5rem', color: '#2B5441' }}>Designing for Controlled Intelligence</h2>
             
@@ -495,7 +495,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
               Not a chatbot — but a system that understands, plans, and acts within control boundaries.
             </p>
 
-            <div className="cp-system-visual-dominant" style={{ background: '#fff', padding: '4rem', borderRadius: '24px', border: '1px solid #E0E0E0', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', marginBottom: '4rem' }}>
+            <div className="cp-system-visual-dominant" style={{ background: '#fff', borderRadius: '24px', border: '1px solid #E0E0E0', boxShadow: '0 10px 40px rgba(0,0,0,0.03)', marginBottom: '4rem' }}>
               <div className="cp-system-flow" style={{ background: 'transparent', padding: 0 }}>
                 {[
                   { label: 'User', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg> },
@@ -601,7 +601,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
           <section id="impact" className="cp-section">
             <p className="cp-label">OUTCOMES</p>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', marginTop: '3rem' }}>
+            <div className="cp-impact-grid" style={{ alignItems: 'center', marginTop: '3rem' }}>
               <div>
                 <h2 className="cp-heading" style={{ marginBottom: '2.5rem' }}>Impact</h2>
                 <div className="cp-impact-list">
@@ -610,7 +610,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                   <div className="cp-impact-item"><span className="cp-impact-dot" /><p>Increased confidence in AI workflows</p></div>
                 </div>
               </div>
-              <div style={{ background: '#F4F4F4', padding: '4rem', borderRadius: '24px', textAlign: 'center' }}>
+              <div className="cp-impact-quote-card" style={{ background: '#F4F4F4', borderRadius: '24px', textAlign: 'center' }}>
                 <p style={{ fontSize: '24px', fontFamily: 'var(--serif)', fontStyle: 'italic', color: 'var(--accent)', lineHeight: 1.4 }}>
                   “It feels like guidance — but I’m still in control.”
                 </p>

@@ -712,7 +712,7 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <h2 className="cs-section-title">Validating Detection Behavior</h2>
             <p>We conducted controlled fall experiments across five scenarios to validate that the system could reliably distinguish genuine instability from normal movement.</p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem', margin: '3rem 0' }}>
+            <div className="ws-experiment-icons-grid" style={{ margin: '3rem 0' }}>
               {[
                 { icon: '⬅️', label: 'Side Fall' },
                 { icon: '⬆️', label: 'Front Fall' },
@@ -983,7 +983,7 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
             <h2 className="cs-section-title">Full Research Documentation</h2>
             <p>The complete project report contains detailed research methodology, user insights, system modeling, sensor data analysis, and design rationale.</p>
 
-            <div style={{ background: 'white', border: '1px solid var(--border)', borderRadius: '16px', padding: '4rem', textAlign: 'center', marginTop: '3rem', boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
+            <div className="ws-report-card" style={{ background: 'white', border: '1px solid var(--border)', borderRadius: '16px', textAlign: 'center', marginTop: '3rem', boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2b5440" strokeWidth="1.5" style={{ marginBottom: '1.5rem' }}>
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>

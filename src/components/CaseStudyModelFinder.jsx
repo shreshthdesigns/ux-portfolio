@@ -40,7 +40,7 @@ export default function CaseStudyModelFinder({ onBack, activeSection, displaySec
         <main className="cs-content">
           
           {/* SECTION 1 — HERO — PREMIUM FOREST GREEN */}
-          <section id="overview" className="cs-ed-section cs-ed-hero" style={{ margin: "0 -4rem", padding: "160px 4rem 120px" }}>
+          <section id="overview" className="cs-ed-section cs-ed-hero mf-hero-bleed">
             <div className="hero-text">
               <div className="cs-minimal-label">Case Study</div>
               <h1 className="cs-ed-h1">
@@ -200,7 +200,7 @@ export default function CaseStudyModelFinder({ onBack, activeSection, displaySec
           </section>
 
           {/* SECTION 6 — FILTERS HERO */}
-          <section className="cs-ed-section" style={{ background: "#FAFAFA", margin: "0 -4rem", padding: "120px 4rem" }}>
+          <section className="cs-ed-section mf-gray-bleed">
              <h2 className="cs-ed-h2">Designing for Precision</h2>
              
              {/* Row 1: Split */}
@@ -215,7 +215,7 @@ export default function CaseStudyModelFinder({ onBack, activeSection, displaySec
              </div>
 
              {/* Row 2: Grid of 3 images highlighting states */}
-             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "2rem" }}>
+             <div className="mf-filter-states-grid">
                 <div className="cs-ed-visual-flat"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIyNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0VGRjZFRSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzI1NjM0OCIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+W1BhbmVsIFN0YXRlXTwvdGV4dD48L3N2Zz4=" style={{width: "100%", display: "block"}} alt="1" /></div>
                 <div className="cs-ed-visual-flat"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIyNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0VGRjZFRSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzI1NjM0OCIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+W0FwcGxpZWQgU3RhdGVdPC90ZXh0Pjwvc3ZnPg==" style={{width: "100%", display: "block"}} alt="2" /></div>
                 <div className="cs-ed-visual-flat"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIyNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0VGRjZFRSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzI1NjM0OCIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+W0lubGluZSBTZWFyY2ggU3RhdGVdPC90ZXh0Pjwvc3ZnPg==" style={{width: "100%", display: "block"}} alt="3" /></div>
@@ -288,7 +288,7 @@ export default function CaseStudyModelFinder({ onBack, activeSection, displaySec
           </section>
 
           {/* SECTION 9 — IMPACT */}
-          <section className="cs-ed-section" style={{ background: "#FAFAFA", margin: "0 -4rem", padding: "120px 4rem", textAlign: "center" }}>
+          <section className="cs-ed-section mf-gray-bleed mf-impact-section">
             <h2 className="cs-ed-h2" style={{ marginBottom: "2rem" }}>Validation & Impact</h2>
             
             <div className="cs-ed-impact-statement">
