@@ -42,6 +42,6 @@ jobs:
             set ftp:passive-mode yes;
             set ssl:verify-certificate no;
             open -u \"$FTP_USER\",\"$FTP_PASS\" \"$FTP_SERVER\";
-            mirror --reverse --delete --verbose --no-perms --exclude .git ./dist/ ./;
+            mirror --reverse --delete --verbose --no-perms --exclude .git ./dist/ /public_html/;
             quit
           "
