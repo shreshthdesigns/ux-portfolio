@@ -24,13 +24,15 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: ./
-          protocol: ftps
-          port: 21
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
+
+      - name: Deploy via rsync over SSH
+        env:
+          SSH_HOST: shreshthdesings.com
+          SSH_USER: shrecvma
+          SSH_PASS: ${{ secrets.SSH_PASSWORD }}
+        run: |
+          sshpass -p "$SSH_PASS" rsync -avz --delete \
+            -e "ssh -p 21098 -o StrictHostKeyChecking=no" \
+            ./dist/ "$SSH_USER@$SSH_HOST:/home/shrecvma/public_html/"
