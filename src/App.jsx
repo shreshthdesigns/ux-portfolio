@@ -13,6 +13,16 @@ import NDAGate from "./components/NDAGate";
 export default function App() {
   const [activeProject, setActiveProject] = useState(null);
   const [activeSection, setActiveSection] = useState("hero");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     if (activeProject) return; // Don't track scroll if in case study
@@ -76,6 +86,7 @@ export default function App() {
             Shubham Shreshth
           </a>
 
+          {/* Desktop Nav */}
           <ul className="nav-links">
             {activeProject ? (
               <li>
@@ -102,6 +113,62 @@ export default function App() {
               </>
             )}
           </ul>
+
+          {/* Mobile Nav Top Bar Controls (only visible on mobile) */}
+          <div className="mobile-nav-controls">
+            <a href="#contact" className="mobile-nav-contact btn-resume-pill" style={{ padding: '0.4rem 1rem', fontSize: '0.8rem' }} onClick={(e) => {
+                  e.preventDefault();
+                  setActiveProject(null);
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    const el = document.getElementById("contact");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                    else window.location.hash = "contact";
+                  }, 100);
+            }}>Contact</a>
+            
+            <button 
+              className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+               <span></span>
+               <span></span>
+               <span></span>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Nav Overlay Menu */}
+        <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+           <ul className="mobile-menu-links">
+            {activeProject ? (
+              <li>
+                <a href="#contact" onClick={(e) => {
+                  e.preventDefault();
+                  setActiveProject(null);
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    const el = document.getElementById("contact");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                    else window.location.hash = "contact";
+                  }, 100);
+                }}>
+                  Contact
+                </a>
+              </li>
+            ) : (
+              <>
+                <li><a href="#hero" onClick={() => setIsMobileMenuOpen(false)}>Home</a></li>
+                <li><a href="#work" onClick={() => setIsMobileMenuOpen(false)}>Work</a></li>
+                <li><a href="#patent" onClick={() => setIsMobileMenuOpen(false)}>Patent</a></li>
+                <li><a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a></li>
+                <li><a href="#notes" onClick={() => setIsMobileMenuOpen(false)}>Notes</a></li>
+                <li><a href="#shapes" onClick={() => setIsMobileMenuOpen(false)}>Beyond Screen</a></li>
+                <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
+              </>
+            )}
+           </ul>
         </div>
       </nav>
 

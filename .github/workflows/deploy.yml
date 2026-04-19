@@ -24,13 +24,13 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Install ncftp
-        run: sudo apt-get install -y ncftp
-
-      - name: Deploy via FTP (ncftp)
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USER: ${{ secrets.FTP_USERNAME }}
-          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          ncftpput -R -v -u "$FTP_USER" -p "$FTP_PASS" "$FTP_SERVER" / ./dist/*
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ./
+          protocol: ftps
+          port: 21
