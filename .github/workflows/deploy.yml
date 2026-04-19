@@ -1,13 +1,25 @@
-name: Deploy to Namecheap
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
@@ -24,15 +36,14 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Setup SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -p 21098 shreshthdesings.com >> ~/.ssh/known_hosts 2>/dev/null || true
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
 
-      - name: Deploy via rsync over SSH
-        run: |
-          rsync -avz --delete \
-            -e "ssh -p 21098 -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" \
-            ./dist/ shrecvma@shreshthdesings.com:/home/shrecvma/public_html/
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
