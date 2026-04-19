@@ -211,12 +211,13 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
             <div className="cp-hero-glow cp-hero-glow--1"></div>
             <div className="cp-hero-glow cp-hero-glow--2"></div>
             <div className="cp-mockup-inner">
-              <video 
-                src="/Polyspace Copilot.mov" 
-                autoPlay 
-                loop 
-                muted 
+              <video
+                src="/Polyspace Copilot.mp4"
+                autoPlay
+                loop
+                muted
                 playsInline
+                preload="auto"
                 className="cp-hero-video"
               ></video>
             </div>
