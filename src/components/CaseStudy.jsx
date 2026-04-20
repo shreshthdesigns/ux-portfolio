@@ -63,13 +63,13 @@ export default function CaseStudy({ project, onBack }) {
       { id: "impact", label: "Impact" }
     ];
   } else if (project === "polyspace-copilot") {
-    sections = ["overview", "intro", "principles", "learning", "translating", "system", "experiences", "tradeoffs", "impact", "reflection"];
+    sections = ["overview", "problem", "research", "insight", "principles", "adaptation", "system", "experiences", "impact", "reflection"];
     displaySections = [
       { id: "overview", label: "Overview" },
-      { id: "intro", label: "Problem" },
-      { id: "learning", label: "Learnings" },
+      { id: "problem", label: "Problem" },
+      { id: "research", label: "Research" },
       { id: "principles", label: "Principles" },
-      { id: "system", label: "System Design" },
+      { id: "system", label: "System" },
       { id: "experiences", label: "Experiences" },
       { id: "impact", label: "Impact" },
       { id: "reflection", label: "Reflection" }
