@@ -138,18 +138,6 @@ const COPILOT_ADAPTATIONS = [
     microRight: "Visible reasoning",
     callout: "Makes AI explainable within engineering workflows"
   },
-  {
-    id: 5,
-    title: "UNBOUNDED → SCOPED AI",
-    beforeAlt: "AI accessing full system",
-    beforeImg: "/Polyspace/unbounded-before.png",
-    afterAlt: "Scoped context UI highlighting boundary limits",
-    afterImg: "/Polyspace/scoped-after.png",
-    caption: "Uncontrolled AI access creates risk in enterprise environments",
-    microLeft: "Unbounded AI behavior",
-    microRight: "Scoped AI boundaries",
-    callout: "Aligns with enterprise privacy and control requirements"
-  }
 ];
 
 /* ─────────────────────────────────────────────────────────
