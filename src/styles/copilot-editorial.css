@@ -1969,6 +1969,178 @@
   padding: 100px 0;
 }
 
+/* Ecosystem map */
+.cp-ecosystem-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 3.5rem 0 3rem;
+}
+
+.cp-ecosystem-node--center {
+  background: #f4f4f4;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 1.5rem 2.5rem;
+  text-align: center;
+  min-width: 280px;
+}
+
+.cp-ecosystem-icon {
+  margin-bottom: 0.6rem;
+  color: #555;
+}
+
+.cp-ecosystem-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.cp-ecosystem-desc {
+  font-size: 0.78rem;
+  color: #888;
+  line-height: 1.5;
+}
+
+.cp-ecosystem-branches {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  max-width: 720px;
+}
+
+.cp-ecosystem-branch {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cp-ecosystem-connector {
+  width: 1.5px;
+  height: 2.5rem;
+  background: #ddd;
+}
+
+.cp-ecosystem-connector--active {
+  background: var(--accent, #435580);
+}
+
+.cp-ecosystem-node--sibling {
+  border: 1.5px solid #e8e8e8;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  width: 100%;
+  background: #fff;
+}
+
+.cp-ecosystem-node--focus {
+  border: 2px solid var(--accent, #435580);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  width: 100%;
+  background: #f8f9ff;
+}
+
+.cp-ecosystem-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 0.35rem;
+}
+
+.cp-ecosystem-tag--focus {
+  color: var(--accent, #435580);
+}
+
+/* Open questions grid */
+.cp-status-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: #f7f7f5;
+  border-left: 3px solid #ccc;
+  border-radius: 10px;
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 3rem;
+  max-width: 780px;
+}
+
+.cp-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f59e0b;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.cp-status-banner p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.65;
+}
+
+.cp-openq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.cp-openq-card {
+  border: 1.5px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.cp-openq-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #bbb;
+  margin-bottom: 0.6rem;
+}
+
+.cp-openq-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.cp-openq-body {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.cp-openq-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cp-openq-options span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #666;
+  background: #f2f2f2;
+  border-radius: 20px;
+  padding: 0.3rem 0.75rem;
+}
+
 .cp-system-h2 {
   font-size: 40px;
   line-height: 1.15;

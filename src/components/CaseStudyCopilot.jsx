@@ -725,56 +725,64 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
           {/* SECTION 9 — SYSTEM DESIGN                       */}
           {/* ════════════════════════════════════════════════ */}
           <section id="system" className="cp-system-section">
-            <p className="cp-section-label">THE MODEL</p>
-            <h2 className="cp-system-h2">Designing the Copilot as a system</h2>
+            <p className="cp-section-label">THE INFRASTRUCTURE CONTEXT</p>
+            <h2 className="cp-system-h2">Building on MATLAB Copilot —<br />not starting from scratch</h2>
             <p className="cp-system-sub">
-              Not a chatbot — a system that understands, plans, and acts within control boundaries.
-              Every interaction is a loop, not a transaction.
+              Polyspace Copilot doesn't need a new AI backend. MATLAB Copilot already has the LLM pipeline,
+              the IDE integration layer, and the cloud infrastructure. The hard problem is domain adaptation —
+              making a general-purpose AI assistant behave correctly in a safety-critical verification environment.
             </p>
 
-            <div className="cp-system-flow-wrap">
-              <div className="cp-system-flow">
-                {[
-                  { label: 'User', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> },
-                  { label: 'Context', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg> },
-                  { label: 'Plan', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> },
-                  { label: 'Suggest', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> },
-                  { label: 'Approve', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>, highlight: true },
-                  { label: 'Act', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> },
-                  { label: 'Feedback', icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6"/><polyline points="22 4 12 14.01 9 11.01"/></svg> }
-                ].map((node, i) => (
-                  <React.Fragment key={i}>
-                    <div className={`cp-flow-node${node.highlight ? ' cp-flow-node--approval' : ''}`}>
-                      <div className="cp-flow-icon">{node.icon}</div>
-                      <span>{node.label}</span>
-                    </div>
-                    {i < 6 && <div className="cp-flow-arrow">→</div>}
-                  </React.Fragment>
-                ))}
+            {/* Ecosystem map */}
+            <div className="cp-ecosystem-wrap">
+              <div className="cp-ecosystem-node cp-ecosystem-node--center">
+                <div className="cp-ecosystem-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                </div>
+                <p className="cp-ecosystem-name">MATLAB Copilot</p>
+                <p className="cp-ecosystem-desc">Shared LLM pipeline · IDE integration · Cloud infra</p>
+              </div>
+              <div className="cp-ecosystem-branches">
+                <div className="cp-ecosystem-branch">
+                  <div className="cp-ecosystem-connector" />
+                  <div className="cp-ecosystem-node cp-ecosystem-node--sibling">
+                    <p className="cp-ecosystem-tag">Model VnV</p>
+                    <p className="cp-ecosystem-name">Simulink Copilot</p>
+                    <p className="cp-ecosystem-desc">Model-level verification and validation. Operates on blocks, signals, and simulation results.</p>
+                  </div>
+                </div>
+                <div className="cp-ecosystem-branch">
+                  <div className="cp-ecosystem-connector cp-ecosystem-connector--active" />
+                  <div className="cp-ecosystem-node cp-ecosystem-node--focus">
+                    <p className="cp-ecosystem-tag cp-ecosystem-tag--focus">Code VnV · This project</p>
+                    <p className="cp-ecosystem-name">Polyspace Copilot</p>
+                    <p className="cp-ecosystem-desc">Source-code verification. Operates on MISRA rules, runtime errors, call chains, and formal proofs.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div className="cp-layers-row">
               <div className="cp-layer-card">
                 <div className="cp-layer-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                </div>
-                <h4>Context Layer</h4>
-                <p>Code, results, and workflow state — captured automatically, never guessed.</p>
-              </div>
-              <div className="cp-layer-card">
-                <div className="cp-layer-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
-                </div>
-                <h4>Reasoning Layer</h4>
-                <p>Intent understanding and plan generation — always visible to the engineer.</p>
-              </div>
-              <div className="cp-layer-card">
-                <div className="cp-layer-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <h4>Control Layer</h4>
-                <p>Approval gates, override paths, and explicit scope boundaries at every step.</p>
+                <h4>Shared foundation</h4>
+                <p>LLM backend, authentication, telemetry, and IDE host APIs are inherited from MATLAB Copilot — no duplication.</p>
+              </div>
+              <div className="cp-layer-card">
+                <div className="cp-layer-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h4>Domain-specific context</h4>
+                <p>Polyspace result state, MISRA rule metadata, and call-chain data must be injected into the LLM context window — MATLAB Copilot has no equivalent.</p>
+              </div>
+              <div className="cp-layer-card">
+                <div className="cp-layer-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                </div>
+                <h4>New safety constraints</h4>
+                <p>Certification workflows require outputs to be auditable. Hallucination and non-determinism — acceptable in MATLAB — become blockers in Polyspace.</p>
               </div>
             </div>
           </section>
@@ -783,103 +791,82 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
           {/* SECTION 10 — EXPERIENCE MODULES                 */}
           {/* ════════════════════════════════════════════════ */}
           <section id="experiences" className="cp-experiences-section">
-            <p className="cp-section-label">WHERE THIS SHOWS UP</p>
-            <h2 className="cp-experiences-h2">Experience modules</h2>
+            <p className="cp-section-label">WHERE WE ARE NOW</p>
+            <h2 className="cp-experiences-h2">A decision point, not a finished product</h2>
             <p className="cp-experiences-sub">
-              Four core workflows where the Copilot principles come to life.
-              Each module is designed around a real engineer task — not an AI capability.
+              This project defines the UX direction and infrastructure constraints for Polyspace Copilot.
+              The goal was to answer: what would the right approach look like — before a single line of
+              production AI code is written.
             </p>
 
-            {/* Hero module — Explaining Errors */}
-            <div className="cp-exp-hero">
-              <div className="cp-exp-hero-label">PRIMARY MODULE</div>
-              <div className="cp-exp-hero-content">
-                <div className="cp-exp-hero-left">
-                  <h3 className="cp-exp-hero-title">Explaining Errors</h3>
-                  <p className="cp-exp-hero-body">
-                    The most time-consuming task in any Polyspace workflow. Engineers spend hours manually
-                    tracing why a check fails — reading code, cross-referencing documentation, and
-                    following call chains across files. The Copilot compresses this to seconds.
-                  </p>
-
-                  <div className="cp-exp-steps">
-                    {[
-                      { n: '1', text: 'Engineer triggers "Explain Error" on any result row — no prompting required' },
-                      { n: '2', text: 'Copilot surfaces the file, line, and violated rule in structured context' },
-                      { n: '3', text: 'AI explains the error in plain language, grounded in the specific code path' },
-                      { n: '4', text: 'Copilot traces the root cause through the call chain with visible reasoning' },
-                      { n: '5', text: 'Engineer reviews the full reasoning before choosing to accept or dismiss' },
-                      { n: '6', text: 'If accepted, a fix suggestion is shown with an approval checkpoint — never auto-applied' },
-                    ].map((step) => (
-                      <div key={step.n} className="cp-exp-step">
-                        <span className="cp-exp-step-num">{step.n}</span>
-                        <p className="cp-exp-step-text">{step.text}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="cp-exp-hero-right">
-                  <div className="cp-exp-hero-visual">
-                    <div className="cp-exp-visual-header">
-                      <span className="cp-exp-visual-badge">Polyspace Copilot</span>
-                      <span className="cp-exp-visual-tag">Explaining Error</span>
-                    </div>
-                    <div className="cp-exp-visual-body">
-                      <div className="cp-exp-visual-item cp-exp-visual-item--rule">
-                        <span>Rule</span>
-                        <strong>MISRA C 2012 · Rule 14.4</strong>
-                      </div>
-                      <div className="cp-exp-visual-item cp-exp-visual-item--file">
-                        <span>Location</span>
-                        <strong>sensor_init.c : line 247</strong>
-                      </div>
-                      <div className="cp-exp-visual-divider"/>
-                      <div className="cp-exp-visual-explanation">
-                        <div className="cp-exp-visual-ai-badge">
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                          AI Explanation
-                        </div>
-                        <p>The condition in the if-statement evaluates a non-boolean expression. The assignment <code>x = get_sensor()</code> returns an integer — this is not a valid boolean context under MISRA C 2012.</p>
-                      </div>
-                      <div className="cp-exp-visual-reasoning">
-                        <div className="cp-exp-visual-ai-badge cp-exp-visual-ai-badge--trace">
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                          Trace
-                        </div>
-                        <p>Called from <code>main.c:89</code> → <code>hal_setup.c:34</code> → <code>sensor_init.c:247</code></p>
-                      </div>
-                      <div className="cp-exp-visual-actions">
-                        <button className="cp-exp-visual-btn cp-exp-visual-btn--accept">Review Fix</button>
-                        <button className="cp-exp-visual-btn cp-exp-visual-btn--dismiss">Dismiss</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="cp-status-banner">
+              <div className="cp-status-dot" />
+              <p>This work represents a proposed direction — currently at the stage of aligning on UX model and AI infrastructure approach with the Polyspace product and engineering teams.</p>
             </div>
 
-            {/* Other modules */}
-            <div className="cp-exp-modules">
-              <div className="cp-exp-module">
-                <div className="cp-exp-module-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <div className="cp-openq-grid">
+              <div className="cp-openq-card">
+                <p className="cp-openq-num">01</p>
+                <h3 className="cp-openq-title">What AI model fits the domain?</h3>
+                <p className="cp-openq-body">
+                  MATLAB Copilot uses a general-purpose LLM. Polyspace needs responses grounded in
+                  MISRA rules, formal proof logic, and static analysis semantics. The question is
+                  whether fine-tuning, RAG over Polyspace documentation, or structured prompting
+                  is the right fit — each has different latency, cost, and hallucination profiles.
+                </p>
+                <div className="cp-openq-options">
+                  <span>Fine-tuned model</span>
+                  <span>RAG pipeline</span>
+                  <span>Prompt engineering</span>
                 </div>
-                <h3>Tracing Bugs</h3>
-                <p>Guided navigation across file dependencies and call chains. The AI surfaces the path — the engineer walks it.</p>
               </div>
-              <div className="cp-exp-module">
-                <div className="cp-exp-module-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+
+              <div className="cp-openq-card">
+                <p className="cp-openq-num">02</p>
+                <h3 className="cp-openq-title">How much context can the system carry?</h3>
+                <p className="cp-openq-body">
+                  A single Polyspace run can span hundreds of files, thousands of results, and
+                  complex call chains. LLM context windows are finite. The design must decide
+                  which information to pass, how to compress it, and how to communicate
+                  scope limits to the engineer without eroding trust.
+                </p>
+                <div className="cp-openq-options">
+                  <span>Scoped per-result</span>
+                  <span>File-level context</span>
+                  <span>Session memory</span>
                 </div>
-                <h3>Generating Tests</h3>
-                <p>Structured test suggestions with full preview and context disclosure. Nothing is written until the engineer approves.</p>
               </div>
-              <div className="cp-exp-module">
-                <div className="cp-exp-module-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+
+              <div className="cp-openq-card">
+                <p className="cp-openq-num">03</p>
+                <h3 className="cp-openq-title">Where does Simulink Copilot end and Polyspace begin?</h3>
+                <p className="cp-openq-body">
+                  Simulink handles model-level VnV; Polyspace handles code-level VnV. Engineers
+                  often work across both. A shared infrastructure raises the question of handoff:
+                  can context and reasoning from a Simulink session inform a Polyspace session,
+                  and should the UX surface that continuity at all?
+                </p>
+                <div className="cp-openq-options">
+                  <span>Isolated sessions</span>
+                  <span>Shared context layer</span>
+                  <span>Cross-tool handoff</span>
                 </div>
-                <h3>Contextual Guidance</h3>
-                <p>Inline prompts that align with the current task — surfaced by the system, not searched by the user.</p>
+              </div>
+
+              <div className="cp-openq-card">
+                <p className="cp-openq-num">04</p>
+                <h3 className="cp-openq-title">What does certification-safe AI output look like?</h3>
+                <p className="cp-openq-body">
+                  ISO 26262 and DO-178C require that engineering decisions are traceable to
+                  a human. If AI suggests a fix and an engineer approves it, the audit trail
+                  must reflect the engineer's decision — not the AI's output. The infra must
+                  log intent, not just action.
+                </p>
+                <div className="cp-openq-options">
+                  <span>Human-decision logging</span>
+                  <span>AI output tagging</span>
+                  <span>Audit trail format</span>
+                </div>
               </div>
             </div>
           </section>
