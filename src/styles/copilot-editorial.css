@@ -430,17 +430,28 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background: #fff;
 }
 
+/* MATLAB: normal white card — clear and readable, just not highlighted */
 .cp-compare-card--before {
-  background: #F7F7F7;
   border: 1px solid #E0E0E0;
 }
 
+/* Polyspace: blue accent top bar + stronger border/shadow */
 .cp-compare-card--after {
-  background: #fff;
-  border: 1.5px solid rgba(37, 99, 235, 0.18);
-  box-shadow: 0 4px 32px rgba(37, 99, 235, 0.08);
+  border: 1.5px solid rgba(37, 99, 235, 0.35);
+  box-shadow: 0 4px 32px rgba(37, 99, 235, 0.09);
+  position: relative;
+}
+
+.cp-compare-card--after::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: #2563EB;
+  border-radius: 16px 16px 0 0;
 }
 
 /* Card header */
@@ -449,11 +460,12 @@
   align-items: center;
   gap: 0.875rem;
   padding: 1.5rem 1.75rem;
-  border-bottom: 1px solid #E8E8E8;
+  border-bottom: 1px solid #F0F0F0;
 }
 
 .cp-compare-card--after .cp-compare-card-header {
-  border-bottom-color: rgba(37, 99, 235, 0.1);
+  background: rgba(37, 99, 235, 0.03);
+  border-bottom-color: rgba(37, 99, 235, 0.08);
 }
 
 .cp-compare-card-icon {
@@ -467,8 +479,8 @@
 }
 
 .cp-compare-card-icon--before {
-  background: #EBEBEB;
-  color: #888;
+  background: #F3F4F6;
+  color: #6B7280;
 }
 
 .cp-compare-card-icon--after {
@@ -476,10 +488,11 @@
   color: #2563EB;
 }
 
+/* MATLAB name: dark grey — readable, clearly a product, just not highlighted */
 .cp-compare-card-name {
   font-size: 14px;
   font-weight: 700;
-  color: #888;
+  color: #374151;
   letter-spacing: -0.01em;
 }
 
@@ -489,7 +502,7 @@
 
 .cp-compare-card-desc {
   font-size: 11px;
-  color: #AAAAAA;
+  color: #9CA3AF;
   margin-top: 0.15rem;
   letter-spacing: 0.02em;
 }
@@ -504,15 +517,15 @@
 .cp-compare-row {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.3rem;
   padding: 1.1rem 1.75rem;
-  border-bottom: 1px solid #EFEFEF;
+  border-bottom: 1px solid #F3F4F6;
 }
 
 .cp-compare-row:last-child { border-bottom: none; }
 
 .cp-compare-row--after {
-  border-bottom-color: rgba(37, 99, 235, 0.08);
+  border-bottom-color: rgba(37, 99, 235, 0.06);
 }
 
 .cp-compare-row-dim {
@@ -520,22 +533,24 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #BBBBBB;
+  color: #9CA3AF;
 }
 
 .cp-compare-row--after .cp-compare-row-dim {
-  color: rgba(37, 99, 235, 0.4);
+  color: rgba(37, 99, 235, 0.55);
 }
 
+/* MATLAB values: readable dark grey — not disabled, just standard weight */
 .cp-compare-row-val {
   font-size: 14px;
   font-weight: 500;
-  color: #999;
+  color: #4B5563;
   line-height: 1.4;
 }
 
+/* Polyspace values: bold black — clearly the answer/outcome */
 .cp-compare-row-val--after {
-  font-weight: 600;
+  font-weight: 700;
   color: #0A0A0A;
 }
 
@@ -547,13 +562,37 @@
   padding: 0 1.25rem;
 }
 
-.cp-question-closing {
-  font-size: 16px;
-  font-style: italic;
-  color: #888;
-  line-height: 1.7;
-  padding-top: 2rem;
-  border-top: 1px solid #F0F0F0;
+/* ── CLOSING CALLOUT — make it unmissable ── */
+.cp-question-callout {
+  margin-top: 3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem 2.5rem;
+  background: rgba(37, 99, 235, 0.04);
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  border-left: 4px solid #2563EB;
+  border-radius: 0 12px 12px 0;
+}
+
+.cp-question-callout-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #2563EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.15rem;
+}
+
+.cp-question-callout p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0A0A0A;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
 }
 
 /* ═══════════════════════════════════════════════════ */

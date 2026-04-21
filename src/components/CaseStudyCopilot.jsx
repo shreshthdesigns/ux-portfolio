@@ -204,13 +204,13 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
             </div>
 
             <h1 className="cp-s1-h1">
-              AI-assisted engineering,<br />without losing control.
+              AI assisted engineering,<br />without losing control.
             </h1>
 
             {/* Subtitle */}
             <p className="cp-s1-subtitle">
               Designing an Agentic Copilot for Polyspace that lets engineers debug, verify, and trace
-              complex systems with AI — while staying fully accountable for every decision.
+              complex systems with AI, while staying fully accountable for every decision.
             </p>
 
             {/* Meta bar — full-width horizontal strip */}
@@ -278,7 +278,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                 </div>
                 <p className="cp-context-tile-label">The Tool</p>
                 <p className="cp-context-tile-body">
-                  Polyspace is a formal verification and static analysis tool by MathWorks — used to mathematically
+                  Polyspace is a formal verification and static analysis tool by MathWorks, used to mathematically
                   prove the absence of runtime errors in embedded software.
                 </p>
               </div>
@@ -292,7 +292,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                 </div>
                 <p className="cp-context-tile-label">The Stakes</p>
                 <p className="cp-context-tile-body">
-                  Used in automotive (ISO&nbsp;26262), aerospace (DO&#8209;178C), and industrial systems — environments
+                  Used in automotive (ISO&nbsp;26262), aerospace (DO&#8209;178C), and industrial systems, environments
                   where a software defect can have safety consequences.
                 </p>
               </div>
@@ -308,7 +308,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                 <p className="cp-context-tile-label">The Users</p>
                 <p className="cp-context-tile-body">
                   Software engineers and safety leads who spend hours tracing false positives, reviewing MISRA
-                  violations, and verifying code coverage — manually.
+                  violations, and verifying code coverage manually.
                 </p>
               </div>
             </div>
@@ -405,10 +405,14 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
               </div>
             </div>
 
-            <p className="cp-question-closing">
-              Porting MATLAB Copilot to Polyspace would be like giving a surgeon a consumer wellness app.
-              The domain changes everything.
-            </p>
+            <div className="cp-question-callout">
+              <div className="cp-question-callout-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <p>Porting MATLAB Copilot to Polyspace would be like giving a surgeon a consumer wellness app. The domain changes everything.</p>
+            </div>
           </section>
 
           {/* ════════════════════════════════════════════════ */}
