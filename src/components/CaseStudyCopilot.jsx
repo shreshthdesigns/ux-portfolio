@@ -325,35 +325,83 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
               Why build a separate one for Polyspace?
             </h2>
 
-            <p className="cp-question-body">
-              MATLAB Copilot was designed for exploratory, open-ended computation. Engineers type what
-              they need. The AI responds broadly. Speed is the metric.
-            </p>
-            <p className="cp-question-body" style={{ marginTop: '1rem' }}>
-              Polyspace engineers work differently. Their workflows are deterministic. Their outputs are
-              audited. Their mistakes have certification consequences.
-            </p>
+            <div className="cp-question-body-row">
+              <p className="cp-question-body">
+                MATLAB Copilot was designed for exploratory, open-ended computation. Engineers type what
+                they need. The AI responds broadly. Speed is the metric.
+              </p>
+              <p className="cp-question-body">
+                Polyspace engineers work differently. Their workflows are deterministic. Their outputs are
+                audited. Their mistakes have certification consequences.
+              </p>
+            </div>
 
-            <div className="cp-contrast-table">
-              <div className="cp-contrast-header">
-                <span />
-                <span>MATLAB Copilot</span>
-                <span>Polyspace Copilot</span>
+            {/* Side-by-side comparison cards */}
+            <div className="cp-compare-cards">
+
+              {/* MATLAB Copilot */}
+              <div className="cp-compare-card cp-compare-card--before">
+                <div className="cp-compare-card-header">
+                  <div className="cp-compare-card-icon cp-compare-card-icon--before">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="cp-compare-card-name">MATLAB Copilot</p>
+                    <p className="cp-compare-card-desc">General-purpose AI assistant</p>
+                  </div>
+                </div>
+                <div className="cp-compare-card-rows">
+                  {[
+                    { dim: 'Entry point',    val: 'Open chat prompt' },
+                    { dim: 'Context model',  val: 'Broad, implicit' },
+                    { dim: 'Success metric', val: 'Speed of response' },
+                    { dim: 'User intent',    val: 'Described by user' },
+                    { dim: 'Error handling', val: 'Regenerate and retry' },
+                  ].map((row, i) => (
+                    <div key={i} className="cp-compare-row">
+                      <span className="cp-compare-row-dim">{row.dim}</span>
+                      <span className="cp-compare-row-val">{row.val}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="cp-contrast-row">
-                <span className="cp-contrast-dimension">Entry point</span>
-                <span className="cp-contrast-before">Open chat prompt</span>
-                <span className="cp-contrast-after">Inline action triggers</span>
+
+              {/* Arrow divider */}
+              <div className="cp-compare-arrow-col">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CCCCCC" strokeWidth="1.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
               </div>
-              <div className="cp-contrast-row">
-                <span className="cp-contrast-dimension">Context model</span>
-                <span className="cp-contrast-before">Broad, implicit</span>
-                <span className="cp-contrast-after">Explicitly scoped by user</span>
-              </div>
-              <div className="cp-contrast-row">
-                <span className="cp-contrast-dimension">Success metric</span>
-                <span className="cp-contrast-before">Speed of response</span>
-                <span className="cp-contrast-after">Correctness + traceability</span>
+
+              {/* Polyspace Copilot */}
+              <div className="cp-compare-card cp-compare-card--after">
+                <div className="cp-compare-card-header">
+                  <div className="cp-compare-card-icon cp-compare-card-icon--after">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="cp-compare-card-name cp-compare-card-name--after">Polyspace Copilot</p>
+                    <p className="cp-compare-card-desc">Safety-critical AI assistant</p>
+                  </div>
+                </div>
+                <div className="cp-compare-card-rows">
+                  {[
+                    { dim: 'Entry point',    val: 'Inline action triggers' },
+                    { dim: 'Context model',  val: 'Explicitly scoped by user' },
+                    { dim: 'Success metric', val: 'Correctness + traceability' },
+                    { dim: 'User intent',    val: 'Inferred from workflow state' },
+                    { dim: 'Error handling', val: 'Override and document' },
+                  ].map((row, i) => (
+                    <div key={i} className="cp-compare-row cp-compare-row--after">
+                      <span className="cp-compare-row-dim">{row.dim}</span>
+                      <span className="cp-compare-row-val cp-compare-row-val--after">{row.val}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
