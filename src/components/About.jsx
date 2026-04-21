@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function About() {
   const [isNarrativeExpanded, setIsNarrativeExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   return (
     <section id="about">
@@ -72,20 +80,31 @@ export default function About() {
           {/* ================= RIGHT – NARRATIVE & TIMELINE ================= */}
           <div className="about-narrative-col">
 
-            {/* Narrative Story */}
-            <div className={`about-story`}>
+            {/* Narrative Story — with mobile "See More" */}
+            <div className="about-story">
               <h3 className="narrative-heading">My Journey into Systems UX</h3>
 
-              <div className="narrative-body">
-                <p>
-                  I began my career as a Solution Consultant at Godrej & Boyce, engaging with enterprise users to uncover needs, navigate constraints, and shape solutions grounded in real-world workflows.
-                </p>
-                <p>
-                  At MathWorks, I realized usability issues often stem from deeper system behavior — not just the interface. I focus on turning that complexity into clear, predictable experiences.
-                </p>
-                <p>
-                  Today, I design for scale — simplifying engineering workflows and making complex systems understandable.
-                </p>
+              <div className={`narrative-collapse${isMobile && !isNarrativeExpanded ? " collapsed" : ""}`}>
+                <div className="narrative-body narrative-body-inner">
+                  <p>
+                    I began my career as a Solution Consultant at Godrej &amp; Boyce, engaging with enterprise users to uncover needs, navigate constraints, and shape solutions grounded in real-world workflows.
+                  </p>
+                  <p>
+                    At MathWorks, I realized usability issues often stem from deeper system behavior — not just the interface. I focus on turning that complexity into clear, predictable experiences.
+                  </p>
+                  <p>
+                    Today, I design for scale — simplifying engineering workflows and making complex systems understandable.
+                  </p>
+                </div>
+
+                {isMobile && (
+                  <button
+                    className="narrative-see-more"
+                    onClick={() => setIsNarrativeExpanded(!isNarrativeExpanded)}
+                  >
+                    {isNarrativeExpanded ? "Show less ↑" : "Read more ↓"}
+                  </button>
+                )}
               </div>
             </div>
 
@@ -154,10 +173,9 @@ export default function About() {
                     <div className="tl-role">Solution Consultant (Enterprise Systems)</div>
                     <div className="tl-org-row">
                       <img src="/Godrej.png" alt="Godrej & Boyce" className="tl-logo" />
-                      <div className="tl-org">Godrej & Boyce </div>
+                      <div className="tl-org">Godrej &amp; Boyce</div>
                     </div>
-                    <p className="tl-detail">Engaged with users to uncover needs, pain points, and real-world workflows.
-                      Synthesized insights into actionable solutions balancing usability, technical feasibility, and business goals</p>
+                    <p className="tl-detail">Engaged with users to uncover needs, pain points, and real-world workflows. Synthesized insights into actionable solutions balancing usability, technical feasibility, and business goals.</p>
                   </div>
                 </div>
 
@@ -178,8 +196,6 @@ export default function About() {
 
           </div>
         </div>
-
-
 
       </div>
     </section>

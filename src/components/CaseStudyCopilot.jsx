@@ -204,7 +204,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
             </div>
 
             <h1 className="cp-s1-h1">
-              AI assisted engineering,<br />without losing control.
+              AI assisted engineering,<br /><em style={{fontWeight: 'normal'}}>without</em> losing control.
             </h1>
 
             {/* Subtitle */}
@@ -411,7 +411,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 </svg>
               </div>
-              <p>Porting MATLAB Copilot to Polyspace would be like giving a surgeon a consumer wellness app. The domain changes everything.</p>
+              <p style={{fontWeight: 'normal', fontStyle: 'italic', color: '#6b7280'}}>Porting MATLAB Copilot to Polyspace would be like giving a surgeon a consumer wellness app. The domain changes everything.</p>
             </div>
           </section>
 
@@ -431,6 +431,19 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
               Introducing AI into that environment doesn't just add capability. It adds uncertainty.
               And for engineers working in safety-critical systems, uncertainty is the enemy.
             </p>
+
+            <div className="cp-ai-eng-visual">
+              <img
+                src="/Polyspace/Ai for engineering.svg"
+                alt="Diagram showing the fragmented landscape of engineering personas — safety leads, embedded developers, verification engineers, and QA — each operating in different contexts with different definitions of correctness."
+                className="cp-ai-eng-img"
+              />
+              <p className="cp-ai-eng-caption">
+                Designing AI for engineering isn't one problem — it's five. Each persona operates
+                in a different context, with a different mental model of what "correct" means and
+                a different threshold for trusting a machine.
+              </p>
+            </div>
 
             <div className="cp-failure-grid">
               <div className="cp-failure-card">
@@ -542,43 +555,52 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
           <div id="insight" className="cp-dark-section">
             <p className="cp-dark-label">THE NON-OBVIOUS INSIGHT</p>
             <h2 className="cp-dark-heading">
-              Control is not interaction.<br />
-              It is how the system behaves<br />under uncertainty.
+              Engineers don't want AI<br />to be smarter.<br />
+              <span style={{fontStyle: 'italic', fontWeight: 400, opacity: 0.75}}>They want it to be legible.</span>
             </h2>
 
             <p className="cp-dark-body">
-              Users don't feel "in control" because of buttons or UI.<br />
-              They feel in control when:
+              Every instinct says: make it more capable. Surface more results. Automate more steps.
+              But the real blocker isn't capability — it's comprehensibility. An AI that produces
+              a correct answer with no visible reasoning is, to a safety engineer, indistinguishable
+              from an AI that got lucky. Both are equally unusable in a certification audit.
+            </p>
+
+            <p className="cp-dark-body" style={{marginTop: '1rem'}}>
+              The design challenge wasn't "how do we make AI powerful enough for Polyspace."
+              It was "how do we make AI visible enough that engineers will let it into their workflow at all."
             </p>
 
             <div className="cp-insight-cards">
               <div className="cp-insight-card">
                 <div className="cp-insight-card-icon">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5">
-                    <circle cx="12" cy="4" r="2"/><circle cx="6" cy="12" r="2"/>
-                    <circle cx="18" cy="12" r="2"/><circle cx="12" cy="20" r="2"/>
-                    <path d="M12 6v2M12 16v2M8 11l-2 1M16 11l2 1M8 13l2-1M16 13l-2-1"/>
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
                   </svg>
                 </div>
-                <p>They can predict system behavior</p>
+                <h4 style={{color:'#fff', marginBottom:'0.35rem', fontWeight:600, fontSize:'0.9rem'}}>Legibility over capability</h4>
+                <p>An answer engineers can trace is worth more than a correct answer they can't explain.</p>
+              </div>
+              <div className="cp-insight-card">
+                <div className="cp-insight-card-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                </div>
+                <h4 style={{color:'#fff', marginBottom:'0.35rem', fontWeight:600, fontSize:'0.9rem'}}>Override is the feature</h4>
+                <p>The ability to reject an AI suggestion — easily and with documentation — is what makes accepting one feel safe.</p>
               </div>
               <div className="cp-insight-card">
                 <div className="cp-insight-card-icon">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5">
                     <circle cx="12" cy="12" r="10"/>
-                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>
+                    <path d="M12 8v4M12 16h.01"/>
                   </svg>
                 </div>
-                <p>They understand why something happened</p>
-              </div>
-              <div className="cp-insight-card">
-                <div className="cp-insight-card-icon">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.5">
-                    <rect x="3" y="3" width="18" height="18" rx="2"/>
-                    <path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>
-                  </svg>
-                </div>
-                <p>They can interrupt or override decisions</p>
+                <h4 style={{color:'#fff', marginBottom:'0.35rem', fontWeight:600, fontSize:'0.9rem'}}>Uncertainty must be named</h4>
+                <p>When AI is unsure, saying so explicitly preserves trust. Silent confidence on ambiguous inputs destroys it.</p>
               </div>
             </div>
 
