@@ -45,7 +45,9 @@ export default function Hero() {
 
         </div>
 
-        <HeroVisual />
+        <div className="hero-right">
+          <HeroVisual />
+        </div>
 
       </div>
     </section>

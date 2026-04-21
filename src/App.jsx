@@ -13,16 +13,35 @@ import NDAGate from "./components/NDAGate";
 export default function App() {
   const [activeProject, setActiveProject] = useState(null);
   const [activeSection, setActiveSection] = useState("hero");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  // Close menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) setMenuOpen(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
-    if (activeProject) return; // Don't track scroll if in case study
+    if (activeProject) return;
 
     const sections = ["hero", "work", "patent", "about", "notes", "shapes", "contact"];
-    const observers = [];
 
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -70% 0px", // Trigger when section is mostly in upper-middle view
+      rootMargin: "-20% 0px -70% 0px",
       threshold: 0
     };
 
@@ -44,10 +63,10 @@ export default function App() {
     return () => observer.disconnect();
   }, [activeProject]);
 
-  // Scroll to top when activeProject changes (entering case study or NDA gate)
   useEffect(() => {
     if (activeProject) {
       window.scrollTo(0, 0);
+      setMenuOpen(false);
     }
   }, [activeProject]);
 
@@ -63,30 +82,37 @@ export default function App() {
     }
   };
 
+  const handleNavLinkClick = (targetId) => {
+    setMenuOpen(false);
+    if (activeProject) {
+      setActiveProject(null);
+      setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
   return (
     <>
       <nav>
         <div className="wrap nav-in">
-          <a 
-            href="#hero" 
+          <a
+            href="#hero"
             className="logo"
             style={activeProject ? { color: getLogoColor() } : {}}
-            onClick={() => setActiveProject(null)}
+            onClick={() => { setActiveProject(null); setMenuOpen(false); }}
           >
             Shubham Shreshth
           </a>
 
+          {/* Desktop nav links */}
           <ul className="nav-links">
             {activeProject ? (
               <li>
                 <a href="#contact" onClick={(e) => {
                   e.preventDefault();
-                  setActiveProject(null);
-                  setTimeout(() => {
-                    const el = document.getElementById("contact");
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                    else window.location.hash = "contact";
-                  }, 100);
+                  handleNavLinkClick("contact");
                 }}>
                   Contact
                 </a>
@@ -102,8 +128,43 @@ export default function App() {
               </>
             )}
           </ul>
+
+          {/* Hamburger button — mobile only */}
+          <button
+            className={`hamburger-btn${menuOpen ? " is-open" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+          </button>
         </div>
       </nav>
+
+      {/* Mobile drawer menu */}
+      <div className={`mobile-menu${menuOpen ? " is-open" : ""}`} aria-hidden={!menuOpen}>
+        <ul className="mobile-nav-links">
+          {activeProject ? (
+            <li>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); handleNavLinkClick("contact"); }}>
+                Contact
+              </a>
+            </li>
+          ) : (
+            <>
+              <li><a href="#work" className={activeSection === "work" ? "active" : ""} onClick={() => handleNavLinkClick("work")}>Work</a></li>
+              <li><a href="#patent" className={activeSection === "patent" ? "active" : ""} onClick={() => handleNavLinkClick("patent")}>Patent</a></li>
+              <li><a href="#about" className={activeSection === "about" ? "active" : ""} onClick={() => handleNavLinkClick("about")}>About</a></li>
+              <li><a href="#notes" className={activeSection === "notes" ? "active" : ""} onClick={() => handleNavLinkClick("notes")}>Notes</a></li>
+              <li><a href="#shapes" className={activeSection === "shapes" ? "active" : ""} onClick={() => handleNavLinkClick("shapes")}>Beyond Screen</a></li>
+              <li><a href="#contact" className={activeSection === "contact" ? "active" : ""} onClick={() => handleNavLinkClick("contact")}>Contact</a></li>
+            </>
+          )}
+        </ul>
+        <p className="mobile-menu-close-hint">Tap outside to close</p>
+      </div>
 
       {activeProject ? (
         activeProject.nda ? (
