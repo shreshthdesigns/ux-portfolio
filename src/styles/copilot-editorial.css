@@ -138,24 +138,53 @@
   max-width: 800px;
 }
 
-/* Subtitle + aside row */
-.cp-s1-meta-row {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 4rem;
-  align-items: start;
-}
-
+/* Subtitle */
 .cp-s1-subtitle {
   font-size: 17px;
   line-height: 1.75;
-  color: #444;
-  max-width: 560px;
+  color: #555;
+  max-width: 640px;
+  margin-bottom: 3rem;
 }
 
-/* Aside column */
-.cp-s1-aside {
-  padding-top: 0.25rem;
+/* ── HORIZONTAL META BAR ── */
+.cp-s1-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.cp-s1-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-right: 2.5rem;
+}
+
+.cp-s1-meta-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #AAAAAA;
+}
+
+.cp-s1-meta-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A0A0A;
+  letter-spacing: -0.01em;
+}
+
+.cp-s1-meta-sep {
+  width: 1px;
+  height: 36px;
+  background: #E8E8E8;
+  margin-right: 2.5rem;
+  flex-shrink: 0;
 }
 
 .cp-s1-badge {
@@ -163,11 +192,11 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #2B5441;
-  margin-bottom: 0.5rem;
+  padding-right: 0;
 }
 
 .cp-s1-badge-dot {
@@ -176,6 +205,7 @@
   border-radius: 50%;
   background: #2B5441;
   animation: cp-pulse 2.2s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 @keyframes cp-pulse {
@@ -183,32 +213,16 @@
   50% { opacity: 0.35; }
 }
 
-.cp-s1-aside-note {
+.cp-s1-meta-spacer {
+  flex: 1;
+}
+
+.cp-s1-meta-note {
   font-size: 13px;
-  line-height: 1.6;
-  color: #888;
-  margin-bottom: 1.5rem;
-}
-
-.cp-s1-meta-chips {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.cp-s1-chip {
-  font-size: 12px;
-  color: #555;
-  display: flex;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
-  border-top: 1px solid #F0F0F0;
-}
-
-.cp-s1-chip span {
-  font-weight: 600;
-  color: #0A0A0A;
-  min-width: 64px;
+  color: #AAAAAA;
+  letter-spacing: 0.01em;
+  text-align: right;
+  white-space: nowrap;
 }
 
 /* ── VIDEO FRAME ── */
@@ -2434,12 +2448,15 @@
     padding-right: 2rem;
   }
 
-  .cp-s1-meta-row {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
   .cp-s1-h1 { font-size: 36px; }
+
+  .cp-s1-meta-bar {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .cp-s1-meta-sep { display: none; }
+  .cp-s1-meta-spacer { display: none; }
+  .cp-s1-meta-note { text-align: left; white-space: normal; }
 
   .cp-insight-cards {
     grid-template-columns: 1fr;

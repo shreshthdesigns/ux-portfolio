@@ -207,23 +207,35 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
               AI-assisted engineering,<br />without losing control.
             </h1>
 
-            <div className="cp-s1-meta-row">
-              <p className="cp-s1-subtitle">
-                Designing an Agentic Copilot for Polyspace that lets engineers debug, verify, and trace
-                complex systems with AI — while staying fully accountable for every decision.
-              </p>
-              <div className="cp-s1-aside">
-                <div className="cp-s1-badge">
-                  <span className="cp-s1-badge-dot" />
-                  Ongoing Project
-                </div>
-                <p className="cp-s1-aside-note">Defining AI capabilities<br/>and interaction models</p>
-                <div className="cp-s1-meta-chips">
-                  <div className="cp-s1-chip"><span>Role</span> Senior UX Designer</div>
-                  <div className="cp-s1-chip"><span>Company</span> MathWorks</div>
-                  <div className="cp-s1-chip"><span>Status</span> In Progress</div>
-                </div>
+            {/* Subtitle */}
+            <p className="cp-s1-subtitle">
+              Designing an Agentic Copilot for Polyspace that lets engineers debug, verify, and trace
+              complex systems with AI — while staying fully accountable for every decision.
+            </p>
+
+            {/* Meta bar — full-width horizontal strip */}
+            <div className="cp-s1-meta-bar">
+              <div className="cp-s1-meta-item">
+                <span className="cp-s1-meta-label">Role</span>
+                <span className="cp-s1-meta-value">Senior UX Designer</span>
               </div>
+              <div className="cp-s1-meta-sep" />
+              <div className="cp-s1-meta-item">
+                <span className="cp-s1-meta-label">Company</span>
+                <span className="cp-s1-meta-value">MathWorks</span>
+              </div>
+              <div className="cp-s1-meta-sep" />
+              <div className="cp-s1-meta-item">
+                <span className="cp-s1-meta-label">Status</span>
+                <span className="cp-s1-meta-value">In Progress</span>
+              </div>
+              <div className="cp-s1-meta-sep" />
+              <div className="cp-s1-badge">
+                <span className="cp-s1-badge-dot" />
+                Ongoing Project
+              </div>
+              <div className="cp-s1-meta-spacer" />
+              <p className="cp-s1-meta-note">Defining AI capabilities and interaction models</p>
             </div>
           </section>
 
