@@ -12,7 +12,9 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-hl">
-            I design <span className="hero-emphasis">clarity</span> inside complex systems.
+            <span className="hero-line-1">I design</span> <br className="mobile-only-br" />
+            <span className="hero-emphasis hero-line-2">clarity</span> <br className="mobile-only-br" />
+            <span className="hero-line-3">inside complex systems.</span>
           </h1>
 
           <p className="hero-sub">
