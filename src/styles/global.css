@@ -690,6 +690,33 @@ nav {
   border-color: var(--border);
 }
 
+.impact-wip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.65rem;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  color: #b45309;
+  padding: 0.15rem 0.5rem;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+.impact-wip-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f59e0b;
+  animation: wip-pulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes wip-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
 .impact-arrow {
   width: 2.2rem;
   height: 2.2rem;

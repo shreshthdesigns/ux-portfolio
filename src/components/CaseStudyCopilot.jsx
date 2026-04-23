@@ -1,90 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-/* ─────────────────────────────────────────────────────────
-   CAROUSEL — research session slides
-───────────────────────────────────────────────────────── */
-const CAROUSEL_ITEMS = [
-  { caption: "Interviewing engineers about how they trace false positives through complex code hierarchies" },
-  { caption: "Brainstorming session on AI decision transparency with the Polyspace product team" },
-  { caption: "Workshop on control handoff — when should AI suggest vs. act autonomously?" },
-  { caption: "User testing session observing how engineers react to unexpected AI suggestions" },
-  { caption: "Synthesis of key tensions between automation expectations and accountability needs" },
-];
-
-function InsightCarousel() {
-  const [active, setActive] = useState(2);
-
-  const prev = () => setActive(i => (i - 1 + CAROUSEL_ITEMS.length) % CAROUSEL_ITEMS.length);
-  const next = () => setActive(i => (i + 1) % CAROUSEL_ITEMS.length);
-
-  const cardStyle = (idx) => {
-    const dist = idx - active;
-    const absDist = Math.abs(dist);
-    const scale = absDist === 0 ? 1.0 : absDist === 1 ? 0.87 : 0.74;
-    const opacity = absDist === 0 ? 1 : absDist === 1 ? 0.55 : 0.28;
-    const translateX = dist * 220;
-    const zIndex = 10 - absDist;
-    return {
-      position: 'absolute',
-      left: '50%',
-      top: 0,
-      transform: `translateX(calc(-50% + ${translateX}px)) scale(${scale})`,
-      opacity,
-      zIndex,
-      transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease',
-      cursor: absDist === 0 ? 'default' : 'pointer',
-    };
-  };
-
-  return (
-    <div className="cp-carousel-wrap">
-      <p className="cp-carousel-source">In person Interviews, Discussions and Brainstorming with Polyspace Users.</p>
-      <div className="cp-carousel-stage">
-        {CAROUSEL_ITEMS.map((item, idx) => (
-          <div
-            key={idx}
-            className={`cp-carousel-card${idx === active ? ' cp-carousel-card--active' : ''}`}
-            style={cardStyle(idx)}
-            onClick={() => setActive(idx)}
-          >
-            <div className="cp-carousel-img-placeholder" />
-          </div>
-        ))}
-        <button className="cp-carousel-btn cp-carousel-btn--prev" onClick={prev} aria-label="Previous">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><polyline points="15 18 9 12 15 6" /></svg>
-        </button>
-        <button className="cp-carousel-btn cp-carousel-btn--next" onClick={next} aria-label="Next">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><polyline points="9 18 15 12 9 6" /></svg>
-        </button>
-      </div>
-      <div className="cp-carousel-caption-wrap">
-        {CAROUSEL_ITEMS.map((item, idx) => (
-          <p
-            key={idx}
-            className="cp-carousel-caption-text"
-            style={{
-              opacity: idx === active ? 1 : 0,
-              position: idx === active ? 'relative' : 'absolute',
-              transition: 'opacity 0.4s ease',
-            }}
-          >
-            {item.caption}
-          </p>
-        ))}
-      </div>
-      <div className="cp-carousel-dots">
-        {CAROUSEL_ITEMS.map((_, idx) => (
-          <button
-            key={idx}
-            className={`cp-carousel-dot${idx === active ? ' cp-carousel-dot--active' : ''}`}
-            onClick={() => setActive(idx)}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 /* ─────────────────────────────────────────────────────────
    ADAPTATION DATA
@@ -415,9 +330,9 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
             </h2>
 
             <p className="cp-problem-body">
-              Polyspace workflows are deterministic — every result is traceable, every decision is auditable.
+              Polyspace workflows are deterministic. Every result is traceable, every decision auditable.
               Introducing AI into that environment doesn't just add capability. It adds uncertainty.
-              And for engineers working in safety-critical systems, uncertainty is the enemy.
+              For engineers working in safety-critical systems, uncertainty is the problem.
             </p>
 
             <div className="cp-ai-eng-visual">
@@ -427,7 +342,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                 className="cp-ai-eng-img"
               />
               <p className="cp-ai-eng-caption">
-                Designing AI for engineering isn't one problem — it's five. Each persona operates
+                Designing AI for engineering isn't one problem. It's five. Each persona operates
                 in a different context, with a different mental model of what "correct" means and
                 a different threshold for trusting a machine.
               </p>
@@ -439,7 +354,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                 <h3 className="cp-failure-title">Unpredictable Behavior</h3>
                 <p className="cp-failure-body">
                   The AI makes different decisions for the same input across sessions. In formal verification,
-                  this destroys confidence in the entire workflow — even when the AI is correct.
+                  this destroys confidence in the entire workflow, even when the AI is correct.
                 </p>
               </div>
               <div className="cp-failure-card">
@@ -464,7 +379,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
             <div className="cp-design-intent">
               <div className="cp-design-intent-label">DESIGN INTENT</div>
               <p className="cp-design-intent-text">
-                Build a Copilot that assists without replacing — one that engineers can trust precisely
+                Build a Copilot that assists without replacing. One that engineers can trust precisely
                 because it never acts without their explicit understanding and approval.
               </p>
               <div className="cp-design-intent-chips">
@@ -501,7 +416,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                   They want actions, not interfaces.
                 </p>
                 <div className="cp-research-quote">
-                  "I don't want to describe what I see — I want the AI to see it with me."
+                  "I don't want to describe what I see. I want the AI to see it with me."
                 </div>
               </div>
 
@@ -512,7 +427,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                 </div>
                 <p className="cp-research-body">
                   A Polyspace workflow spans multiple files, run configurations, result states, and
-                  execution histories. Engineers can't summarize that in a chat window — and shouldn't
+                  execution histories. Engineers can't summarize that in a chat window. They shouldn't
                   have to. Context must be automatic and scoped.
                 </p>
                 <div className="cp-research-quote">
@@ -527,11 +442,11 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                 </div>
                 <p className="cp-research-body">
                   One bad AI suggestion doesn't just lose one task. It poisons all future interactions.
-                  Engineers need to see reasoning before they'll accept outcomes — and they need
+                  Engineers need to see reasoning before they'll accept outcomes. And they need
                   a clear path to override when they disagree.
                 </p>
                 <div className="cp-research-quote">
-                  "I'll use it — but I need to know I can ignore it when I have to."
+                  "I'll use it. But I need to know I can ignore it when I have to."
                 </div>
               </div>
             </div>
@@ -549,7 +464,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
 
             <p className="cp-dark-body">
               Every instinct says: make it more capable. Surface more results. Automate more steps.
-              But the real blocker isn't capability — it's comprehensibility. An AI that produces
+              But the real blocker isn't capability. It's comprehensibility. An AI that produces
               a correct answer with no visible reasoning is, to a safety engineer, indistinguishable
               from an AI that got lucky. Both are equally unusable in a certification audit.
             </p>
@@ -578,7 +493,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                   </svg>
                 </div>
                 <h4 style={{color:'#fff', marginBottom:'0.35rem', fontWeight:600, fontSize:'0.9rem'}}>Override is the feature</h4>
-                <p>The ability to reject an AI suggestion — easily and with documentation — is what makes accepting one feel safe.</p>
+                <p>The ability to reject an AI suggestion, easily and with documentation, is what makes accepting one feel safe.</p>
               </div>
               <div className="cp-insight-card">
                 <div className="cp-insight-card-icon">
@@ -592,7 +507,6 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
               </div>
             </div>
 
-            <InsightCarousel />
           </div>
 
           {/* ════════════════════════════════════════════════ */}
@@ -603,7 +517,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
               <p className="cp-section-label">DESIGN PRINCIPLES</p>
               <h2 className="cp-principles-h2">Five principles for controlled intelligence</h2>
               <p className="cp-principles-sub">
-                Not rules imposed after the fact — constraints that shaped every interaction decision from the start.
+                Not rules imposed after the fact. Constraints that shaped every interaction decision from the start.
               </p>
             </div>
 
@@ -716,7 +630,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
             </div>
 
             <div className="cp-adaptation-footer-banner">
-              Adapting Copilot for Polyspace was not about adding features — it was about redefining
+              Adapting Copilot for Polyspace was not about adding features. It was about redefining
               how AI behaves in systems where correctness and control are critical.
             </div>
           </section>
@@ -726,10 +640,10 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
           {/* ════════════════════════════════════════════════ */}
           <section id="system" className="cp-system-section">
             <p className="cp-section-label">THE INFRASTRUCTURE CONTEXT</p>
-            <h2 className="cp-system-h2">Building on MATLAB Copilot —<br />not starting from scratch</h2>
+            <h2 className="cp-system-h2">Building on MATLAB Copilot,<br />not starting from scratch</h2>
             <p className="cp-system-sub">
               Polyspace Copilot doesn't need a new AI backend. MATLAB Copilot already has the LLM pipeline,
-              the IDE integration layer, and the cloud infrastructure. The hard problem is domain adaptation —
+              the IDE integration layer, and the cloud infrastructure. The hard problem is domain adaptation:
               making a general-purpose AI assistant behave correctly in a safety-critical verification environment.
             </p>
 
@@ -768,21 +682,21 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <h4>Shared foundation</h4>
-                <p>LLM backend, authentication, telemetry, and IDE host APIs are inherited from MATLAB Copilot — no duplication.</p>
+                <p>LLM backend, authentication, telemetry, and IDE host APIs are inherited from MATLAB Copilot. No duplication needed.</p>
               </div>
               <div className="cp-layer-card">
                 <div className="cp-layer-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                 </div>
                 <h4>Domain-specific context</h4>
-                <p>Polyspace result state, MISRA rule metadata, and call-chain data must be injected into the LLM context window — MATLAB Copilot has no equivalent.</p>
+                <p>Polyspace result state, MISRA rule metadata, and call-chain data must be injected into the LLM context window. MATLAB Copilot has no equivalent.</p>
               </div>
               <div className="cp-layer-card">
                 <div className="cp-layer-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
                 </div>
                 <h4>New safety constraints</h4>
-                <p>Certification workflows require outputs to be auditable. Hallucination and non-determinism — acceptable in MATLAB — become blockers in Polyspace.</p>
+                <p>Certification workflows require outputs to be auditable. Hallucination and non-determinism, acceptable in MATLAB, become blockers in Polyspace.</p>
               </div>
             </div>
           </section>
@@ -795,13 +709,13 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
             <h2 className="cp-experiences-h2">A decision point, not a finished product</h2>
             <p className="cp-experiences-sub">
               This project defines the UX direction and infrastructure constraints for Polyspace Copilot.
-              The goal was to answer: what would the right approach look like — before a single line of
+              The goal was to answer: what would the right approach look like, before a single line of
               production AI code is written.
             </p>
 
             <div className="cp-status-banner">
               <div className="cp-status-dot" />
-              <p>This work represents a proposed direction — currently at the stage of aligning on UX model and AI infrastructure approach with the Polyspace product and engineering teams.</p>
+              <p>This work represents a proposed direction. We're currently aligning on the UX model and AI infrastructure approach with the Polyspace product and engineering teams.</p>
             </div>
 
             <div className="cp-openq-grid">
@@ -812,7 +726,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                   MATLAB Copilot uses a general-purpose LLM. Polyspace needs responses grounded in
                   MISRA rules, formal proof logic, and static analysis semantics. The question is
                   whether fine-tuning, RAG over Polyspace documentation, or structured prompting
-                  is the right fit — each has different latency, cost, and hallucination profiles.
+                  is the right fit. Each has different latency, cost, and hallucination profiles.
                 </p>
                 <div className="cp-openq-options">
                   <span>Fine-tuned model</span>
@@ -859,7 +773,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                 <p className="cp-openq-body">
                   ISO 26262 and DO-178C require that engineering decisions are traceable to
                   a human. If AI suggests a fix and an engineer approves it, the audit trail
-                  must reflect the engineer's decision — not the AI's output. The infra must
+                  must reflect the engineer's decision, not the AI's output. The infra must
                   log intent, not just action.
                 </p>
                 <div className="cp-openq-options">
@@ -914,7 +828,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                   </div>
                 </div>
                 <p className="cp-tradeoff-decision">No free-form chat. Every entry point is a defined action.</p>
-                <p className="cp-tradeoff-why">Open prompts create unpredictable scope. Structured entry points ensure the AI always operates with the right context — and within understood boundaries.</p>
+                <p className="cp-tradeoff-why">Open prompts create unpredictable scope. Structured entry points ensure the AI always operates with the right context and within understood boundaries.</p>
               </div>
             </div>
           </section>
@@ -927,7 +841,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
             <h2 className="cp-impact-h2">Validation signals</h2>
             <p className="cp-impact-sub">
               Early testing and internal pilot with Polyspace users.
-              Qualitative signals — this is an ongoing project.
+              Qualitative signals. This is an ongoing project.
             </p>
 
             <div className="cp-signal-grid">
@@ -936,21 +850,21 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                 </div>
                 <h3>Reduced error resolution time</h3>
-                <p>Engineers in pilot sessions resolved complex false positives significantly faster. The trace from error to root cause — previously manual — became a guided, single-action flow.</p>
+                <p>Engineers in pilot sessions resolved complex false positives significantly faster. The trace from error to root cause, previously manual, became a guided, single-action flow.</p>
               </div>
               <div className="cp-signal-card">
                 <div className="cp-signal-icon">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <h3>Trust without over-reliance</h3>
-                <p>Engineers used the dismissal and override paths regularly — a positive signal. The system was designed for this. Active rejection means engineers are reviewing, not blindly accepting.</p>
+                <p>Engineers used the dismissal and override paths regularly. That's a positive signal. The system was designed for this. Active rejection means engineers are reviewing, not blindly accepting.</p>
               </div>
               <div className="cp-signal-card">
                 <div className="cp-signal-icon">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
                 </div>
                 <h3>Vocabulary alignment with PMs</h3>
-                <p>The system design artifacts — principles, layers, approval model — became a shared language between UX, engineering, and product management for scoping AI capabilities.</p>
+                <p>The system design artifacts (principles, layers, approval model) became a shared language between UX, engineering, and product management for scoping AI capabilities.</p>
               </div>
             </div>
 
@@ -958,8 +872,8 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
               <svg className="cp-impact-quote-mark" width="32" height="24" viewBox="0 0 32 24" fill="none">
                 <path d="M0 24V14.4C0 6.08 4.8 1.28 14.4 0l1.6 2.72C10.56 3.68 7.84 6.24 7.04 10.4H14.4V24H0zm17.6 0V14.4C17.6 6.08 22.4 1.28 32 0l1.6 2.72c-5.44.96-8.16 3.52-8.96 7.68H32V24H17.6z" fill="#E8E8E8"/>
               </svg>
-              <p className="cp-impact-quote-text">It feels like guidance — but I'm still in control.</p>
-              <span className="cp-impact-quote-attr">— Embedded software engineer, pilot session</span>
+              <p className="cp-impact-quote-text">It feels like guidance. But I'm still in control.</p>
+              <span className="cp-impact-quote-attr">Embedded software engineer, pilot session</span>
             </div>
           </section>
 
@@ -979,7 +893,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
               <div className="cp-reflection-right">
                 <p className="cp-reflection-body">
                   Working on this project changed how I think about AI system design. The temptation
-                  in agentic UX is always to demonstrate capability — to show what the AI <em>can</em> do.
+                  in agentic UX is always to demonstrate capability, to show what the AI <em>can</em> do.
                 </p>
                 <p className="cp-reflection-body" style={{ marginTop: '1.5rem' }}>
                   The harder, more valuable work is designing the boundaries of what it <em>should</em> do,
@@ -994,7 +908,7 @@ export default function CaseStudyCopilot({ onBack, activeSection, displaySection
             </div>
 
             <div className="cp-reflection-close">
-              <p>The future of AI in engineering is not autonomy — it is controlled intelligence.</p>
+              <p>The future of AI in engineering is not autonomy. It is controlled intelligence.</p>
             </div>
           </section>
 

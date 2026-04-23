@@ -15,6 +15,16 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Add/remove dl-mode class on body for Design Ledger dark nav
+  useEffect(() => {
+    if (activeProject?.id === 'design-ledger') {
+      document.body.classList.add('dl-mode');
+    } else {
+      document.body.classList.remove('dl-mode');
+    }
+    return () => document.body.classList.remove('dl-mode');
+  }, [activeProject]);
+
   // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
@@ -78,6 +88,7 @@ export default function App() {
       case 'model-finder': return '#0284c7';
       case 'patent': return 'var(--patent-accent, #2b5440)';
       case 'polyspace-copilot': return '#4338ca';
+      case 'design-ledger': return '#0076A8';
       default: return 'var(--ink)';
     }
   };
@@ -95,7 +106,7 @@ export default function App() {
 
   return (
     <>
-      <nav>
+      <nav className={activeProject?.id === 'design-ledger' ? 'nav--dl' : undefined}>
         <div className="wrap nav-in">
           <a
             href="#hero"

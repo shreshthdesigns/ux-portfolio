@@ -4,6 +4,7 @@ import CaseStudyModelFinder from "./CaseStudyModelFinder";
 import CaseStudyGeckoAI from "./CaseStudyGeckoAI";
 import CaseStudyPatent from "./CaseStudyPatent";
 import CaseStudyCopilot from "./CaseStudyCopilot";
+import CaseStudyDesignLedger from "./CaseStudyDesignLedger";
 
 export default function CaseStudy({ project, onBack }) {
 
@@ -126,6 +127,10 @@ export default function CaseStudy({ project, onBack }) {
 
   if (project === "polyspace-copilot") {
     return <CaseStudyCopilot onBack={onBack} activeSection={activeSection} displaySections={displaySections} />;
+  }
+
+  if (project === "design-ledger") {
+    return <CaseStudyDesignLedger onBack={onBack} />;
   }
 
   return null;

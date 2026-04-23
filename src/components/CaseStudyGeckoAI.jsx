@@ -28,7 +28,7 @@ function GeckoHero() {
             Designing an AI-Powered <span className="cosmic-text-gradient-blue">UX Intelligence</span> System
           </h1>
           <p style={{ fontSize: "clamp(1.1rem, 2vw, 1.35rem)", lineHeight: "1.6", color: "var(--cosmic-muted-fg)", maxWidth: "700px", margin: "0 auto", fontWeight: "400" }}>
-            Transforming raw issue logs into structured UX signals using context-aware AI pipelines, privacy-first processing, and retrieval-inspired reasoning.
+            10,000 bug reports. One question: what is actually broken for users? I built the system to find out.
           </p>
         </motion.div>
         {/* Abstract AI Pipeline Visual */}
@@ -101,15 +101,15 @@ function GeckoProblem() {
         <div className="gecko-problem-grid" style={{ alignItems: "center" }}>
           <div style={{ paddingRight: "2rem" }}>
             <div style={{ color: "var(--cosmic-purple)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>The Problem Space</div>
-            <h3 style={{ fontSize: "2rem", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", lineHeight: "1.2" }}>A powerful system buried in noise.</h3>
+            <h3 style={{ fontSize: "2rem", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", lineHeight: "1.2" }}>Gecko had everything except understanding.</h3>
             <p style={{ fontSize: "1.1rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.7", marginBottom: "2.5rem" }}>
-              Gecko is one of the richest sources of product truth—capturing every failure, workaround, and user struggle. Yet, without intelligence, it remained a system of records, not a system of understanding.
+              Gecko captured every crash, every complaint, every workaround. The data was all there. But no one could read it fast enough to do anything useful with it.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               {[
-                { title: "Thousands of issues per release", desc: "Engineers and designers were drowning in uncorrelated, fragmented diagnostic logs.", icon: <path d="M22 12h-4l-3 9L9 3l-3 9H2" /> },
-                { title: "Weeks of manual effort", desc: "Categorizing and triaging usability friction points required painstaking, manual spreadsheet analysis.", icon: <><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></> },
-                { title: "No overarching pattern detection", desc: "Systemic UX flaws spanned multiple domains, making it impossible to see the holistic journey degradation.", icon: <><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></> }
+                { title: "Thousands of issues per release", desc: "Engineers and UX researchers were buried under thousands of raw, uncorrelated log entries every release.", icon: <path d="M22 12h-4l-3 9L9 3l-3 9H2" /> },
+                { title: "Weeks of manual effort", desc: "Someone had to sit with a spreadsheet and manually categorize each one. It took weeks.", icon: <><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></> },
+                { title: "No pattern detection", desc: "By the time a theme emerged across releases, the next one had already shipped.", icon: <><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></> }
               ].map((item, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "1rem" }}>
                   <div style={{ color: "var(--cosmic-purple)", marginTop: "4px" }}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">{item.icon}</svg></div>
@@ -160,9 +160,9 @@ function GeckoResearch() {
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "5rem" }}>
           <div style={{ color: "var(--cosmic-blue)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>Discovery &amp; Validation</div>
-          <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.8rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", letterSpacing: "-0.02em" }}>Validating the Fatigue</h2>
+          <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.8rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", letterSpacing: "-0.02em" }}>What I heard</h2>
           <p style={{ fontSize: "1.1rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.6", maxWidth: "600px", margin: "0 auto" }}>
-            We interviewed <span style={{ color: "var(--cosmic-fg)", fontWeight: "600" }}>8 Lead Designers and Researchers</span> spanning three enterprise sub-domains to isolate exactly where the diagnostic pipeline was failing.
+            I talked to <span style={{ color: "var(--cosmic-fg)", fontWeight: "600" }}>8 lead designers and researchers</span> across three enterprise sub-domains. They were all saying the same thing.
           </p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem", marginBottom: "6rem" }}>
@@ -173,22 +173,22 @@ function GeckoResearch() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cosmic-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{q.icon}</svg>
               </div>
               <p style={{ color: "var(--cosmic-fg)", fontSize: "1.05rem", lineHeight: "1.6", fontWeight: "400", marginBottom: "2rem", fontStyle: "italic" }}>"{q.text}"</p>
-              <div style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "700" }}>— {q.role}</div>
+              <div style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "700" }}>{q.role}</div>
             </div>
           ))}
         </div>
         {/* Journey Timeline */}
         <div style={{ background: "var(--cosmic-card)", border: "1px solid var(--cosmic-border)", borderRadius: "32px", padding: "4rem", position: "relative", overflow: "hidden" }}>
           <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-            <h3 style={{ color: "var(--cosmic-fg)", fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>The Manual Analysis Journey</h3>
-            <p style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.95rem" }}>Mapping the operational fatigue of conventional diagnostics.</p>
+            <h3 style={{ color: "var(--cosmic-fg)", fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>How it actually went</h3>
+            <p style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.95rem" }}>Every research cycle, before anyone could do actual research.</p>
           </div>
           <div className="gecko-timeline-steps" style={{ position: "relative", maxWidth: "800px", margin: "0 auto" }}>
             <div style={{ position: "absolute", top: "30%", left: "5%", right: "5%", height: "2px", background: "var(--cosmic-border)", zIndex: 0 }} />
             {[
-              { label: "Manual Export", desc: "Download thousands of disjointed CSV rows.", color: "var(--cosmic-muted-fg)" },
-              { label: "Cognitive Fatigue", desc: "Hours spent wrestling spreadsheets to map keywords.", color: "#f59e0b" },
-              { label: "Fragmented Insights", desc: "Insights degrade; systemic architectural UX flaws go entirely unnoticed.", color: "#ef4444" }
+              { label: "Manual Export", desc: "Pull thousands of raw log rows into a spreadsheet.", color: "var(--cosmic-muted-fg)" },
+              { label: "Days of Tagging", desc: "Sort, label, and hunt for patterns by hand.", color: "#f59e0b" },
+              { label: "Miss the Picture", desc: "The systemic issues stay invisible. Ship the next release. Repeat.", color: "#ef4444" }
             ].map((step, i) => (
               <div key={i} style={{ position: "relative", zIndex: 1, textAlign: "center", flex: 1 }}>
                 <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "var(--cosmic-bg)", border: `4px solid ${step.color}`, margin: "0 auto 1.5rem", boxShadow: i > 0 ? `0 0 15px ${step.color}33` : "none" }} />
@@ -214,9 +214,9 @@ function GeckoFailedApproach() {
         <div className="gecko-failed-grid" style={{ alignItems: "center" }}>
           <div>
             <div style={{ color: "#ef4444", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>Initial Prototype</div>
-            <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", lineHeight: "1.2", letterSpacing: "-0.02em" }}>The fragility of keyword detection.</h2>
+            <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", lineHeight: "1.2", letterSpacing: "-0.02em" }}>I tried the simple thing first.</h2>
             <p style={{ fontSize: "1.1rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.7", marginBottom: "2rem" }}>
-              Our first attempt at automating insights relied on strict keyword tracking formulas inside Excel strings ("missing", "not found", "broken"). This approach was brittle, completely lacked context, and ultimately failed to capture the true user intent.
+              The first prototype was Excel with ISNUMBER(SEARCH()) formulas looking for words like "missing" or "broken". It flagged everything wrong. No context, no intent, no nuance. Under 30% accuracy. It taught me that keyword matching is not understanding.
             </p>
             <div style={{ display: "flex", gap: "2rem", marginBottom: "3rem" }}>
               <div>
@@ -312,7 +312,7 @@ function GeckoSolution() {
           <div style={{ color: "var(--cosmic-blue)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>Solution Overview</div>
           <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", letterSpacing: "-0.02em" }}>AI-Powered Gecko Mining Agent</h2>
           <p style={{ fontSize: "1.1rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.6", maxWidth: "600px", margin: "0 auto" }}>
-            A modular pipeline designed explicitly to inject intelligence into an existing raw feedback infrastructure safely and autonomously.
+            A six-stage pipeline that takes raw Gecko logs and turns them into structured UX signals, without touching a spreadsheet.
           </p>
         </div>
         <div className="gecko-pipeline-scroll-wrapper">
@@ -360,7 +360,7 @@ function GeckoArchitecture() {
           <div style={{ color: "var(--cosmic-blue)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>System Architecture</div>
           <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", letterSpacing: "-0.02em" }}>A Hybrid Engineering &amp; UX System</h2>
           <p style={{ fontSize: "1.1rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.6", maxWidth: "700px", margin: "0 auto" }}>
-            This solution was designed as a robust five-layer architecture, ensuring computational scalability while strictly enforcing enterprise data privacy.
+            Five layers, each with one job. Every layer was added because something broke without it.
           </p>
         </div>
         <div style={{ maxWidth: "900px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -407,7 +407,7 @@ function GeckoPrivacy() {
           <div style={{ color: "var(--cosmic-purple)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>The Absolute Constraint</div>
           <h2 style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", letterSpacing: "-0.02em" }}>Privacy-First by Design</h2>
           <p style={{ fontSize: "1.1rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.6", maxWidth: "700px", margin: "0 auto" }}>
-            Enterprise issue logs contain highly sensitive payloads. Before a single string of text reaches the LLM inference layer, it must be completely sanitized. <span style={{ color: "var(--cosmic-fg)", fontWeight: "600" }}>Zero PII exposure.</span>
+            Gecko logs contain real user data. Emails, IP addresses, internal paths. None of it could reach the model. So before anything went to inference, it got cleaned. <span style={{ color: "var(--cosmic-fg)", fontWeight: "600" }}>Zero PII exposure.</span>
           </p>
         </div>
         {/* PII Masking Transformation Flow */}
@@ -438,7 +438,7 @@ function GeckoPrivacy() {
           <div>
             <h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1rem" }}>Multimodal OCR Redaction</h3>
             <p style={{ color: "var(--cosmic-muted-fg)", lineHeight: "1.6", fontSize: "1rem" }}>
-              Bug reports often contain screenshots. We implemented an OCR pass that detects strings shaped like emails, IPs, or proprietary path names, applying a destructive gaussian blur before the image matrix is converted for multimodal analysis.
+              Bug reports come with screenshots. Those screenshots have text in them. We run OCR on every image, detect anything shaped like an email or an internal path, and blur it before the image reaches the model.
             </p>
           </div>
           <div style={{ position: "relative", background: "var(--cosmic-card)", border: "1px solid var(--cosmic-border)", borderRadius: "16px", height: "200px", overflow: "hidden" }}>
@@ -483,14 +483,14 @@ function GeckoIntelligenceLayer() {
             <div style={{ color: "var(--cosmic-blue)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>The Intelligence Layer</div>
             <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", lineHeight: "1.2", letterSpacing: "-0.02em" }}>Structuring the unstructured.</h2>
             <p style={{ fontSize: "1.1rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.7", marginBottom: "2rem" }}>
-              The AI layer is prompted strictly as a UX Researcher. Using few-shot learning and RAG via our internal UX taxonomies, it analyzes the sanitized logs to explicitly isolate actionable signals.
+              The model is prompted to think like a UX researcher, not a search engine. It uses our internal taxonomy as a reference and pulls out what actually matters: friction, confusion, failure points.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               {[
-                { n: "1", title: "Detect Usability Issues", desc: "Parsing rants and noise for genuine friction points." },
-                { n: "2", title: "Categorize Intelligently", desc: "Mapping to Discoverability, Accessibility, or Ease of Use." },
-                { n: "3", title: "Identify Missing Mechanisms", desc: "Locating exactly what interaction paradigm failed." },
-                { n: "4", title: "Assign Confidence Scores", desc: "Calibrating trust against historical model certainty." }
+                { n: "1", title: "Detect Usability Issues", desc: "Separating real user pain from noise and venting." },
+                { n: "2", title: "Categorize Intelligently", desc: "Mapping each issue to Discoverability, Accessibility, or Ease of Use." },
+                { n: "3", title: "Identify Missing Mechanisms", desc: "Finding what broke in the interaction, not just that it broke." },
+                { n: "4", title: "Assign Confidence Scores", desc: "Scoring how certain the model actually is, so humans know what to trust." }
               ].map(item => (
                 <div key={item.n} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                   <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "var(--cosmic-blue)", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.8rem", fontWeight: "bold", flexShrink: 0 }}>{item.n}</div>
@@ -556,7 +556,7 @@ function GeckoHumanLoop() {
           <div style={{ color: "var(--cosmic-cyan)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>The Guardrails</div>
           <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.8rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", letterSpacing: "-0.02em" }}>Human-in-the-Loop by Design.</h2>
           <p style={{ fontSize: "1.1rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.6", maxWidth: "700px", margin: "0 auto" }}>
-            This system was never intended to be fully autonomous. To ensure trust, accuracy, and absolute compliance, we built rigid human checkpoints directly into the deployment pipeline.
+            I never wanted this to run without a human in the room. AI gets things wrong. These checkpoints exist so it cannot get things wrong quietly.
           </p>
         </div>
         {/* Loop Diagram */}
@@ -604,9 +604,9 @@ function GeckoHumanLoop() {
         </div>{/* end gecko-loop-diagram-scroll */}
         <div className="gecko-loop-grid" style={{ marginTop: "3rem", textAlign: "left" }}>
           {[
-            { title: "1. Pre-Flight PII Check", desc: "Before the payload enters the inference layer, humans sample the masked regex outputs to ensure zero proprietary terminology slipped through the Presidio bounds." },
-            { title: "2. Context Engineering", desc: "UX Leads continually adjust the RAG vectors and prompt guardrails to focus the AI on specific releases (e.g., \"Weight accessibility issues strongly for version R2024b\")." },
-            { title: "3. Output Triage", desc: "Any insight scored below an 85% confidence threshold is flagged for human review, preventing LLM hallucinations from diluting the integrity of the product roadmap." }
+            { title: "1. Pre-Flight PII Check", desc: "Before anything reaches the model, a human spot-checks the masked output. We wanted to be certain nothing proprietary slipped through." },
+            { title: "2. Context Engineering", desc: "UX leads tune the prompts per release. Reviewing R2024b? The model gets told to weight accessibility issues more heavily. It is not set-and-forget." },
+            { title: "3. Output Triage", desc: "Anything below 85% confidence does not go straight to the team. It gets flagged for review. The model's uncertainty is treated as a signal, not ignored." }
           ].map((item, i) => (
             <div key={i}>
               <div style={{ color: "var(--cosmic-fg)", fontWeight: "600", fontSize: "1rem", marginBottom: "0.5rem" }}>{item.title}</div>
@@ -614,6 +614,174 @@ function GeckoHumanLoop() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+// =============================================================
+// SECTION 10B — CONFIDENCE SCORING SYSTEM
+// Mathematical formulation of the AI confidence score.
+// =============================================================
+function GeckoConfidence() {
+  const signals = [
+    {
+      abbr: "ICS",
+      name: "Issue Clarity Score",
+      weight: "0.30",
+      formula: "ICS = N_explicit / N_sentences",
+      desc: "Measures the proportion of sentences containing explicit UX problem indicators. Higher when user struggle is clearly stated, not inferred."
+    },
+    {
+      abbr: "USS",
+      name: "UX Signal Strength",
+      weight: "0.25",
+      formula: "USS = P(class | input)",
+      desc: "LLM classification confidence, averaged across multiple inference passes. Rewards stable, high-certainty categorizations."
+    },
+    {
+      abbr: "CCS",
+      name: "Context Completeness",
+      weight: "0.15",
+      formula: "CCS = C_present / C_expected",
+      desc: "Ratio of populated metadata fields (summary, repro steps, expected vs actual) to the total expected. Sparse reports score lower."
+    },
+    {
+      abbr: "PFS",
+      name: "Pattern Frequency Score",
+      weight: "0.20",
+      formula: "PFS = log(1 + f) / log(1 + f_max)",
+      desc: "Log-scaled frequency of similar issues in the dataset. Log transform prevents a single high-volume issue from dominating the score."
+    },
+    {
+      abbr: "CCS₂",
+      name: "Classification Consistency",
+      weight: "0.10",
+      formula: "CCS₂ = 1 − (Var(predictions) / Var_max)",
+      desc: "Measures output stability across multiple prompt variations. Low variance means the model isn't guessing differently each time."
+    }
+  ];
+
+  const example = [
+    { abbr: "ICS", val: 0.80, weight: 0.30 },
+    { abbr: "USS", val: 0.75, weight: 0.25 },
+    { abbr: "CCS", val: 0.60, weight: 0.15 },
+    { abbr: "PFS", val: 0.70, weight: 0.20 },
+    { abbr: "CCS₂", val: 0.90, weight: 0.10 },
+  ];
+  const result = example.reduce((sum, s) => sum + s.val * s.weight, 0);
+
+  return (
+    <section id="confidence-system" className="cosmic-section-padding" style={{ position: "relative", borderBottom: "1px solid var(--cosmic-border)" }}>
+      <div style={{ position: "absolute", top: "20%", right: "-5%", width: "700px", height: "700px", background: "radial-gradient(ellipse, rgba(124, 58, 237, 0.05) 0%, transparent 60%)", zIndex: 0, pointerEvents: "none" }} />
+      <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+
+        {/* Header */}
+        <div style={{ marginBottom: "5rem" }}>
+          <div style={{ color: "var(--cosmic-purple)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>Confidence Scoring</div>
+          <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.8rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", letterSpacing: "-0.02em", maxWidth: "700px" }}>
+            Confidence as a System, Not a Guess
+          </h2>
+          <p style={{ fontSize: "1.05rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.7", maxWidth: "640px" }}>
+            Raw model outputs carry no inherent reliability. A model can be wrong with high confidence. So instead of trusting a single probability value, we designed a structured scoring system that combines five independent measurable signals into one auditable number.
+          </p>
+        </div>
+
+        {/* Master formula */}
+        <div className="cosmic-glass" style={{ padding: "2.5rem 3rem", borderRadius: "20px", marginBottom: "3rem", borderTop: "1px solid rgba(124, 58, 237, 0.3)", boxShadow: "0 0 40px rgba(124, 58, 237, 0.06)" }}>
+          <div style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.8rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "1.25rem" }}>Composite Formula</div>
+          <div style={{ fontFamily: "'Fira Code', 'Courier New', monospace", fontSize: "clamp(0.95rem, 1.5vw, 1.15rem)", color: "var(--cosmic-fg)", marginBottom: "0.75rem", letterSpacing: "0.02em" }}>
+            Confidence = Σ (w<sub style={{ fontSize: "0.7em" }}>i</sub> × S<sub style={{ fontSize: "0.7em" }}>i</sub>)
+          </div>
+          <div style={{ fontFamily: "'Fira Code', 'Courier New', monospace", fontSize: "clamp(0.8rem, 1.2vw, 0.95rem)", color: "var(--cosmic-purple)", marginBottom: "1.5rem" }}>
+            = 0.30(ICS) + 0.25(USS) + 0.15(CCS) + 0.20(PFS) + 0.10(CCS₂)
+          </div>
+          <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
+            {[
+              { sym: "S_i", def: "Normalized signal score  (0 → 1)" },
+              { sym: "w_i", def: "Signal weight" },
+              { sym: "Σ w_i = 1", def: "Weights sum to 1" },
+            ].map((item, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+                <code style={{ background: "rgba(124,58,237,0.12)", border: "1px solid rgba(124,58,237,0.25)", borderRadius: "6px", padding: "2px 8px", fontSize: "0.82rem", color: "var(--cosmic-purple)", fontFamily: "'Fira Code', monospace" }}>{item.sym}</code>
+                <span style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.85rem" }}>{item.def}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Signal cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "1.25rem", marginBottom: "3.5rem" }}>
+          {signals.map((s, i) => (
+            <div key={i} className="cosmic-glass" style={{ padding: "1.75rem", borderRadius: "16px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem" }}>
+                <div>
+                  <span style={{ fontFamily: "'Fira Code', 'Courier New', monospace", fontSize: "1rem", fontWeight: "700", color: "var(--cosmic-cyan)" }}>{s.abbr}</span>
+                  <div style={{ fontSize: "0.78rem", color: "var(--cosmic-muted-fg)", marginTop: "3px" }}>{s.name}</div>
+                </div>
+                <div style={{ background: "rgba(124,58,237,0.12)", border: "1px solid rgba(124,58,237,0.25)", borderRadius: "20px", padding: "3px 10px", fontSize: "0.78rem", fontWeight: "700", color: "var(--cosmic-purple)", whiteSpace: "nowrap" }}>
+                  w = {s.weight}
+                </div>
+              </div>
+              <div style={{ fontFamily: "'Fira Code', 'Courier New', monospace", fontSize: "0.78rem", color: "var(--cosmic-blue)", background: "rgba(37,99,235,0.06)", border: "1px solid rgba(37,99,235,0.15)", borderRadius: "8px", padding: "8px 12px", marginBottom: "1rem" }}>
+                {s.formula}
+              </div>
+              <p style={{ fontSize: "0.88rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.65", margin: 0 }}>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Example calculation */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", alignItems: "start" }}>
+          <div className="cosmic-glass" style={{ padding: "2rem 2.5rem", borderRadius: "20px", borderTop: "1px solid rgba(16,185,129,0.25)" }}>
+            <div style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.78rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "1.5rem" }}>Example Calculation</div>
+            {example.map((s, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.75rem" }}>
+                <code style={{ width: "44px", fontFamily: "'Fira Code', monospace", fontSize: "0.82rem", color: "var(--cosmic-cyan)", flexShrink: 0 }}>{s.abbr}</code>
+                <div style={{ flex: 1, height: "6px", borderRadius: "3px", background: "rgba(255,255,255,0.06)", overflow: "hidden" }}>
+                  <div style={{ height: "100%", width: `${s.val * 100}%`, background: "linear-gradient(90deg, rgba(16,185,129,0.6), rgba(16,185,129,1))", borderRadius: "3px" }} />
+                </div>
+                <span style={{ fontFamily: "'Fira Code', monospace", fontSize: "0.82rem", color: "var(--cosmic-fg)", width: "36px", textAlign: "right" }}>{s.val.toFixed(2)}</span>
+                <span style={{ fontSize: "0.75rem", color: "var(--cosmic-muted-fg)", width: "60px" }}>× {s.weight}</span>
+                <span style={{ fontFamily: "'Fira Code', monospace", fontSize: "0.82rem", color: "var(--cosmic-purple)", width: "40px", textAlign: "right" }}>{(s.val * s.weight).toFixed(3)}</span>
+              </div>
+            ))}
+            <div style={{ borderTop: "1px solid var(--cosmic-border)", marginTop: "1rem", paddingTop: "1rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.88rem" }}>Final Confidence</span>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ fontFamily: "'Fira Code', monospace", fontSize: "0.9rem", color: "var(--cosmic-fg)" }}>≈ {result.toFixed(2)}</span>
+                <span style={{ background: "rgba(16,185,129,0.12)", border: "1px solid rgba(16,185,129,0.3)", borderRadius: "20px", padding: "4px 14px", fontWeight: "700", fontSize: "1rem", color: "#10b981" }}>
+                  {Math.round(result * 100)}%
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Human-in-loop interpretation */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <div style={{ color: "var(--cosmic-muted-fg)", fontSize: "0.78rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: "0.25rem" }}>How Scores Are Used</div>
+            {[
+              { range: "≥ 85%", label: "Auto-prioritized", desc: "Pushed directly into the insight queue. Designers act on these without additional review.", color: "#10b981", bg: "rgba(16,185,129,0.06)", border: "rgba(16,185,129,0.2)" },
+              { range: "60–84%", label: "Flagged for review", desc: "Routed to a UX lead for a 30-second validation pass before being promoted to the roadmap.", color: "var(--cosmic-cyan)", bg: "rgba(6,182,212,0.06)", border: "rgba(6,182,212,0.2)" },
+              { range: "< 60%", label: "Discarded", desc: "Dropped. The signal is too weak to justify influencing product decisions.", color: "var(--cosmic-muted-fg)", bg: "rgba(255,255,255,0.03)", border: "rgba(255,255,255,0.08)" },
+            ].map((tier, i) => (
+              <div key={i} className="cosmic-glass" style={{ padding: "1.25rem 1.5rem", borderRadius: "14px", background: tier.bg, border: `1px solid ${tier.border}` }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5rem" }}>
+                  <span style={{ fontFamily: "'Fira Code', monospace", fontWeight: "700", fontSize: "0.9rem", color: tier.color }}>{tier.range}</span>
+                  <span style={{ fontSize: "0.78rem", fontWeight: "600", color: tier.color }}>{tier.label}</span>
+                </div>
+                <p style={{ fontSize: "0.85rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.6", margin: 0 }}>{tier.desc}</p>
+              </div>
+            ))}
+
+            <div style={{ marginTop: "0.5rem", padding: "1.25rem 1.5rem", borderRadius: "14px", border: "1px solid rgba(124,58,237,0.2)", background: "rgba(124,58,237,0.04)" }}>
+              <p style={{ fontSize: "0.95rem", fontStyle: "italic", color: "var(--cosmic-fg)", lineHeight: "1.6", margin: 0 }}>
+                "AI generates insights. Confidence determines whether they matter."
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
@@ -744,9 +912,9 @@ function GeckoImpact() {
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "5rem" }}>
           <div style={{ color: "var(--cosmic-cyan)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>The Impact</div>
-          <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", letterSpacing: "-0.02em" }}>Scaling Intelligence.</h2>
+          <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", letterSpacing: "-0.02em" }}>What changed.</h2>
           <p style={{ fontSize: "1.1rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.6", maxWidth: "600px", margin: "0 auto" }}>
-            Moving away from raw spreadsheets enabled product leaders to actually govern their ecosystem's trajectory based on explicitly organized UX signals.
+            The shift from manual tagging to structured signals changed what the team could see. Not just individual complaints, but patterns across the whole product.
           </p>
         </div>
         <div className="gecko-impact-grid">
@@ -756,9 +924,9 @@ function GeckoImpact() {
             <div style={{ color: "#ef4444", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "700", marginBottom: "2rem" }}>Before AI Integration</div>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               {[
-                { title: "Weeks of Effort", desc: "Diagnostic parsing relied entirely on brute-force human labor, turning UX researchers into data clerks." },
-                { title: "No Scalable Insights", desc: "Findings lived entirely inside siloed Excel files and quickly deteriorated the moment a new release shipped." },
-                { title: "Reactive Problem Fixing", desc: "Teams only fixed individual complaints; they couldn't see the massive systemic flaws spanning the platform." }
+                { title: "Weeks of Effort", desc: "Researchers spent weeks just sorting log entries. Careful, tedious work that left no time for actual research." },
+                { title: "No Scalable Insights", desc: "Insights lived in spreadsheets. By the next release, they were already stale." },
+                { title: "Reactive Problem Fixing", desc: "The team patched individual bugs. The underlying patterns went unnoticed." }
               ].map((item, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "1rem" }}>
                   <svg style={{ marginTop: "4px" }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
@@ -778,9 +946,9 @@ function GeckoImpact() {
               <div style={{ color: "var(--cosmic-blue)", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: "700", marginBottom: "2rem" }}>After AI Integration</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                 {[
-                  { title: "Automated Classification", desc: "Hundreds of overlapping raw feedback strings are condensed autonomously into validated UX buckets." },
-                  { title: "Structured UX Signals", desc: "Data outputs are completely formatted using JSON templates strictly adhering to standard HCI taxonomy." },
-                  { title: "Proactive Insight Discovery", desc: "Teams now see root-cause meta-patterns appearing across dozens of localized issues." }
+                  { title: "Automated Classification", desc: "Hundreds of raw logs get classified into validated UX categories without anyone opening a spreadsheet." },
+                  { title: "Structured UX Signals", desc: "Every insight comes out in the same structured format, tagged, scored, and ready to use." },
+                  { title: "Proactive Insight Discovery", desc: "Teams started seeing themes that cut across the whole product, not just isolated bug reports." }
                 ].map((item, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "1rem" }}>
                     <svg style={{ marginTop: "4px" }} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cosmic-blue)" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
@@ -805,9 +973,9 @@ function GeckoImpact() {
 // =============================================================
 function GeckoStrategic() {
   const pillars = [
-    { icon: <><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="M9 21V9" /></>, color: "var(--cosmic-fg)", title: "Release-Level Dashboards", desc: "Teams no longer dig through CSVs. Each major release automatically generates a systemic health dashboard highlighting dominant friction categories and localized regressions." },
-    { icon: <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />, color: "var(--cosmic-blue)", borderColor: "var(--cosmic-blue)", title: "Pattern Detection Across Time", desc: "The persistence of structured data enables cross-version intelligence. Product leads can trace whether a specific navigation flaw has diminished or intensified over a 3-year timeline." },
-    { icon: <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />, color: "var(--cosmic-purple)", borderColor: "var(--cosmic-purple)", title: "Data-Driven Prioritization", desc: "The Intelligence Layer replaces anecdotal product requests with verified system volume. Resourcing is now dynamically allocated to the interaction models proving to cause the highest cognitive load." }
+    { icon: <><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="M9 21V9" /></>, color: "var(--cosmic-fg)", title: "Release-Level Dashboards", desc: "Each release now comes with a health snapshot. No more digging through CSVs to understand what users were hitting." },
+    { icon: <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />, color: "var(--cosmic-blue)", borderColor: "var(--cosmic-blue)", title: "Pattern Detection Across Time", desc: "Because the data stays structured, you can compare across releases. Take a navigation issue from two years ago and see whether it got better or worse." },
+    { icon: <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />, color: "var(--cosmic-purple)", borderColor: "var(--cosmic-purple)", title: "Data-Driven Prioritization", desc: "Decisions stopped being driven by whoever shouted loudest. The data showed what was actually costing users the most effort." }
   ];
   return (
     <section id="strategic-outcome" className="cosmic-section-padding" style={{ position: "relative", borderBottom: "1px solid var(--cosmic-border)" }}>
@@ -817,7 +985,7 @@ function GeckoStrategic() {
           <div style={{ color: "var(--cosmic-cyan)", textTransform: "uppercase", letterSpacing: "0.15em", fontSize: "0.75rem", fontWeight: "700", marginBottom: "1rem" }}>The Horizon</div>
           <h2 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontWeight: "600", color: "var(--cosmic-fg)", marginBottom: "1.5rem", letterSpacing: "-0.02em" }}>Moving from Reactive to Proactive.</h2>
           <p style={{ fontSize: "1.1rem", color: "var(--cosmic-muted-fg)", lineHeight: "1.6", maxWidth: "700px", margin: "0 auto" }}>
-            By converting raw text logs into a structured qualitative database, the organization unlocked compounding value across the product lifecycle.
+            Once the logs had structure, the team stopped being reactive. They could see things coming instead of cleaning up after them.
           </p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem", textAlign: "left" }}>
@@ -847,7 +1015,7 @@ function GeckoReflection() {
         <div style={{ color: "var(--cosmic-purple)", textTransform: "uppercase", letterSpacing: "0.2em", fontSize: "0.85rem", fontWeight: "700", marginBottom: "3rem" }}>Reflection</div>
         <h2 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontFamily: "var(--serif)", fontWeight: "400", color: "var(--cosmic-fg)", lineHeight: "1.2", letterSpacing: "-0.01em", margin: "0 auto", position: "relative" }}>
           <span style={{ color: "var(--cosmic-muted-fg)", position: "absolute", top: "-2rem", left: "-2rem", fontSize: "6rem", opacity: 0.1, fontFamily: "sans-serif" }}>"</span>
-          This project transformed my role from a UX designer to a <span style={{ color: "var(--cosmic-blue)" }}>systems thinker</span> — designing intelligence pipelines that scale user understanding.
+          This project changed what I thought a designer's job could be. I was not just making interfaces. I was building the system that decided what the interfaces needed to fix.
           <span style={{ color: "var(--cosmic-muted-fg)", position: "absolute", bottom: "-4rem", right: "-1rem", fontSize: "6rem", opacity: 0.1, fontFamily: "sans-serif" }}>"</span>
         </h2>
       </div>
@@ -1130,6 +1298,9 @@ export default function CaseStudyGeckoAI({ onBack, displaySections, project }) {
         <ConnectorLine />
         {/* Section 10 */}
         <div id="human-loop"><GeckoHumanLoop /></div>
+        <ConnectorLine />
+        {/* Section 10B */}
+        <div id="confidence"><GeckoConfidence /></div>
         <ConnectorLine />
         {/* Section 11 */}
         <div id="interface"><GeckoInterface /></div>

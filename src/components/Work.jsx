@@ -47,15 +47,27 @@ export default function Work({ setActiveProject }) {
     },
 */
     {
+      id: "design-ledger",
+      nda: false,
+      impact: "3 weeks → 5 minutes",
+      description: "A Figma plugin I designed and built end to end that eliminates weeks of manual documentation work, capturing design decisions as they happen and publishing them to Confluence in one click.",
+      title: "Design Ledger",
+      tags: ["Figma Plugin", "Documentation Automation", "Design + Engineering", "Self-Initiated"],
+      image: null,
+      brandColor: "#0076A8",
+      brandLight: "rgba(0, 118, 168, 0.08)"
+    },
+    {
       id: "polyspace-copilot",
       nda: true,
+      wip: true,
       impact: "3× faster debugging with AI",
       description: "Designing an agentic copilot that understands context, reasons through engineering workflows, and assists users in real-time.",
       title: "Polyspace Copilot",
       tags: ["AI Systems", "Agentic UX", "Human-AI Interaction", "Engineering UX"],
       image: "/copilot-hero.png",
       imgStyle: { objectFit: "cover", objectPosition: "center", backgroundColor: "#1E1B4B" },
-      brandColor: "#4338ca", // Indigo
+      brandColor: "#4338ca",
       brandLight: "rgba(67, 56, 202, 0.08)"
     }
   ];
@@ -110,6 +122,12 @@ export default function Work({ setActiveProject }) {
                   <span className="impact-title">
                     {project.title}
                     {project.nda && <span className="impact-nda">🔒 NDA</span>}
+                    {project.wip && (
+                      <span className="impact-wip">
+                        <span className="impact-wip-dot" />
+                        Work in Progress
+                      </span>
+                    )}
                   </span>
                   <span className="impact-arrow">→</span>
                 </div>
@@ -118,7 +136,37 @@ export default function Work({ setActiveProject }) {
               {/* Right: Image */}
               <div className="impact-card-visual">
                 <div className="impact-image-wrap">
-                  <img src={project.image} alt={project.title} style={project.imgStyle || {}} />
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} style={project.imgStyle || {}} />
+                  ) : (
+                    <div style={{ width: '100%', height: '100%', background: '#0D1117', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '12px', padding: '24px' }}>
+                      {/* Mini plugin mockup */}
+                      <div style={{ width: '100%', maxWidth: '220px', background: '#161B22', borderRadius: '8px', border: '1px solid #30363D', overflow: 'hidden', fontSize: '10px' }}>
+                        <div style={{ padding: '8px 12px', borderBottom: '1px solid #30363D', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#F85149' }} />
+                          <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#E3B341' }} />
+                          <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#3FB950' }} />
+                          <span style={{ color: '#6E7681', marginLeft: '4px', fontWeight: 600 }}>Design<span style={{ color: '#0076A8' }}>Ledger</span></span>
+                        </div>
+                        <div style={{ padding: '10px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
+                          {['V1', 'V2'].map(v => (
+                            <div key={v} style={{ background: '#0D1117', border: '1px solid #30363D', borderRadius: '4px', overflow: 'hidden' }}>
+                              <div style={{ height: '36px', background: 'linear-gradient(135deg, #1a2535, #0f1c2c)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <span style={{ fontSize: '8px', fontWeight: 800, color: '#0076A8' }}>{v}</span>
+                              </div>
+                              <div style={{ padding: '4px 6px', fontSize: '8px', color: '#6E7681' }}>Captured ✓</div>
+                            </div>
+                          ))}
+                        </div>
+                        <div style={{ padding: '6px 10px 10px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                          {['Decision', 'Rationale', 'Trade-off'].map(f => (
+                            <div key={f} style={{ background: '#21262D', border: '1px solid #30363D', borderRadius: '3px', padding: '4px 8px', fontSize: '7.5px', color: '#6E7681' }}>{f}</div>
+                          ))}
+                          <div style={{ background: '#0076A8', borderRadius: '3px', padding: '5px', fontSize: '8px', fontWeight: 700, color: '#fff', textAlign: 'center', marginTop: '2px' }}>Commit Decision</div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
               </div>

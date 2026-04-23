@@ -90,10 +90,10 @@ export default function About() {
                     I began my career as a Solution Consultant at Godrej &amp; Boyce, engaging with enterprise users to uncover needs, navigate constraints, and shape solutions grounded in real-world workflows.
                   </p>
                   <p>
-                    At MathWorks, I realized usability issues often stem from deeper system behavior — not just the interface. I focus on turning that complexity into clear, predictable experiences.
+                    At MathWorks, I realized usability issues often stem from deeper system behavior and not just the interface. I focus on turning that complexity into clear, predictable experiences.
                   </p>
                   <p>
-                    Today, I design for scale — simplifying engineering workflows and making complex systems understandable.
+                    Today, I design for scale, simplifying engineering workflows and making complex systems understandable.
                   </p>
                 </div>
 
@@ -175,7 +175,7 @@ export default function About() {
                       <img src="/Godrej.png" alt="Godrej & Boyce" className="tl-logo" />
                       <div className="tl-org">Godrej &amp; Boyce</div>
                     </div>
-                    <p className="tl-detail">Engaged with users to uncover needs, pain points, and real-world workflows. Synthesized insights into actionable solutions balancing usability, technical feasibility, and business goals.</p>
+                    <p className="tl-detail">Engaged with users to uncover needs, pain points, and real world workflows. Synthesized insights into actionable solutions balancing usability, technical feasibility, and business goals.</p>
                   </div>
                 </div>
 

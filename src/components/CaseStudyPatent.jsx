@@ -1,102 +1,104 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import "../styles/patent-editorial.css";
 
+/* ── Animated demo widget ── */
 const WALKsafeDemo = () => {
   const [phase, setPhase] = useState(0);
 
+  const phases = [
+    { title: 'Normal Walking',      status: 'IDLE',       color: '#1B4332', desc: 'Walker upright. All systems monitoring. IMU sampling at 100 Hz.' },
+    { title: 'Tilt Detected',       status: 'ALERT',      color: '#B45309', desc: 'Angular velocity spike exceeds 150°/s. Instability confirmed.' },
+    { title: 'Processing Signal',   status: 'PROCESSING', color: '#92400E', desc: 'MCU verifying tilt pattern and filtering false positives. Decision in 0.2 s.' },
+    { title: 'Deploying Legs',      status: 'DEPLOY',     color: '#B91C1C', desc: 'Solenoid triggered. Spring mechanism releasing. Legs extending laterally.' },
+    { title: 'Walker Stabilized',   status: 'SAFE',       color: '#1B4332', desc: 'Support legs locked. Center of mass within base of support. Fall prevented.' },
+  ];
+
   useEffect(() => {
     const durations = [3000, 2500, 2500, 2500, 3000];
-    const timer = setTimeout(() => {
-      setPhase((p) => (p + 1) % 5);
-    }, durations[phase]);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setPhase(p => (p + 1) % 5), durations[phase]);
+    return () => clearTimeout(t);
   }, [phase]);
-
-  const phases = [
-    { title: 'Normal Walking', status: 'IDLE', color: '#2b5440', desc: 'Walker upright — all systems monitoring. IMU sampling at 100Hz.', icon: '🚶' },
-    { title: 'Tilt Detected', status: 'ALERT', color: '#dd6b20', desc: 'Angular velocity spike exceeds 150°/s threshold. Instability confirmed.', icon: '↗️' },
-    { title: 'Processing Signal', status: 'PROCESSING', color: '#d69e2e', desc: 'MCU verifying tilt pattern. Filtering false positives. Decision in 0.2s.', icon: '⚡' },
-    { title: 'Deploying Support Legs', status: 'DEPLOY', color: '#e53e3e', desc: 'Solenoid triggered. Spring mechanism releasing. Legs extending laterally.', icon: '🔧' },
-    { title: 'Walker Stabilized', status: 'SAFE', color: '#2b5440', desc: 'Support legs locked. Center of mass within base of support. Fall prevented.', icon: '✅' }
-  ];
 
   const p = phases[phase];
 
   return (
-    <div className="ws-demo">
-      <div className="ws-demo-body">
-        {/* Left: Walker Visual */}
-        <div className="ws-demo-visual">
-          <div className={`ws-walker-container phase-${phase}`}>
-            <svg viewBox="0 0 200 260" width="200" height="260" xmlns="http://www.w3.org/2000/svg">
-              {/* Walker frame */}
-              <rect x="50" y="30" width="100" height="8" rx="4" fill="#718096" />
-              <rect x="55" y="30" width="6" height="120" rx="3" fill="#a0aec0" />
-              <rect x="139" y="30" width="6" height="120" rx="3" fill="#a0aec0" />
-              <rect x="50" y="80" width="100" height="6" rx="3" fill="#cbd5e0" />
-              {/* Wheels */}
-              <circle cx="58" cy="155" r="12" fill="none" stroke="#718096" strokeWidth="3" />
-              <circle cx="142" cy="155" r="12" fill="none" stroke="#718096" strokeWidth="3" />
-              {/* IMU sensor */}
-              <rect x="88" y="25" width="24" height="10" rx="3" fill={phase >= 1 ? '#dd6b20' : '#2b5440'} opacity={phase >= 1 ? 1 : 0.6}>
-                {phase >= 1 && phase <= 2 && <animate attributeName="opacity" values="1;0.4;1" dur="0.8s" repeatCount="indefinite" />}
-              </rect>
-              {/* Control box */}
-              <rect x="80" y="72" width="40" height="14" rx="4" fill={phase >= 2 ? '#d69e2e' : '#4a5568'} opacity={phase >= 2 ? 1 : 0.5}>
-                {phase === 2 && <animate attributeName="opacity" values="1;0.3;1" dur="0.5s" repeatCount="indefinite" />}
-              </rect>
-              {/* Support legs - deploy on phase 3+ */}
-              <line x1="45" y1="150" x2={phase >= 3 ? "15" : "45"} y2={phase >= 3 ? "180" : "150"} stroke={phase >= 3 ? '#e53e3e' : '#cbd5e0'} strokeWidth={phase >= 3 ? "4" : "2"} strokeLinecap="round" />
-              <line x1="155" y1="150" x2={phase >= 3 ? "185" : "155"} y2={phase >= 3 ? "180" : "150"} stroke={phase >= 3 ? '#e53e3e' : '#cbd5e0'} strokeWidth={phase >= 3 ? "4" : "2"} strokeLinecap="round" />
-              {/* Ground contact dots */}
-              {phase >= 3 && <circle cx="15" cy="183" r="4" fill="#e53e3e" />}
-              {phase >= 3 && <circle cx="185" cy="183" r="4" fill="#e53e3e" />}
-              {/* Labels */}
-              <text x="100" y="18" textAnchor="middle" fontSize="8" fill="#a0aec0" fontWeight="600">IMU SENSOR</text>
-              <text x="100" y="100" textAnchor="middle" fontSize="7" fill="#a0aec0">MCU</text>
-            </svg>
-          </div>
+    <div className="ws2-demo">
+      <div className="ws2-demo-chrome">
+        <div className="ws2-chrome-dot" style={{ background: '#F87171' }} />
+        <div className="ws2-chrome-dot" style={{ background: '#FBBF24' }} />
+        <div className="ws2-chrome-dot" style={{ background: '#34D399' }} />
+        <span className="ws2-chrome-title">WALKsafe · Live System State</span>
+      </div>
+      <div className="ws2-demo-body">
+        {/* Walker illustration */}
+        <div className="ws2-demo-visual">
+          <svg viewBox="0 0 200 260" width="180" height="230" xmlns="http://www.w3.org/2000/svg"
+            style={{ transform: phase === 1 ? 'rotate(6deg)' : phase === 2 ? 'rotate(10deg)' : 'none', transition: 'transform 0.5s ease' }}>
+            <rect x="50" y="30" width="100" height="8" rx="4" fill="#CBD5E0" />
+            <rect x="55" y="30" width="6" height="120" rx="3" fill="#D1D5DB" />
+            <rect x="139" y="30" width="6" height="120" rx="3" fill="#D1D5DB" />
+            <rect x="50" y="80" width="100" height="6" rx="3" fill="#E5E7EB" />
+            <circle cx="58" cy="155" r="12" fill="none" stroke="#9CA3AF" strokeWidth="2.5" />
+            <circle cx="142" cy="155" r="12" fill="none" stroke="#9CA3AF" strokeWidth="2.5" />
+            <rect x="88" y="25" width="24" height="10" rx="3" fill={phase >= 1 ? '#B45309' : '#1B4332'} opacity={phase >= 1 ? 1 : 0.7}>
+              {phase >= 1 && phase <= 2 && <animate attributeName="opacity" values="1;0.3;1" dur="0.7s" repeatCount="indefinite" />}
+            </rect>
+            <rect x="80" y="72" width="40" height="14" rx="4" fill={phase >= 2 ? '#92400E' : '#4B5563'} opacity={phase >= 2 ? 1 : 0.5}>
+              {phase === 2 && <animate attributeName="opacity" values="1;0.2;1" dur="0.45s" repeatCount="indefinite" />}
+            </rect>
+            <line x1="45" y1="150" x2={phase >= 3 ? "12" : "45"} y2={phase >= 3 ? "182" : "150"}
+              stroke={phase >= 3 ? '#B91C1C' : '#D1D5DB'} strokeWidth={phase >= 3 ? "4" : "2"} strokeLinecap="round"
+              style={{ transition: 'all 0.4s ease' }} />
+            <line x1="155" y1="150" x2={phase >= 3 ? "188" : "155"} y2={phase >= 3 ? "182" : "150"}
+              stroke={phase >= 3 ? '#B91C1C' : '#D1D5DB'} strokeWidth={phase >= 3 ? "4" : "2"} strokeLinecap="round"
+              style={{ transition: 'all 0.4s ease' }} />
+            {phase >= 3 && <circle cx="12" cy="185" r="5" fill="#B91C1C" />}
+            {phase >= 3 && <circle cx="188" cy="185" r="5" fill="#B91C1C" />}
+            <text x="100" y="17" textAnchor="middle" fontSize="7.5" fill="#9CA3AF" fontWeight="600" letterSpacing="0.05em">IMU SENSOR</text>
+            <text x="100" y="100" textAnchor="middle" fontSize="7" fill="#9CA3AF">MCU</text>
+          </svg>
         </div>
 
-        {/* Right: Status Panel */}
-        <div className="ws-demo-status">
-          <div className="ws-status-badge" style={{ background: p.color }}>
+        {/* Status panel */}
+        <div className="ws2-demo-panel">
+          <div className="ws2-status-chip" style={{ color: p.color, borderColor: p.color, background: `${p.color}12` }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: p.color, display: 'inline-block' }} />
             {p.status}
           </div>
-          <div className="ws-status-title">
-            <span style={{ marginRight: '.5rem' }}>{p.icon}</span>{p.title}
-          </div>
-          <div className="ws-status-desc">{p.desc}</div>
+          <div className="ws2-status-title">{p.title}</div>
+          <div className="ws2-status-desc">{p.desc}</div>
 
-          {/* Pipeline Progress */}
-          <div className="ws-pipeline">
+          <div className="ws2-pipeline">
             {phases.map((step, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
-                <div className={`ws-pipeline-dot${i <= phase ? ' active' : ''}`} style={{ background: i <= phase ? phases[i].color : '#e2e8f0' }}>
+              <div key={i} className="ws2-pipeline-step">
+                <div className="ws2-pipeline-dot" style={{ background: i <= phase ? step.color : '#E5E7EB' }}>
                   {i < phase ? '✓' : i + 1}
                 </div>
-                {i < 4 && <div className="ws-pipeline-line" style={{ background: i < phase ? phases[i].color : '#e2e8f0' }}></div>}
+                {i < 4 && (
+                  <div className="ws2-pipeline-line"
+                    style={{ background: i < phase ? step.color : '#E5E7EB' }} />
+                )}
               </div>
             ))}
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '.65rem', color: '#a0aec0', marginTop: '.25rem' }}>
+          <div className="ws2-pipeline-labels">
             <span>Idle</span><span>Detect</span><span>Process</span><span>Deploy</span><span>Safe</span>
           </div>
 
-          {/* Live Data */}
-          <div className="ws-live-data">
-            <div className="ws-data-row">
-              <span>Angular Velocity</span>
-              <span style={{ color: phase >= 1 && phase <= 2 ? '#e53e3e' : '#2b5440', fontWeight: 600 }}>
+          <div className="ws2-live-data">
+            <div className="ws2-data-row">
+              <span className="ws2-data-key">Angular Velocity</span>
+              <span style={{ fontWeight: 600, color: phase >= 1 && phase <= 2 ? '#B91C1C' : '#1B4332' }}>
                 {phase === 0 ? '12°/s' : phase === 1 ? '187°/s' : phase === 2 ? '165°/s' : phase === 3 ? '45°/s' : '8°/s'}
               </span>
             </div>
-            <div className="ws-data-row">
-              <span>System State</span>
+            <div className="ws2-data-row">
+              <span className="ws2-data-key">System State</span>
               <span style={{ fontWeight: 600, color: p.color }}>{p.status}</span>
             </div>
-            <div className="ws-data-row">
-              <span>Response Time</span>
-              <span style={{ fontWeight: 600 }}>{phase >= 4 ? '0.38s' : phase >= 3 ? '0.31s' : '—'}</span>
+            <div className="ws2-data-row">
+              <span className="ws2-data-key">Response Time</span>
+              <span style={{ fontWeight: 600, color: '#374151' }}>{phase >= 4 ? '0.38 s' : phase >= 3 ? '0.31 s' : 'Monitoring'}</span>
             </div>
           </div>
         </div>
@@ -105,40 +107,34 @@ const WALKsafeDemo = () => {
   );
 };
 
-
+/* ── Main component ── */
 export default function CaseStudyPatent({ onBack, activeSection, displaySections }) {
-  const placeholderBox = (label) => (
-    <div style={{ border: '2px dashed #cbd5e0', borderRadius: '12px', padding: '3rem 2rem', textAlign: 'center', margin: '2rem 0', background: 'rgba(0,0,0,0.01)' }}>
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a0aec0" strokeWidth="1.5" style={{ marginBottom: '0.75rem' }}><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-      <div style={{ color: '#a0aec0', fontSize: '.85rem', fontWeight: 500 }}>{label}</div>
-    </div>
-  );
 
   const marketBenchmarks = [
     {
       group: 'Impact protection',
       examples: 'Hip pads, protective belts, fall jackets',
-      behavior: 'Reduces injury after impact',
+      behavior: 'Reduces injury after the fall has already happened',
       strength: 'Useful for fracture protection',
-      gap: 'Reactive only; does not prevent the fall moment',
+      gap: 'Reactive only. The person still hits the ground.',
       signal: 'Post-fall protection',
       image: '/Walksafe/Impact.png'
     },
     {
       group: 'Detection wearables',
       examples: 'Fall sensors, alarm pendants, detector belts',
-      behavior: 'Detects a fall and triggers notification',
-      strength: 'Improves response and caregiver awareness',
-      gap: 'After-the-fact intervention; user still hits the ground',
+      behavior: 'Detects a fall and triggers a caregiver notification',
+      strength: 'Improves response time and caregiver awareness',
+      gap: 'Still after-the-fact. The user has already fallen.',
       signal: 'Notification system',
       image: '/Walksafe/Detection.png'
     },
     {
       group: 'Guidance aids',
-      examples: 'Laser guide, audio cue, gait feedback devices',
-      behavior: 'Gives cues while walking',
+      examples: 'Laser guides, audio cues, gait feedback devices',
+      behavior: 'Provides rhythmic cues during walking',
       strength: 'Supports gait rhythm and user awareness',
-      gap: 'Depends on user attention and does not stabilize hardware',
+      gap: 'Depends entirely on user attention. No hardware stabilization.',
       signal: 'User-led correction',
       image: '/Walksafe/Guidance.png'
     },
@@ -146,877 +142,790 @@ export default function CaseStudyPatent({ onBack, activeSection, displaySections
       group: 'Mobility devices',
       examples: 'Smart walkers, motorized rollators',
       behavior: 'Assists movement and navigation',
-      strength: 'Improves mobility support',
-      gap: 'Can add functional complexity; no automatic anti-tip response',
+      strength: 'Improves general mobility support',
+      gap: 'No automatic anti-tip response. Can add functional complexity.',
       signal: 'Walking assistance',
       image: '/Walksafe/Mobility.png'
     }
   ];
 
   return (
-    <div className="case-study-page cs-patent">
-      {/* STICKY NAV */}
-      <div className="cs-topbar">
-        <div className="cs-topbar-inner">
-          <button className="cs-back" onClick={onBack}>
-            <span className="cs-back-arrow">←</span>
+    <div className="cs-patent-v2">
+
+      {/* ── Sticky Nav ── */}
+      <nav className="ws-nav">
+        <div className="ws-nav-inner">
+          <button className="ws-nav-back" onClick={onBack}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M19 12H5M12 5l-7 7 7 7" />
+            </svg>
             Back to Work
           </button>
-          <div className="cs-section-nav">
-            {displaySections.map((section) => {
-              let isActive = false;
-              if (section.id === "overview" && ["overview", "snapshot", "timeline"].includes(activeSection)) isActive = true;
-              else if (section.id === "problem" && ["problem", "research", "market", "requirements"].includes(activeSection)) isActive = true;
-              else if (section.id === "experiments" && ["experiments", "concepts", "tradeoffs"].includes(activeSection)) isActive = true;
-              else if (section.id === "architecture" && ["architecture", "prototype"].includes(activeSection)) isActive = true;
-              else if (section.id === "impact" && ["impact", "report"].includes(activeSection)) isActive = true;
+          <div className="ws-nav-divider" />
+          <nav className="ws-nav-links">
+            {displaySections.map(s => {
+              let active = false;
+              if (s.id === 'overview') active = ['overview', 'snapshot', 'timeline'].includes(activeSection);
+              else if (s.id === 'problem') active = ['problem', 'research', 'market', 'requirements'].includes(activeSection);
+              else if (s.id === 'experiments') active = ['experiments', 'concepts', 'tradeoffs'].includes(activeSection);
+              else if (s.id === 'architecture') active = ['architecture', 'prototype'].includes(activeSection);
+              else if (s.id === 'impact') active = ['impact', 'report'].includes(activeSection);
               return (
-                <a key={section.id} href={`#${section.id}`} className={isActive ? "active" : ""}>
-                  {section.label}
+                <a key={s.id} href={`#${s.id}`} className={`ws-nav-link${active ? ' active' : ''}`}>
+                  {s.label}
                 </a>
               );
             })}
-          </div>
+          </nav>
         </div>
-      </div>
+      </nav>
 
-      <div className="wrap">
-        <main className="cs-content">
+      <div className="ws-wrap">
 
-          {/* ─── SECTION 1: HERO INTRO ─── */}
-          <section id="overview" className="cs-hero">
-            <div style={{ marginBottom: '1.5rem', fontSize: '.8rem', color: '#2b5440', fontWeight: 600, letterSpacing: '.12em', textTransform: 'uppercase' }}>
-              Research-Led Systems Design
+        {/* ══════════════════════════════════════════
+            HERO
+        ══════════════════════════════════════════ */}
+        <section id="overview" className="ws-hero">
+          <div className="ws-hero-kicker">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            Research-Led Systems Design · Indian Patent
+          </div>
+
+          <h1 className="ws-hero-h1">
+            Walksafe<br />
+            Designing for Safer Mobility in Old Age
+          </h1>
+
+          <p className="ws-hero-sub">
+            Designing for fall prevention is not just about detecting motion.
+            It is about addressing fear, confidence, and independence in everyday movement.
+            This project started with people and ended with a patent.
+          </p>
+
+          <div className="ws-meta-row">
+            <div className="ws-meta-item">
+              <div className="ws-meta-label">Role</div>
+              <div className="ws-meta-value">UX Researcher, Systems Designer</div>
             </div>
-            <h1 className="cs-title">
-              Walksafe — Designing for Safer Mobility in Elderly
-            </h1>
-            <p style={{ fontSize: '1.25rem', color: '#4a5568', marginBottom: '2rem', maxWidth: '1200px', lineHeight: 1.6 }}>
-              Designing for fall prevention is not just about detecting motion — it's about addressing <strong>fear, confidence, and independence</strong> in everyday movement.
-            </p>
+            <div className="ws-meta-sep" />
+            <div className="ws-meta-item">
+              <div className="ws-meta-label">Duration</div>
+              <div className="ws-meta-value">5 months</div>
+            </div>
+            <div className="ws-meta-sep" />
+            <div className="ws-meta-item">
+              <div className="ws-meta-label">Outcome</div>
+              <div className="ws-meta-value">Indian Patent Granted</div>
+            </div>
+            <div className="ws-meta-badge">
+              <span className="ws-meta-badge-dot" />
+              Patent Granted
+            </div>
+          </div>
 
-            <div className="cs-meta-grid">
+          <WALKsafeDemo />
+        </section>
+
+        {/* ══════════════════════════════════════════
+            SNAPSHOT
+        ══════════════════════════════════════════ */}
+        <section id="snapshot" className="ws-section">
+          <div className="ws-kicker">Overview</div>
+          <h2 className="ws-section-h2">What this project is, and why it matters</h2>
+
+          <div className="ws-snapshot-grid">
+            <div>
+              <img src="/WS PATENT INTRO.png" alt="WALKsafe System" className="ws-snapshot-img" />
+            </div>
+            <div className="ws-snapshot-facts">
               {[
-                { label: 'Role', value: 'UX Researcher / Systems Designer' },
-                { label: 'Duration', value: '5 months' },
-                { label: 'Outcome', value: 'Indian Patent Granted' }
-              ].map((m, i) => (
-                <div key={i} className="cs-meta-item">
-                  <div className="cs-meta-label">{m.label}</div>
-                  <div className="cs-meta-value">{m.value}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Full-width animated product intro */}
-            <WALKsafeDemo />
-          </section>
-
-          {/* ─── SECTION 2: PATENT SNAPSHOT ─── */}
-          <section id="snapshot" className="cs-section cs-snapshot">
-            <div style={{ marginBottom: '2rem' }}>
-              <h2 className="cs-section-title">Patent Snapshot</h2>
-              <p style={{ color: '#718096' }}>How research into elderly mobility and fall-risk led to a system-level intervention.</p>
-            </div>
-
-            <div className="cs-snapshot-grid">
-              {/* LEFT — Product Visualization */}
-              <div className="cs-snapshot-visual">
-                <img src="/WS PATENT INTRO.png" alt="WALKsafe System" className="cs-main-img" />
-                <div className="cs-pill-tags">
-                  {[
-                    { label: 'Instability Detection', icon: '📡' },
-                    { label: 'Real-time Processing', icon: '⚡' },
-                    { label: 'Rapid Stabilization', icon: '🛡️' }
-                  ].map((tag, i) => (
-                    <div key={i} className="cs-pill-tag">
-                      <span>{tag.icon}</span>{tag.label}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* RIGHT — Innovation Summary Cards */}
-              <div className="cs-snapshot-cards">
-                {[
-                  { title: 'Problem', body: 'Falls among elderly are deeply tied to behavior, emotion, and reduced confidence — not just physical imbalance.' },
-                  { title: 'Insight', body: 'Users preferred passive safety systems that work invisibly. Trust comes from reliability, not features.' },
-                  { title: 'Approach', body: 'A research-driven exploration across prediction, detection, and protection — leading to a system-level intervention.' },
-                  { title: 'System', body: 'Real-time motion sensing · Threshold-based fall prediction · Automatic mechanical stabilization' },
-                  { title: 'Outcome', body: 'Functional prototype validated · Detection <0.4s · Deployment <0.7s · Indian Patent Granted' }
-                ].map((card, i) => (
-                  <div key={i} className="cs-snapshot-card">
-                    <div className="cs-snapshot-card-title">{card.title}</div>
-                    <div className="cs-snapshot-card-body">{card.body}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* System Flow + Impact Side-by-Side */}
-            <div className="cs-mechanism-impact-row">
-
-              {/* LEFT — Mechanism Flowchart */}
-              <div className="cs-mechanism-visual">
-                <div className="cs-white-card">
-                  <img src="/Mechanism Flowchart.png" alt="System Flow — From user movement to fall prevention" className="cs-flow-img" />
-                </div>
-              </div>
-
-              {/* RIGHT — Compact Impact */}
-              <div className="cs-impact-summary">
-
-                {/* Label */}
-                <div className="cs-impact-label">Impact</div>
-
-                {/* Headline */}
-                <h3 className="cs-impact-title">
-                  Real-time fall prevention system
-                </h3>
-
-                {/* Metrics Row */}
-                <div className="cs-impact-metrics">
-                  {[
-                    { value: '0.4s', label: 'Detection' },
-                    { value: '0.7s', label: 'Response' },
-                    { value: 'Patent', label: 'Indian Granted' }
-                  ].map((m, i) => (
-                    <div key={i} className="cs-impact-metric-item">
-                      <div className="cs-metric-value">{m.value}</div>
-                      <div className="cs-metric-label">{m.label}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Keyword Tags */}
-                <div className="cs-pill-tags">
-                  {['Instability Detection', 'Real-time Processing', 'Passive Safety', 'Low Cognitive Load'].map((tag, i) => (
-                    <span key={i} className="cs-pill-tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Micro Line */}
-                <p className="cs-ital-muted">
-                  Prevents falls before impact
-                </p>
-
-                {/* Explore CTA */}
-                <div className="cs-impact-cta">
-                  <a href="#timeline" className="cs-text-cta">
-                    Explore Full Case Study →
-                  </a>
-                </div>
-
-              </div>
-            </div>
-          </section>
-
-          {/* ─── SECTION 3: RESEARCH TIMELINE (GANTT) ─── */}
-          <section id="timeline" className="cs-section">
-            <h2 className="cs-section-title">Research & Design Journey</h2>
-            <p>A 12-month structured exploration — from observing real-world failure patterns to delivering a validated system-level intervention.</p>
-
-            <div className="cs-timeline-container">
-
-              {/* TIME AXIS — Desktop Only */}
-              <div className="cs-timeline-axis desktop-only">
-                <div className="cs-axis-labels">
-                  {[0, 3, 6, 9, 12].map((m) => (
-                    <div key={m} className="cs-axis-marker">
-                      <div className="cs-marker-label">{m === 0 ? 'Start' : `${m}mo`}</div>
-                      <div className="cs-marker-tick"></div>
-                    </div>
-                  ))}
-                </div>
-                <div className="cs-axis-line"></div>
-              </div>
-
-              {/* PHASE ROWS — Transformed for Desktop/Mobile via CSS */}
-              <div className="cs-timeline-phases">
-
-                {/* Phase 1: Understanding */}
-                <div className="cs-timeline-phase-row p1">
-                  <div className="cs-phase-info">
-                    <div className="cs-phase-label">Phase 1</div>
-                    <div className="cs-phase-name">Understanding</div>
-                  </div>
-                  <div className="cs-phase-track-wrapper">
-                    <div className="cs-phase-track">
-                      {['Observation', 'Framing', 'Research'].map((t, i) => (
-                        <span key={i} className="cs-track-tag">{t}</span>
-                      ))}
-                    </div>
-                    <div className="cs-phase-details">
-                        Identified predictable fall patterns through field observation
-                    </div>
-                  </div>
-                </div>
-
-                {/* Phase 2: Defining & Exploring */}
-                <div className="cs-timeline-phase-row p2">
-                  <div className="cs-phase-info">
-                    <div className="cs-phase-label">Phase 2</div>
-                    <div className="cs-phase-name">Defining</div>
-                  </div>
-                  <div className="cs-phase-track-wrapper">
-                    <div className="cs-phase-track">
-                      {['Validation', 'Exploration'].map((t, i) => (
-                        <span key={i} className="cs-track-tag">{t}</span>
-                      ))}
-                    </div>
-                    <div className="cs-phase-details">
-                        40 interviews across users, physicians & caregivers
-                    </div>
-                  </div>
-                </div>
-
-                {/* Phase 3: Validation */}
-                <div className="cs-timeline-phase-row p3">
-                  <div className="cs-phase-info">
-                    <div className="cs-phase-label">Phase 3</div>
-                    <div className="cs-phase-name">Validation</div>
-                  </div>
-                  <div className="cs-phase-track-wrapper">
-                    <div className="cs-phase-track">
-                      {['System Design', 'Testing'].map((t, i) => (
-                        <span key={i} className="cs-track-tag">{t}</span>
-                      ))}
-                    </div>
-                    <div className="cs-phase-details">
-                        Fall simulations & sensor threshold calibration
-                    </div>
-                  </div>
-                </div>
-
-                {/* Phase 4: Delivery */}
-                <div className="cs-timeline-phase-row p4">
-                  <div className="cs-phase-info">
-                    <div className="cs-phase-label">Phase 4</div>
-                    <div className="cs-phase-name">Delivery</div>
-                  </div>
-                  <div className="cs-phase-track-wrapper">
-                    <div className="cs-phase-track">
-                      {['Prototype', 'TRL-3', 'Patent'].map((t, i) => (
-                        <span key={i} className="cs-track-tag">{t}</span>
-                      ))}
-                    </div>
-                    <div className="cs-phase-details highlighted">
-                        Functional prototype validated · Indian Patent Granted
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </section>
-
-          {/* ─── SECTION 3: PROBLEM DISCOVERY ─── */}
-          <section id="problem" className="cs-section">
-            <h2 className="cs-section-title">Understanding Fall Risk — Beyond the Physical</h2>
-            <p>Falls among elderly are not just physical incidents — they are deeply tied to <strong>behavior and emotion</strong>. Reduced balance, low awareness of risk, and fear of falling create a self-reinforcing cycle.</p>
-
-            <div className="cs-storyboard-v2">
-              {[
-                { 
-                  num: '1', 
-                  label: 'Walking normally', 
-                  danger: false,
-                  svg: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 4v4M10.5 9.5L12 8l1.5 1.5M12 8v13m-4 0h8" />
-                      <circle cx="12" cy="3" r="1" />
-                      <rect x="6" y="10" width="12" height="1" rx="0.5" fill="currentColor" fillOpacity="0.1" />
-                    </svg>
-                  )
-                },
-                { 
-                  num: '2', 
-                  label: 'Walker begins to tilt', 
-                  danger: false,
-                  svg: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(12deg)' }}>
-                      <path d="M12 4v4M10.5 9.5L12 8l1.5 1.5M12 8v13m-4 0h8" />
-                      <circle cx="12" cy="3" r="1" />
-                      <rect x="6" y="10" width="12" height="1" rx="0.5" fill="currentColor" fillOpacity="0.1" />
-                    </svg>
-                  )
-                },
-                { 
-                  num: '3', 
-                  label: 'User loses balance', 
-                  danger: false,
-                  svg: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(25deg)' }}>
-                      <path d="M12 4v4M10.5 9.5L12 8l1.5 1.5M12 8v13m-4 0h8" />
-                      <circle cx="12" cy="3" r="1" />
-                      <rect x="6" y="10" width="12" height="1" rx="0.5" fill="currentColor" fillOpacity="0.1" />
-                      <path d="M19 5l2 2m0-2l-2 2" stroke="#e53e3e" strokeWidth="1" />
-                    </svg>
-                  )
-                },
-                { 
-                  num: '4', 
-                  label: 'Fall occurs', 
-                  danger: true,
-                  svg: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(70deg) translate(4px, 8px)' }}>
-                      <path d="M12 4v4M10.5 9.5L12 8l1.5 1.5M12 8v13m-4 0h8" />
-                      <circle cx="12" cy="3" r="1" />
-                      <rect x="6" y="10" width="12" height="1" rx="0.5" fill="currentColor" fillOpacity="0.1" />
-                    </svg>
-                  )
-                }
+                { label: 'Problem', body: 'Falls among the elderly are tied to behavior and emotion, not just physical imbalance. Fear of falling creates a cycle that reduces movement and increases risk.' },
+                { label: 'Insight', body: 'People preferred safety systems that work invisibly in the background. Trust comes from consistency, not from features they have to learn.' },
+                { label: 'Approach', body: 'A structured exploration across prediction, detection, and protection that led to a system-level intervention rather than another wearable.' },
+                { label: 'System', body: 'Real-time motion sensing, threshold-based fall prediction, and automatic mechanical stabilization, all integrated into the walker itself.' },
+                { label: 'Outcome', body: 'Functional prototype validated. Detection under 0.4 s, deployment under 0.7 s. Indian Patent granted.' }
               ].map((f, i) => (
-                <div key={i} className="cs-storyboard-item">
-                  <div className={`cs-storyboard-card${f.danger ? ' danger' : ''}`}>
-                    <div className="frame-number">{f.num}</div>
-                    <div className="frame-svg">{f.svg}</div>
-                  </div>
-                  <div className="cs-storyboard-caption">{f.label}</div>
+                <div key={i} className="ws-fact-row">
+                  <div className="ws-fact-label">{f.label}</div>
+                  <div className="ws-fact-body">{f.body}</div>
                 </div>
               ))}
             </div>
+          </div>
 
-            <img src="/walksafe_biomechanics.png" alt="Center of Mass vs Base of Support" style={{ width: '100%', maxWidth: '650px', margin: '3rem auto', display: 'block', borderRadius: '12px', border: '1px solid var(--border)' }} />
-
-            <div style={{ background: '#fff5f5', border: '1px solid #feb2b2', borderRadius: '12px', padding: '1.5rem 2rem', textAlign: 'center' }}>
-              <p style={{ margin: 0, fontWeight: 600, color: '#c53030', fontSize: '1rem' }}>Fear → Reduced movement → Lower strength → Higher fall risk. The opportunity: not just detecting falls, but <strong>preventing them while restoring confidence</strong>.</p>
-            </div>
-
-            <div style={{ margin: '4rem 0', width: '100%', display: 'flex', justifyContent: 'center' }}>
-              <div style={{ 
-                width: '100%', 
-                maxWidth: '1200px', 
-                background: 'white', 
-                border: '1px solid var(--border)', 
-                borderRadius: '24px', 
-                padding: '2.5rem',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.03)' 
-              }}>
-                <img 
-                  src="/Fall research.png" 
-                  alt="Fall Research Diagrams" 
-                  style={{ 
-                    width: '100%', 
-                    display: 'block', 
-                    borderRadius: '12px' 
-                  }} 
-                />
+          <div className="ws-metrics-strip">
+            {[
+              { value: '<0.4s', label: 'Fall Detection' },
+              { value: '<0.7s', label: 'Leg Deployment' },
+              { value: 'Patent', label: 'Indian Granted' }
+            ].map((m, i) => (
+              <div key={i} className="ws-metric-cell">
+                <div className="ws-metric-val">{m.value}</div>
+                <div className="ws-metric-lbl">{m.label}</div>
               </div>
+            ))}
+          </div>
+
+          <div className="ws-mech-row">
+            <div className="ws-mech-img-frame">
+              <img src="/Mechanism Flowchart.png" alt="System flow from user movement to fall prevention" />
             </div>
-          </section>
-
-          {/* ─── SECTION 4: USER RESEARCH ─── */}
-          <section id="research" className="cs-section">
-            <h2 className="cs-section-title">Research & Validation</h2>
-            <p>We conducted 40 interviews across three stakeholder groups in assisted living environments to validate assumptions around assistive devices and map real-world failure points.</p>
-
-            <div className="cs-stakeholder-grid">
-              {[
-                { img: '/old%20lady.jpg', title: 'Elderly Users', count: '20', desc: 'Mobility anxiety, device abandonment, fear-driven inactivity.' },
-                { img: '/Doctor.png', title: 'Physicians', count: '12', desc: 'Fracture patterns, recovery timelines, readmission insights.' },
-                { img: '/caretaker.jpg', title: 'Caregivers', count: '8', desc: 'Supervision burden, desire for proactive safety systems.' }
-              ].map((card, i) => (
-                <div key={i} className="cs-stakeholder-card">
-                  <div className="stakeholder-img-wrapper">
-                    <img src={card.img} alt={card.title} className="stakeholder-portrait" />
-                  </div>
-                  <div className="stakeholder-count">{card.count}</div>
-                  <div className="stakeholder-title">{card.title}</div>
-                  <div className="stakeholder-desc">{card.desc}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="cs-grid-3" style={{ marginTop: '2rem' }}>
-              {[
-                { title: 'Passive safety > Active interaction', desc: 'Users preferred systems that work automatically in the background', color: '#2b5440' },
-                { title: 'Visibility creates discomfort', desc: 'Highly visible devices negatively affect social confidence', color: '#dd6b20' },
-                { title: 'Trust comes from reliability', desc: 'Consistency matters far more than feature complexity', color: '#e53e3e' }
-              ].map((insight, i) => (
-                <div key={i} style={{ background: 'white', border: '1px solid var(--border)', borderLeft: `4px solid ${insight.color}`, borderRadius: '8px', padding: '1.25rem 1.5rem' }}>
-                  <div style={{ fontWeight: 600, marginBottom: '.4rem', fontSize: '.95rem' }}>{insight.title}</div>
-                  <div style={{ fontSize: '.85rem', color: '#4a5568' }}>{insight.desc}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="cs-research-evidence-grid">
-              {[
-                { img: '/Interviewpic.png', title: 'Interview Sessions', caption: 'Field interview photos from assisted living research.' },
-                { img: '/Research Questions.png', title: 'Research Questions', caption: 'Question framework used to structure stakeholder conversations.' },
-                { img: '/Survey.png', title: 'Survey Findings', caption: 'Survey responses mapped into key behavioral and adoption patterns.' }
-              ].map((item) => (
-                <figure key={item.title} className="cs-research-evidence-card" tabIndex="0">
-                  <div className="cs-research-evidence-img-wrap">
-                    <img src={item.img} alt={item.title} />
-                  </div>
-                  <figcaption>
-                    <span>{item.title}</span>
-                    {item.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </section>
-
-          {/* ─── SECTION 5: MARKET LANDSCAPE ─── */}
-          <section id="market" className="cs-section">
-            <h2 className="cs-section-title">Existing Solutions Miss the Real Moment</h2>
-            <p>We mapped every commercially available fall-related product and found a critical gap in the market.</p>
-
-            <table className="cs-comparison-table">
-              <thead><tr><th>Category</th><th>Example</th><th>Approach</th><th>Limitation</th></tr></thead>
-              <tbody>
-                <tr><td>Protection Gear</td><td>Hip pads, helmets</td><td>Absorb impact</td><td style={{ color: '#e53e3e' }}>Reactive only</td></tr>
-                <tr><td>Detection Wearables</td><td>Fall sensors, alerts</td><td>Notify post-fall</td><td style={{ color: '#e53e3e' }}>After-the-fact</td></tr>
-                <tr><td>Smart Walkers</td><td>Motorized rollators</td><td>Assist walking</td><td style={{ color: '#e53e3e' }}>No stabilization</td></tr>
-              </tbody>
-            </table>
-
-            <div style={{ background: '#e8f0ec', borderRadius: '12px', padding: '2rem', textAlign: 'center', border: '1px solid rgba(43,84,64,0.15)' }}>
-              <p style={{ margin: 0, fontWeight: 600, color: '#2b5440', fontSize: '1.05rem' }}>
-                Most solutions detect falls after they happen. No existing system prevents the walker from tipping itself. <strong>The real opportunity is intervention, not notification.</strong>
+            <div>
+              <div className="ws-kicker">System Flow</div>
+              <h3 style={{ fontFamily: 'var(--ws-serif)', fontWeight: 400, fontSize: '1.3rem', color: 'var(--ws-ink)', marginBottom: '1rem', lineHeight: 1.3 }}>
+                From instability signal to passive stabilization
+              </h3>
+              <p style={{ fontSize: '0.88rem', lineHeight: 1.7, color: 'var(--ws-muted)', marginBottom: '1.5rem' }}>
+                The system senses motion, validates the signal, and triggers a mechanical response
+                before the walker tips beyond the point of recovery. No user action required.
               </p>
-            </div>
-
-            <div className="cs-market-benchmark">
-              <div className="cs-market-benchmark-head">
-                <div>
-                  <div className="cs-market-kicker">Market Benchmarking Synthesis</div>
-                  <h3>Products clustered by the moment they intervene</h3>
-                </div>
-                <p>
-                  The benchmark showed a crowded space around protection, detection, and walking assistance,
-                  but a clear gap before impact: automatic stabilization at the walker level.
-                </p>
-              </div>
-
-              <div className="cs-market-visual-grid" aria-label="Market benchmarking categories">
-                {marketBenchmarks.map((item) => (
-                  <article key={item.group} className="cs-market-card">
-                    <div className="cs-market-card-media" aria-hidden="true">
-                      <img className="cs-market-product-img" src={item.image} alt="" />
-                    </div>
-                    <div className="cs-market-card-body">
-                      <div className="cs-market-signal">{item.signal}</div>
-                      <h4>{item.group}</h4>
-                      <dl>
-                        <div>
-                          <dt>Examples</dt>
-                          <dd>{item.examples}</dd>
-                        </div>
-                        <div>
-                          <dt>How it works</dt>
-                          <dd>{item.behavior}</dd>
-                        </div>
-                        <div>
-                          <dt>Strength</dt>
-                          <dd>{item.strength}</dd>
-                        </div>
-                        <div className="cs-market-gap">
-                          <dt>Gap</dt>
-                          <dd>{item.gap}</dd>
-                        </div>
-                      </dl>
-                    </div>
-                  </article>
+              <div className="ws-mech-tags">
+                {['Instability Detection', 'Real-time Processing', 'Passive Safety', 'Low Cognitive Load'].map(t => (
+                  <span key={t} className="ws-tag">{t}</span>
                 ))}
               </div>
-
-              <div className="cs-market-opportunity">
-                <div>
-                  <span>WALKsafe design opportunity</span>
-                  <strong>Move the intervention earlier: from detect/protect to prevent and stabilize.</strong>
-                </div>
-                <p>
-                  This reframed the product direction from another wearable alert system to a passive
-                  walker-integrated mechanism that can act without adding cognitive load.
-                </p>
-              </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* ─── SECTION 6: DESIGN REQUIREMENTS ─── */}
-          <section id="requirements" className="cs-section">
-            <h2 className="cs-section-title">Prioritizing System Behaviors</h2>
+        {/* ══════════════════════════════════════════
+            TIMELINE
+        ══════════════════════════════════════════ */}
+        <section id="timeline" className="ws-section">
+          <div className="ws-kicker">Research Journey</div>
+          <h2 className="ws-section-h2">Research and Design Journey</h2>
+          <p className="ws-section-lead">
+            A 12-month structured exploration from observing real-world failure patterns to delivering
+            a validated system-level intervention.
+          </p>
+
+          <div className="ws-timeline">
+            {[
+              {
+                phase: 'Phase 1', name: 'Understanding',
+                tags: ['Observation', 'Framing', 'Research'], accent: false,
+                desc: 'Identified predictable fall patterns through field observation'
+              },
+              {
+                phase: 'Phase 2', name: 'Defining',
+                tags: ['Validation', 'Exploration'], accent: false,
+                desc: '40 interviews across users, physicians, and caregivers'
+              },
+              {
+                phase: 'Phase 3', name: 'Validation',
+                tags: ['System Design', 'Testing'], accent: false,
+                desc: 'Fall simulations and sensor threshold calibration'
+              },
+              {
+                phase: 'Phase 4', name: 'Delivery',
+                tags: ['Prototype', 'TRL-3', 'Patent'], accent: true,
+                desc: 'Functional prototype validated. Indian Patent granted.'
+              }
+            ].map((row, i) => (
+              <div key={i} className="ws-timeline-row">
+                <div className="ws-tl-left">
+                  <div className="ws-tl-phase">{row.phase}</div>
+                  <div className="ws-tl-name">{row.name}</div>
+                </div>
+                <div className="ws-tl-right">
+                  <div className="ws-tl-tags">
+                    {row.tags.map(t => (
+                      <span key={t} className={`ws-tl-tag${row.accent ? ' accent' : ''}`}>{t}</span>
+                    ))}
+                  </div>
+                  <div className={`ws-tl-desc${row.accent ? ' highlighted' : ''}`}>{row.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════
+            PROBLEM
+        ══════════════════════════════════════════ */}
+        <section id="problem" className="ws-section">
+          <div className="ws-kicker">Problem Discovery</div>
+          <h2 className="ws-section-h2">Fall risk, beyond the physical</h2>
+          <p className="ws-section-lead">
+            Falls among the elderly are not just physical incidents. They are tied to behavior and emotion.
+            Reduced balance, low awareness of risk, and fear of falling create a self-reinforcing cycle
+            that is harder to break than the fall itself.
+          </p>
+
+          <div className="ws-storyboard">
+            {[
+              {
+                num: '01', label: 'Walking normally', danger: false,
+                svg: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="3" r="1.2" /><path d="M12 4.5v4.5M10.5 10.5l1.5-1.5 1.5 1.5M12 9v12M8 21h8" />
+                  </svg>
+                )
+              },
+              {
+                num: '02', label: 'Walker begins to tilt', danger: false,
+                svg: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                    style={{ transform: 'rotate(12deg)' }}>
+                    <circle cx="12" cy="3" r="1.2" /><path d="M12 4.5v4.5M10.5 10.5l1.5-1.5 1.5 1.5M12 9v12M8 21h8" />
+                  </svg>
+                )
+              },
+              {
+                num: '03', label: 'Balance is lost', danger: false,
+                svg: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                    style={{ transform: 'rotate(28deg)' }}>
+                    <circle cx="12" cy="3" r="1.2" /><path d="M12 4.5v4.5M10.5 10.5l1.5-1.5 1.5 1.5M12 9v12M8 21h8" />
+                    <path d="M19 5l1.5 1.5M19 6.5L20.5 5" stroke="#B91C1C" strokeWidth="1.2" />
+                  </svg>
+                )
+              },
+              {
+                num: '04', label: 'Fall occurs', danger: true,
+                svg: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                    style={{ transform: 'rotate(72deg) translate(3px, 6px)' }}>
+                    <circle cx="12" cy="3" r="1.2" /><path d="M12 4.5v4.5M10.5 10.5l1.5-1.5 1.5 1.5M12 9v12M8 21h8" />
+                  </svg>
+                )
+              }
+            ].map((f, i) => (
+              <div key={i} className={`ws-sb-frame${f.danger ? ' danger' : ''}`}>
+                <div className="ws-sb-num">{f.num}</div>
+                <div className="ws-sb-icon" style={{ width: 60, height: 60 }}>{f.svg}</div>
+                <div className="ws-sb-label">{f.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="ws-insight-callout">
             <p>
-              Using a structured decision-making approach, I translated research insights into measurable system requirements and evaluated them using matrix analysis and quality frameworks.
-              This ensured that final design decisions were driven by <strong>impact, feasibility, and user relevance</strong> — not assumptions.
+              Fear leads to reduced movement. Reduced movement leads to weaker muscles.
+              Weaker muscles increase fall risk. The opportunity was not just to detect falls,
+              but to <strong>prevent them while restoring confidence in movement.</strong>
             </p>
-            <p className="cs-requirements-emphasis">
-              Protection and functional integration emerged as the highest priorities, while user feedback ranked lowest — indicating that the system should act passively and reliably without requiring user interaction.
-            </p>
+          </div>
 
-            <div className="cs-framework-label">Decision Framework Outcome</div>
-            <div className="cs-priority-score-label">Priority Score (0–5 · Derived from Matrix Analysis)</div>
-            <div className="cs-radar-panel">
-              {[
-                { label: 'Protection', score: 5.00, subtext: 'Highest priority for preventing fall impact' },
-                { label: 'Functional Integration', score: 4.64, subtext: 'Critical for passive system-level response' },
-                { label: 'Prediction Reliability', score: 4.28, subtext: 'Needed to distinguish instability from normal use' },
-                { label: 'Easy to Understand', score: 3.93, subtext: 'Supports user trust without additional instruction' },
-                { label: 'Unobtrusive', score: 3.93, subtext: 'Minimizes visual and cognitive presence' },
-                { label: 'Easy to Use', score: 3.57, subtext: 'Keeps interaction simple for everyday adoption' },
-                { label: 'Detection', score: 2.86, subtext: 'Useful, but secondary to active prevention' },
-                { label: 'Aesthetics', score: 2.50, subtext: 'Relevant for acceptance, but not the core safety driver' },
-                { label: 'Sense of Security', score: 1.43, subtext: 'Emerges from reliable behavior rather than explicit feedback' },
-                { label: 'Feedback from User', score: 0.36, subtext: 'Lowest priority to preserve passive operation' }
-              ].map((bar, i) => (
-                <div key={i} className="cs-radar-bar">
-                  <div className="bar-label-row">
-                    <div className="bar-label">{bar.label}</div>
-                    <div className="bar-score">{bar.score.toFixed(2)} / 5</div>
-                  </div>
-                  <div className="bar-subtext">{bar.subtext}</div>
-                  <div className="bar-track"><div className="bar-fill" style={{ width: `${(bar.score / 5) * 100}%` }}></div></div>
+          <div className="ws-biomech-wrap">
+            <img src="/walksafe_biomechanics.png" alt="Center of mass versus base of support diagram" />
+          </div>
+
+          <div className="ws-research-img-card">
+            <img src="/Fall research.png" alt="Fall research diagrams" />
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════
+            RESEARCH
+        ══════════════════════════════════════════ */}
+        <section id="research" className="ws-section">
+          <div className="ws-kicker">User Research</div>
+          <h2 className="ws-section-h2">Research and Validation</h2>
+          <p className="ws-section-lead">
+            We spoke to 40 people across three groups in assisted living environments.
+            The goal was to validate what we suspected from observation and find the gaps
+            where real-world behavior diverged from what the products assumed.
+          </p>
+
+          <div className="ws-stakeholder-grid">
+            {[
+              { img: '/old%20lady.jpg', title: 'Elderly Users', count: '20', desc: 'Mobility anxiety, device abandonment, fear-driven inactivity.' },
+              { img: '/Doctor.png', title: 'Physicians', count: '12', desc: 'Fracture patterns, recovery timelines, readmission insights.' },
+              { img: '/caretaker.jpg', title: 'Caregivers', count: '8', desc: 'Supervision burden, desire for proactive safety systems.' }
+            ].map((card, i) => (
+              <div key={i} className="ws-stakeholder-card">
+                <img src={card.img} alt={card.title} className="ws-stakeholder-img" />
+                <div className="ws-stakeholder-body">
+                  <div className="ws-stakeholder-count">{card.count}</div>
+                  <div className="ws-stakeholder-title">{card.title}</div>
+                  <div className="ws-stakeholder-desc">{card.desc}</div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
 
-            <p className="cs-priority-note">Scores derived from pairwise matrix evaluation of system requirements</p>
-
-            <div className="cs-requirement-evidence-grid">
-              {[
-                {
-                  img: '/Walksafe/House%20of%20quality.png',
-                  title: 'House of Quality',
-                  caption: 'Mapped user needs to engineering characteristics to reveal which system behaviors mattered most.'
-                },
-                {
-                  img: '/Walksafe/Relative%20Importance.png',
-                  title: 'Relative Importance',
-                  caption: 'Priority values from matrix analysis, highlighting protection and integration as decision drivers.'
-                },
-                {
-                  img: '/Walksafe/Competetive%20benchmarking.png',
-                  title: 'Competitive Benchmarking',
-                  caption: 'Compared existing solutions against requirement scores to identify the prevention gap.'
-                }
-              ].map((item) => (
-                <figure key={item.title} className="cs-requirement-evidence-card">
-                  <img src={item.img} alt={item.title} />
-                  <figcaption>
-                    <span>{item.title}</span>
-                    {item.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </section>
-
-          {/* ─── SECTION 7: EXPERIMENTS ─── */}
-          <section id="experiments" className="cs-section">
-            <h2 className="cs-section-title">Validating Detection Behavior</h2>
-            <p>We conducted controlled fall experiments across five scenarios to validate that the system could reliably distinguish genuine instability from normal movement.</p>
-
-            <div className="ws-experiment-icons-grid" style={{ margin: '3rem 0' }}>
-              {[
-                { icon: '⬅️', label: 'Side Fall' },
-                { icon: '⬆️', label: 'Front Fall' },
-                { icon: '⬇️', label: 'Backward Fall' },
-                { icon: '🧱', label: 'Obstacle Collision' },
-                { icon: '📐', label: 'Slope Instability' }
-              ].map((s, i) => (
-                <div key={i} className="cs-storyboard-frame">
-                  <div className="frame-icon">{s.icon}</div>
-                  <div className="frame-label">{s.label}</div>
+          <div className="ws-findings-list">
+            {[
+              { title: 'Passive safety over active interaction', desc: 'People preferred systems that work automatically in the background. They did not want to learn a new device.' },
+              { title: 'Visibility creates discomfort', desc: 'Assistive devices that look medical affect social confidence. The less noticeable, the more likely adoption.' },
+              { title: 'Trust comes from reliability', desc: 'Consistency mattered far more than feature richness. One failure in a safety context erodes trust completely.' }
+            ].map((f, i) => (
+              <div key={i} className="ws-finding-row">
+                <div style={{ paddingTop: '0.15rem' }}>
+                  <div className="ws-finding-dot" />
                 </div>
-              ))}
-            </div>
-
-            {/* Angular velocity graph */}
-            <div style={{ background: 'white', border: '1px solid var(--border)', borderRadius: '12px', padding: '2rem' }}>
-              <div style={{ fontSize: '.75rem', textTransform: 'uppercase', letterSpacing: '.06em', color: '#a0aec0', marginBottom: '1.25rem', fontWeight: 600 }}>IMU Sensor Data — Angular Velocity Spikes Over Time</div>
-              <svg width="100%" height="120" viewBox="0 0 600 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="0" y1="100" x2="600" y2="100" stroke="#edf2f7" strokeWidth="1" />
-                <line x1="0" y1="60" x2="600" y2="60" stroke="#edf2f7" strokeWidth="1" strokeDasharray="4 4" />
-                <line x1="0" y1="20" x2="600" y2="20" stroke="#edf2f7" strokeWidth="1" strokeDasharray="4 4" />
-                <polyline points="0,90 50,88 100,85 130,80 150,70 160,25 170,15 180,30 190,65 220,80 280,85 320,82 350,78 370,30 380,10 390,35 410,75 460,85 520,88 560,80 570,20 580,40 590,80 600,85" stroke="#2b5440" strokeWidth="2" fill="none" />
-                <text x="148" y="10" fill="#e53e3e" fontSize="9" fontWeight="600">SPIKE</text>
-                <text x="360" y="6" fill="#e53e3e" fontSize="9" fontWeight="600">SPIKE</text>
-                <text x="560" y="15" fill="#e53e3e" fontSize="9" fontWeight="600">SPIKE</text>
-              </svg>
-              <div style={{ fontSize: '.8rem', color: '#718096', marginTop: '.75rem' }}>Angular velocity exceeds 150°/s threshold — marking detection trigger points.</div>
-            </div>
-
-            <div className="cs-experiment-evidence-grid">
-              {[
-                { img: '/Walksafe/Side%20Fall.png', title: 'Side Fall Test', caption: 'Controlled side-fall scenario used to validate lateral instability detection.' },
-                { img: '/Walksafe/Front%20fall.png', title: 'Front Fall Test', caption: 'Forward fall scenario used to compare normal movement against trigger thresholds.' }
-              ].map((item) => (
-                <figure key={item.title} className="cs-experiment-evidence-card">
-                  <div className="cs-experiment-image-wrap">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                    />
-                    <span className="cs-experiment-image-fallback">Image pending</span>
-                  </div>
-                  <figcaption>
-                    <span>{item.title}</span>
-                    {item.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-
-            <figure className="cs-experiment-evidence-card cs-experiment-evidence-card-wide">
-              <div className="cs-experiment-image-wrap">
-                <img src="/Walksafe/Arduino.png" alt="Arduino testing setup" />
-              </div>
-              <figcaption>
-                <span>Arduino Testing Setup</span>
-                Sensor wiring and bench testing setup used to validate detection thresholds before final mechanism integration.
-              </figcaption>
-            </figure>
-          </section>
-
-          {/* ─── SECTION 8: CONCEPT EXPLORATION ─── */}
-          <section id="concepts" className="cs-section">
-            <h2 className="cs-section-title">Exploring System Concepts</h2>
-            <p>Instead of jumping to solutions, we explored at a functional level — breaking the system into sub-functions, generating multiple approaches, and evaluating each against adoption and trust.</p>
-
-            <div className="cs-concept-scroll" aria-label="Concept exploration scroll">
-              {[
-                { title: 'Counter Torque', status: 'Rejected', img: '/Walksafe/Rej%201.png', note: 'Heavy, complex, intimidating to users' },
-                { title: 'Weight Transfer', status: 'Rejected', img: '/Walksafe/Rej%202.png', note: 'Slow response with a noticeable form factor' },
-                { title: 'External Stabilizer Frame', status: 'Rejected', img: '/Walksafe/Rej%203.png', note: 'Increased footprint and reduced everyday usability' },
-                { title: 'Wearable Trigger System', status: 'Rejected', img: '/Walksafe/Rej%204.png', note: 'Added user dependency instead of passive protection' },
-                { title: 'Deployable Support Legs', status: 'Selected', img: '/Walksafe/Select.png', note: 'Fast, familiar, passive, and integrated into the walker form' }
-              ].map((concept, i) => (
-                <article key={concept.title} className={`cs-concept-card ${concept.status === 'Selected' ? 'selected' : 'rejected'}`}>
-                  <div className="cs-concept-card-head">
-                    <h4>{`Concept ${i + 1}: ${concept.title}`}</h4>
-                    <span>{concept.status}</span>
-                  </div>
-                  <div className="cs-concept-image-frame">
-                    <img src={concept.img} alt={`${concept.title} concept sketch`} />
-                  </div>
-                  <p>{concept.note}</p>
-                </article>
-              ))}
-            </div>
-
-            <table className="cs-matrix-table">
-              <thead><tr><th>Criteria</th><th>Counter Torque</th><th>Weight Transfer</th><th>Deployable Legs</th></tr></thead>
-              <tbody>
-                <tr><td>Speed</td><td>★★</td><td>★</td><td style={{ color: '#2b5440', fontWeight: 600 }}>★★★</td></tr>
-                <tr><td>Weight</td><td>★</td><td>★</td><td style={{ color: '#2b5440', fontWeight: 600 }}>★★★</td></tr>
-                <tr><td>Complexity</td><td>★</td><td>★★</td><td style={{ color: '#2b5440', fontWeight: 600 }}>★★★</td></tr>
-                <tr><td>Reliability</td><td>★★</td><td>★★</td><td style={{ color: '#2b5440', fontWeight: 600 }}>★★★</td></tr>
-              </tbody>
-            </table>
-          </section>
-
-          {/* ─── SECTION 9: DESIGN INTELLIGENCE ─── */}
-          <section id="tradeoffs" className="cs-section">
-            <h2 className="cs-section-title">Design Intelligence — Navigating Tradeoffs</h2>
-            <p>The core design challenge: increase safety <strong>without increasing physical or cognitive effort</strong> for elderly users. Every decision balanced competing dimensions.</p>
-
-            <img src="/walksafe_tradeoff.png" alt="Design Tradeoff Radar" style={{ width: '100%', maxWidth: '500px', margin: '3rem auto', display: 'block', borderRadius: '12px', border: '1px solid var(--border)' }} />
-
-            <div className="cs-two-col" style={{ marginTop: '2rem' }}>
-              <div className="cs-card" style={{ background: 'white' }}>
-                <h3 style={{ fontSize: '1rem', marginBottom: '.75rem' }}>Safety versus Weight</h3>
-                <p style={{ fontSize: '.9rem', margin: 0 }}>Stronger mechanisms increase protection but add mass. The spring-loaded system achieves <strong>maximum safety at minimal weight</strong>.</p>
-              </div>
-              <div className="cs-card" style={{ background: 'white' }}>
-                <h3 style={{ fontSize: '1rem', marginBottom: '.75rem' }}>Complexity versus Adoption</h3>
-                <p style={{ fontSize: '.9rem', margin: 0 }}>The system must require zero user intervention — <strong>fully automatic with no learning curve</strong>. This is a UX decision, not just an engineering one.</p>
-              </div>
-            </div>
-
-            <div className="cs-tradeoff-evidence-grid">
-              {[
-                {
-                  img: '/Walksafe/Cal.png',
-                  title: 'Engineering Calculations',
-                  caption: 'Force, load, and spring-response calculations used to balance stabilization strength against added weight.'
-                },
-                {
-                  img: '/Walksafe/leg%20design.png',
-                  title: 'Deployable Leg Design',
-                  caption: 'Mechanism exploration for compact support legs that deploy quickly while preserving the familiar walker form.'
-                }
-              ].map((item) => (
-                <figure key={item.title} className="cs-tradeoff-evidence-card">
-                  <img src={item.img} alt={item.title} />
-                  <figcaption>
-                    <span>{item.title}</span>
-                    {item.caption}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </section>
-
-          {/* ─── SECTION 10: FINAL SYSTEM ARCHITECTURE ─── */}
-          <section id="architecture" className="cs-section">
-            <h2 className="cs-section-title">System Model</h2>
-            <p>We modeled the problem as a <strong>system of safety</strong> — input, processing, and output — not just a product. This defined how the system behaves in real-world scenarios.</p>
-
-            <div className="cs-system-model-panel">
-              <div className="cs-system-model-header">
                 <div>
-                  <div className="cs-system-model-kicker">Behavioral Architecture</div>
-                  <h3>From instability signal to passive stabilization</h3>
+                  <div className="ws-finding-title">{f.title}</div>
+                  <div className="ws-finding-desc">{f.desc}</div>
                 </div>
-                <p>
-                  The model separates sensing, decision logic, and mechanical response so the system can act
-                  quickly without asking the user to interpret warnings or trigger safety behavior.
-                </p>
               </div>
+            ))}
+          </div>
 
-              <div className="cs-system-flow">
-                {[
-                  { phase: '01', title: 'Sense movement', body: 'IMU captures angular velocity and tilt change from walker motion.', parts: ['User movement', 'MPU6050 sensor'] },
-                  { phase: '02', title: 'Validate risk', body: 'Microcontroller checks thresholds and filters false positives before triggering.', parts: ['ATmega MCU', 'Signal verification'] },
-                  { phase: '03', title: 'Trigger response', body: 'Actuator releases the mechanical support sequence once instability is confirmed.', parts: ['Solenoid actuator', 'Spring release'] },
-                  { phase: '04', title: 'Stabilize walker', body: 'Deployable legs increase base support before the walker tips beyond recovery.', parts: ['Support legs', 'Passive stabilization'] }
-                ].map((step, i) => (
-                  <article key={step.title} className="cs-system-step">
-                    <div className="cs-system-step-index">{step.phase}</div>
-                    <h4>{step.title}</h4>
-                    <p>{step.body}</p>
-                    <div className="cs-system-parts">
-                      {step.parts.map((part) => (
-                        <span key={part}>{part}</span>
-                      ))}
-                    </div>
-                    {i < 3 && <div className="cs-system-step-arrow">→</div>}
-                  </article>
-                ))}
-              </div>
-
-              <div className="cs-system-placeholder-grid">
-                {[
-                  { title: 'System Architecture Diagram', caption: 'Placeholder for refined input-processing-output diagram.' },
-                  { title: 'Electronics Layout', caption: 'Placeholder for sensor, MCU, actuator, and wiring schematic.' },
-                  { title: 'PCB / Circuit Detail', caption: 'Placeholder for board-level implementation and component mapping.' }
-                ].map((item) => (
-                  <figure key={item.title} className="cs-system-placeholder-card">
-                    <div className="cs-system-placeholder-visual">
-                      <span>Image Placeholder</span>
-                    </div>
-                    <figcaption>
-                      <span>{item.title}</span>
-                      {item.caption}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* ─── SECTION 11: PROTOTYPE & INTERACTIVE WORKFLOW ─── */}
-          <section id="prototype" className="cs-section">
-            <h2 className="cs-section-title">Final Direction & Validation</h2>
-            <p>We chose to enhance an <strong>existing mental model — the walker</strong>. No learning curve, already trusted, seamlessly fits into daily routines. This is a UX decision, not just a product decision.</p>
-
-            {/* 3D Prototype Image */}
-            {/* 3D Prototype Image Card */}
-            <div className="cs-white-card" style={{ padding: '0', overflow: 'hidden', marginBottom: '1.5rem', marginTop: '3rem' }}>
-              <img 
-                src="/Walksafe/Final Product.png" 
-                alt="Walksafe Final Direction & Validation" 
-                style={{ width: '100%', display: 'block' }} 
-              />
-            </div>
-            <div className="cs-image-caption">
-              Spring-loaded deployment mechanism — exploded view (left) and the full prototype with integrated stabilization system (right).
-            </div>
-
-            {/* Performance Metrics */}
-            <div className="cs-proto-metrics" style={{ marginTop: '3rem' }}>
-              <div className="cs-proto-metric">
-                <div className="metric-value">&lt;0.4s</div>
-                <div className="metric-label">Fall Detection</div>
-              </div>
-              <div className="cs-proto-metric">
-                <div className="metric-value">&lt;0.7s</div>
-                <div className="metric-label">Leg Deployment</div>
-              </div>
-              <div className="cs-proto-metric">
-                <div className="metric-value">PC</div>
-                <div className="metric-label">Polycarbonate Build</div>
-              </div>
-            </div>
-
-
-          </section>
-
-          {/* ─── SECTION 12: IMPACT ─── */}
-          <section id="impact" className="cs-section">
-            <h2 className="cs-section-title">Impact & Outcome</h2>
-
-            <div className="cs-patent-callout">
-              <h3>Indian Patent Granted</h3>
-              <p>A research-driven assistive technology system combining real-time instability detection with automatic mechanical stabilization — designed around trust, invisibility, and zero cognitive load.</p>
-            </div>
-
-            <div className="cs-grid-3" style={{ marginTop: '3rem' }}>
-              {[
-                { title: 'From Fear to Confidence', desc: 'Transformed the core user experience from anxiety-driven avoidance to supported, independent movement.' },
-                { title: 'Invisible Safety System', desc: 'Developed a sub-0.4s detection system that works without any user interaction or awareness.' },
-                { title: 'Research-Led Innovation', desc: 'Bridged the gap between passive mobility aids and active safety systems through user-centered, systems-level design.' }
-              ].map((c, i) => (
-                <div key={i} className="cs-card" style={{ background: 'white', borderLeft: '4px solid #2b5440' }}>
-                  <h3 style={{ fontSize: '1rem', marginBottom: '.5rem' }}>{c.title}</h3>
-                  <p style={{ fontSize: '.85rem', margin: 0 }}>{c.desc}</p>
+          <div className="ws-evidence-grid">
+            {[
+              { img: '/Interviewpic.png', title: 'Interview Sessions', caption: 'Field interviews conducted in assisted living environments.' },
+              { img: '/Research Questions.png', title: 'Research Questions', caption: 'Question framework used to structure stakeholder conversations.' },
+              { img: '/Survey.png', title: 'Survey Findings', caption: 'Survey responses mapped into behavioral and adoption patterns.' }
+            ].map(item => (
+              <div key={item.title} className="ws-evidence-card">
+                <img src={item.img} alt={item.title} />
+                <div className="ws-evidence-caption">
+                  <strong>{item.title}</strong>
+                  <span>{item.caption}</span>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
-            <div style={{ background: 'white', border: '1px solid var(--border)', borderRadius: '12px', padding: '3rem', textAlign: 'center', marginTop: '3rem' }}>
-              <p style={{ fontFamily: 'var(--serif)', fontSize: '1.3rem', color: 'var(--ink)', lineHeight: 1.6, maxWidth: '700px', margin: '0 auto', fontStyle: 'italic' }}>
-                "Designing assistive technology is not only about preventing injuries — it is about moving people from fear-driven movement to supported independence."
+        {/* ══════════════════════════════════════════
+            MARKET
+        ══════════════════════════════════════════ */}
+        <section id="market" className="ws-section">
+          <div className="ws-kicker">Market Landscape</div>
+          <h2 className="ws-section-h2">Every existing solution misses the real moment</h2>
+          <p className="ws-section-lead">
+            We mapped every commercially available fall-related product. The pattern was consistent:
+            they all intervene after the fall has already started.
+          </p>
+
+          <table className="ws-compare-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Example Products</th>
+                <th>Approach</th>
+                <th>Limitation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Protection Gear</td><td>Hip pads, helmets</td><td>Absorb impact</td>
+                <td className="ws-gap-cell">Reactive only</td>
+              </tr>
+              <tr>
+                <td>Detection Wearables</td><td>Fall sensors, alert pendants</td><td>Notify after fall</td>
+                <td className="ws-gap-cell">After-the-fact</td>
+              </tr>
+              <tr>
+                <td>Smart Walkers</td><td>Motorized rollators</td><td>Assist walking</td>
+                <td className="ws-gap-cell">No automatic stabilization</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div className="ws-market-cards">
+            {marketBenchmarks.map(item => (
+              <div key={item.group} className="ws-market-card">
+                <img className="ws-market-card-img" src={item.image} alt={item.group} />
+                <div className="ws-market-card-body">
+                  <div className="ws-market-signal">{item.signal}</div>
+                  <h4>{item.group}</h4>
+                  <dl className="ws-market-dl">
+                    <div><dt>Examples</dt><dd>{item.examples}</dd></div>
+                    <div><dt>Approach</dt><dd>{item.behavior}</dd></div>
+                    <div><dt>Strength</dt><dd>{item.strength}</dd></div>
+                    <div className="ws-market-gap-row"><dt>Gap</dt><dd>{item.gap}</dd></div>
+                  </dl>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="ws-opportunity-strip">
+            <div>
+              <strong>The WALKsafe opportunity</strong>
+              <p>
+                Move the intervention earlier: from detect and protect to prevent and stabilize.
+                This reframed the product direction from another wearable alert to a passive
+                walker-integrated mechanism that acts without adding cognitive load.
               </p>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* ─── SECTION 13: FULL RESEARCH REPORT ─── */}
-          <section id="report" className="cs-section">
-            <h2 className="cs-section-title">Full Research Documentation</h2>
-            <p>The complete project report contains detailed research methodology, user insights, system modeling, sensor data analysis, and design rationale.</p>
+        {/* ══════════════════════════════════════════
+            REQUIREMENTS
+        ══════════════════════════════════════════ */}
+        <section id="requirements" className="ws-section">
+          <div className="ws-kicker">Design Requirements</div>
+          <h2 className="ws-section-h2">Prioritizing what the system actually needs to do</h2>
+          <p className="ws-section-lead">
+            Using pairwise matrix analysis, I translated research insights into measurable system
+            requirements. Protection and functional integration emerged as the highest priorities.
+            User feedback ranked lowest, confirming that the system should act passively
+            and not require any interaction to function.
+          </p>
 
-            <div className="ws-report-card" style={{ background: 'white', border: '1px solid var(--border)', borderRadius: '16px', textAlign: 'center', marginTop: '3rem', boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2b5440" strokeWidth="1.5" style={{ marginBottom: '1.5rem' }}>
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
+          <div className="ws-priority-bars">
+            {[
+              { label: 'Protection', score: 5.00, sub: 'Highest priority for preventing fall impact' },
+              { label: 'Functional Integration', score: 4.64, sub: 'Critical for passive system-level response' },
+              { label: 'Prediction Reliability', score: 4.28, sub: 'Needed to distinguish instability from normal use' },
+              { label: 'Easy to Understand', score: 3.93, sub: 'Supports user trust without additional instruction' },
+              { label: 'Unobtrusive', score: 3.93, sub: 'Minimizes visual and cognitive presence' },
+              { label: 'Easy to Use', score: 3.57, sub: 'Keeps interaction simple for everyday adoption' },
+              { label: 'Detection', score: 2.86, sub: 'Useful, but secondary to active prevention' },
+              { label: 'Aesthetics', score: 2.50, sub: 'Relevant for acceptance, but not the core safety driver' },
+              { label: 'Sense of Security', score: 1.43, sub: 'Emerges from reliable behavior rather than explicit feedback' },
+              { label: 'Feedback from User', score: 0.36, sub: 'Lowest priority to preserve passive operation' }
+            ].map((bar, i) => (
+              <div key={i} className="ws-priority-bar">
+                <div className="ws-priority-bar-top">
+                  <span className="ws-priority-bar-label">{bar.label}</span>
+                  <span className="ws-priority-bar-score">{bar.score.toFixed(2)} / 5</span>
+                </div>
+                <div className="ws-priority-bar-sub">{bar.sub}</div>
+                <div className="ws-bar-track">
+                  <div className="ws-bar-fill" style={{ width: `${(bar.score / 5) * 100}%` }} />
+                </div>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontSize: '0.74rem', color: 'var(--ws-muted-2)', textAlign: 'center', marginBottom: '2rem' }}>
+            Scores derived from pairwise matrix evaluation of system requirements
+          </p>
+
+          <div className="ws-req-evidence-grid">
+            {[
+              { img: '/Walksafe/House%20of%20quality.png', title: 'House of Quality', caption: 'Mapped user needs to engineering characteristics to reveal which system behaviors mattered most.' },
+              { img: '/Walksafe/Relative%20Importance.png', title: 'Relative Importance', caption: 'Priority values from matrix analysis, highlighting protection and integration as decision drivers.' },
+              { img: '/Walksafe/Competetive%20benchmarking.png', title: 'Competitive Benchmarking', caption: 'Compared existing solutions against requirement scores to identify the prevention gap.' }
+            ].map(item => (
+              <div key={item.title} className="ws-req-card">
+                <img src={item.img} alt={item.title} />
+                <div className="ws-req-caption">
+                  <strong>{item.title}</strong>
+                  <span>{item.caption}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════
+            EXPERIMENTS
+        ══════════════════════════════════════════ */}
+        <section id="experiments" className="ws-section">
+          <div className="ws-kicker">Engineering Validation</div>
+          <h2 className="ws-section-h2">Validating detection behavior</h2>
+          <p className="ws-section-lead">
+            We ran controlled fall experiments across five scenarios to confirm the system could
+            reliably distinguish genuine instability from normal movement. This was the threshold
+            calibration phase before the mechanism could be trusted.
+          </p>
+
+          <div className="ws-scenario-grid">
+            {[
+              { icon: '⬅', label: 'Side Fall' },
+              { icon: '↑', label: 'Front Fall' },
+              { icon: '↓', label: 'Backward Fall' },
+              { icon: '▪', label: 'Obstacle Collision' },
+              { icon: '◤', label: 'Slope Instability' }
+            ].map((s, i) => (
+              <div key={i} className="ws-scenario-cell">
+                <div className="ws-scenario-icon">{s.icon}</div>
+                <div className="ws-scenario-label">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="ws-chart-card">
+            <div className="ws-chart-label">IMU Sensor Data — Angular Velocity Spikes Over Time</div>
+            <svg width="100%" height="100" viewBox="0 0 600 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0" y1="80" x2="600" y2="80" stroke="#F3F4F6" strokeWidth="1" />
+              <line x1="0" y1="50" x2="600" y2="50" stroke="#F3F4F6" strokeWidth="1" strokeDasharray="4 4" />
+              <line x1="0" y1="20" x2="600" y2="20" stroke="#F3F4F6" strokeWidth="1" strokeDasharray="4 4" />
+              <polyline
+                points="0,72 50,70 100,68 130,62 150,52 160,18 170,10 180,24 190,50 220,62 280,68 320,65 350,60 370,22 380,8 390,28 410,58 460,68 520,70 560,62 570,14 580,30 590,62 600,68"
+                stroke="#1B4332" strokeWidth="2" fill="none" strokeLinejoin="round" />
+              <text x="145" y="8" fill="#B91C1C" fontSize="8" fontWeight="700">SPIKE</text>
+              <text x="358" y="4" fill="#B91C1C" fontSize="8" fontWeight="700">SPIKE</text>
+              <text x="555" y="10" fill="#B91C1C" fontSize="8" fontWeight="700">SPIKE</text>
+            </svg>
+            <div className="ws-chart-note">Angular velocity exceeds 150°/s threshold, marking the detection trigger points across three fall scenarios.</div>
+          </div>
+
+          <div className="ws-exp-grid">
+            {[
+              { img: '/Walksafe/Side%20Fall.png', title: 'Side Fall Test', caption: 'Controlled side-fall scenario used to validate lateral instability detection.' },
+              { img: '/Walksafe/Front%20fall.png', title: 'Front Fall Test', caption: 'Forward fall scenario compared against normal movement to calibrate trigger thresholds.' }
+            ].map(item => (
+              <div key={item.title} className="ws-exp-card">
+                <img src={item.img} alt={item.title} onError={e => { e.currentTarget.style.display = 'none'; }} />
+                <div className="ws-exp-caption">
+                  <strong>{item.title}</strong>
+                  <span>{item.caption}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="ws-exp-card-wide">
+            <img src="/Walksafe/Arduino.png" alt="Arduino testing setup" style={{ width: '100%', display: 'block' }} />
+            <div className="ws-exp-caption">
+              <strong>Arduino Testing Setup</strong>
+              <span>Sensor wiring and bench testing used to validate detection thresholds before integrating the final mechanism.</span>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════
+            CONCEPTS
+        ══════════════════════════════════════════ */}
+        <section id="concepts" className="ws-section">
+          <div className="ws-kicker">Concept Exploration</div>
+          <h2 className="ws-section-h2">Exploring system concepts</h2>
+          <p className="ws-section-lead">
+            Instead of jumping to a solution, we worked at a functional level. We broke the system
+            into sub-functions, generated multiple approaches, and evaluated each one against
+            adoption likelihood and user trust.
+          </p>
+
+          <div className="ws-concept-scroll">
+            {[
+              { title: 'Counter Torque',             status: 'Rejected', img: '/Walksafe/Rej%201.png', note: 'Heavy, mechanically complex, and intimidating for elderly users' },
+              { title: 'Weight Transfer',             status: 'Rejected', img: '/Walksafe/Rej%202.png', note: 'Slow response time with a noticeable form factor' },
+              { title: 'External Stabilizer Frame',  status: 'Rejected', img: '/Walksafe/Rej%203.png', note: 'Increased footprint and reduced everyday usability' },
+              { title: 'Wearable Trigger System',    status: 'Rejected', img: '/Walksafe/Rej%204.png', note: 'Added user dependency instead of enabling passive protection' },
+              { title: 'Deployable Support Legs',    status: 'Selected', img: '/Walksafe/Select.png',  note: 'Fast, familiar, passive, and fully integrated into the walker form' }
+            ].map((c, i) => (
+              <div key={i} className={`ws-concept-card${c.status === 'Selected' ? ' selected' : ''}`}>
+                <div className="ws-concept-card-head">
+                  <h4>Concept {i + 1}: {c.title}</h4>
+                  <span className={`ws-concept-status ${c.status.toLowerCase()}`}>{c.status}</span>
+                </div>
+                <img src={c.img} alt={`${c.title} concept sketch`} className="ws-concept-img" />
+                <p className="ws-concept-note">{c.note}</p>
+              </div>
+            ))}
+          </div>
+
+          <table className="ws-matrix-table">
+            <thead>
+              <tr>
+                <th>Evaluation Criteria</th>
+                <th>Counter Torque</th>
+                <th>Weight Transfer</th>
+                <th>Deployable Legs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Speed</td><td>★★</td><td>★</td><td className="winner">★★★</td></tr>
+              <tr><td>Weight</td><td>★</td><td>★</td><td className="winner">★★★</td></tr>
+              <tr><td>Complexity</td><td>★</td><td>★★</td><td className="winner">★★★</td></tr>
+              <tr><td>Reliability</td><td>★★</td><td>★★</td><td className="winner">★★★</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        {/* ══════════════════════════════════════════
+            TRADEOFFS
+        ══════════════════════════════════════════ */}
+        <section id="tradeoffs" className="ws-section">
+          <div className="ws-kicker">Design Intelligence</div>
+          <h2 className="ws-section-h2">Navigating the tradeoffs</h2>
+          <p className="ws-section-lead">
+            The core design challenge was increasing safety without increasing physical or cognitive
+            effort. Every decision had a tension built into it.
+          </p>
+
+          <img src="/walksafe_tradeoff.png" alt="Design tradeoff radar chart" className="ws-tradeoff-img" />
+
+          <div className="ws-tradeoff-grid">
+            <div className="ws-tradeoff-card">
+              <h3>Safety versus Weight</h3>
+              <p>Stronger stabilization mechanisms add mass. The spring-loaded system achieves maximum protection at minimal weight. This was the central engineering tradeoff.</p>
+            </div>
+            <div className="ws-tradeoff-card">
+              <h3>Complexity versus Adoption</h3>
+              <p>The system must require zero user intervention. Fully automatic, no learning curve. That is a UX decision before it is an engineering one.</p>
+            </div>
+          </div>
+
+          <div className="ws-tradeoff-evidence">
+            {[
+              { img: '/Walksafe/Cal.png', title: 'Engineering Calculations', caption: 'Force, load, and spring-response calculations used to balance stabilization strength against added weight.' },
+              { img: '/Walksafe/leg%20design.png', title: 'Deployable Leg Design', caption: 'Mechanism exploration for compact support legs that deploy quickly while preserving the familiar walker form.' }
+            ].map(item => (
+              <div key={item.title} className="ws-tradeoff-ev-card">
+                <img src={item.img} alt={item.title} />
+                <div className="ws-tradeoff-ev-caption">
+                  <strong>{item.title}</strong>
+                  <span>{item.caption}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════
+            ARCHITECTURE
+        ══════════════════════════════════════════ */}
+        <section id="architecture" className="ws-section">
+          <div className="ws-kicker">System Model</div>
+          <h2 className="ws-section-h2">From instability signal to passive stabilization</h2>
+          <p className="ws-section-lead">
+            We modeled this as a system of safety, not just a product. Input, decision logic, and
+            mechanical output, each separated so the system can act quickly without asking the user
+            to interpret warnings or trigger any safety behavior.
+          </p>
+
+          <div className="ws-system-flow">
+            {[
+              { num: '01', title: 'Sense movement', body: 'IMU captures angular velocity and tilt change from walker motion.', parts: ['User movement', 'MPU6050 sensor'] },
+              { num: '02', title: 'Validate risk', body: 'Microcontroller checks thresholds and filters false positives before triggering.', parts: ['ATmega MCU', 'Signal verification'] },
+              { num: '03', title: 'Trigger response', body: 'Actuator releases the mechanical support sequence once instability is confirmed.', parts: ['Solenoid actuator', 'Spring release'] },
+              { num: '04', title: 'Stabilize walker', body: 'Deployable legs extend the base of support before the walker tips beyond recovery.', parts: ['Support legs', 'Passive stabilization'] }
+            ].map((step, i) => (
+              <div key={i} className="ws-system-step">
+                <div className="ws-system-step-num">{step.num}</div>
+                <h4>{step.title}</h4>
+                <p>{step.body}</p>
+                <div className="ws-system-parts">
+                  {step.parts.map(p => <span key={p} className="ws-system-part">{p}</span>)}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="ws-placeholder-grid">
+            {[
+              { title: 'System Architecture Diagram', caption: 'Input, processing, and output flow diagram.' },
+              { title: 'Electronics Layout', caption: 'Sensor, MCU, actuator, and wiring schematic.' },
+              { title: 'PCB Circuit Detail', caption: 'Board-level implementation and component mapping.' }
+            ].map(item => (
+              <div key={item.title} className="ws-placeholder-card">
+                <div className="ws-placeholder-visual">
+                  <span>Image Placeholder</span>
+                </div>
+                <div className="ws-placeholder-caption">
+                  <strong>{item.title}</strong>
+                  <span>{item.caption}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════
+            PROTOTYPE
+        ══════════════════════════════════════════ */}
+        <section id="prototype" className="ws-section">
+          <div className="ws-kicker">Final Direction</div>
+          <h2 className="ws-section-h2">Built on a familiar mental model</h2>
+          <p className="ws-section-lead">
+            We chose to enhance an existing trusted object, the walker itself, rather than
+            introduce a new device. No learning curve. Already accepted. Seamlessly part of daily routine.
+            That is a UX decision before it is a product decision.
+          </p>
+
+          <div className="ws-proto-img-card">
+            <img src="/Walksafe/Final Product.png" alt="WALKsafe final prototype" />
+          </div>
+          <p className="ws-img-caption">
+            Spring-loaded deployment mechanism, exploded view (left) and the full prototype with integrated stabilization system (right).
+          </p>
+
+          <div className="ws-proto-metrics">
+            {[
+              { val: '<0.4s', lbl: 'Fall Detection' },
+              { val: '<0.7s', lbl: 'Leg Deployment' },
+              { val: 'PC', lbl: 'Polycarbonate Build' }
+            ].map((m, i) => (
+              <div key={i} className="ws-proto-metric">
+                <div className="ws-proto-metric-val">{m.val}</div>
+                <div className="ws-proto-metric-lbl">{m.lbl}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════
+            IMPACT
+        ══════════════════════════════════════════ */}
+        <section id="impact" className="ws-section">
+          <div className="ws-kicker">Outcomes</div>
+          <h2 className="ws-section-h2">Impact and outcome</h2>
+
+          <div className="ws-patent-banner">
+            <div className="ws-patent-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
               </svg>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>Complete Project Report</h3>
-              <p style={{ color: '#718096', fontSize: '.95rem', maxWidth: '500px', margin: '0 auto 2rem' }}>
-                Detailed research documentation including user insights, systems modeling, sensor validation, and full design methodology.
-              </p>
-              <a 
-                href="/Walksafe/Major Project Report.pdf" 
-                download="Walksafe_Major_Project_Report.pdf"
-                style={{ 
-                  display: 'inline-block', 
-                  background: '#2b5440', 
-                  color: 'white', 
-                  padding: '1rem 2.5rem', 
-                  borderRadius: '8px', 
-                  fontWeight: 600, 
-                  fontSize: '.95rem', 
-                  textDecoration: 'none',
-                  cursor: 'pointer', 
-                  boxShadow: '0 4px 12px rgba(43,84,64,0.2)' 
-                }}
-              >
-                View Complete Project Report →
-              </a>
             </div>
-          </section>
+            <div>
+              <h3>Indian Patent Granted</h3>
+              <p>
+                A research-driven assistive technology system combining real-time instability detection
+                with automatic mechanical stabilization. Designed around trust, invisibility,
+                and zero cognitive load.
+              </p>
+            </div>
+          </div>
 
-        </main>
+          <div className="ws-impact-cards">
+            {[
+              { title: 'From Fear to Confidence', desc: 'Transformed the core user experience from anxiety-driven avoidance to supported, independent movement.' },
+              { title: 'Invisible Safety System', desc: 'A sub-0.4 s detection system that works without any user interaction or awareness.' },
+              { title: 'Research-Led Innovation', desc: 'Bridged the gap between passive mobility aids and active safety systems through user-centered, systems-level design.' }
+            ].map((c, i) => (
+              <div key={i} className="ws-impact-card">
+                <h3>{c.title}</h3>
+                <p>{c.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="ws-quote-block">
+            <p className="ws-quote-text">
+              "Designing assistive technology is not only about preventing injuries.
+              It is about moving people from fear-driven movement to supported independence."
+            </p>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════
+            REPORT
+        ══════════════════════════════════════════ */}
+        <section id="report" className="ws-section">
+          <div className="ws-kicker">Documentation</div>
+          <h2 className="ws-section-h2">Full Research Documentation</h2>
+          <p className="ws-section-lead">
+            The complete project report covers research methodology, user insights, system modeling,
+            sensor data analysis, and design rationale.
+          </p>
+
+          <div className="ws-report-card">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#1B4332" strokeWidth="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+            <h3>Complete Project Report</h3>
+            <p>
+              Detailed research documentation including user insights, systems modeling,
+              sensor validation, and the full design methodology behind the patent.
+            </p>
+            <a
+              href="/Walksafe/Major Project Report.pdf"
+              download="Walksafe_Major_Project_Report.pdf"
+              className="ws-report-btn"
+            >
+              View Full Report
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </section>
+
       </div>
     </div>
   );
