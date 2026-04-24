@@ -372,6 +372,119 @@ function LinkedInCTA({ url }) {
 }
 
 /* ═══════════════════════════════════════════════════════
+   ARTICLE CARD
+═══════════════════════════════════════════════════════ */
+function ArticleCard({ onClick, label, image, imageAlt, accent, category, readTime, date, title, excerpt }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div
+      onClick={onClick}
+      role="button"
+      aria-label={label}
+      tabIndex={0}
+      onKeyDown={e => e.key === "Enter" && onClick()}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        background: "#fff",
+        borderRadius: "16px",
+        overflow: "hidden",
+        border: "1px solid #ebebeb",
+        cursor: "pointer",
+        transition: "transform 0.25s ease, box-shadow 0.25s ease",
+        transform: hovered ? "translateY(-4px)" : "translateY(0)",
+        boxShadow: hovered ? "0 16px 48px rgba(0,0,0,0.1)" : "0 2px 12px rgba(0,0,0,0.05)",
+      }}
+    >
+      {/* Image */}
+      <div style={{ position: "relative", height: "220px", overflow: "hidden", background: "#f5f5f0" }}>
+        <img
+          src={image}
+          alt={imageAlt}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+            transition: "transform 0.4s ease",
+            transform: hovered ? "scale(1.04)" : "scale(1)",
+            display: "block",
+          }}
+        />
+        {/* Category pill over image */}
+        <div style={{
+          position: "absolute",
+          top: "16px",
+          left: "16px",
+          padding: "5px 12px",
+          background: accent,
+          color: "#fff",
+          fontSize: "0.6rem",
+          fontWeight: "700",
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
+          borderRadius: "100px",
+        }}>
+          {category}
+        </div>
+      </div>
+
+      {/* Body */}
+      <div style={{ display: "flex", flexDirection: "column", flex: 1, padding: "1.75rem" }}>
+        {/* Meta */}
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "1rem" }}>
+          <span style={{ fontSize: "0.72rem", color: "#aaa" }}>{readTime}</span>
+        </div>
+
+        {/* Title */}
+        <h3 style={{
+          fontFamily: "'Georgia', 'Times New Roman', serif",
+          fontSize: "1.3rem",
+          fontWeight: "400",
+          lineHeight: "1.35",
+          color: "#0f0f0f",
+          letterSpacing: "-0.01em",
+          margin: "0 0 0.875rem",
+        }}>
+          {title}
+        </h3>
+
+        {/* Excerpt */}
+        <p style={{
+          fontSize: "0.9rem",
+          color: "#666",
+          lineHeight: "1.7",
+          margin: "0 0 auto",
+          paddingBottom: "1.5rem",
+        }}>
+          {excerpt}
+        </p>
+
+        {/* Footer */}
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingTop: "1.25rem",
+          borderTop: "1px solid #f0f0f0",
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <div style={{ width: "26px", height: "26px", borderRadius: "50%", background: "#0f0f0f", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "0.65rem", fontWeight: "700" }}>S</div>
+            <span style={{ fontSize: "0.78rem", fontWeight: "600", color: "#333" }}>Shubham Shreshth</span>
+          </div>
+          <span style={{ fontSize: "0.8rem", fontWeight: "600", color: accent, display: "flex", alignItems: "center", gap: "4px" }}>
+            Read
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════
    MAIN NOTES SECTION
 ═══════════════════════════════════════════════════════ */
 export default function Notes() {
@@ -393,40 +506,37 @@ export default function Notes() {
             Thinking out loud,<br />with structure.
           </h2>
 
-          <p className="sec-sub">Short essays on design systems, cognition and enterprise UX.</p>
+          <p className="sec-sub">Selected essays on design systems, cognition and enterprise UX.</p>
 
           <div className="notes-grid">
 
             {/* Card 01 */}
-            <div className="note-card note-card--clickable" onClick={() => setOpenArticle(1)} role="button" aria-label="Read: Weaving Clarity from Complexity" tabIndex={0} onKeyDown={e => e.key === "Enter" && setOpenArticle(1)}>
-              <div className="note-num">01</div>
-              <div className="note-title">Weaving Clarity from Complexity</div>
-              <div className="note-excerpt">Notes from designing for system-heavy digital environments.</div>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: "1.25rem" }}>
-                <span className="note-tag">Systems Thinking</span>
-                <span className="note-read-cta">Read →</span>
-              </div>
-            </div>
+            <ArticleCard
+              onClick={() => setOpenArticle(1)}
+              label="Read: Weaving Clarity from Complexity"
+              image="/article-hero.png"
+              imageAlt="Threads weaving into a rope"
+              accent="#C4614A"
+              category="Systems Thinking"
+              readTime="8 min read"
+              date="April 2026"
+              title="Weaving Clarity from Complexity"
+              excerpt="Notes from designing for system-heavy digital environments — where users don't just use the product, they reason through it."
+            />
 
             {/* Card 02 */}
-            <div className="note-card note-card--clickable" onClick={() => setOpenArticle(2)} role="button" aria-label="Read: Metaverse Real Estate Isn't About Land. It's About Behavior." tabIndex={0} onKeyDown={e => e.key === "Enter" && setOpenArticle(2)}>
-              <div className="note-num">02</div>
-              <div className="note-title">Metaverse Real Estate Isn't About Land. It's About Behavior.</div>
-              <div className="note-excerpt">How we unknowingly carry real-world logic into virtual economies.</div>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: "1.25rem" }}>
-                <span className="note-tag">Design Research</span>
-                <span className="note-read-cta">Read →</span>
-              </div>
-            </div>
-
-            {/* 
-            <div className="note-card">
-              <div className="note-num">03</div>
-              <div className="note-title">Emotional Friction in Technical Tools</div>
-              <div className="note-excerpt">The hesitation before clicking is the real UX problem.</div>
-              <span className="note-tag">Enterprise UX</span>
-            </div>
-            */}
+            <ArticleCard
+              onClick={() => setOpenArticle(2)}
+              label="Read: Metaverse Real Estate Isn't About Land"
+              image="/article02-hero.png"
+              imageAlt="Physical city meets virtual metaverse"
+              accent="#4A90D9"
+              category="Design Research"
+              readTime="6 min read"
+              date="April 2026"
+              title="Metaverse Real Estate Isn't About Land. It's About Behavior."
+              excerpt="How we unknowingly carry real-world logic into virtual economies — and what it reveals about how humans assign value."
+            />
 
           </div>
         </div>

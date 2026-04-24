@@ -146,7 +146,7 @@ export default function About() {
                       <img src="/Mathworks.png" alt="MathWorks" className="tl-logo" />
                       <div className="tl-org">MathWorks · Bangalore</div>
                     </div>
-                    <p className="tl-detail">Designing engineering tools used by global teams. Focused on workflow optimization and discoverability.</p>
+                    <p className="tl-detail">Owning end-to-end UX for MATLAB &amp; Simulink workflows, from generative research through shipped product, designed for engineers who notice every friction point.</p>
                   </div>
                 </div>
 

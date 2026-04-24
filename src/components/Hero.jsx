@@ -18,8 +18,8 @@ export default function Hero() {
           </h1>
 
           <p className="hero-sub">
-            Designing engineering tools at MathWorks used by global teams.
-            Focused on reducing cognitive load and improving system-level usability.
+            Designing for engineers who reason through products, not just use them. 
+            Specialised in cognitive load reduction and systems level UX for high complexity workflows.
           </p>
 
           {/* 🔹 Highlights — moved outside CTA */}

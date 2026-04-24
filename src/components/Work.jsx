@@ -13,7 +13,7 @@ export default function Work({ setActiveProject }) {
       id: "project-advisor",
       nda: true,
       impact: "42% faster debugging",
-      description: "Designing validation workflows for complex Simulink models used in CI/CD pipelines.",
+      description: "Validation workflows for Simulink models were causing engineers to abandon CI/CD runs mid-process. Redesigned the diagnostic experience from research through to shipped product — reducing debugging time by 42% across 10,000+ engineering users.",
       title: "Project Advisor",
       tags: ["Workflow Systems", "Engineering UX", "Cognitive Load"],
       image: "/pa-hero-showcase.png",
@@ -25,7 +25,7 @@ export default function Work({ setActiveProject }) {
       id: "gecko-ai",
       nda: true,
       impact: "10K bug reports → UX insights",
-      description: "AI system transforming large bug report datasets into actionable UX intelligence.",
+      description: "Engineers were drowning in bug reports with no way to surface UX patterns. I designed an AI-driven analysis system that transforms 10,000+ raw reports into prioritised UX insights, cutting triage time from weeks to hours and influencing roadmap decisions across UX and Dev teams.",
       title: "AI-Driven UX Mining",
       tags: ["AI Workflows", "UX Intelligence", "Data Mining"],
       image: "/gecko_analysis_thumbnail_hero.svg",
@@ -125,7 +125,7 @@ export default function Work({ setActiveProject }) {
                     {project.wip && (
                       <span className="impact-wip">
                         <span className="impact-wip-dot" />
-                        Work in Progress
+                        Ongoing · Updated monthly
                       </span>
                     )}
                   </span>
