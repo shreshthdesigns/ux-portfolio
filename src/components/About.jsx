@@ -87,13 +87,13 @@ export default function About() {
               <div className={`narrative-collapse${isMobile && !isNarrativeExpanded ? " collapsed" : ""}`}>
                 <div className="narrative-body narrative-body-inner">
                   <p>
-                    I began my career as a Solution Consultant at Godrej &amp; Boyce, engaging with enterprise users to uncover needs, navigate constraints, and shape solutions grounded in real-world workflows.
+                    I didn't start as a designer. At Godrej &amp; Boyce, I sat with enterprise users in the field, mapping workflows, uncovering needs, watching people struggle with systems that didn't understand them. That experience taught me one thing: usability problems are rarely surface problems. They're symptoms of how a system thinks.
                   </p>
                   <p>
-                    At MathWorks, I realized usability issues often stem from deeper system behavior and not just the interface. I focus on turning that complexity into clear, predictable experiences.
+                    At MathWorks, that became my practice. Designing MATLAB and Simulink workflows for engineers who notice every friction point pushed me to go deeper than the interface.
                   </p>
                   <p>
-                    Today, I design for scale, simplifying engineering workflows and making complex systems understandable.
+                    Today I focus on one thing: turning complexity into clarity.
                   </p>
                 </div>
 
@@ -170,12 +170,12 @@ export default function About() {
                   <div className="node-dot"></div>
                   <div className="node-content">
                     <div className="tl-year">2018 — 2021</div>
-                    <div className="tl-role">Solution Consultant (Enterprise Systems)</div>
+                    <div className="tl-role">UX Research &amp; Discovery · Enterprise Systems</div>
                     <div className="tl-org-row">
                       <img src="/Godrej.png" alt="Godrej & Boyce" className="tl-logo" />
                       <div className="tl-org">Godrej &amp; Boyce</div>
                     </div>
-                    <p className="tl-detail">Engaged with users to uncover needs, pain points, and real world workflows. Synthesized insights into actionable solutions balancing usability, technical feasibility, and business goals.</p>
+                    <p className="tl-detail">Field research, contextual inquiry, and human-centred product design within a large-scale B2B enterprise environment. The role that taught me to design from problems, not assumptions.</p>
                   </div>
                 </div>
 
