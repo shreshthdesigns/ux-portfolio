@@ -1,10 +1,13 @@
 import { useState } from "react";
 
-export default function NDAGate({ projectId, onSuccess, onBack }) {
-  const [input, setInput] = useState("");
-  const [error, setError] = useState(false);
+// Set to true to require password entry. Set to false to pre-fill and allow open access.
+const NDA_ACTIVE = false;
 
-  const PASSKEY = "123"; // Updated passkey for NDA case studies
+const PASSKEY = "123";
+
+export default function NDAGate({ projectId, onSuccess, onBack }) {
+  const [input, setInput] = useState(NDA_ACTIVE ? "" : PASSKEY);
+  const [error, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,18 +30,21 @@ export default function NDAGate({ projectId, onSuccess, onBack }) {
 
           <div className="nda-label">Confidential Case Study</div>
 
-          <h2 className="nda-title">
-            Restricted Access
-          </h2>
+          <h2 className="nda-title">🔒 NDA Protected</h2>
 
           <p className="nda-desc">
-            This case study includes proprietary enterprise workflows,
-            internal product research, and system-level insights developed
-            at MathWorks.
+            This project is protected under NDA.
           </p>
 
           <p className="nda-desc">
-            Access is restricted due to NDA constraints.
+            The case study uses reimagined UI screens that reflect the design thinking,
+            problem-solving process, and outcomes of the actual work — while protecting
+            proprietary product details. The visual language has been intentionally altered
+            from MathWorks’ MATLAB and Simulink interfaces to respect confidentiality constraints.
+          </p>
+
+          <p className="nda-desc">
+            The design decisions, research insights, and impact metrics are real.
           </p>
 
           <form onSubmit={handleSubmit} className="nda-form">
@@ -47,12 +53,13 @@ export default function NDAGate({ projectId, onSuccess, onBack }) {
               type="password"
               placeholder="Enter Passkey"
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => { if (NDA_ACTIVE) setInput(e.target.value); }}
+              readOnly={!NDA_ACTIVE}
               className="nda-input"
             />
 
             <button type="submit" className="btn-primary">
-              Unlock Case Study
+              View Case Study
             </button>
 
           </form>
@@ -64,8 +71,7 @@ export default function NDAGate({ projectId, onSuccess, onBack }) {
           )}
 
           <div className="nda-contact">
-            If you don’t have access, please contact me at:
-            <br />
+            Password is included in my job application. Don’t have it? Write to me at{" "}
             <a href="mailto:shubhamshreshthsingh@gmail.com">
               shubhamshreshthsingh@gmail.com
             </a>
