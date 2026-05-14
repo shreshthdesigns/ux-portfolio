@@ -3,7 +3,6 @@ export default function ProjectCard({
   title,
   excerpt,
   tags,
-  isNDA,
   onClick,
   image
 }) {
@@ -20,7 +19,6 @@ export default function ProjectCard({
 
         <div className="pcard-type">
           {type}
-          {isNDA && <span className="nda-badge">🔒 NDA</span>}
         </div>
 
         <div className="pcard-title">

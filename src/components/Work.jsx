@@ -13,7 +13,7 @@ export default function Work({ setActiveProject }) {
       id: "project-advisor",
       nda: true,
       impact: "42% faster debugging",
-      description: "Validation workflows for Simulink models were causing engineers to abandon CI/CD runs mid-process. Redesigned the diagnostic experience from research through to shipped product — reducing debugging time by 42% across 10,000+ engineering users.",
+      description: "Shipped to 10,000+ engineers across automotive, aerospace, and defence. Validation workflows were breaking CI/CD pipelines. Engineers abandoned runs mid-process with zero visibility into why. Redesigned the full diagnostic experience from research to shipped product, cutting debugging time by 42%.",
       title: "Project Advisor",
       tags: ["Workflow Systems", "Engineering UX", "Cognitive Load"],
       image: "/pa-hero-showcase.png",
@@ -121,7 +121,6 @@ export default function Work({ setActiveProject }) {
                 <div className="impact-footer">
                   <span className="impact-title">
                     {project.title}
-                    {project.nda && <span className="impact-nda">🔒 NDA</span>}
                     {project.wip && (
                       <span className="impact-wip">
                         <span className="impact-wip-dot" />
